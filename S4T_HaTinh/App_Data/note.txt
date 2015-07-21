@@ -1,0 +1,100 @@
+﻿// Create List<SelectListItem>
+var items = new List<SelectListItem>();
+items.Add(new SelectListItem() { Text = "Tất cả", Value = "", Selected = true });
+var slDonVi = list.Select(o => new SelectListItem()
+{
+	Text = o.TenDonVi,
+	Value = o.DonVi_ID.ToString()
+});
+items.AddRange(slDonVi);
+ViewBag.SelectListDonVi = items;
+// (List<SelectListItem>)
+
+// Tự động map object A sang object B
+1. Thêm namespace
+using AutoMapper;
+2. 
+Mapper.Initialize
+(
+    cfg => cfg.CreateMap<UngDungCNTT_PMQLCN_Mapping, UngDungCNTT>()
+);
+UngDungCNTT objUngDung = Mapper.Map<UngDungCNTT>(ungDungCNTT);
+
+=> Mapping từ object UngDungCNTT_PMQLCN_Mapping sang UngDungCNTT
+
+
+// class button
+// Thêm mới
+<button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+
+// Sửa
+<button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Edit", new { id = item.HaTangKyThuatCNTT_ID })'"><span class="k-icon k-i-pencil"></span>Sửa</button>
+
+// Lưu
+<button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+
+// Chi tiết
+<button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Details", new { id = item.HaTangKyThuatCNTT_ID })'">Chi tiết</button>
+
+
+---------------
+So sánh 2 object lấy ra 
+Install-Package CompareNETObjects
+
+{
+	//This is the comparison class
+	CompareLogic compareLogic = new CompareLogic();
+
+	//Create a couple objects to compare
+	Person person1 = new Person();
+	person1.DateCreated = DateTime.Now;
+	person1.Name = "Greg";
+
+	Person person2 = new Person();
+	person2.Name = "John";
+	person2.DateCreated = person1.DateCreated;
+
+	ComparisonResult result = compareLogic.Compare(person1, person2);
+
+	//These will be different, write out the differences
+	if (!result.AreEqual)
+		Console.WriteLine(result.DifferencesString);
+}
+
+--------
+List to Database
+var list = db.sp_GetHaTangKyThuat(model.NhomDonVi,model.DotBaoCao,model.Nam,TrangThaiNhapLieu.PheDuyet).ToList();
+var dtObject = list.ToDataTable<sp_GetHaTangKyThuat_Result>();
+
+--------
+Xuất báo cáo từ Crystal Report ra PDF
+
+ReportDocument rd = new ReportDocument();
+rd.Load(Path.Combine(Server.MapPath("~/Reports"), "HaTangKyThuat.rpt"));
+rd.SetDataSource(dtObject);
+
+Response.Buffer = false;
+Response.ClearContent();
+Response.ClearHeaders();
+
+Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+stream.Seek(0, SeekOrigin.Begin);
+return File(stream, "application/pdf", "HaTangKyThuat.pdf");
+
+
+
+@if (ViewBag.IsCheck == true) 
+{ @Html.CheckBox("chk_value_") }
+
+1625
+
+<input type="text" id="Khac" name="Khac" value="@Model.Khac" class="S4T_NumericTextBox" @isReadOnly />
+
+<input type="text" id="" name="" value="@Model." style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+@if (ViewBag.IsCheck == true) 
+{ @Html.CheckBox("chk_value_") }
+
+
+        <input type="text" id="" name="" value="@Model." style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+		@if (ViewBag.IsCheck == true) 
+		{ @Html.CheckBox("chk_value_") }
