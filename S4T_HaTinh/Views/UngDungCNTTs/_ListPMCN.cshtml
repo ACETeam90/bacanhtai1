@@ -1,0 +1,57 @@
+﻿@model List<S4T_HaTinh.Models.UngDungCNTT_PMQLCN>
+
+@{
+    ViewBag.HideMenu = true;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* id="gridPMCN" *@
+<table id="gridPMCN" class="tableDefault">
+    <thead>
+        <tr>
+            <th>Thứ tự</th>
+            <th>Phần mềm</th>
+            <th>Sở Ban Ngành</th>
+            <th>UBND cấp Huyện</th>
+            <th>UBND cấp Xã</th>
+            <th>Đơn vị trực thuộc</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenPhanMem)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LienThongSBN)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LienThongUBNDCapHuyen)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LienThongUBNDCapXa)</td>
+                    <td>@Html.DisplayFor(modelItem => item.LienThongDVTT)</td>
+                    @*<td><a class="k-button k-button-icontext k-grid-edit" href="javascript:OpenWindow('@(Url.Action("_CreateOrUpdatePMCN", "UngDungCNTTs", new { guid = item.Guid }))', 626, 275, true); return false;"><span class="k-icon k-edit"></span>Sửa</a></td>*@
+
+                    <td>
+                        @{
+                            if (ViewBag.ListPMQLCNRequestChange == true)
+                            {
+                                <button type="button" class="k-button k-button-icontext k-grid-edit" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdatePMCN", "UngDungCNTTs", new { guid = item.Guid }))', 626, 275, true); return false;"><span class="k-icon k-i-pencil"></span>Sửa</button>
+                            }
+                        }
+                    </td>
+
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        //$("#gridPMCN").kendoGrid({
+        //    height: 150,
+        //    //sortable: true
+        //});
+    });
+</script>

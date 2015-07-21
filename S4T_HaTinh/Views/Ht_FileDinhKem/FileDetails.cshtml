@@ -1,0 +1,46 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_FileDinhKem>
+
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>
+<script src="../../../../Scripts/jquery-ui.min-1.11.2.js" type="text/javascript"></script>
+@*<script src="../../../../Scripts/jquery-ui-1.10.4.min.js" type="text/javascript"></script>*@
+<script src="~/Scripts/jquery.form.js" type="text/javascript"></script>
+<link href="~/Content/skin.css" rel="stylesheet" />
+<link href="~/Content/default.css" rel="stylesheet" />
+
+@{
+    Layout = null;
+    if (Model != null)
+    {
+        <table class="tableDefault">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SoVanBan)</th>
+                <th>@Html.DisplayNameFor(model => model.TrichYeu)</th>
+                <th>@Html.DisplayNameFor(model => model.NgayBanHanh)</th>
+                <th>@Html.DisplayNameFor(model => model.TenFile)</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.SoVanBan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TrichYeu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NgayBanHanh)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenHienThi)</td>
+                    <td>Tải về</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h4>Không tìm thấy dữ liệu</h4>
+    }
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+</script>

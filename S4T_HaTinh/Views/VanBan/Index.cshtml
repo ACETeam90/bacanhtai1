@@ -1,0 +1,101 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.VanBan>
+
+@{
+    var slNhomVB = (List<SelectListItem>)ViewBag.NhomVB;
+}
+
+<h2>DANH MỤC VĂN BẢN</h2>
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "VanBan", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+        {
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">Loại văn bản</li>
+                    <li class="liSearch">@Html.DropDownList("loaiVanBan", (List<SelectListItem>)ViewBag.LoaiVB, new { @class = "S4T_ComboBox", @onchange = "LoaiVanBan_OnChange()", @style = "width:250px;" })</li>
+
+                    <li class="liSearch labelSearch">Trực thuộc</li>
+                    <li class="liSearch">@Html.DropDownList("nhomVanBan", (List<SelectListItem>)ViewBag.NhomVB,"Tất cả", new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:250px;" })</li>
+                    <li class="liSearch labelSearch">
+                        <input type="submit" class="k-button k-button-icontext" value="Tìm kiếm"/>
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+<br />
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            Mã văn bản
+        </th>
+        <th>
+            Nhóm văn bản
+        </th>
+        <th>
+            Tên văn bản
+        </th>
+        @*
+        <th>
+            @Html.DisplayNameFor(model => model.SoKyHieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayBanHanh)
+        </th>*@
+        <th>Thao tác</th>
+    </tr>
+
+@{
+    int stt = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@stt</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VanBan_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => slNhomVB.FirstOrDefault(o => o.Value == item.NhomVanBan_ID.ToString()).Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenVanBan)
+            </td>
+            @*
+            <td>
+                @Html.DisplayFor(modelItem => item.SoKyHieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayBanHanh)
+            </td>*@
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.VanBan_ID })
+            </td>
+        </tr>
+        stt++;
+    }
+}
+</table>
+
+<script type="text/javascript">
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    function LoaiVanBan_OnChange() {
+        $.post("LoaiVanBan_OnChange", { "loaiVanBan": $("#loaiVanBan").val(), "view": "Index" }).done(function (data) {
+            if (data.msg == null) {
+                $("#nhomVanBan").html(data.danhSach);
+                $("#nhomVanBan").kendoDropDownList();
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+</script>

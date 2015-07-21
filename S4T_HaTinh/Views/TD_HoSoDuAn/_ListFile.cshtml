@@ -1,0 +1,78 @@
+﻿@model List<S4T_HaTinh.Models.TD_FileHoSoDinhKem>
+
+@{
+    ViewBag.HideMenu = true;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* id="gridPMCN" *@
+<style type="text/css">
+    .k-grid {
+    width: 550px;
+}
+</style>
+
+<table id="gridListFile" class="tableDefault" style="width:550px;" >
+    <colgroup>
+        <col width="50"/>
+        <col width="350"/>
+        <col width="150"/>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>STT</th>
+            @*<th>Tên văn bản</th>
+            <th>Số ký hiệu</th>
+            <th>Trích yếu</th>*@
+            <th>Tập tin văn bản</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    @*<td>@Html.DisplayFor(modelItem => item.TenVanBan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SoKyHieu)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TrichYeu)</td>*@
+                    <td>
+                        @{
+                            if (item.FileHoSoDinhKem_ID != 0)
+                            {
+                                <a href="/TD_HoSoDuAn/Download?id=@item.FileHoSoDinhKem_ID&prefixName=TD_HoSoDuAn">@item.TenHienThi</a>
+                            }
+                            else
+                            {
+                                @item.TenHienThi
+                            }
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.FileHoSoDinhKem_ID == 0)
+                            {
+                                <button type="button" class="k-button k-button-icontext k-grid-edit" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdateFile", "TD_HoSoDuAn", new { id = item.FileHoSoDinhKem_ID, tenFile = item.TenFile }))', 626, 275, true); return false;"><span class="k-icon k-i-pencil"></span>Sửa</button>
+                            }
+                            else
+                            {
+                                <a href="/TD_HoSoDuAn/Download?id=@item.FileHoSoDinhKem_ID&prefixName=TD_HoSoDuAn">Tải về</a>
+                            }
+                        }
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        //$("#gridListFile").kendoGrid({
+        //    //height: 250,
+        //    scrollable: false
+        //});
+    });
+</script>

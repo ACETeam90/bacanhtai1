@@ -1,0 +1,153 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_HoSoDuAnWithLuongXuLy_Result>
+
+@{
+    var listCap = MvcApplication.ListCapXuLyHoSo();
+}
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+
+<h2>TIẾP NHẬN HỒ SƠ</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "TD_HoSoDuAn", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>Mã hồ sơ</td>
+                <td>@Html.TextBox("maHoSo","", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td>Tên văn bản</td>
+                <td>@Html.TextBox("tenDuAn", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td>Tổng mức đầu tư</td>
+                <td>@Html.TextBox("tongMucDauTu", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td><input type="submit" value="Tìm kiếm"/></td>
+            </tr>
+        </table>
+    }
+</p>
+
+<p>
+    @{
+        if (ViewBag.CapNhatHoSo != null) {             
+            @*@Html.ActionLink("Tạo mới", "Create")*@
+            <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+        }
+}
+</p>
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>@Html.DisplayNameFor(model => model.MaHoSo)</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDuAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongMucDauTu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayTra)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        //var redStyle = "style='background: #F72525;'";
+        foreach (var item in Model)
+        {
+            <tr @*Nếu quá hạn trả thì sẽ bôi đỏ
+                @if (item.NgayHenTra.Date < DateTime.Now.Date && item.Cap_ID != S4T_HaTinh.Common.STTCapXuLy.DaPheDuyet) { @Html.Raw(redStyle)  }*@>
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaHoSo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDuAn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TongMucDauTu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NguoiNhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayNhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgayTra)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.HoSoDuAn_ID })
+                    @{
+            var user = S4T_HaTinh.Common.S4T_HaTinhBase.GetUserSession();
+            if (item.NguoiNhan == user.UserName)
+            {
+                <span> | </span>    <a title="Chuyển" href='javascript:void(0);' onclick="Forward(@item.MaHoSo,'@item.NgayTra.ToShortDateString()')">Chuyển</a>
+                if (item.Cap_ID == S4T_HaTinh.Common.STTCapXuLy.CapNhatHoSo && item.STT == 1)
+                {
+                    <span> | </span>    <a title="Xóa" href='javascript:void(0);' onclick="Delete(@item.HoSoDuAn_ID)">Xóa</a>
+                }
+            }
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+
+
+
+<div id="dialogQTXL" style="display: none;">
+    <iframe id="iframeQTXL" src="/Content/loading.html" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+</div>
+
+<div id="dialogFileChuyenTiep" style="display: none;">
+    <iframe id="iframeFileChuyenTiep" src="/Content/loading.html" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+</div>
+
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/TD_HoSoDuAn/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }}
+            //,async:true
+        });
+    }
+    
+    function GetQuaTrinhXuLy(maHoSo) {
+        ShowPopUp('dialogQTXL', 'iframeQTXL', "/TD_HoSoDuAn/QuaTrinhXuLy?maHoSo=" + maHoSo, 500, 600, "THEO DÕI QUÁ TRÌNH XỬ LÝ");
+    }
+
+    // Chuyển tiếp (dialogName, ifameName, strSrc, w, h, title)
+    function Forward(maHoSo,ngayHenTra) {
+        ShowPopUp('dialogFileChuyenTiep', 'iframeFileChuyenTiep', "/TD_HoSoDuAn/Forward?maHoSo=" + maHoSo + "&prefix=Forward&ngayHenTra=" + ngayHenTra, 650, 450, "XIN Ý KIẾN");
+    }
+
+    // Dialog chuyển tiếp hồ sơ
+    $("#dialogFileChuyenTiep").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        close: function (event, ui) {
+            $('#iframeFileChuyenTiep').attr('src', '/Content/loading.html');
+            location.reload();
+        }
+    });
+
+</script>

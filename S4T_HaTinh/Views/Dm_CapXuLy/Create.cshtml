@@ -1,0 +1,47 @@
+﻿@model S4T_HaTinh.Models.Dm_CapXuLy
+
+@{
+    //var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>TẠO MỚI</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenCap, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenCap, new { @class = "S4T_AutoComplete", @style="width:250px;" })
+                @Html.ValidationMessageFor(model => model.TenCap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ThuTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ThuTu, new { @class = "S4T_NumericTextBox" , @min="1", @max="100"})
+                @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguoiXuLy, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NguoiXuLy, new { @class = "S4T_AutoComplete", @style = "width:250px;" })
+                @Html.ValidationMessageFor(model => model.NguoiXuLy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

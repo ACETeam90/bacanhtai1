@@ -1,0 +1,129 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_FileDinhKem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BaoCao_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanHeChucNang_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiVanBan_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoVanBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrichYeu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayBanHanh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuongDan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiUpLoad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayUpload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HieuLuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheDoBaoCao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuanTamCuaLanhDao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHienThi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaoCao_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhanHeChucNang_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonVi_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiVanBan_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoVanBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrichYeu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBanHanh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DuongDan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NguoiUpLoad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayUpload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HieuLuc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheDoBaoCao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuanTamCuaLanhDao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GhiChu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenHienThi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrangThai)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FileUpload_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FileUpload_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FileUpload_ID })
+        </td>
+    </tr>
+}
+
+</table>

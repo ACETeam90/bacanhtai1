@@ -1,0 +1,138 @@
+﻿@model S4T_HaTinh.Models.UngDungCNTTTaiDN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UngDungCNTTTaiDN</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonVi_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiDaiDien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiDaiDien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoDienThoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoDienThoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NganhNgheKinhDoanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NganhNgheKinhDoanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiHinhDoanhNghiep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiHinhDoanhNghiep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoanhThu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoMayTinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoMayTinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanMemDangUngDung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanMemDangUngDung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoWebsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoWebsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KienNghi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KienNghi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Success)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Success)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TruongNhapLai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruongNhapLai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.UngDungCNTTTaiDN_ID }) |
+    @Html.ActionLink("Trở lại", "Index")
+</p>

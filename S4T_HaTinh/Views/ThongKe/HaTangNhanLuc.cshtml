@@ -1,0 +1,109 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetHaTangNhanLuc_Result>
+@{
+    
+}
+@* style="table-layout: fixed; width: 100%" *@
+<table class="tableDefault" >
+    <tr>
+        <th rowspan="3" style="min-width: 30px">STT</th>
+        <th rowspan="3">Tên đơn vị</th>
+        <th rowspan="3">Số CBCC</th>
+        <th rowspan="3">Số DVTT</th>
+        <th rowspan="3">Số CB DVTT</th>
+        <th colspan="12">Cán bộ chuyên trách CNTT</th>
+        <th colspan="4">CBCCVC biết sử dụng thành thạo máy tính</th>
+    </tr>
+    <tr>
+        <th colspan="6">Cơ quan</th>
+        <th colspan="6">Đơn vị cấp 2</th>
+        <th colspan="2">Cơ quan</th>
+        <th colspan="2">Đơn vị cấp 2</th>
+    </tr>
+    <tr>
+        <th>Số lượng</th>
+        <th>Tiến sỹ</th>
+        <th>Thạc sỹ</th>
+        <th>Đại học CQ</th>
+        <th>Đại học KCQ</th>
+        <th>Lượt tập huấn/năm</th>
+
+        <th>Số lượng</th>
+        <th>Tiến sỹ</th>
+        <th>Thạc sỹ</th>
+        <th>Đại học CQ</th>
+        <th>Đại học KCQ</th>
+        <th>Lượt tập huấn/năm</th>
+
+        <th>Sử dụng thành thạo máy tính</th>
+        <th>Lượt tập huấn/năm</th>
+        <th>Sử dụng thành thạo máy tính</th>
+        <th>Lượt tập huấn/năm</th>
+
+        <th>Tổng mức đầu tư</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Html.DisplayFor(m => item.TenDonVi)</td>
+                <td>@Html.DisplayFor(m => item.SoCBCC)</td>
+                <td>@Html.DisplayFor(m => item.SoDonViTrucThuoc)</td>
+                <td>@Html.DisplayFor(m => item.SoCB_DVTT)</td>
+
+                <td>@Html.DisplayFor(m => item.SoLuongCanBo_DV)</td>
+                <td>@Html.DisplayFor(m => item.TienSy_DV)</td>
+                <td>@Html.DisplayFor(m => item.ThacSy_DV)</td>
+                <td>@Html.DisplayFor(m => item.DaiHocChinhQuy_DV)</td>
+                <td>@Html.DisplayFor(m => item.DaiHocKhongChinhQuy_DV)</td>
+                <td>@Html.DisplayFor(m => item.LuotTapHuan_DV)</td>
+
+                <td>@Html.DisplayFor(m => item.SoLuongCanBo_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.TienSy_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.ThacSy_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.DaiHocChinhQuy_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.DaiHocKhongChinhQuy_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.LuotTapHuan_DVTT)</td>
+
+                <td>@Html.DisplayFor(m => item.ThanhThaoMayTinh_DV)</td>
+                <td>@Html.DisplayFor(m => item.LuotTapHuanThanhThaoMayTinh_DV)</td>
+
+                <td>@Html.DisplayFor(m => item.ThanhThaoMayTinh_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.LuotTapHuanThanhThaoMayTinh_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.TongMucDauTu)</td>
+            </tr>
+            i++;
+        }
+        <tr>
+            <td></td>
+            <td>Tổng cộng</td>
+            <td>@ViewBag.SoCBCC</td>
+            <td>@ViewBag.SoDonViTrucThuoc</td>
+            <td>@ViewBag.SoCB_DVTT</td>
+
+            <td>@ViewBag.SoLuongCanBo_DV</td>
+            <td>@ViewBag.TienSy_DV</td>
+            <td>@ViewBag.ThacSy_DV</td>
+            <td>@ViewBag.DaiHocChinhQuy_DV</td>
+            <td>@ViewBag.DaiHocKhongChinhQuy_DV</td>
+            <td>@ViewBag.LuotTapHuan_DV</td>
+
+            <td>@ViewBag.SoLuongCanBo_DVTT</td>
+            <td>@ViewBag.TienSy_DVTT</td>
+            <td>@ViewBag.ThacSy_DVTT</td>
+            <td>@ViewBag.DaiHocChinhQuy_DVTT</td>
+            <td>@ViewBag.DaiHocKhongChinhQuy_DVTT</td>
+            <td>@ViewBag.LuotTapHuan_DVTT</td>
+
+            <td>@ViewBag.ThanhThaoMayTinh_DV</td>
+            <td>@ViewBag.LuotTapHuanThanhThaoMayTinh_DV</td>
+
+            <td>@ViewBag.ThanhThaoMayTinh_DVTT</td>
+            <td>@ViewBag.LuotTapHuanThanhThaoMayTinh_DVTT</td>
+            <td>@ViewBag.TongMucDauTu</td>
+        </tr>
+    }
+</table>

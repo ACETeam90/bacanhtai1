@@ -1,0 +1,188 @@
+﻿@model S4T_HaTinh.Models.TinhHinhSXDN
+
+@{
+    ViewBag.Title = "TÌNH HÌNH SẢN XUẤT KINH DOANH CỦA CÁC DN TRÊN ĐỊA BÀN TỈNH";
+    var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+}
+<h2>@ViewBag.Title</h2>
+
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Đơn vị: @ViewBag.TenDonVi được sửa dữ liệu từ ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.TuNgay) đến ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.DenNgay)</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.TinhHinhSXDN_ID)
+        @Html.HiddenFor(model => model.LichNhap_ID)
+
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBox("txtTenDonVi", (string)ViewBag.TenDonVi, new { @class = "form-control", @readonly = "readonly" })
+                @Html.HiddenFor(model => model.DonVi_ID)
+                @Html.ValidationMessageFor(model => model.DonVi_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Success, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(Model => listStatusNhapLieu.FirstOrDefault(o => o.DanhMuc_ID == Model.Success).TenDanhMuc, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TruongNhapLai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.TruongNhapLai, new { @rows = "5", @cols = "45", @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.TruongNhapLai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="divRow">
+            @Html.Label("lblDiaChi", "Địa chỉ", htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBox("txtDiaChi", (string)ViewBag.DiaChi, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguoiDaiDien, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NguoiDaiDien, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.NguoiDaiDien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.Label("lblSoDienThoai", "Số điện thoại", htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.Editor("txtSoDienThoai", (string)ViewBag.SoDienThoai, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.Label("lblNganhNghe", "Ngành nghề kinh doanh", htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.Editor("txtNganhNghe", (string)ViewBag.NganhNghe, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ThuNhapTrungBinh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.ThuNhapTrungBinh, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.ThuNhapTrungBinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.Label("lblQuyMo", "Quy mô", htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.Editor("txtQuyMo", (string)ViewBag.QuyMo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DoanhThu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DoanhThu, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) VND
+                @Html.ValidationMessageFor(model => model.DoanhThu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TienNopThue, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TienNopThue, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } }) VND
+                @Html.ValidationMessageFor(model => model.TienNopThue, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <table class="tableDefault">
+                <tr>
+                    <th>Nhân lực</th>
+                    <th>Đại học</th>
+                    <th>Cao đẳng</th>
+                    <th>Trung cấp</th>
+                    <th>Tiến sĩ</th>
+                    <th>Thạc sĩ</th>
+                    <th>Khác</th>
+                </tr>
+                <tr>
+                    <td>Trong ngành</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_DaiHoc, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_CaoDang, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_TrungCap, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_TienSi, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_ThacSi, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLTN_Khac, new { style = "width:60px;", @readonly = "readonly" })</td>
+                </tr>
+                <tr>
+                    <td>Ngoài ngành</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_DaiHoc, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_CaoDang, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_TrungCap, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_TienSi, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_ThacSi, new { style = "width:60px;", @readonly = "readonly" })</td>
+                    <td>@Html.TextBoxFor(model => model.NLNN_Khac, new { style = "width:60px;", @readonly = "readonly" })</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DongGopXaHoi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DongGopXaHoi, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.DongGopXaHoi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.KienNghi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @*@Html.TextArea("txtKienNghi", "", new { @rows = "5", @cols = "45"})*@
+                @Html.TextAreaFor(model => model.KienNghi, new { htmlAttributes = new { @cols = 45, @rows = 5 }, @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.KienNghi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="divRow">
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    var listInputRadio = '@ViewBag.listInputRadio';
+
+    $(document).ready(function () {
+        EnableInputRadio(); //Scripts/s4t-hatinh.js
+        CheckInputRadioByValue(); //Scripts/s4t-hatinh.js
+        GetLabelInputIncorrectHtml(); //Scripts/s4t-hatinh.js
+    });
+
+    // Sự kiện click vào nút radio
+    $("input[type='radio']").click(function () {
+        // Dạng check radio Có / Không
+        if (this.id.indexOf("rd_value_") != -1) {
+            var radio_ID = $(this).attr('id');
+            var name = $(this).attr('name');
+            var base_ID = name.substring(9, name.length);
+            var numberValue = radio_ID.substring(radio_ID.length - 1, radio_ID.length);
+            $("#" + base_ID).val(numberValue);
+        }
+    })
+</script>

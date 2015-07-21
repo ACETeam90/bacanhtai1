@@ -1,0 +1,111 @@
+﻿@model S4T_HaTinh.Models.Ht_FileDinhKem
+@{
+    
+}
+
+<style type="text/css">
+    label.divLabel {
+        float: left;
+        width: 30%;
+    }
+
+    div.divControl {
+        float: left;
+        width: 70%;
+    }
+</style>
+
+<form action="Up" method="post" enctype="multipart/form-data" id="myForm">
+    @Html.HiddenFor(model => model.LoaiVanBan_ID)
+    <div class="divRow">
+        @Html.LabelFor(model => model.SoVanBan, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            @Html.TextBoxFor(model => model.SoVanBan, new { @class = "S4T_AutoComplete", @style = "width:250px;" })
+        </div>
+    </div>
+    @*<div class="divRow">
+            @Html.LabelFor(model => model.TrichYeu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TrichYeu, new { @class = "form-control" })
+            </div>
+        </div>*@
+    <div class="divRow">
+        @Html.LabelFor(model => model.NgayBanHanh, new { @class = "divLabel" })
+        <div class="divControl">
+            @Html.TextBoxFor(model => model.NgayBanHanh, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="divRow">
+        <label class="divLabel">Chọn file</label>
+        <div class="divControl" style="float: left;">
+            <input type="file" id="fileVanBan" name="fileVanBan" style="width:150px;" class="S4T_UploadOneFile" @*multiple="multiple"*@
+                   accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/x-rar-compressed,application/zip" />
+        </div>
+    </div>
+
+    <div class="divRow">
+        <label class="divLabel" id="lbl"></label>
+        <div class="divControl">
+            <input type="submit" id="btnUpload" value="Tải lên" />
+        </div>
+    </div>
+
+    <div class="loadingDialog" style="display: none;"></div>
+</form>
+@Scripts.Render("~/bundles/kendo")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$("#fileVanBan").kendoUpload();
+
+        $("#NgayBanHanh").kendoDatePicker({
+            value: ""
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        var status = "NOT";
+        var fileNames = "";
+        @Html.Raw(ViewBag.Status)
+        if (status == "OK") {
+            //window.parent.jQuery('#link-1').dialog('close');
+            window.parent.jQuery('#dialogFile').dialog('close');
+        } else if (status == "NOT_EXIST_FILE")
+            alert("Chưa chọn file để tải lên");
+    });
+
+    $('#myForm').submit(function (e) {
+        var maxSize = 16384; // ~ 16MB
+        var allowFile = true;
+        $("input[type=file]").each(function () {
+            //var fileInput = $('#fileVanBan');
+            var fileInput = $(this);
+
+            if (fileInput.get(0).files.length) {
+                var fileSize = fileInput.get(0).files[0].size / 1024; // in MB
+                if (fileSize > maxSize) {
+                    alert('File vượt quá dung lượng cho phép là 16 MB');
+                    allowFile = false;
+                }
+            }
+            //else {
+            //alert('Mời chọn 1 file');
+            //return false;
+            //}
+
+            // Check file type
+            var ext = $(this).val().split('.').pop().toLowerCase();
+            if (ext != "" && $.inArray(ext, ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar', 'pptx', 'ppt']) == -1) {
+                alert('Không thể upload file có dạng .' + ext);
+                $(this).val("");
+                allowFile = false;
+            }
+        });
+
+        if (allowFile == false)
+            return false;
+
+        $(".loadingDialog").show();
+        setTimeout(function () { $('.loadingDialog').hide(); }, 60000); // 60 s tự động tắt
+    });
+</script>

@@ -1,0 +1,45 @@
+﻿@model S4T_HaTinh.Models.NhomVanBan
+
+@{
+    
+}
+
+<div class="divRow">
+    <label class="divLabel">Loại văn bản</label>
+    <div class="divControl">
+        @Html.DropDownListFor(model => model.LoaiVanBan_ID, (List<SelectListItem>)ViewBag.LoaiVB, new { @class = "S4T_DropDownList", @style = "width:200px;" })
+        @Html.ValidationMessageFor(model => model.LoaiVanBan_ID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Mã nhóm văn bản</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.MaNhomVanBan, new { @class = "S4T_AutoComplete", @style = "width:200px;" })
+        @Html.ValidationMessageFor(model => model.MaNhomVanBan, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Tên nhóm văn bản</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.TenNhomVanBan, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+        @Html.ValidationMessageFor(model => model.TenNhomVanBan, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Ghi chú</label>
+    <div class="divControl">
+        @Html.TextAreaFor(model => model.GhiChu, new { @class = "form-control", rows = 10, cols = 70 })
+        @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+    </div>
+</div>
+@Html.Hidden("TrangThai", S4T_HaTinh.Common.TrangThai.HoatDong)
+@*<div class="divRow">
+    @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        @Html.EditorFor(model => model.TrangThai, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+    </div>
+</div>*@

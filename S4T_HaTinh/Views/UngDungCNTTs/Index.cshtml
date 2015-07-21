@@ -1,0 +1,66 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.UngDungCNTT>
+@using S4T_HaTinh.Models;
+@using S4T_HaTinh.Common;
+@{
+    <h3>Ứng dụng CNTT</h3>
+    <h4>@ViewBag.TenDonVi</h4>
+
+    if (Model != null)
+    {
+        var listLichNhap = (IEnumerable<Ht_LichNhapLieu>)ViewBag.ListLichNhap;
+        var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+
+        if (ViewBag.CreateLink != null)
+        {
+            <p>
+                <input type="button" value="Tạo mới" onclick="location.href = '/UngDungCNTTs/Create'" />
+            </p>
+        }
+        
+        <table id="gridData">
+            <tr>
+                <th>
+                    @Html.DisplayName("Tên báo cáo")
+                </th>
+                <th>
+                    @Html.DisplayName("Từ ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Đến ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Trạng thái")
+                </th>
+                <th>Thao tác</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw("Ứng dụng CNTT")
+                    </td>
+                    @{
+                        var objLichNhap = listLichNhap.FirstOrDefault(o => o.LichNhap_ID == item.LichNhap_ID);
+                        <td>@Html.Raw(objLichNhap == null ? "" : objLichNhap.TuNgay.ToShortDateString())</td>
+                        <td>@Html.Raw(objLichNhap == null ? "" : objLichNhap.DenNgay.ToShortDateString())</td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => listStatusNhapLieu.FirstOrDefault(o => o.DanhMuc_ID == item.Success).TenDanhMuc)
+                    </td>
+                    <td>
+                        @if (item.Success == (byte)TrangThaiNhapLieu.Sua)
+                        {
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.UngDungCNTT_ID })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.UngDungCNTT_ID })
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+}
+

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.LoaiVanBan>
+
+@{
+    var listTrangThai = MvcApplication.ListTrangThai();
+}
+
+<h2>DANH MỤC LOẠI VĂN BẢN</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            Mã loại văn bản
+        </th>
+        <th>
+            Tên loại văn bản
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>Thao tác</th>
+    </tr>
+    @{
+        int stt = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@stt</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaLoaiVanBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenLoaiVanBan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => listTrangThai.FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.LoaiVanBan_ID })
+                </td>
+            </tr>
+            stt++;
+        }
+    }
+
+</table>

@@ -1,0 +1,75 @@
+﻿@model S4T_HaTinh.Models.VanBan
+
+@{
+
+}
+
+<div class="divRow">
+    <label class="divLabel">Loại văn bản</label>
+    <div class="divControl">
+        @Html.DropDownListFor(model => model.LoaiVanBan_ID, (List<SelectListItem>)ViewBag.LoaiVB, new { @class = "S4T_DropDownList", @style = "width:200px;", @onchange="LoaiVanBan_OnChange()" })
+        @Html.ValidationMessageFor(model => model.LoaiVanBan_ID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Nhóm văn bản</label>
+    <div class="divControl">
+        @Html.DropDownListFor(model => model.NhomVanBan_ID, (List<SelectListItem>)ViewBag.NhomVB, new { @class = "S4T_DropDownList", @style = "width:200px;" })
+        @Html.ValidationMessageFor(model => model.NhomVanBan_ID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Tên văn bản</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.TenVanBan, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+        @Html.ValidationMessageFor(model => model.TenVanBan, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+@*<div class="divRow">
+    <label class="divLabel">Trích yếu</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.TrichYeu, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.TrichYeu, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Số ký hiệu</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.SoKyHieu, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.SoKyHieu, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Ngày ban hành</label>
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.NgayBanHanh, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.NgayBanHanh, "", new { @class = "text-danger" })
+    </div>
+</div>*@
+
+@Html.Hidden("TrangThai",S4T_HaTinh.Common.TrangThai.HoatDong)
+@*<div class="divRow">
+    @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="divControl">
+        @Html.TextBoxFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+    </div>
+</div>*@
+
+<script type="text/javascript">
+    function LoaiVanBan_OnChange() {
+        $.post("LoaiVanBan_OnChange", { "loaiVanBan": $("#LoaiVanBan_ID").val(), "view":"Create" }).done(function (data) {
+            if (data.msg == null) {
+                $("#NhomVanBan_ID").html(data.danhSach);
+                $("#NhomVanBan_ID").kendoDropDownList();
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+</script>

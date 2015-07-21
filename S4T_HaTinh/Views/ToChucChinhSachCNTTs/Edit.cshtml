@@ -1,0 +1,90 @@
+﻿@model S4T_HaTinh.Models.ToChucChinhSachCNTT
+@using S4T_HaTinh.Models;
+
+@{
+
+}
+
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+@*<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>*@
+
+<h2>SỬA</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Đơn vị @ViewBag.TenDonVi được tạo mới dữ liệu từ ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.TuNgay) đến ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.DenNgay)</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ToChucChinhSachCNTT_ID)
+        @Html.HiddenFor(model => model.LichNhap_ID)
+        @Html.HiddenFor(model => model.DonVi_ID)
+        @Html.HiddenFor(model => model.Success)
+
+        <table id="tblListFile">
+            <thead>
+                <tr>
+                    <th>Loại văn bản</th>
+                    <th>File đã upload</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<div id="dialogFile" style="display: none;">
+    <iframe id="iframeFile" src="/Content/loading.html" frameborder="0"></iframe>
+</div>
+
+@Scripts.Render("~/bundles/kendo")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        LoadListFile();
+    });
+
+    // Lấy danh sách file
+    function LoadListFile() {
+        $.post("/ToChucChinhSachCNTTs/LoadListFile", { "id": $("#ToChucChinhSachCNTT_ID").val() }).done(function (data) {
+            if (data.msg == null) {
+                $("#tblListFile tbody").html(data.danhSachFile);
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
+    // Open Dialog
+    function OpenDialog(loaiVanBan) {
+        ShowPopUp('dialogFile', 'iframeFile', "Up?loaiVanBan=" + loaiVanBan, 650, 300, "CHỌN FILE");
+    }
+
+    // Show Dialog
+    function ShowPopUp(dialogName, ifameName, strSrc, w, h, title) {
+        $('#' + ifameName).attr('height', h - 30 + 'px');
+        $('#' + ifameName).attr('width', w - 10 + 'px');
+        $("#" + dialogName).dialog({
+            title: title, width: w, heigth: h,
+            close: function (event, ui) {
+                LoadListFile();
+            }
+        });
+        $("#" + dialogName).dialog("open");
+        $('#' + ifameName).attr('src', strSrc);
+        $('#' + ifameName).attr('allowfullscreen', 'true');
+    }
+</script>

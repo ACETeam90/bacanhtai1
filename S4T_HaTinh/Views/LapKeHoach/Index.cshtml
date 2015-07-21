@@ -1,0 +1,176 @@
+﻿@model  IEnumerable<S4T_HaTinh.Models.TN_DauViec>
+@using S4T_HaTinh.Models;
+@{
+    var lstLoaiCV = new SelectList(ViewBag.lstLoaiViec, "value", "text");
+    var user = (ApplicationUser)S4T_HaTinh.Common.S4T_HaTinhBase.GetUserSession();
+    var listNhanVien = new SelectList(ViewBag.lstNhanVien, "id", "HoVaTen");
+    string SepID = ViewBag.GiamDoc;
+    var defaultTuNgay = ViewBag.TuNgay;
+    var defaultDenNgay = ViewBag.DenNgay;
+    var err = ViewBag.Err;
+    if (err == null) {err = string.Empty;}
+}
+
+<h3>KẾ HOẠCH CÔNG TÁC</h3>
+<hr />
+
+@using (Html.BeginForm("Index", "LapKeHoach", FormMethod.Get))
+{
+    <p>
+        Loại công việc : @Html.DropDownList("ddlLoaiCV", lstLoaiCV, new { @class = "S4T_DropDownList" })
+        Từ ngày :        @Html.Editor("TuNgay")
+        Đến ngày :       @Html.Editor("DenNgay")
+        Người thực hiện: @Html.DropDownList("NguoiThucHien", listNhanVien.Where(o => !SepID.Contains(o.Value)), new { style = "width:200px", @class = "S4T_DropDownList" })
+        <input type="submit" value="Tìm kiếm" />
+    </p>
+}
+<p>
+    @*@Html.ActionLink("Tạo mới", "Create", new { returnUrl = Request.RawUrl })*@
+    <input type="button" value="Tạo mới" onclick="location.href = '/LapKeHoach/Create?returnUrl=@Request.RawUrl'" />
+</p>
+<table id="gridData">
+    <colgroup>
+        <col width="40"/>
+        <col width="150"/>
+        <col />
+        <col width="150"/>
+        <col width="80" />
+        <col width="80" />
+        <col width="70" />
+        <col width="80" />
+    </colgroup>
+    <tr>
+        <th style="min-width:0px;">
+            @Html.DisplayName("STT")
+        </th>
+        <th >
+            @Html.DisplayName("Tên đầu việc")
+        </th>
+        <th style="text-align: center">
+            @Html.DisplayName("Nội dung")
+        </th>
+        <th style="text-align: center">
+            @Html.DisplayName("Người thực hiện")
+        </th>
+        <th >
+            @Html.DisplayName("T/G bắt đầu")
+        </th>
+        <th >
+            @Html.DisplayName("T/G kết thúc")
+        </th>
+        <th >
+            @Html.DisplayName("Tiến độ %")
+        </th>
+        <th >
+            @Html.DisplayName("Thao tác")
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr @(item.OnTime == S4T_HaTinh.Common.Han.HoanThanhDungHan ? "style=color:green" : item.OnTime == S4T_HaTinh.Common.Han.HoanThanhMuon ? "style=color:orange" : item.TienDo < 100 && DateTime.Now.Date > item.DenNgay ? "style=color:red" : item.TienDo < 100 && DateTime.Now.AddDays(2).Date > item.DenNgay ? "style=color:yellow" : "")>
+                <td>@i</td>
+                <td>
+                    @Html.ActionLink(item.TenDauViec, "Detail", new { id = item.ID, returnUrl = Request.RawUrl })
+                </td>
+                <td>
+                    <div style='max-height: 150px;overflow: auto;'>@Html.DisplayFor(modelItem => item.NoiDung)</div>
+                </td>
+                <td>
+                    @if (item.TenNguoiThucHien != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.TenNguoiThucHien)
+                    }
+                </td>
+                <td>
+                    @item.TuNgay.Value.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.DenNgay.Value.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @if (item.TienDo != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.TienDo)
+                    }
+                </td>
+                <td>
+                    @if (item.NguoiTao_ID == user.Id)
+                    {
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.ID, returnUrl = Request.RawUrl }) <br>
+                    }
+
+                    @if (item.NguoiDuyet_ID == user.Id)
+                    {
+                        @Html.ActionLink("Kết thúc", "KetThuc", new { id = item.ID, returnUrl = Request.RawUrl }, new { onclick = "return confirm('Bạn muốn kế thúc công việc này?');" })<br>
+                    }
+                </td>
+            </tr>
+                    i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if(@Html.Raw(Json.Encode(err)) != null && @Html.Raw(Json.Encode(err)) != "")
+        {
+            alert(@Html.Raw(Json.Encode(err)));
+        }
+
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#TuNgay").kendoDatePicker({
+            change: startChange
+            ,format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        var end = $("#DenNgay").kendoDatePicker({
+            change: endChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+
+        $('#TuNgay').removeAttr('data-val-date');
+        $('#DenNgay').removeAttr('data-val-date');
+
+        $('#TuNgay').val();
+    });
+</script>
+

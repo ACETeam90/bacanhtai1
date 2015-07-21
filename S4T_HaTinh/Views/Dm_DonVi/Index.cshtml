@@ -1,0 +1,210 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Dm_DonVi>
+@*@using Kendo.Mvc.UI;*@
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "DANH MỤC ĐƠN VỊ";
+    var slNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().OrderBy(o => o.TenDanhMuc), "DanhMuc_ID", "TenDanhMuc");
+    var slTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+    var listDonViCap1 = (IEnumerable<Dm_DonVi>)ViewBag.ListDonViCap1;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "Dm_DonVi", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+        {
+            <input type="text" name="status" value="1" style="display:none" />
+            <div style="width: 600px;">
+                @Html.TextBox("strName", "", new { @class = "S4T_AutoComplete", @style = "width:870px;", @placeholder = "Nhập tên đơn vị cần tìm" })
+                <span class="input-btn"><button type="submit" class="zicon btn hide-text">Tìm kiếm</button></span>
+            </div>
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">Nhóm đơn vị</li>
+                    <li class="liSearch">@Html.DropDownList("ddlNhomDonVi", slNhomDonVi, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "NhomDonVi_OnChange()", @style = "width:250px;" })</li>
+
+                    <li class="liSearch labelSearch">Trực thuộc</li>
+                    <li class="liSearch">@Html.DropDownList("ddlDonViCap1", (List<SelectListItem>)ViewBag.SelectListDonViCap1, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:250px;" })</li>
+
+                    <li class="liSearch labelSearch">Trạng thái</li>
+                    <li class="liSearch">@Html.DropDownList("ddlTrangThai", slTrangThai, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:130px;" })</li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+<br />
+<p>
+    @*<input type="button" class="save_button" value="Tạo mới" onclick="location.href = '/Dm_DonVi/Create'" style="margin-top: 8px;" />*@
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <colgroup>
+        <col width="30" />
+        <col width="50" />
+        <col width="250" />
+        <col width="100" />
+        @*<col width="150" />
+        <col width="170" />
+        <col width="100" />
+        <col width="80" />*@
+        <col width="100" />
+    </colgroup>
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDonVi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonViCap1_ID)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.NhomDonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NganhNghe_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiHinhDoanhNghiep_ID)
+        </th>
+            <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>*@
+        <th>Thao tác</th>
+    </tr>
+
+    @{
+        var _hoatDong = S4T_HaTinh.Common.TrangThai.HoatDong;
+        if (Model != null)
+        {
+            var i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonVi_ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenDonVi)
+                    </td>
+                    <td>
+                        @{
+                var objDonVi = listDonViCap1.FirstOrDefault(o => o.DonVi_ID == item.DonViCap1_ID);
+                @Html.Raw(objDonVi != null ? objDonVi.TenDonVi : "")
+                        }
+                    </td>
+                     @*<td>
+                        @Html.DisplayFor(modelItem => slNhomDonVi.FirstOrDefault(o => o.Value == item.NhomDonVi_ID.ToString()).Text)
+                    </td>
+
+                    <td>
+                        @{
+                            var objNganhNghe = MvcApplication.ListNganhNghe().FirstOrDefault(o => o.DanhMuc_ID == item.NganhNghe_ID);
+                            @Html.Raw(objNganhNghe != null ? objNganhNghe.TenDanhMuc : "")
+                        }
+                    </td>
+                    <td>
+                        @{
+                            var objLoaiHinhDoanhNghiep = MvcApplication.ListLoaiHinhDoanhNghiep().FirstOrDefault(o => o.DanhMuc_ID == item.LoaiHinhDoanhNghiep_ID);
+                            @Html.Raw(objLoaiHinhDoanhNghiep != null ? objLoaiHinhDoanhNghiep.TenDanhMuc : "")
+                            <td>
+                            @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+
+                        }
+                        </td>
+                    </td>*@
+                    
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.DonVi_ID, ddlNhomDonVi = item.NhomDonVi_ID })
+                        @{
+                            if (item.TrangThai == _hoatDong)
+                            {
+                                <span>|</span> <a title="Không hoạt động" href='javascript:void(0);' onclick="Delete(@item.DonVi_ID)">Không hoạt động</a>
+                            }
+                            else
+                            {
+                                <span>|</span> <a title="Hoạt động" href='javascript:void(0);' onclick="Active(@item.DonVi_ID)">Hoạt động</a>
+                            }
+                        }
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    // Lấy danh sách đơn vị cấp trên theo nhóm đơn vị
+    function NhomDonVi_OnChange() {
+        var nhomDonVi = $("#ddlNhomDonVi").val();
+        if(nhomDonVi == "")
+            $("#ddlDonViCap1").val("");
+        else
+            $("#ddlDonViCap1").val("-1");
+
+        if ($("#ddlNhomDonVi").val() != "") {
+            $.post("/Dm_DonVi/NhomDonVi_OnChange", { "nhomDonVi_ID": $("#ddlNhomDonVi").val(), "view": "Index"  }).done(function (data) {
+                if (data.msg == null) {
+                    $("#ddlDonVi").html(data.danhSach);
+                    $("#ddlDonVi").kendoComboBox();
+                } else {
+                    alert(data.msg);
+                }
+            });
+        } else {
+            $("#ddlDonVi").html("<option value=''>Tất cả</option>");
+        }
+        SearchFormOnchange();
+    }
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    // Khôi phục đơn vị
+    function Active(id) {
+        if (!confirm("Bạn chắc chắn khôi phục dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Dm_DonVi/Active?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+
+    // Xóa đơn vị
+    function Delete(id) {
+        if (!confirm("Bạn chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Dm_DonVi/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

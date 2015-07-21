@@ -1,0 +1,106 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.AspNetRoles>
+
+@{
+    var active = S4T_HaTinh.Common.TrangThai.HoatDong;
+}
+
+<h2>VAI TRÒ NGƯỜI DÙNG</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NhomDoiTuong_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHienThi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+    @{
+        if (Model != null)
+        {
+            var i = 1;
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => MvcApplication.ListNhomDoiTuong().FirstOrDefault(o => o.DanhMuc_ID == item.NhomDoiTuong_ID).TenDanhMuc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenHienThi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id })
+                        @{
+                            if (@item.TrangThai == active)
+                            {
+                                <span> | </span><a href='javascript:void(0);' onclick="Delete('@item.Id')">Không hoạt động</a>
+                            }
+                            else
+                            {
+                                <span> | </span><a href='javascript:void(0);' onclick="Active('@item.Id')">Hoạt động</a>
+                            }
+                        }
+                    </td>
+                </tr>
+                i++;
+            }
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    // Xóa vai trò
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn khôi phục dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/HT_Role/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            }
+        });
+    }
+
+    // Khôi phục vai trò
+    function Active(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/HT_Role/Active?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,170 @@
+﻿@model S4T_HaTinh.Models.Ht_FileDinhKem
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Ht_FileDinhKem</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.FileUpload_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.BaoCao_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.BaoCao_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BaoCao_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanHeChucNang_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.PhanHeChucNang_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhanHeChucNang_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DonVi_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DonVi_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiVanBan_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.LoaiVanBan_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LoaiVanBan_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoVanBan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.SoVanBan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoVanBan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrichYeu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TrichYeu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrichYeu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgayBanHanh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NgayBanHanh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayBanHanh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DuongDan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DuongDan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DuongDan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenFile, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TenFile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguoiUpLoad, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NguoiUpLoad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NguoiUpLoad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgayUpload, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NgayUpload, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NgayUpload, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HieuLuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.HieuLuc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HieuLuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.CheDoBaoCao, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.CheDoBaoCao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CheDoBaoCao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuanTamCuaLanhDao, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.QuanTamCuaLanhDao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuanTamCuaLanhDao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenHienThi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TenHienThi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenHienThi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <div class="col-md-offset-2 divControl">
+                <input type="submit" value="Save" class="k-button k-button-icontext" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

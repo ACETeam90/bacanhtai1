@@ -1,0 +1,229 @@
+﻿@model S4T_HaTinh.Models.CongThongTinDienTu_Huyen
+
+@{
+    ViewBag.Title = "Check";
+    var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+}
+
+<style type="text/css">
+    .S4T_NumericTextBox {
+        width: 90px;
+        float: left;
+    }
+
+    input[type=checkbox] {
+        float: left;
+        /*margin-top: 7px;*/
+        max-width: 200px;
+    }
+
+    .S4T_AutoComplete {
+        width: 400px;
+        float: left;
+    }
+</style>
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>
+
+
+<h2>Kiểm Tra</h2>
+<h4>Đơn vị @ViewBag.TenDonVi nhập dữ liệu từ ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.TuNgay) đến ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.DenNgay)</h4>
+<h5>Trạng thái: Chờ duyệt</h5>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.CongThongTinDienTuHuyen_ID)
+        <input type="hidden" id="lichNhap_ID" value="@ViewBag.LichNhap_ID" />
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TruongNhapLai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.HiddenFor(model => model.TruongNhapLai)
+                @Html.TextArea("txtTruongNhapLai", "", new { @rows = "5", @cols = "45", @readonly = "readonly" })
+            </div>
+        </div>
+
+        @Html.Partial("_CreateOrUpdate", Model, new ViewDataDictionary { { "IsCheck", true }, { "IsDisabled", true } })
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <input type="button" value="Gửi cấp trên" class="k-button k-button-icontext" onclick="SendReport()" />
+                <input type="button" value="Yêu cầu nhập lại" class="k-button k-button-icontext" onclick="OpenDatePopup()" style="margin-left:5px;" />
+            </div>
+        </div>
+
+        <div class="divRow" style="display:none;" id="fsLichNhapLieu">
+            <fieldset>
+                <legend>Đặt lịch sửa báo cáo</legend>
+                <div class="divRow">
+                    @Html.Label("txtTuNgay", "Từ ngày", htmlAttributes: new { @class = "divLabel" })
+                    <div class="divControl">
+                        @Html.Editor("txtTuNgay", "", new { @class = "S4T_NumericTextBox", @readonly = "readonly" })
+                        @Html.ValidationMessage("txtTuNgay", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="divRow">
+                    @Html.Label("txtDenNgay", "Đến ngày", htmlAttributes: new { @class = "divLabel" })
+                    <div class="divControl">
+                        @Html.Editor("txtDenNgay", "", new { @class = "S4T_NumericTextBox", @readonly = "readonly" })
+                        @Html.ValidationMessage("txtDenNgay", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="divRow">
+                    <label id="lbl"></label>
+                    <div class="divControl">
+                        <input type="button" id="btnDatLich" value="Đặt lịch" class="k-button k-button-icontext" onclick="NhapLaiRequest()" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+
+    var listInputRadio = '@ViewBag.listInputRadio';
+
+    $(document).ready(function () {
+        CheckInputRadioByValue();
+
+        SetIncorectHtml();
+
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#txtTuNgay").kendoDatePicker({
+            min: new Date()
+            , value: new Date()
+            , change: startChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        var end = $("#txtDenNgay").kendoDatePicker({
+            change: endChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+    });
+
+    // Duyệt báo cáo thành công, thay đổi trạng thái nhập liệu
+    function SendReport() {
+        if (!confirm("Kết thúc quá trình nhập dữ liệu của đơn vị ?")) return;
+        var id = $("#CongThongTinDienTuHuyen_ID").val();
+        var lichNhap_ID = $("#lichNhap_ID").val();
+        $.post("ConfirmReport", { "id": id, "lichNhap_ID": lichNhap_ID }).done(function (data) {
+            if (data.msg == null) {
+                window.location.href = "/Ht_QuanLyNhapLieu/Index";
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
+    // Yêu cầu nhập lại báo cáo
+    function NhapLaiRequest() {
+        var id = $("#CongThongTinDienTuHuyen_ID").val();
+        var lichNhap_ID = $("#lichNhap_ID").val();
+        var truongNhapLai = $("#TruongNhapLai").val();
+
+        // isDate in _Layout
+        if (isDate('txtTuNgay') && isDate('txtDenNgay')) {
+            var tuNgay = $("#txtTuNgay").val();
+            var denNgay = $("#txtDenNgay").val();
+
+            $.post("NhapLaiRequest", {
+                "id": id,
+                "lichNhap_ID": lichNhap_ID,
+                "truongNhapLai": truongNhapLai,
+                "tuNgay": tuNgay,
+                "denNgay": denNgay
+            }).done(function (data) {
+                if (data.msg == null) {
+                    window.location.href = "/Ht_QuanLyNhapLieu/Index";
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+    }
+
+    //// Đóng/ mở fiedset lịch nhập lại báo cáo
+    //function OpenDatePopup() {
+    //    if ($("#fsLichNhapLieu").css('display') == 'none') {
+    //        $("#fsLichNhapLieu").show();
+    //        $("#txtTuNgay").focus();
+    //        var aTag = $("#txtTuNgay");
+    //        $('html,body').animate({ scrollTop: aTag.offset().top }, 'slow');
+    //    } else {
+    //        $("#fsLichNhapLieu").hide();
+    //    }
+    //}
+
+    //// Sự kiện nhấn nút Checkbox để yêu cầu nhập lại trường dữ liệu đó
+    $("input[type='checkbox']").change(function () {
+        if (this.id.indexOf("chk_value_") != -1) {
+            var radio_ID = $(this).attr('id');
+            var base_ID = radio_ID.substring(10, radio_ID.length);
+            var arrLabel = $("#txtTruongNhapLai").val();
+            var arrID = $("#TruongNhapLai").val();
+            var label = $('label[for="' + base_ID + '"]').html();
+            var listInput = arrID.split(',');
+
+            // Nếu không có mới insert
+            if (this.checked) {
+                if ($.inArray(base_ID, listInput) == -1) {
+                    arrID += base_ID + ",";
+                    arrLabel += label + ",";
+
+                    $("#TruongNhapLai").val(arrID);
+                    $("#txtTruongNhapLai").val(arrLabel);
+                }
+            } else {
+                arrID = arrID.replace(base_ID + ",", "");
+                $("#TruongNhapLai").val(arrID);
+
+                arrLabel = arrLabel.replace(label + ",", "");
+                $("#txtTruongNhapLai").val(arrLabel);
+            }
+        }
+    })
+</script>

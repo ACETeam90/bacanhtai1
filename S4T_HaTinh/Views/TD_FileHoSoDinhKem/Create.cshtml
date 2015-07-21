@@ -1,0 +1,88 @@
+﻿@model S4T_HaTinh.Models.TD_FileHoSoDinhKem
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TD_FileHoSoDinhKem</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoBienNhan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.SoBienNhan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SoBienNhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenFile, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TenFile, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenFile, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenHienThi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TenHienThi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenHienThi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DuongDan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DuongDan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DuongDan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.GhiChu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.GhiChu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.GhiChu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TrangThai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiFile_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.LoaiFile_ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LoaiFile_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <div class="col-md-offset-2 divControl">
+                <input type="submit" value="Create" class="k-button k-button-icontext" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

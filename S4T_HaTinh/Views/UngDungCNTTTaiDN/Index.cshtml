@@ -1,0 +1,127 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.UngDungCNTTTaiDN>
+
+@{
+    ViewBag.Title = "TÌNH HÌNH ỨNG DỤNG CNTT TẠI CÁC DOANH NGHIỆP TRÊN ĐỊA BÀN TỈNH";
+    var lstDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    if (Model != null)
+    {
+
+        <h2>Tình hình ứng dụng công nghệ thông tin tại các Doanh nghiệp trên địa bàn Tỉnh</h2>
+
+        @*<p>
+            @Html.ActionLink("Tạo mới", "Create")
+        </p>*@
+        <table class="tableDefault">
+            <tr>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.DonVi_ID)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.FileUpload)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NguoiDaiDien)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoDienThoai)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NganhNgheKinhDoanh)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.LAN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LoaiHinhDoanhNghiep)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DoanhThu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoMayTinh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhanMemDangUngDung)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SoWebsite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KienNghi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Success)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.TruongNhapLai)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.DonVi_ID)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileUpload)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiaChi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NguoiDaiDien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoDienThoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NganhNgheKinhDoanh)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.LAN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LoaiHinhDoanhNghiep)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DoanhThu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoMayTinh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhanMemDangUngDung)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoWebsite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KienNghi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Success)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TruongNhapLai)
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.UngDungCNTTTaiDN_ID }) |*@
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.UngDungCNTTTaiDN_ID }) 
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.UngDungCNTTTaiDN_ID })*@
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    }
+    else
+    {
+        <h4>Không tìm thấy dữ liệu</h4>
+    }
+}

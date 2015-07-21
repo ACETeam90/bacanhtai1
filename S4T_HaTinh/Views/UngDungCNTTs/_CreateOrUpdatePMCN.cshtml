@@ -1,0 +1,81 @@
+﻿@model S4T_HaTinh.Models.UngDungCNTT_PMQLCN
+
+@{
+    
+}
+
+<style type="text/css">
+    .contentPane{
+        min-height:220px !important;
+    }
+    label.divLabel{
+        width:28% !important;
+    }
+    .divControl{
+        width:71% !important;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    if (ViewBag.RefreshPage == true)
+    {
+        <script type="text/javascript">
+            try {window.opener.document.forms['ungDungCNTTForm'].@(ViewBag.btnId).click();}
+            catch (e){}
+            window.close();
+        </script>
+    }
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Guid)
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenPhanMem, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenPhanMem, new { @class = "S4T_AutoComplete", @style = "width:412px;" })
+                @Html.ValidationMessageFor(model => model.TenPhanMem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LienThongSBN, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.LienThongSBN, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.LienThongSBN, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LienThongUBNDCapHuyen, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.LienThongUBNDCapHuyen, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.LienThongUBNDCapHuyen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LienThongUBNDCapXa, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.LienThongUBNDCapXa, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.LienThongUBNDCapXa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LienThongDVTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.LienThongDVTT, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.LienThongDVTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,154 @@
+﻿@model S4T_HaTinh.Models.Ht_FileDinhKem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ht_FileDinhKem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BaoCao_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaoCao_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanHeChucNang_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanHeChucNang_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonVi_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiVanBan_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiVanBan_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoVanBan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoVanBan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrichYeu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrichYeu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayBanHanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayBanHanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuongDan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuongDan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenFile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenFile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NguoiUpLoad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NguoiUpLoad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HieuLuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HieuLuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheDoBaoCao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheDoBaoCao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuanTamCuaLanhDao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuanTamCuaLanhDao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenHienThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHienThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FileUpload_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

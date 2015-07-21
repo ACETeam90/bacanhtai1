@@ -1,0 +1,183 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_LichNhapLieu>
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "LỊCH NHẬP LIỆU";
+    var listPhanHe = new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang");
+    var trangThaiThemMoi = S4T_HaTinh.Common.TrangThaiNhapLieu.ThemMoi;
+    var listTrangThaiNhapLieu = new SelectList(MvcApplication.ListTrangThaiNhapLieu(), "DanhMuc_ID", "TenDanhMuc", trangThaiThemMoi);
+    var listDotBaoCao = MvcApplication.ListDotBaoCao();
+    var slDotBaoCao = new SelectList(ViewBag.ListDotBaoCao, "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "Ht_LichNhapLieu", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+        {
+            <input type="hidden" name="status" value="1" />
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">
+                        Đơn vị
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("ddlDonVi", (SelectList)ViewBag.SelectListDonVi, "Tất cả", new { @class = "S4T_ComboBox", @style = "width:250px;", @onchange = "ChangeListBaoCao()" })
+                    </li>
+                    <li class="liSearch labelSearch">
+                        Phân hệ
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("ddlPhanHe", listPhanHe, "Tất cả", new { @class = "S4T_DropDownList", @style = "width: 250px;", @onchange = "SearchFormOnchange()" })
+                    </li>
+                    <li class="liSearch labelSearch">
+                        Hình thức
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("ddlTrangThaiNhapLieu", listTrangThaiNhapLieu, "Tất cả", new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()" })
+                    </li>
+                </ul>
+                <hr style="border:0"/>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch" style="width: 35px;">
+                        Năm
+                    </li>
+                    <li class="liSearch">
+                        @Html.TextBox("namBaoCao", "", new { @class = "S4T_AutoComplete", @min = "1900", @max = "2100", @style = "width:150px;" })
+                    </li>
+                    <li class="liSearch labelSearch" style=" margin-left: 79px;">
+                        Đợt báo cáo
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("ddlDotBaoCao", slDotBaoCao, "Tất cả", new { @class = "S4T_DropDownList", @style = "width: 250px;", @onchange = "SearchFormOnchange()" })
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+<br />
+<div style="padding-bottom: 12px;">
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</div>
+
+<table id="gridData">
+    <colgroup>
+        <col width="30"/>
+        <col width="150"/>
+        <col width="150"/>
+        <col width="80"/>
+        <col width="80" />
+        <col width="80" />
+        <col width="80" />
+    </colgroup>
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanHe_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChucNang_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TuNgay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DenNgay)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.TrangThai)
+            </th>*@
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        var i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>
+                    @* Thay đổi theo Tìm kiếm *@
+                    @Html.DisplayFor(modelItem => MvcApplication.ListDonVi.FirstOrDefault(o => o.DonVi_ID == item.DonVi_ID).TenDonVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => listPhanHe.FirstOrDefault(o => o.Value == item.PhanHe_ID.ToString()).Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => listTrangThaiNhapLieu.FirstOrDefault(o => o.Value == item.ChucNang_ID.ToString()).Text)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TuNgay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DenNgay)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.LichNhap_ID })
+                    @if (item.ChucNang_ID == trangThaiThemMoi)
+                    {
+                        <span>|</span>  <a title="Xóa" href='javascript:void(0);' onclick="Delete(@item.LichNhap_ID)">Xóa</a>
+                    }
+                </td>
+            </tr>
+                    i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });
+
+    $('input#namBaoCao').keypress(function (e) {
+        if (e.which == '13') {
+            $("#searchForm").submit();
+        }
+    });
+
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+        $.ajax({
+            type: 'POST',
+            url: "/HT_LichNhapLieu/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }},
+            async:true
+        });
+    }
+
+    function ChangeListBaoCao(){
+        $.post("/HT_LichNhapLieu/ChangeListBaoCao",{ "donVi_ID" : $("#ddlDonVi").val(), "view":"Index" }).done(function(data){
+            if(data.msg==null){
+                $("#ddlPhanHe").html(data.danhSach);
+                $("#ddlPhanHe").kendoDropDownList({
+                    //filter: "contains",
+                    ignoreCase: true
+                });
+            }else{
+                alert(data.msg);
+            }
+        });
+        SearchFormOnchange();
+    }
+
+    function SearchFormOnchange(){
+        $("#searchForm").submit();
+    }
+</script>

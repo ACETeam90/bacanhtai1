@@ -1,0 +1,73 @@
+﻿@model S4T_HaTinh.Models.HaTangNhanLucCNTT_Huyen
+
+@{
+    ViewBag.Title = "HẠ TẦNG NHÂN LỰC CNTT HUYỆN";
+    var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+}
+<style type="text/css">
+    .S4T_NumericTextBox {
+        width: 90px;
+        float: left;
+    }
+</style>
+
+
+<h3>HẠ TẦNG NHÂN LỰC CNTT HUYỆN</h3>
+<h4>Đơn vị: @ViewBag.TenDonVi được tạo mới dữ liệu từ ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.TuNgay) đến ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.DenNgay)</h4>
+<hr />   
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Success)
+        @Html.HiddenFor(model => model.DonVi_ID)
+
+        @Html.Partial("_CreateOrUpdate", Model, new ViewDataDictionary { { "IsCreate", true } }) 
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Gửi</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Test check sẵn
+        $(":radio").each(function () {
+            // Dạng check radio Có / Không
+            if (this.id.indexOf("rd_value_") != -1 && this.checked) {
+                var radio_ID = $(this).attr('id');
+                var name = $(this).attr('name');
+                var base_ID = name.substring(9, name.length);
+                // alert(base_ID); test
+                if (radio_ID.indexOf("Yes") != -1) {
+                    $("#" + base_ID).val(1);
+                } else {
+                    $("#" + base_ID).val(0);
+                }
+            }
+        })
+    });
+
+    // Sự kiện click vào nút radio
+    $("input[type='radio']").click(function () {
+        // Dạng check radio Có / Không
+        if (this.id.indexOf("rd_value_") != -1) {
+            var radio_ID = $(this).attr('id');
+            var name = $(this).attr('name');
+            var base_ID = name.substring(9, name.length);
+            // alert(base_ID); test
+            if (radio_ID.indexOf("Yes") != -1) {
+                $("#" + base_ID).val(1);
+            } else {
+                $("#" + base_ID).val(0);
+            }
+        }
+    })
+</script>

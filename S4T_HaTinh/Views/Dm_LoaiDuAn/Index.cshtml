@@ -1,0 +1,71 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Dm_LoaiDuAn>
+
+@{
+    
+}
+
+<h2>DANH MỤC LOẠI DỰ ÁN</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoaiDuAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoNgayGiaiQuyet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@{
+    int stt = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@stt</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiDuAn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoNgayGiaiQuyet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.LoaiDuAn_ID }) |
+                <a title="Xóa" href='javascript:void(0);' onclick="Delete(@item.LoaiDuAn_ID)">Không sử dụng</a>
+            </td>
+        </tr>
+        stt++;
+    }
+}
+</table>
+<script type="text/javascript">
+    // Xóa loại dự án
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Dm_LoaiDuAn/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

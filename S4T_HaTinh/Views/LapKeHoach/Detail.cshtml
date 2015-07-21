@@ -1,0 +1,344 @@
+﻿@model  IEnumerable<S4T_HaTinh.Models.TN_DauViec>
+@using S4T_HaTinh.Models;
+@using S4T_HaTinh.Common;
+@{
+    var user = (ApplicationUser)S4T_HaTinh.Common.S4T_HaTinhBase.GetUserSession();
+    var ID = (int)ViewBag.Parent_ID;
+    var parent = Model.FirstOrDefault(o => o.ID == ID);
+    var lstFile = new List<string>();
+    var returnUrl = ViewBag.returnUrl;
+    var TienDo = 0;
+    if (parent != null)
+    {
+        lstFile = string.IsNullOrEmpty(parent.FileDinhKem) ? null : parent.FileDinhKem.Split(';').ToList();
+        if (parent.TienDo != null)
+        {
+            TienDo = parent.TienDo.Value;
+        }
+    }
+    var hasChild = false;
+    if (Model != null && Model.Count() > 1) { hasChild = true; }
+    var listNhanVien = new SelectList(ViewBag.lstNhanVien, "id", "HoVaTen");
+    var lstChat = new List<TN_Chuyen>();
+    if (ViewBag.lstChat != null)
+    {
+        lstChat = (List<TN_Chuyen>)ViewBag.lstChat;
+    }
+    var nguoiXL = ViewBag.ActiveChuyen;
+    //if (parent != null && !string.IsNullOrEmpty(parent.NguoiThucHien_ID))
+    //{
+    //    nguoiXL = parent.NguoiThucHien_ID.Split(',').First();
+    //}
+    var LoaiChuyen = new SelectList(ViewBag.lstLoaiChuyen, "Value", "Text");
+    var readOnly = (parent.NguoiTao_ID != user.Id && !parent.NguoiThucHien_ID.Contains(user.Id) &&
+        !parent.Display.Contains(user.Id) && parent.PhamVi == PhamVi.PhongBan)
+        ? true : false;
+}
+@if (parent != null)
+{
+    <section>
+        <span class="row        ">
+            <span class="name">Tên đầu việc:</span>
+            <span class="data">
+                @parent.TenDauViec
+            </span>
+            <span class="name">Phạm vi:</span>
+            <span class="data">
+                @(parent.PhamVi == 0 ? "Cá nhân" : "Phòng ban")
+            </span>
+        </span>
+        <span class="row">
+            <span class="name">Nội dung:</span>
+            <span class="data">
+                @parent.NoiDung
+            </span>
+            <span class="name">Loại việc:</span>
+            <span class="data">
+                @(parent.LoaiViec == 0 ? "Bình thường" : (parent.LoaiViec == 1 ? "Ưu tiên" : "Khẩn"))
+            </span>
+        </span>
+        <span class="row">
+            <span class="name">Người duyệt:</span>
+            <span class="data">
+                @parent.TenNguoiDuyet
+            </span>
+            <span class="name">Người thực hiện:</span>
+            <span class="data">
+                @parent.TenNguoiThucHien
+            </span>
+        </span>
+        <span class="row">
+            <span class="name">Từ ngày:</span>
+            <span class="data">
+                @parent.TuNgay.Value.ToString("dd/MM/yyyy")
+            </span>
+            <span class="name">Đến ngày:</span>
+            <span class="data">
+                @parent.DenNgay.Value.ToString("dd/MM/yyyy")
+            </span>
+        </span>
+        <span class="row">
+            <span class="name">File đính kèm:</span>
+            <span class="file">
+                @if (lstFile != null && lstFile.Any())
+                {
+                    foreach (var item in lstFile)
+                    {
+                        if (!string.IsNullOrEmpty(item))
+                        {
+                            @Html.ActionLink(item, "Download", new { name = item }, new { @class = "file" })
+                        }
+                    }
+                }
+            </span>
+        </span>
+        <span class="row">
+            <span class="name">Tiến độ:</span>
+            <span class="file">
+                <input type="range" name="slider" id="points" value="@TienDo" min="0" max="100" data-highlight="true" onchange="showVal(this.value)"
+                       style="width:70%;" @((hasChild == true || nguoiXL == null) ? "disabled='disabled'" : "") )>
+                <span id="TienDoVal" style="color: red; font-weight: bold; font-size: 34px;">
+                    0
+                </span>
+            </span>
+        </span>
+        @using (Html.BeginForm("Fuck", "LapKeHoach", new { enctype = "multipart/form-data", returnUrl = ViewBag.returnUrl, viec_ID = ID, FormMethod.Post }))
+        {
+            <span class="row" @(readOnly == true ? "hidden='hidden'" : "")>
+                <span class="name">Loại chuyển:</span>
+                <span class="data">@Html.DropDownList("LoaiChuyen", LoaiChuyen, "", new { @class = "S4T_DropDownList", style = "width:200px" })</span>
+
+                <span class="name">Người nhận:</span>
+                <span class="data">@Html.DropDownList("NguoiChuyen", new SelectList(new List<SelectListItem> { }), new { @class = "S4T_DropDownList", style = "width:200px" })</span>
+            </span>
+            <span class="blogcomment">
+                <span class="name" style="padding-top: 5px;">Ý kiến:</span>
+                @if (lstChat != null && lstChat.Any())
+                {
+                    <span style="float:left; width:80%">
+                        @foreach (var item in lstChat)
+                        {
+                            <span style="width:100%;float:left;">
+                                @if (item.LoaiChuyen == S4T_HaTinh.Common.LoaiChuyen.XinYKien)
+                                {
+                                    <span style="float:left; color:orange;">@item.TenNguoiChuyen xin ý kiến @item.TenNguoiNhan : </span>
+                                }
+                                @if (item.LoaiChuyen == S4T_HaTinh.Common.LoaiChuyen.TraLoi)
+                                {
+                                    <span style="float:left; color:orange;">@item.TenNguoiChuyen trả lời @item.TenNguoiNhan : </span>
+                                }
+                                @if (item.LoaiChuyen == S4T_HaTinh.Common.LoaiChuyen.GiaoViec)
+                                {
+                                    <span style="float:left; color:orange;">@item.TenNguoiChuyen giao việc cho @item.TenNguoiNhan : </span>
+                                }
+                                @if (item.LoaiChuyen == S4T_HaTinh.Common.LoaiChuyen.BaoCao)
+                                {
+                                    <span style="float:left; color:orange;">@item.TenNguoiChuyen báo cáo @item.TenNguoiNhan : </span>
+                                }
+                                <span style="float:left;">@item.Ykien</span> <br />
+                            </span>
+                        }
+                    </span>
+                }
+                <span style="width:80%;float:left;">
+                    @Html.TextBox("comment", null, new { @class="S4T_AutoComplete", style = "width:90%" })
+                    <input type="submit" value="Gửi" />
+                </span>
+            </span>
+        }
+    </section>
+
+
+    if (parent.NguoiTao_ID == user.Id || parent.NguoiDuyet_ID == user.Id || parent.NguoiThucHien_ID.Contains(user.Id))
+    {
+        <h5>
+            @Html.ActionLink("Tạo việc chi tiết", "Create", new { ParentID = ID, returnUrl = Request.RawUrl })
+        </h5>
+    }
+    if (hasChild)
+    {
+        <table class="tableDefault">
+            <tr>
+                <th width="2%" style="min-width:0px;">
+                    @Html.DisplayName("STT")
+                </th>
+                <th width="23%">
+                    @Html.DisplayName("Tên đầu việc")
+                </th>
+                <th width="35%" style="text-align: center">
+                    @Html.DisplayName("Nội dung")
+                </th>
+                <th width="10%" style="text-align: center">
+                    @Html.DisplayName("Người thực hiện")
+                </th>
+                <th width="10%">
+                    @Html.DisplayName("T/G bắt đầu")
+                </th>
+                <th width="10%">
+                    @Html.DisplayName("T/G kết thúc")
+                </th>
+                <th width="5%">
+                    @Html.DisplayName("Tiến độ %")
+                </th>
+                <th width="30%">
+                    @Html.DisplayName("Thao tác")
+                </th>
+            </tr>
+            @if (Model != null)
+            {
+                int i = 1;
+                foreach (var item in Model)
+                {
+                    if (item.ID == ID || (item.NguoiTao_ID != user.Id && item.NguoiDuyet_ID != user.Id && !item.NguoiThucHien_ID.Contains(user.Id))) { continue; }
+                    <tr>
+                        <td>@i</td>
+                        <td>
+                            @Html.ActionLink(item.TenDauViec, "Detail", new { id = item.ID, returnUrl = Request.RawUrl }) <br>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NoiDung)
+                        </td>
+                        <td>
+                            @if (item.TenNguoiThucHien != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.TenNguoiThucHien)
+                            }
+                        </td>
+                        <td>
+                            @item.TuNgay.Value.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @item.DenNgay.Value.ToString("dd/MM/yyyy")
+                        </td>
+                        <td>
+                            @if (item.TienDo != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.TienDo)
+                            }
+                        </td>
+                        <td>
+                            @if (item.NguoiTao_ID == user.Id)
+                            {
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.ID, returnUrl = Request.RawUrl }) <br>
+                            }
+
+                            @if (item.NguoiDuyet_ID == user.Id)
+                            {
+                                @Html.ActionLink("Kết thúc", "KetThuc", new { id = item.ID, returnUrl = Request.RawUrl }, new { onclick = "return confirm('Bạn muốn kế thúc công việc này?');" })<br>
+                            }
+                        </td>
+                    </tr>
+                            i++;
+                }
+            }
+        </table>
+    }
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var value = $("#points").val();
+        $("#TienDoVal").html(value+"%");
+        if (value == 100)
+            $("#TienDoVal").css("color", "blue");
+        else
+            $("#TienDoVal").css("color", "red");
+
+        $("#LoaiChuyen").change(function(){
+            $.ajax({
+                type: "POST",
+                url: "/LapKeHoach/ChangeLoaiChuyen?value="+$("#LoaiChuyen").val()+ "&id="+@Html.Raw(Json.Encode(ID)),
+                content: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (d) {
+                    $("#NguoiChuyen").html(d.value);
+                    $("#NguoiChuyen").kendoDropDownList({
+                        //filter: "contains",
+                        ignoreCase: true
+                    });
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // TODO: Show error
+                }
+            });
+        });
+
+        //$('form').on('submit', function(e) {
+        //    e.preventDefault();
+        //    alert("ok");
+        //});
+    });
+
+    function Fuck()
+    {
+        if($("#LoaiChuyen").val() == "" || $("#NguoiChuyen").val() == null || $("#NguoiChuyen").val() == "")
+        {
+            alert("Chưa chọn loại chuyển hoặc người chuyển");
+            return;
+        }
+        var formData = {LoaiChuyen:$("#LoaiChuyen").val(), NguoiChuyen:$("#NguoiChuyen").val(), id: @Html.Raw(Json.Encode(ID))};
+        $.ajax({
+            url : "/LapKeHoach/Fuck",
+            type: "POST",
+            data : formData,
+            success: function(data, textStatus, jqXHR)
+            {
+                window.location = (encodeURIComponent(@Html.Raw(Json.Encode(returnUrl))));
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert("error");
+            }
+        });
+    }
+
+    function showVal(value) {
+        $("#TienDoVal").html(value+"%");
+        if (value == 100)
+            $("#TienDoVal").css("color", "blue");
+        else
+            $("#TienDoVal").css("color", "red");
+
+        $.ajax({
+            type: "POST",
+            url: "/LapKeHoach/TienDo?tiendo="+value+"&id="+@Html.Raw(Json.Encode(ID)),
+            content: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (d) {
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                // TODO: Show error
+            }
+        });
+    }
+</script>
+
+<style type="text/css">
+    .row {
+        float: left;
+        width: 100%;
+        padding-bottom: 7px;
+    }
+
+    .data {
+        width: 300px;
+        float: left;
+    }
+
+    .name {
+        width: 120px;
+        float: left;
+        font-weight: bold;
+    }
+
+    .file {
+        width: 600px;
+        float: left;
+    }
+
+    .blogcomment {
+        width: 100%;
+        float: left;
+        padding: 10px 0px;
+    }
+</style>

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.CongNghiepCNTT>
+
+@{
+    ViewBag.Title = "CÔNG NGHIỆP CNTT";
+    var lstDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="tableDefault">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileUpload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DoanhThu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoMayTinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoPhanMemUngDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoWebsite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoMayTinhKetNoiMang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TuNgay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DenNgay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Success)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TruongNhapLai)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => lstDonVi.FirstOrDefault(o => o.Value == item.DonVi_ID.ToString()).Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FileUpload)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DoanhThu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoMayTinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoPhanMemUngDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoWebsite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoMayTinhKetNoiMang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TuNgay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DenNgay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Success)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TruongNhapLai)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.CongNghiepCNTT_ID }) |
+                <a title="Xóa" onclick="Delete(@item.CongNghiepCNTT_ID)">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/CongNghiepCNTTs/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_PhanHe>
+
+@{
+    ViewBag.Title = "DANH SÁCH PHÂN HỆ";
+    var listTrangThai = MvcApplication.ListTrangThai();
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table id="gridData">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanHe_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenPhanHe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControllerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThuTu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhanHe_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenPhanHe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControllerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThuTu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listTrangThai.FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.PhanHe_ID }) |
+                <a title="Xóa" href='javascript:void(0);' onclick="Delete(@item.PhanHe_ID)">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Ht_PhanHe/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }},
+            async:true
+        });
+    }
+</script>

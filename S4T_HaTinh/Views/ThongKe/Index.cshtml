@@ -1,0 +1,96 @@
+﻿@model S4T_HaTinh.Models.ReportModel
+                  
+@{
+    var slNhomDonVi = new SelectList(ViewBag.ListNhomDonVi, "DanhMuc_ID", "TenDanhMuc");
+    //var slDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var listPhanHe = new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang");
+    var slDotBaoCao = new SelectList(ViewBag.ListDotBaoCao, "DanhMuc_ID", "TenDanhMuc");
+    int trangThai = ViewBag.TrangThai != null ? Convert.ToInt32(ViewBag.TrangThai) : 0;
+}
+
+<h2>THỐNG KÊ SỐ LIỆU CÁC ĐƠN VỊ</h2>
+
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "ThongKe", FormMethod.Post, new { id = "searchForm", @class = "search" }))
+        {
+            @*<input type="hidden" name="status" value="1" />*@
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">
+                        Nhóm đơn vị
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownListFor(model => model.NhomDonVi, slNhomDonVi, new { @class = "S4T_ComboBox", @onchange = "ChangeListDonVi()", @style = "width:220px;" })
+                    </li>
+                    @*<li class="liSearch labelSearch">
+                        Đơn vị
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("donVi_ID", slDonVi, "Chọn đơn vị", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:300px;" })
+                    </li>*@
+                    <li class="liSearch labelSearch">
+                        Phân hệ
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownListFor(model => model.PhanHeChucNang, listPhanHe, new { @class = "S4T_ComboBox", @style = "width: 220px;" })
+                    </li>
+                </ul>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch" style=" width: 69px;">
+                        Năm
+                    </li>
+                    <li class="liSearch">
+                        @Html.TextBoxFor(model => model.Nam, new { @class = "S4T_NumericTextBox", @min = "1900", @max = "2100" })
+                    </li>
+                    <li class="liSearch labelSearch">
+                        Đợt báo cáo
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownListFor(model => model.DotBaoCao, slDotBaoCao, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                    </li>
+                    <li class="liSearch">
+                        <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-search"></span>Lưu</button>
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+
+<hr style="border:0"/>
+@Html.Action("ReportView", "ThongKe", new { trangThai = trangThai })
+
+<script type="text/javascript">
+    // Tạo searchable
+    $(document).ready(function () {
+        //$("#ddlDonVi").kendoComboBox({
+        //    ignoreCase: true,
+        //    filter: "contains"
+        //});
+
+        //DonVi_Onchange();
+    });
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    function DonVi_Onchange() {
+        if ($("#ddlDonVi").val() != "") {
+            $.post("/HT_QuanLyNhapLieu/GetReportByDonVi", { "donVi_ID": $("#ddlDonVi").val(), "phanHe_ID": $("#ddlPhanHe").val(), "trangThaiNhapLieu": $("#ddlTrangThaiNhapLieu").val() }).done(function (data) {
+                if (data.msg == null) {
+                    $("#gridData > tbody").html(data.danhSach);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+    }
+
+    function ChangeListDonVi() {
+
+    }
+</script>

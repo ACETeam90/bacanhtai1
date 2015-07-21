@@ -1,0 +1,260 @@
+﻿@model S4T_HaTinh.Models.Ht_LichNhapLieu
+@using S4T_HaTinh.Models
+@{
+    var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+    var listPhanHe = ViewBag.ListPhanHeChucNang != null ? new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang") : null;
+    var slNhomDonVi = new SelectList(ViewBag.ListNhomDonVi, "DanhMuc_ID", "TenDanhMuc");
+    var slDotBaoCao = new SelectList(ViewBag.ListDotBaoCao, "DanhMuc_ID", "TenDanhMuc");
+}
+
+<script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+<script src="~/Scripts/dropdown-check-list.1.4/ui.dropdownchecklist-1.4-min.js" type="text/javascript"></script>
+<link href="~/Content/dropdown-check-list.1.4/ui.dropdownchecklist.standalone.css" rel="stylesheet" />
+<link href="~/Content/dropdown-check-list.1.4/ui.dropdownchecklist.themeroller.css" rel="stylesheet" />
+
+<h2>TẠO MỚI</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="divRow">
+            <label class="divLabel">Nhóm đơn vị</label>
+            <div class="divControl">
+                @Html.DropDownList("ListNhomDonVi", slNhomDonVi, new { @class = "S4T_ComboBox", @onchange = "ChangeListDonVi()", @style = "width:300px;" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <div id="divLisDonVi">
+                    @Html.DropDownList("ListDonVi", (SelectList)ViewBag.SelectListDonVi,"", new { @onchange = "ChangeListBaoCao()", @style = "width:300px;" })
+                    @*@Html.HiddenFor(model => model.DonVi_ID)*@
+                </div>
+                <input type="hidden" id="strListDonVi" name="strListDonVi" />
+
+                @Html.ValidationMessageFor(model => model.DonVi_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanHe_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <div id="divListPhanHe">
+                    @Html.DropDownList("ListPhanHe", listPhanHe, new { @style = "width:300px;" })
+                    @*@Html.ValidationMessageFor(model => model.PhanHe_ID, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+            <input type="hidden" id="strListPhanHe" name="strListPhanHe" />
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Nam, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Nam, new { @class = "S4T_NumericTextBox", @min = "1900", @max = "2100" })
+                @Html.ValidationMessageFor(model => model.Nam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DotBaoCao_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.DotBaoCao_ID, slDotBaoCao, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.DotBaoCao_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TuNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TuNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TuNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DenNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DenNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DenNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        ChangeListDonVi();
+        $("#ListPhanHe").dropdownchecklist({
+            maxDropHeight: 250
+            // , firstItemChecksAll: true
+            //, emptyText: "Chọn đơn vị ..."
+            , forceMultiple: true
+            , onComplete: function (selector) {
+                var values = "";
+                for (i = 0; i < selector.options.length; i++) {
+                    if (selector.options[i].selected && (selector.options[i].value != "")) {
+                        if (values != "") values += ";";
+                        values += selector.options[i].value;
+                    }
+                }
+                //alert(values);
+                $("#strListPhanHe").val(values);
+            }
+        });
+    
+        // create DatePicker from input HTML element
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#TuNgay").kendoDatePicker({
+            value: new Date()
+            , value: new Date()
+            , change: startChange
+            , format: "dd/MM/yyyy"
+
+        }).data("kendoDatePicker");
+
+        var end = $("#DenNgay").kendoDatePicker({
+            value: new Date()
+            , change: endChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+
+        $('#TuNgay').removeAttr('data-val-date');
+        $('#DenNgay').removeAttr('data-val-date');
+    });
+
+    function ChangeListDonVi() {
+        $.post("/HT_LichNhapLieu/ChangeListDonVi", { "nhomDonVi_ID": $("#ListNhomDonVi").val() }).done(function (data) {
+            if (data.msg == null) {
+                $("#strListDonVi").val("");
+                $("#divLisDonVi").html("");
+                $("#divLisDonVi").html(data.danhSach);
+                $("#ListDonVi").dropdownchecklist({
+                    //maxDropHeight: 250
+                    firstItemChecksAll: true
+                    //, emptyText: "Chọn đơn vị ..."
+                    , forceMultiple: true
+                    , onComplete: function (selector) {
+                        var values = "";
+                        for (i = 0; i < selector.options.length; i++) {
+                            if (selector.options[i].selected && (selector.options[i].value != "")) {
+                                if (values != "") values += ";";
+                                values += selector.options[i].value;
+                            }
+                        }
+                        $("#strListDonVi").val(values);
+                    }
+	                //, onItemClick: function (checkbox, selector) {
+	                //    var justChecked = checkbox.prop("checked");
+	                //    var checkCount = (justChecked) ? 1 : -1;
+	                //    for (i = 0; i < selector.options.length; i++) {
+	                //        if (selector.options[i].selected) checkCount += 1;
+	                //    }
+	                //    //if (checkCount > 3) {
+	                //    //    alert("Limit is 3");
+	                //    //    throw "too many";
+	                //    //}
+	                //}
+                });
+            } else {
+                alert(data.msg);
+            }
+        });
+
+        ChangeListBaoCao();
+    }
+
+    function ChangeListBaoCao(){
+        $.post("/HT_LichNhapLieu/ChangeListBaoCao", { "nhomDonVi_ID": $("#ListNhomDonVi").val() }).done(function (data) {
+            if (data.msg == null) {
+                $("#strListPhanHe").val("");
+                $("#divListPhanHe").html("");
+                $("#divListPhanHe").html(data.danhSach);
+                $("#ListPhanHe").dropdownchecklist({
+                    //maxDropHeight: 250
+                    firstItemChecksAll: true
+                    //, emptyText: "Chọn đơn vị ..."
+                    , forceMultiple: true
+                    , onComplete: function (selector) {
+                        var values = "";
+                        for (i = 0; i < selector.options.length; i++) {
+                            if (selector.options[i].selected && (selector.options[i].value != "")) {
+                                if (values != "") values += ";";
+                                values += selector.options[i].value;
+                            }
+                        }
+                        $("#strListPhanHe").val(values);
+                    }
+                    //, onItemClick: function (checkbox, selector) {
+                    //    var justChecked = checkbox.prop("checked");
+                    //    var checkCount = (justChecked) ? 1 : -1;
+                    //    for (i = 0; i < selector.options.length; i++) {
+                    //        if (selector.options[i].selected) checkCount += 1;
+                    //    }
+                    //    //if (checkCount > 3) {
+                    //    //    alert("Limit is 3");
+                    //    //    throw "too many";
+                    //    //}
+                    //}
+                });
+
+                // Su dung KenDo
+                //$("#PhanHe_ID").html(data.danhSach);
+                //$("#PhanHe_ID").kendoComboBox({
+                //    filter: "contains",
+                //    ignoreCase: true
+                //});
+            }else{
+                alert(data.msg);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_HoSoDuAnWithLuongXuLy_Result>
+
+@{
+    var listCap = MvcApplication.ListCapXuLyHoSo();
+}
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+
+<h2>HỒ SƠ ĐÃ XỬ LÝ</h2>
+
+<p>
+    @using (Html.BeginForm("HoSoDaXuLy", "TD_HoSoDuAn", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>Mã hồ sơ</td>
+                <td>@Html.TextBox("maHoSo", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td><input type="submit" value="Tìm kiếm" /></td>
+            </tr>
+        </table>
+    }
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaHoSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDuAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cap_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NguoiNhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayHenTra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuaTrinhThucHien)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@if (Model != null) { 
+    var i = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHoSo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDuAn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listCap.FirstOrDefault(o => o.Cap_ID == item.Cap_ID).TenCap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiNhan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayHenTra)
+            </td>
+            <td>
+                @* Quá trình xử lý *@
+                <a title="Quá trình xử lý" href='javascript:void(0);' onclick="GetQuaTrinhXuLy(@item.MaHoSo)">Quá trình xử lý</a>
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.HoSoDuAn_ID, vi = @ViewContext.RouteData.Values["action"] })
+            </td>
+        </tr>
+        i++;
+    }
+}
+</table>
+
+<div id="dialogQTXL" style="display: none;">
+    <iframe id="iframeQTXL" src="/Content/loading.html" frameborder="0"></iframe>
+</div>
+
+<script type="text/javascript">    
+    function GetQuaTrinhXuLy(maHoSo) {
+        ShowPopUp('dialogQTXL', 'iframeQTXL', "/TD_HoSoDuAn/QuaTrinhXuLy?maHoSo=" + maHoSo, 900, 600, "THEO DÕI QUÁ TRÌNH XỬ LÝ");
+    }
+
+    // Dialog thêm file hồ sơ
+    $("#dialogQTXL").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        close: function (event, ui) {
+            $('#iframeQTXL').attr('src', '/Content/loading.html');
+            //location.reload();
+        }
+    });
+</script>

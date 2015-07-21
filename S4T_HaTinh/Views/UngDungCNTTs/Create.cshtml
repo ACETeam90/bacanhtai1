@@ -1,0 +1,347 @@
+﻿@model S4T_HaTinh.Models.UngDungCNTT
+
+@{
+    ViewBag.Title = "Create";
+    var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+}
+<style type="text/css">
+    .S4T_NumericTextBox {
+        width: 90px;
+        float: left;
+    }
+</style>
+
+
+<h3>Ứng dụng CNTT</h3>
+<h4>Đơn vị: @ViewBag.TenDonVi được tạo mới dữ liệu từ ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.TuNgay) đến ngày @String.Format("{0:dd/MM/yyyy}", @ViewBag.DenNgay)</h4>
+<hr />
+
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "ungDungCNTTForm" })) 
+{
+    @Html.AntiForgeryToken()
+    <span>ViewBag.Mess</span>
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DonVi_ID)
+        @Html.HiddenFor(model => model.Success)
+
+        <p>1. Triển khai các ứng dụng cơ bản:</p>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QLVB, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" class="k-radio" id="rd_value_QLVB_1" name="rd_value_QLVB" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" class="k-radio" id="rd_value_QLVB_0" name="rd_value_QLVB" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.QLVB)
+                @Html.ValidationMessageFor(model => model.QLVB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QLNhanSu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_QLNhanSu_1" name="rd_value_QLNhanSu" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_QLNhanSu_0" name="rd_value_QLNhanSu" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.QLNhanSu)
+                @Html.ValidationMessageFor(model => model.QLNhanSu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QLTaiChinhKeToan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_QLTaiChinhKeToan_1" name="rd_value_QLTaiChinhKeToan" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_QLTaiChinhKeToan_0" name="rd_value_QLTaiChinhKeToan" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.QLTaiChinhKeToan)
+                @Html.ValidationMessageFor(model => model.QLTaiChinhKeToan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QLTaiSanCong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_QLTaiSanCong_1" name="rd_value_QLTaiSanCong" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_QLTaiSanCong_0" name="rd_value_QLTaiSanCong" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.QLTaiSanCong)
+                @Html.ValidationMessageFor(model => model.QLTaiSanCong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QLKhieuNai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_QLKhieuNai_1" name="rd_value_QLKhieuNai" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_QLKhieuNai_0" name="rd_value_QLKhieuNai" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.QLKhieuNai)
+                @Html.ValidationMessageFor(model => model.QLKhieuNai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChuKySo, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_ChuKySo_1" name="rd_value_ChuKySo" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_ChuKySo_0" name="rd_value_ChuKySo" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.ChuKySo)
+                @Html.ValidationMessageFor(model => model.ChuKySo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MotCuaDienTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none">
+                    <li>
+                        <input type="radio" id="rd_value_MotCuaDienTu_1" name="rd_value_MotCuaDienTu" style="width:30px;" checked="checked" />
+                        <span style="width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_MotCuaDienTu_0" name="rd_value_MotCuaDienTu" style="width:30px;" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.MotCuaDienTu)
+                @Html.ValidationMessageFor(model => model.MotCuaDienTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoTTHC, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoTTHC, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.SoTTHC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p>2. Kết quả ứng dụng quản lý văn bản và điều hành tác nghiệp trực tuyến:</p>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DV_LienThong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DV_LienThong, new { @class = "S4T_NumericTextBox", @min="0" })
+                @Html.ValidationMessageFor(model => model.DV_LienThong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.VBDi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.VBDi, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.VBDi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.VBDen, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.VBDen, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.VBDen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongSo_VBDi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TongSo_VBDi, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.TongSo_VBDi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongSo_VBDen, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TongSo_VBDen, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.TongSo_VBDen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoEmail, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoEmail, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p>3. Số lượng máy tính cài đặt ứng dụng PMNM tại UBND cấp huyện:</p>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.OpenOffice, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.OpenOffice, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.OpenOffice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MozillaThunderBird, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.MozillaThunderBird, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.MozillaThunderBird, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MozillaFireFox, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.MozillaFireFox, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.MozillaFireFox, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Unikey, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Unikey, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.Unikey, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PMNM, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PMNM, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.PMNM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PMNM_MayChu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PMNM_MayChu, new { @class = "S4T_NumericTextBox" })
+                @Html.ValidationMessageFor(model => model.PMNM_MayChu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TongMucDauTu, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.TongMucDauTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <p>4. Phần mềm quản lý chuyên ngành:</p>
+        <button type="button" class="k-button k-button-icontext" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdatePMCN", "UngDungCNTTs"))', 626, 275, true); return false;"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+
+        @Html.Partial("_ListPMCN", Model.ListPMQLCN)
+
+        @* Refresh lại list PMCN *@
+        <input type="button" id="btnRefreshPMCN" style="display: none" />
+        <script type="text/javascript">
+            //$(document).ready(function () {
+                $('#btnRefreshPMCN').click(function () {
+                    $.post("/UngDungCNTTs/RefreshPMCN").done(function (data) {
+                        if (data.msg != null) {
+                            alert(data.msg);
+                        } else {
+                            $("#gridPMCN tbody").html(data.danhSach);
+                        }
+                    });
+                });
+
+            //});
+        </script>
+
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Test check sẵn
+        $(":radio").each(function () {
+            // Dạng check radio Có / Không
+            if (this.id.indexOf("rd_value_") != -1 && this.checked) {
+                var radio_ID = $(this).attr('id');
+                var name = $(this).attr('name');
+                var base_ID = name.substring(9, name.length);
+
+                // Dung cho dang. nhieu lua chon (>2 lua chon)
+                var number = radio_ID.substring(radio_ID.length - 1, radio_ID.length);
+                //alert(number); // test
+                $("#" + base_ID).val(number);
+
+                // Dung cho dang Yes/No
+                //if (radio_ID.indexOf("Yes") != -1) {
+                //    $("#" + base_ID).val(1);
+                //} else {
+                //    $("#" + base_ID).val(0);
+                //}
+            }
+        })
+    });
+
+    // Sự kiện click vào nút radio
+    $("input[type='radio']").click(function () {
+        // Dạng check radio Có / Không
+        if (this.id.indexOf("rd_value_") != -1) {
+            var radio_ID = $(this).attr('id');
+            var name = $(this).attr('name');
+            var base_ID = name.substring(9, name.length);
+            var numberValue = radio_ID.substring(radio_ID.length - 1, radio_ID.length);
+            $("#" + base_ID).val(numberValue);
+        }
+    })
+
+    function ShowPopUpPMCN(_guid) {
+        OpenWindow('/UngDungCNTTs/_CreateOrUpdatePMCN?guid=' + _guid);
+    }
+</script>

@@ -1,0 +1,554 @@
+﻿@model S4T_HaTinh.Models.TD_HoSoDuAn
+@using S4T_HaTinh.Models;
+@{
+    var slLoaiDuAn = new SelectList(MvcApplication.ListLoaiDuAn(), "LoaiDuAn_ID", "TenLoaiDuAn");
+    var slTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+    var slHinhThucQuanLy = (List<SelectListItem>)ViewBag.HinhThucQuanLy;
+    var slTinhChatDuAn = (List<SelectListItem>)ViewBag.TinhChatDuAn;
+    var slNhomDuAn = (List<SelectListItem>)ViewBag.NhomDuAn;
+}
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>
+
+
+<div id="divXuLy" style="display:none">
+    <h2>THÔNG TIN YÊU CẦU XỬ LÝ</h2>
+    <div class="form-horizontal">
+        <input type="hidden" id="LuongCongViec_ID" value="@ViewData["LuongCongViec_ID"]" />
+        <div class="divRow">
+            <label class="divLabel">Người yêu cầu</label>
+            <div class="divControl">
+                @Html.Raw(ViewData["NguoiGui"])
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.str5, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.str5)
+            </div>
+        </div>
+
+        @*<div class="divRow">
+                <label class="divLabel">Ý kiến</label>
+                <div class="divControl">
+                    @Html.Raw(ViewData["NoiDung"])
+                    @*<textarea rows="5" cols="30" id="txtNoiDung">@ViewData["NoiDung"]</textarea>
+                </div>
+            </div>
+            <div class="divRow">
+                <label class="divLabel">Ngày hẹn trả</label>
+                <div class="divControl">
+                    @Html.Raw(ViewData["NgayHenTra"])
+                    <input type="text" id="txtNgayHenTra" value="@ViewData["NgayHenTra"]" />
+                </div>
+            </div>*@
+
+        <div class="divRow">
+            <label class="divLabel">Văn bản đính kèm</label>
+            <div class="divControl">
+                @Html.Raw(ViewData["HrefFileDinhKem"])
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+<h2>THÔNG TIN HỒ SƠ</h2>
+
+@using (Html.BeginForm("Details", "TD_HoSoDuAn", FormMethod.Post, new { enctype = "multipart/form-data", id = "myForm" }))
+{
+    @*@Html.AntiForgeryToken()*@
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaHoSo)
+
+        @*<div class="divRow">
+            @Html.LabelFor(model => model.Cap_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => MvcApplication.ListCapXuLyHoSo().FirstOrDefault(o => o.Cap_ID == model.Cap_ID).TenCap)
+            </div>
+        </div>*@
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MaHoSo, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.MaHoSo)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChuDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChuDauTu)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenDuAn, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.TenDuAn)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NoiDungTomTat, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.NoiDungTomTat)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MucTieu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.MucTieu)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuyMo, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.QuyMo)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DiaDiem, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DiaDiem)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguonVon, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.NguonVon)
+            </div>
+        </div>
+        
+        @*<div class="divRow">
+        @Html.LabelFor(model => model.HinhThucQuanLy_ID, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            @Html.DisplayTextFor(model => slHinhThucQuanLy.FirstOrDefault(o => o.Value == model.HinhThucQuanLy_ID.ToString()).Text)
+        </div>
+        </div>
+
+        <div class="divRow">
+            Thời gian thực hiện
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.int1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Model.int1
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.int2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Model.int2
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuyTrinhQuanLy, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.QuyTrinhQuanLy)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NhomDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => slNhomDuAn.FirstOrDefault(o => o.Value == model.NhomDuAn_ID.ToString()).Text)
+            </div>
+        </div>
+        *@
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => slLoaiDuAn.FirstOrDefault(o => o.Value == model.LoaiDuAn_ID.ToString()).Text)
+            </div>
+        </div>
+
+        @*<div class="divRow">
+            @Html.LabelFor(model => model.TinhChatDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => slTinhChatDuAn.FirstOrDefault(o => o.Value == model.TinhChatDuAn_ID.ToString()).Text)
+            </div>
+        </div>*@
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.TongMucDauTu)
+            </div>
+        </div>
+
+        @*<div class="divRow">
+            Trong đó, bao gồm:
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiXayLap, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiXayLap)
+                <span>VNĐ</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiThietBi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiThietBi)
+                <span>VNĐ</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiQuanLy, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiQuanLy)
+                <span>VNĐ</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiTuVan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiTuVan)
+                <span>VNĐ</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiKhac, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiKhac)
+                <span>VNĐ</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiDuPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.ChiPhiDuPhong)
+                <span>VNĐ</span>
+            </div>
+        </div>*@
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoNgayGiaiQuyet, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoNgayGiaiQuyet)
+                @Html.ValidationMessageFor(model => model.SoNgayGiaiQuyet, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgayNhan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Model.NgayNhan.ToShortDateString()
+                @Html.ValidationMessageFor(model => model.NgayNhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgayHopLe, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Model.NgayHopLe.ToShortDateString()
+                @Html.ValidationMessageFor(model => model.NgayHopLe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgayTra, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Model.NgayTra.ToShortDateString()
+                @Html.ValidationMessageFor(model => model.NgayTra, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuyMo, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.QuyMo)
+                @Html.ValidationMessageFor(model => model.QuyMo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @{
+            if (Model.ListFile != null)
+            {
+                <table class="tableDefault" id="tableFileHoSo">
+                    <thead>
+                        <tr>
+                            <th style="display:none"></th>
+                            <th>Trích yếu</th>
+                            <th>Số ký hiệu</th>
+                            @*<th>Tên File</th>*@
+                            <th>Tập tin văn bản</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var i = 0;
+
+                            foreach (var item in Model.ListFile)
+                            {
+                            <tr>
+                                <td style="display:none">@Html.Hidden("[" + i + "].FileHoSoDinhKem_ID", item.FileHoSoDinhKem_ID)</td>
+                                <td>@Html.TextBox("[" + i + "].TrichYeu", item.TrichYeu)</td>
+                                <td>@Html.TextBox("[" + i + "].SoKyHieu", item.SoKyHieu)</td>
+                                <td id="tenFile_@i"><a href="/TD_HoSoDuAn/Download?id=@item.FileHoSoDinhKem_ID&prefixName=TD_HoSoDuAn">@item.TenHienThi</a></td>
+                                @*<td> <input type="file" name="file_@i" id="file_@i" /> </td>*@
+                            </tr>
+                            i++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+
+    </div>
+
+    @*<h5>2. Tiến độ triển khai dự án và kết quả đạt được trong năm</h5>
+    <div class="divRow">
+        a)	Tình hình bố trí kinh phí cho dự án trong năm:
+    </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachTrungUong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.NganSachTrungUong)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachTinh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.NganSachTinh)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachDonVi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.NganSachDonVi)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguonKhac, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.NguonKhac)
+            </div>
+        </div>
+
+        <div class="divRow">
+            b)	Tiến độ triển khai và kết quả đạt được trong năm:
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HangMucTrienKhai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.HangMucTrienKhai)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ThoiGianHoanThanh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.ThoiGianHoanThanh)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SanPhamHangMuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.SanPhamHangMuc)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.KinhPhiThucHienHangMuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.KinhPhiThucHienHangMuc)
+            </div>
+        </div>
+
+        <br />
+        <h5>3.	Kết quả đầu tư</h5>
+        <div class="divRow">
+            @Html.LabelFor(model => model.KetQuaDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(m => m.KetQuaDauTu)
+            </div>
+        </div>*@
+
+    <div id="divButton" class="divRow">
+        <label class="divLabel" id="lbl"></label>
+        <div class="divControl">
+            <input type="button" value="Phản hồi" id="Reply" name="Reply" class="k-button k-button-icontext" style="display:none" />
+            <input type="button" value="Chuyển tiếp" id="Forward" name="Forward" class="k-button k-button-icontext" style="margin-left:5px;display:none" />
+            <input type="button" value="Phê duyệt" id="PheDuyet" name="PheDuyet" class="k-button k-button-icontext" style="margin-left:5px;display:none" />
+        </div>
+    </div>
+
+    <div id="dialogFileHoSo" style="display: none;">
+        <iframe id="iframeFileHoSo" src="/Content/loading.html" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+    </div>
+
+    <div id="dialogFileChuyenTiep" style="display: none;">
+        <iframe id="iframeFileChuyenTiep" src="/Content/loading.html" frameborder="0" scrolling="no" seamless="seamless"></iframe>
+    </div>
+}
+
+<script type="text/javascript">
+    var ngayTra = '@Model.NgayTra.ToShortDateString()';
+
+    $(document).ready(function () {
+        if ('@ViewData["ShowDivXuLy"]' == 'True') {
+            $("#divXuLy").show();
+            $("#Reply").show();
+            $("#Forward").show();
+        } else {
+            // Nếu là người tạo hồ sơ thì hiển thị các nút chuyển tiếp
+            if ('@ViewData["ShowDivButton"]' == 'True') {
+                $("#Forward").show();
+            }
+        }
+
+        if ('@ViewData["IsGiamDoc"]' == 'True') {
+            $("#PheDuyet").show();
+        }
+
+        $("#NgayNhan").kendoDatePicker({
+            //value: new Date(),
+            format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        $("#NgayHopLe").kendoDatePicker({
+            //value: $("#NgayNhan").val(),
+            format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        $("#NgayTra").kendoDatePicker({
+            format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        $("#int1").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        }).data("kendoDatePicker");
+
+        $("#int2").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        }).data("kendoDatePicker");
+
+        var denNgay = $("#int2").val();
+        var tuNgay = $("#int1").val();
+
+        ////01/01/0001 00:00:00
+        if ($("#int1").val() == "0") {
+            $('#int1').val("");
+        }
+        if ($("#int2").val() == "0") {
+            $('#int2').val("");
+        }
+
+        $('#int1').removeAttr('data-val-date');
+        $('#int2').removeAttr('data-val-date');
+        $('#NgayNhan').removeAttr('data-val-date');
+        $('#NgayHopLe').removeAttr('data-val-date');
+        $('#NgayTra').removeAttr('data-val-date');
+        //$("#NgayHopLe").val($("#NgayNhan").val()); // Lấy ngày hợp lệ là ngày hiện tại
+    });
+
+    var number = $("#SoNgayGiaiQuyet").val();
+
+    // Open dialog
+    function ShowPopUp(dialogName, ifameName, strSrc, w, h, title) {
+        $('#' + ifameName).attr('height', h - 30 + 'px');
+        $('#' + ifameName).attr('width', w - 10 + 'px');
+        $("#" + dialogName).dialog({
+            title: title,
+            width: w,
+            heigth: h
+        });
+        $("#" + dialogName).dialog("open");
+        $('#' + ifameName).attr('src', strSrc);
+        $('#' + ifameName).attr('allowfullscreen', 'true');
+    }
+
+    // Sự kiện click vào nút Upload File
+    $('a#ShowPopUp').on('click', function (e) {
+        e.preventDefault();
+        ShowPopUp('dialogFileHoSo', 'iframeFileHoSo', $(this).attr('href'), 450, 200, "UPLOAD FILE ĐÍNH KÈM");
+    });
+
+    // Chuyển tiếp
+    $("#Reply").click(function () {
+        // prefix = Reply : Phản hồi , = Forwad : Chuyển tiếp
+        ShowPopUp('dialogFileChuyenTiep', 'iframeFileChuyenTiep', "/TD_HoSoDuAn/Forward?maHoSo=" + $("#MaHoSo").val()
+                    + "&luongCongViec_ID=" + $("#LuongCongViec_ID").val() + "&prefix=Reply&ngayHenTra=" + ngayTra, 650, 450, "PHẢN HỒI");
+    });
+
+    $("#Forward").click(function () {
+        // prefix = Reply : Phản hồi , = Forwad : Chuyển tiếp
+        ShowPopUp('dialogFileChuyenTiep', 'iframeFileChuyenTiep', "/TD_HoSoDuAn/Forward?maHoSo=" + $("#MaHoSo").val()
+                    + "&luongCongViec_ID=" + $("#LuongCongViec_ID").val() + "&prefix=Forward&ngayHenTra=" + ngayTra, 650, 450, "XIN Ý KIẾN");
+    });
+
+    // Phê duyệt hồ sơ , chỉ có Giám đốc là có quyền
+    $("#PheDuyet").click(function () {
+        if (!confirm("Bạn đồng ý phê duyệt hồ sơ này")) return;
+        $.post("/TD_HoSoDuAn/PheDuyet", { "maHoSo": $("#MaHoSo").val() }).done(function (data) {
+            if (data.msg != null) {
+                alert(data.msg);
+            } else {
+                alert("Đã phê duyệt thành công");
+                location.href = "/TD_HoSoDuAn/PheDuyetHoSo";
+            }
+        });
+    });
+
+    // Dialog thêm file hồ sơ
+    $("#dialogFileHoSo").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        close: function (event, ui) {
+            $('#iframeFileHoSo').attr('src', '/Content/loading.html');
+            location.reload();
+        }
+    });
+
+    // Dialog chuyển tiếp hồ sơ
+    $("#dialogFileChuyenTiep").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        open: function (event, ui) {
+        },
+        close: function (event, ui) {
+            //alert($($('#iframeFileChuyenTiep')[0].contentDocument.body).find('input[id="txtSuccess"]').val());
+            if ($($('#iframeFileChuyenTiep')[0].contentDocument.body).find('input[id="txtSuccess"]').val() == 'Success') {
+                var url = '@ViewBag.URLPrevious';
+                //alert(url);
+                if (url != '')
+                    location.href = url;
+                else
+                    location.href = 'Home/Index';
+            }
+            $('#iframeFileChuyenTiep').attr('src', '/Content/loading.html');
+        }
+    });
+</script>

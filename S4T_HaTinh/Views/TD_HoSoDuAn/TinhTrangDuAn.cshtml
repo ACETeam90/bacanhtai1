@@ -1,0 +1,88 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_HoSoDuAnWithLuongXuLy_Result>
+
+@{
+    var listCap = MvcApplication.ListCapXuLyHoSo();
+    var listDanhMucChung = S4T_HaTinh.Common.S4T_HaTinhBase.ListTinhChatDuAn(S4T_HaTinh.Common.TrangThai.HoatDong);
+    var slTinhChatDuAn = new SelectList(listDanhMucChung, "DanhMuc_ID", "TenDanhMuc");
+}
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+
+<h2>TÌNH TRẠNG DỰ ÁN</h2>
+
+<p>
+    @using (Html.BeginForm("TinhTrangDuAn", "TD_HoSoDuAn", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>Mã hồ sơ</td>
+                <td>@Html.TextBox("maHoSo", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td>Tên văn bản</td>
+                <td>@Html.TextBox("tenDuAn", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                
+            </tr>
+            <tr>
+                <td>Tổng mức đầu tư</td>
+                <td>@Html.TextBox("tongMucDauTu", "", new { @class = "S4T_AutoComplete", @style = "width:200px;" })</td>
+                <td>Tính chất dự án</td>
+                <td>@Html.DropDownList("ddltinhChatDuAn", slTinhChatDuAn, "", new { @class = "S4T_DropDownList", @style = "width:200px;" })</td>
+                <td><input type="submit" value="Tìm kiếm" /></td>
+            </tr>
+        </table>
+    }
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaHoSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDuAn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TongMucDauTu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhChatDuAn_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrangThucHien)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@if (Model != null) { 
+    var i = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHoSo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDuAn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongMucDauTu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listDanhMucChung.FirstOrDefault(o => o.DanhMuc_ID == item.TinhChatDuAn_ID).TenDanhMuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangThucHien)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "UpdateTinhTrangDuAn", new { id = item.HoSoDuAn_ID })
+            </td>
+        </tr>
+        i++;
+    }
+}
+</table>
+
+<script type="text/javascript">    
+
+</script>

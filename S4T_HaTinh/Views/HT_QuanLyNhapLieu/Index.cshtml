@@ -1,0 +1,125 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_LichNhapLieuWithOption_Result>
+@using S4T_HaTinh.Common;
+@{
+    var slDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var listPhanHe = new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang");
+    //var trangThaiThemMoi = S4T_HaTinh.Common.TrangThaiNhapLieu.ThemMoi;
+    var listTrangThaiNhapLieu = new SelectList(MvcApplication.ListTrangThaiNhapLieu(), "DanhMuc_ID", "TenDanhMuc");  
+}
+
+<h2>QUẢN LÝ TÌNH HÌNH NHẬP LIỆU CÁC ĐƠN VỊ</h2>
+
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "HT_QuanLyNhapLieu", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+        {
+            @*<input type="hidden" name="status" value="1" />*@
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">
+                        Đơn vị
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("donVi_ID", slDonVi, "Chọn đơn vị", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:300px;" })
+                    </li>
+                    <li class="liSearch labelSearch">
+                        Phân hệ
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("phanHe_ID", listPhanHe, "Tất cả", new { @class = "S4T_ComboBox", @style = "width: 250px;", @onchange = "SearchFormOnchange()" })
+                    </li>
+                    <li class="liSearch labelSearch">
+                        Hình thức
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownList("trangThai", listTrangThaiNhapLieu, "Tất cả", new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()" })
+                    </li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+
+<hr style="border:0"/>
+<table  id="gridData">
+    <colgroup>
+        <col width="40"/>
+        <col />
+        <col width="150"/>
+        <col width="150"/>
+        <col width="150"/>
+        <col width="150"/>
+    </colgroup>
+    <tr>
+        <th>STT</th>
+        <th>Tên phân hệ</th>
+        <th>Ngày bắt đầu</th>
+        <th>Ngày kết thúc</th>
+        <th>Trạng thái</th>
+        <th>Thao tác</th>
+    </tr>
+    @if (Model != null && listPhanHe != null)
+    {
+        var listTrangThai = MvcApplication.ListTrangThaiNhapLieu();
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(model => item.TenChucNang)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.TuNgay)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.DenNgay)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => listTrangThai.FirstOrDefault(o => o.DanhMuc_ID == item.ChucNang_ID).TenDanhMuc)
+                </td>
+                <td>
+                    @if (item.ChucNang_ID == TrangThaiNhapLieu.DaGui){
+                        // Duyệt báo cáo
+                        <a href='/@item.ControllerName/Check?donVi_ID=@item.DonVi_ID&lichNhap_ID=@item.LichNhap_ID'>Kiểm tra</a>
+                    }
+                    else if (item.ChucNang_ID == TrangThaiNhapLieu.PheDuyet || item.ChucNang_ID == TrangThaiNhapLieu.Sua){
+                        // Xem báo cáo
+                        <a href='/@item.ControllerName/Details?donVi_ID=@item.DonVi_ID&lichNhap_ID=@item.LichNhap_ID'>Xem</a>
+                    }
+                </td>                
+            </tr>
+            i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    // Tạo searchable
+    $(document).ready(function () {
+        //$("#ddlDonVi").kendoComboBox({
+        //    ignoreCase: true,
+        //    filter: "contains"
+        //});
+
+        //DonVi_Onchange();
+    });
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    function DonVi_Onchange() {
+        if ($("#ddlDonVi").val() != "") {
+            $.post("/HT_QuanLyNhapLieu/GetReportByDonVi", { "donVi_ID": $("#ddlDonVi").val(), "phanHe_ID": $("#ddlPhanHe").val(), "trangThaiNhapLieu": $("#ddlTrangThaiNhapLieu").val() }).done(function (data) {
+                if (data.msg == null) {
+                    $("#gridData > tbody").html(data.danhSach);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+    }
+</script>

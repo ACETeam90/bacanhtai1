@@ -1,0 +1,175 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetUserByDonVi_Role_Result>
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "DANH SÁCH CHUYÊN VIÊN SỞ TTTT";
+    var listRole = new SelectList(ViewBag.ListRole, "Name", "TenHienThi");
+    var donViSoTTTT = ViewBag.DonViSoThongTinTruyenThong;
+    var slTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ListChuyenVienSo", "HT_User", FormMethod.Get, new { id = "searchForm" }))
+{
+    <table>
+        <tr>
+            <td>Vai trò</td>
+            <td>@Html.DropDownList("roleName", listRole, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:230px;" })</td>
+            <td>Trạng thái</td>
+            <td>@Html.DropDownList("trangThai", slTrangThai, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:130px;" })</td>
+            <td><input type="submit" value="Tìm kiếm" id="btnTimKiem" /></td>
+        </tr>
+    </table>
+    <input type="text" name="status" value="1" style="display:none" />
+}
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create", new { donViSoTTTT = @donViSoTTTT, vi = @ViewContext.RouteData.Values["action"] })'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+    @*<input type="button" value="Tạo mới" onclick="location.href = '/Ht_User/Create?donViSoTTTT=@donViSoTTTT&vi=@ViewContext.RouteData.Values["action"]'" />*@
+</p>
+
+<table id="gridData"> @*class="tableDefault">*@
+    <colgroup>
+        <col width="50" />
+        <col width="150" />
+        <col width="250" />
+        <col width="250" />
+        <col width="150" />
+        <col width="150" />
+    </colgroup>
+    <tr>
+        @*<th hidden="hidden">Id</th>*@
+        <th>
+            STT
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoVaTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                @*<td>@Html.HiddenFor(modelItem => item.Id)</td>*@
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoVaTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDonVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id, vi = @ViewContext.RouteData.Values["action"] })
+                    @*@Html.ActionLink("Không sử dụng", "Delete", new { id = item.Id })*@
+                    @if (item.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong)
+                    {
+                        <span>|</span> <a href='javascript:void(0);' onclick="Delete('@item.Id')">Không hoạt động</a>
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    var valueDonVi = "";
+    $(document).ready(function () {
+        $("#roleName").kendoComboBox();
+        
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: "/HT_User/ListChuyenVienSo",
+                update: {
+                    url: "/HT_User/Edit",
+                    type: "POST"
+                },
+                destroy: {
+                    url: "/HT_User/Delete",
+                    type: "POST"
+                },
+                create: {
+                    url: "/HT_User/Create",
+                    type: "POST"
+                }
+            },
+            // determines if changes will be send to the server individually or as batch
+            batch: true
+            , schema: {
+                model: {
+                    id: "Id",
+                    fields: {
+                        HoVaTen: {
+                            //this field will not be editable (default value is true)
+                            editable: false,
+                            // a defaultValue will not be assigned (default value is false)
+                            nullable: true
+                        },
+                        UserName: {
+                            validation: { //set validation rules
+                                required: true
+                            }
+                        },
+                        TenDonVi: {
+                            validation: {
+                                required: true,
+                            }
+                        },
+                        TrangThai: {
+                            validation: {
+                                required: true,
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        if ('@ViewBag.ResetPass' == 'Success') {
+            alert("Đã đổi pass thành công");
+        }
+    });
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    function Delete(id) {
+        //alert(id);
+        if (!confirm("Bạn có chắc chắn không dùng dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/HT_User/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    //location.reload();
+                    SearchFormOnchange();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

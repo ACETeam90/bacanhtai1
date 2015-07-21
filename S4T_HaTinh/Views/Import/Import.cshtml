@@ -1,0 +1,165 @@
+﻿@model S4T_HaTinh.Controllers.ImportModel
+@{
+    var listPhanHe = ViewBag.ListPhanHeChucNang != null ? new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang") : null;
+    var slDotBaoCao = new SelectList(ViewBag.ListDotBaoCao, "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>NHẬP DỮ LIỆU BÁO CÁO</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        <span style="color: red;font-size: 15px;font-weight: bold;">@ViewBag.Mess</span>
+
+        <div class="divRow">
+            <label class="divLabel">Chọn file</label>
+            <div class="divControl">
+                <input type="file" id="fileVanBan" name="fileVanBan" class="S4T_UploadOneFile"
+                       accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/x-rar-compressed,application/zip" />
+            </div>
+        </div>
+        
+        <div class="divRow">
+            <label class="divLabel">Xóa dữ liệu liên quan trước</label>
+            <div class="divControl">
+                @Html.EditorFor(x => x.DeleteFirst)
+                <br />
+                <span id="validateDeleteFirst" style="color:red">Hệ thống sẽ chỉ xóa lịch nhập và dữ liệu báo cáo của các đơn vị đã chọn theo năm và đợt báo cáo được chọn (Không ảnh hưởng đến các đơn vị khác và mốc báo cáo khác của chính đơn vị đó)</span>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanHeChucNang, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.PhanHeChucNang, listPhanHe, new { @class = "S4T_ComboBox", @style = "width:300px;" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Nam, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Nam, new { @class = "S4T_NumericTextBox", @min = "1900", @max = "2100" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DotBaoCao, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.DotBaoCao, slDotBaoCao, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TuNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TuNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TuNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DenNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DenNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DenNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Nhập</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // create DatePicker from input HTML element
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#TuNgay").kendoDatePicker({
+            value: new Date()
+            , value: new Date()
+            , change: startChange
+            , format: "dd/MM/yyyy"
+
+        }).data("kendoDatePicker");
+
+        var end = $("#DenNgay").kendoDatePicker({
+            value: new Date()
+            , change: endChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+
+        $('#TuNgay').removeAttr('data-val-date');
+        $('#DenNgay').removeAttr('data-val-date');
+
+        // Sư kiện submit file
+        $('form').submit(function (e) {
+            var fileInput = $('#fileVanBan');
+            var maxSize = 16384; // ~ 16MB
+            if (fileInput.get(0).files.length) {
+                var fileSize = fileInput.get(0).files[0].size / 1024; // in MB
+                if (fileSize > maxSize) {
+                    alert('File vượt quá dung lượng cho phép là 16 MB');
+                    return false;
+                }
+            }
+            //else {
+            //alert('Mời chọn 1 file');
+            //return false;
+            //}
+
+            // Check file type
+            var ext = $(this).val().split('.').pop().toLowerCase();
+            if (ext != "" && $.inArray(ext, ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar', 'pptx', 'ppt']) == -1) {
+                alert('Không thể upload file có dạng .' + ext);
+                $(this).val("");
+                allowFile = false;
+            }
+
+            $(".loadingDialog").show();
+            setTimeout(function () { $('.loadingDialog').hide(); }, 60000); // 60 s tự động tắt
+        });
+    });
+</script>

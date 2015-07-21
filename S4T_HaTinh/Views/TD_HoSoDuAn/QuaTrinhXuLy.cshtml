@@ -1,0 +1,101 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.TD_LuongCongViec>
+
+@{
+    var listCap = MvcApplication.ListCapXuLyHoSo();
+    var listFileDinhKem = (IEnumerable<S4T_HaTinh.Models.TD_LuongCongViec_FileDinhKem>)ViewBag.ListFileDinhKem;
+}
+@Styles.Render("~/Content/Kendo/css")
+@*<script src="~/Scripts/jquery-1.11.1.js" type="text/javascript"></script>*@
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script>
+@*<link href="~/Content/skin.css" rel="stylesheet" />*@
+
+<style type="text/css">
+    .divSTT {
+        float: left;
+        width: 45px;
+    }
+
+    .divGui {
+        float: left;
+        width: 90px;
+    }
+
+    .divDen {
+        float: left;
+        /*width:240px;*/
+    }
+
+    .divNgayGui {
+        float: left;
+        width: 80px;
+    }
+
+    .divNgayHenTra {
+        float: left;
+        width: 80px;
+    }
+</style>
+
+@if (Model != null)
+{
+    var stt = 1;
+    foreach (var item in Model)
+    {
+        <p>
+            <div class="divSTT"># @stt</div>
+            <div class="divGui">@item.NguoiGui</div>
+            <div class="divDen">
+                @if (item.STT == 1)
+                {
+                    <span>Tạo mới hồ sơ</span>
+                }
+                else
+                {
+                    <table>
+                        <tr>
+                            <td>Đến</td>
+                            <td>@item.NguoiNhan</td>
+                        </tr>
+                        <tr>
+                            <td>Ý kiến</td>
+                            <td><div style='max-height: 100px;overflow: auto;'>@item.NoiDung</div></td>
+                        </tr>
+                        <tr>
+                            <td>Đính kèm</td>
+                            <td>
+                                @{
+                    if (listFileDinhKem.Any() && listFileDinhKem.FirstOrDefault(o => o.LuongCongViec_ID == item.LuongCongViec_ID) != null)
+                    {
+                        var objFile = listFileDinhKem.FirstOrDefault(o => o.LuongCongViec_ID == item.LuongCongViec_ID);
+                        <a href="/TD_HoSoDuAn/Download?id=@objFile.FileHoSoDinhKem_ID&prefixName=TD_LuongCongViec_FileDinhKem">@objFile.TenHienThi</a>
+                    }
+                    else
+                    {
+                        <span>(Không có)</span>
+                    }
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                }
+            </div>
+            @*<div class="divNgayGui">
+                    @item.NgayGui.Value.ToString("dd/MM/yyyy")
+                </div>
+                <div class="divNgayHenTra">
+                    @item.NgayHenTra.ToString("dd/MM/yyyy")
+                </div>*@
+        </p>
+        <hr width="95%" align="center" />
+                stt++;
+    }
+}
+else
+{
+    <h2>Không tìm thấy luồng công việc của hồ sơ</h2>
+}
+@Scripts.Render("~/bundles/kendo")
+
+<script type="text/javascript">
+
+</script>

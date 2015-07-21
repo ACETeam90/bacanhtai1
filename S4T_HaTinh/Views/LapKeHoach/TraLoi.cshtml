@@ -1,0 +1,66 @@
+﻿@model  IEnumerable<S4T_HaTinh.Models.TN_DauViec>
+
+<h3>TRẢ LỜI Ý KIẾN</h3>
+<hr />
+
+<table class="tableDefault">
+    <tr>
+        <th width="2%" style="min-width:0px;">
+            @Html.DisplayName("STT")
+        </th>
+        <th width="23%">
+            @Html.DisplayName("Tên đầu việc")
+        </th>
+        <th width="35%" style="text-align: center">
+            @Html.DisplayName("Nội dung")
+        </th>
+        <th width="10%" style="text-align: center">
+            @Html.DisplayName("Người thực hiện")
+        </th>
+        <th width="10%">
+            @Html.DisplayName("T/G bắt đầu")
+        </th>
+        <th width="10%">
+            @Html.DisplayName("T/G kết thúc")
+        </th>
+        <th width="5%">
+            @Html.DisplayName("Tiến độ %")
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr >
+                <td>@i</td>
+                <td>
+                    @Html.ActionLink(item.TenDauViec, "Detail", new { id = item.ID, returnUrl = Request.RawUrl })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoiDung)
+                </td>
+                <td>
+                    @if (item.TenNguoiThucHien != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.TenNguoiThucHien)
+                    }
+                </td>
+                <td>
+                    @item.TuNgay.Value.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.DenNgay.Value.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @if (item.TienDo != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.TienDo)
+                    }
+                </td>
+            </tr>
+                    i++;
+        }
+    }
+</table>
+

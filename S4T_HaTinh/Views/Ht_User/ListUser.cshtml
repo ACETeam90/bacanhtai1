@@ -1,0 +1,152 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetUserByDonVi_Role_Result>
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "DANH SÁCH CÁN BỘ CHUYÊN TRÁCH ĐƠN VỊ";
+    //var slListDVCap1 = new SelectList(ViewBag.ListDonViCap1, "DonVi_ID", "TenDonVi");
+    var listRole = new SelectList(ViewBag.ListRole, "Name", "TenHienThi");
+    var listDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var slTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("ListUser", "HT_User", FormMethod.Get, new { id="searchForm"}))
+{
+    <table>
+        <tr>
+            @*<td>Đơn vị cấp trên</td>
+            <td>@Html.DropDownList("ddlDonViCap1", slListDVCap1, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "NhomDonVi_OnChange()", @style = "width:250px;" })</td>*@
+            <td>Đơn vị</td>
+            <td>
+                @Html.DropDownList("ddlDonVi", listDonVi, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:250px;" })
+            </td>
+            <td>Vai trò</td>
+            <td>@Html.DropDownList("roleName", listRole, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width: 250px;" })</td>
+            <td>Trạng thái</td>
+            <td>@Html.DropDownList("trangThai", slTrangThai, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:130px;" })</td>
+            <td><input type="submit" value="Tìm kiếm" id="btnTimKiem" /></td>
+        </tr>
+    </table>
+    <input type="text" name="status" value="1" style="display:none" />
+}
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create", new { vi = @ViewContext.RouteData.Values["action"] })'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+    @*<input type="button" value="Tạo mới" onclick="location.href = '/Ht_User/Create/vi=@ViewContext.RouteData.Values["action"]'" />*@
+</p>
+<table id="gridData"> @*class="tableDefault">*@
+    <colgroup>
+        <col width="40"/>
+        <col />
+        <col />
+        <col />
+    </colgroup>
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoVaTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HoVaTen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDonVi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id, vi = @ViewContext.RouteData.Values["action"] })
+                    @*@Html.ActionLink("Không sử dụng", "Delete", new { id = item.Id })*@
+                    @if (item.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong)
+                    {
+                        <span>|</span> <a href='javascript:void(0);' onclick="Delete('@item.Id')">Không hoạt động</a>
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    var valueDonVi = "";
+    $(document).ready(function () {
+        //$("#ddlDonVi").kendoComboBox();
+        //$("#ddlDonViCap1").kendoComboBox();
+        //$("#roleName").kendoComboBox();
+
+        if ('@ViewBag.ResetPass' == 'Success') {
+            alert("Đã đổi pass thành công");
+        }
+
+        //if ($("#ddlDonViCap1").val() != "") {
+        //    NhomDonVi_OnChange();
+        //}
+
+        $("#btnTimKiem").click(function (e) {
+            success: {
+                //alert("Tim kiem xong");
+            }
+        });
+    });
+
+    // Lấy danh sách đơn vị theo nhóm đơn vị và đơn vị cấp trên
+    function NhomDonVi_OnChange() {
+        if ($("#ddlDonViCap1").val() != "") {
+            $("#ddlDonVi").data("kendoComboBox").value("");
+            $.post("/Ht_User/NhomDonVi_OnChange", { "ddlDonViCap1": $("#ddlDonViCap1").val() }).done(function (data) {
+                if (data.msg == null) {
+                    $("#ddlDonVi").html(data.danhSach);
+                    $("#ddlDonVi").kendoComboBox();
+                } else {
+                    alert(data.msg);
+                }
+            });
+        } else {
+            $("#ddlDonVi").html("<option value=''>Tất cả</option>");
+            $("#ddlDonVi").kendoComboBox();
+        }
+    }
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn không dùng dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/HT_User/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    //location.reload();
+                    SearchFormOnchange();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

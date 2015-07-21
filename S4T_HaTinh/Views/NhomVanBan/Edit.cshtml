@@ -1,0 +1,26 @@
+﻿@model S4T_HaTinh.Models.NhomVanBan
+
+@{
+    
+}
+
+<h2>SỬA</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.NhomVanBan_ID)
+
+        @Html.Partial("_CreateOrUpdate", Model)
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

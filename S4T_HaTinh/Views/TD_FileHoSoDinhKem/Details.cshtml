@@ -1,0 +1,74 @@
+﻿@model S4T_HaTinh.Models.TD_FileHoSoDinhKem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TD_FileHoSoDinhKem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SoBienNhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoBienNhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenFile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenFile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenHienThi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenHienThi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DuongDan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DuongDan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GhiChu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiFile_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiFile_ID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FileHoSoDinhKem_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

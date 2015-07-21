@@ -1,0 +1,71 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_CauHinhUpload>
+
+@{
+    ViewBag.Title = "CẤU HÌNH UPLOAD";
+    var lstDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table class="tableDefault">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanHe_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonVi_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThoiGian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DuongDan)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhanHe_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => lstDonVi.FirstOrDefault(o => o.Value == item.DonVi_ID.ToString()).Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGian)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DuongDan)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.CauHinh_ID }) |
+                <a title="Xóa" onclick="Delete(@item.CauHinh_ID)">Xóa</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Ht_CauHinhUpload/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+</script>

@@ -1,0 +1,156 @@
+﻿@model S4T_HaTinh.Models.HaTangNhanLucCNTT
+
+@{
+    ViewBag.Title = "Details";
+    var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+}
+
+<h3>HẠ TẦNG NHÂN LỰC CNTT</h3>
+<h4>@ViewBag.TenDonVi</h4>
+<h5>Trạng thái: @Html.DisplayTextFor(Model => listStatusNhapLieu.FirstOrDefault(o => o.DanhMuc_ID == Model.Success).TenDanhMuc)</h5>
+<br />
+
+@using (Html.BeginForm())
+{
+    <button type="button" class="ExportWord" onclick="location.href='@Url.Action("ExportToWord", new { id = Model.HaTangNhanLucCNTT_ID })'" style="float:right;">Xuất báo cáo</button>
+    <hr />
+    
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.HaTangNhanLucCNTT_ID)
+
+        @*<div class="divRow">
+            @Html.LabelFor(model => model.TruongNhapLai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.TruongNhapLai, new { @rows = "5", @cols = "45", @readonly = "readonly" })
+            </div>
+        </div>*@
+        
+        1.Cán bộ chuyên trách CNTT
+        <table class="tableDefault">
+            <tr>
+                <th></th>
+                <th>Tiến sỹ</th>
+                <th>Thạc sỹ</th>
+                <th>Đại học chính quy</th>
+                <th>Đại học không chính quy</th>
+                <th>Lượt tập huấn/năm</th>
+                <th>Số lượng cán bộ đơn vị</th>
+            </tr>
+
+            <tr>
+                <td>Cơ quan</td>
+
+                <td>
+                    @Html.EditorFor(model => model.TienSy_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.TienSy_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.ThacSy_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.ThacSy_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.DaiHocChinhQuy_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.DaiHocChinhQuy_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.DaiHocKhongChinhQuy_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.DaiHocKhongChinhQuy_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.LuotTapHuan_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.LuotTapHuan_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.SoLuongCanBo_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.SoLuongCanBo_DV, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>Đơn vị cấp 2</td>
+
+                <td>
+                    @Html.EditorFor(model => model.TienSy_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.TienSy_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.ThacSy_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.ThacSy_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.DaiHocChinhQuy_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.DaiHocChinhQuy_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.DaiHocKhongChinhQuy_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.DaiHocKhongChinhQuy_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.LuotTapHuan_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.LuotTapHuan_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.SoLuongCanBo_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.SoLuongCanBo_DVTT, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+
+        2.CBCCVC biết sử dụng thành thạo máy tính
+        <table class="tableDefault">
+            <tr>
+                <th></th>
+                <th>Sử dụng thành thạo máy tính</th>
+                <th>Lượt tập huấn/năm</th>
+            </tr>
+
+            <tr>
+                <td>Cơ quan</td>
+
+                <td>
+                    @Html.EditorFor(model => model.ThanhThaoMayTinh_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.ThanhThaoMayTinh_DV, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.LuotTapHuanThanhThaoMayTinh_DV, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.LuotTapHuanThanhThaoMayTinh_DV, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>Đơn vị cấp 2</td>
+
+                <td>
+                    @Html.EditorFor(model => model.ThanhThaoMayTinh_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.ThanhThaoMayTinh_DVTT, "", new { @class = "text-danger" })
+                </td>
+
+                <td>
+                    @Html.EditorFor(model => model.LuotTapHuanThanhThaoMayTinh_DVTT, new { htmlAttributes = new { @class = "S4T_NumericTextBox", @disabled = "disabled" } })
+                    @Html.ValidationMessageFor(model => model.LuotTapHuanThanhThaoMayTinh_DVTT, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TongMucDauTu, new { @class = "S4T_NumericTextBox", @readonly = "readonly" })
+            </div>
+        </div>
+    </div>
+}

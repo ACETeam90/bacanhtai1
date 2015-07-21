@@ -1,0 +1,153 @@
+﻿@model S4T_HaTinh.Models.UngDungCNTTTaiDN
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>UngDungCNTTTaiDN</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.UngDungCNTTTaiDN_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DonVi_ID)
+                @Html.ValidationMessageFor(model => model.DonVi_ID)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.FileUpload, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.FileUpload)
+                @Html.ValidationMessageFor(model => model.FileUpload)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DiaChi, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DiaChi)
+                @Html.ValidationMessageFor(model => model.DiaChi)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguoiDaiDien, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NguoiDaiDien)
+                @Html.ValidationMessageFor(model => model.NguoiDaiDien)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoDienThoai, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.SoDienThoai)
+                @Html.ValidationMessageFor(model => model.SoDienThoai)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganhNgheKinhDoanh, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.NganhNgheKinhDoanh)
+                @Html.ValidationMessageFor(model => model.NganhNgheKinhDoanh)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LAN, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.LAN)
+                @Html.ValidationMessageFor(model => model.LAN)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiHinhDoanhNghiep, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.LoaiHinhDoanhNghiep)
+                @Html.ValidationMessageFor(model => model.LoaiHinhDoanhNghiep)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DoanhThu, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DoanhThu)
+                @Html.ValidationMessageFor(model => model.DoanhThu)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoMayTinh, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.SoMayTinh)
+                @Html.ValidationMessageFor(model => model.SoMayTinh)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanMemDangUngDung, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.PhanMemDangUngDung)
+                @Html.ValidationMessageFor(model => model.PhanMemDangUngDung)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoWebsite, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.SoWebsite)
+                @Html.ValidationMessageFor(model => model.SoWebsite)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.KienNghi, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.KienNghi)
+                @Html.ValidationMessageFor(model => model.KienNghi)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Success, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.Success)
+                @Html.ValidationMessageFor(model => model.Success)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TruongNhapLai, new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TruongNhapLai)
+                @Html.ValidationMessageFor(model => model.TruongNhapLai)
+            </div>
+        </div>
+
+        <div class="divRow">
+            <div class="col-md-offset-2 divControl">
+                <input type="submit" value="Save" class="k-button k-button-icontext" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

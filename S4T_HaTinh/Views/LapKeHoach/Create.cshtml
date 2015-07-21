@@ -1,0 +1,318 @@
+﻿@model S4T_HaTinh.Models.TN_DauViec
+@{
+    var listNhanVien = new SelectList(ViewBag.lstNhanVien, "id", "HoVaTen");
+    var lstLoaiViec = new SelectList(ViewBag.lstLoaiViec, "value", "text");
+    var lstFile = new List<string>();
+    if (Model != null)
+    {
+        lstFile = string.IsNullOrEmpty(Model.FileDinhKem) ? null : Model.FileDinhKem.Split(';').ToList();
+    }
+    int? ParentID = null;
+    if (Model != null && Model.Parent_ID != null)
+    {
+        ParentID = Model.Parent_ID;
+    }
+    int? PhamVi = null;
+    if (Model != null && Model.PhamVi != null)
+    {
+        PhamVi = Model.PhamVi;
+    }
+    string SepID = ViewBag.lstSepID;
+    string GD = ViewBag.GiamDoc;
+    Response.AppendHeader("X-XSS-Protection","0");
+}
+
+@using (Html.BeginForm("Create", "LapKeHoach", FormMethod.Post, new { enctype = "multipart/form-data", id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="container-fluid">
+        <hr />
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.NguoiThucHien_ID)
+        @Html.HiddenFor(model => model.Parent_ID)
+        @*@Html.Hidden("returnUrl", new { @ViewBag.returnUrl })*@
+        <input type="hidden" value="@ViewBag.returnUrl" id="returnUrl" name="returnUrl">
+        <div class="divRow">
+            @*@Html.Label("Tên đầu việc:", htmlAttributes: new { @class = "divLabel" })*@
+            <label class="divLabel">Tên đầu việc<span style="color:red">*</span></label>
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenDauViec, new { @class = "S4T_AutoComplete", @style = "width:410px;" })
+                @Html.ValidationMessageFor(model => model.TenDauViec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow" id="phamvi" style="display:none">
+            @*@Html.Label("Phạm vi:", htmlAttributes: new { @class = "control-label" })*@
+            <label class="divLabel">Phạm vi<span style="color:red">*</span></label>
+            <div class="divControl">
+                <div class="col-md-4">
+                    @Html.RadioButtonFor(x => x.PhamVi, 0) Cá nhân
+                </div>
+                <div class="col-md-4">
+                    @Html.RadioButtonFor(x => x.PhamVi, 1) Phòng ban
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(model => model.PhamVi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.Label("Đính kèm", htmlAttributes: new { @class = "divLabel" })
+            <div style="width:400px; min-height:30px; float:left;">
+                <input type="file" id="fileUpload" name="fileUpload" multiple="multiple" class="s4t_uploadonefile"
+                       accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/x-rar-compressed,application/zip" />
+                @if (Model != null && lstFile != null)
+                {
+                    <table id="tblListFile">
+                        <colgroup>
+                            <col width="250"/>
+                            <col width="20"/>
+                        </colgroup>
+                        <tbody>
+                            @{
+                                var i = 1;
+                                foreach (var item in lstFile)
+                                {
+                                    if (!string.IsNullOrEmpty(item))
+                                    {
+                                        <tr id="tblListFile_@i">
+                                            <td>@item</td>
+                                            <td><a href="javascript:XoaFile('@item','tblListFile_@i');">xóa</a></td>
+                                            @*<span id="@item">@item</span>
+                                                <a href="javascript:XoaFile('@item');">xóa</a>*@
+                                        </tr>
+                                    }
+                                    i++;
+                                }
+                            }
+                        </tbody>
+                    </table>                    
+                }
+            </div>
+            @Html.Hidden("FileXoa")
+        </div>
+
+        <div class="divRow">
+            @*@Html.Label("Nội dung:", htmlAttributes: new { @class = "divLabel" })*@
+            <label class="divLabel">Nội dung<span style="color:red">*</span></label>
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.NoiDung, new { style = "width:400px; height: 100px" })
+                @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow" style="display:none">
+            @Html.Label("Người duyệt:", htmlAttributes: new { @class = "divLabel" })
+            <div style="float:left;">
+                @Html.DropDownList("NguoiDuyet_ID", listNhanVien, new { style = "width:200px" })
+                @Html.ValidationMessageFor(model => model.NguoiDuyet_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow" style="">
+            @*@Html.Label("Người thực hiện:", htmlAttributes: new { @class = "divLabel" })*@
+            <label class="divLabel">Người thực hiện<span style="color:red">*</span></label>
+            <div style="float:left;">
+                @Html.DropDownList("NguoiThucHien", listNhanVien.Where(o => !SepID.Contains(o.Value) && !GD.Contains(o.Value)), new { style = "width:330px" })
+                @Html.ValidationMessageFor(model => model.NguoiThucHien_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @*@Html.Label("Từ ngày:", htmlAttributes: new { @class = "control-label" })*@
+            <label class="divLabel">Từ ngày<span style="color:red">*</span></label>
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TuNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TuNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="divRow">
+            @*@Html.Label("Đến ngày:", htmlAttributes: new { @class = "divLabel" })*@
+            <label class="divLabel">Đến ngày<span style="color:red">*</span></label>
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DenNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DenNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*@if (Model == null || Model.ID == null)
+        {*@
+            <div class="divRow" style="display:none;">
+                @Html.Label("Ý kiến:", htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.TextArea("YKien", new { style = "width:190px; height: 100px" })
+                </div>
+            </div>
+        @*}*@
+        
+        <div class="divRow">
+            @Html.Label("Loại việc:", htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.LoaiViec, lstLoaiViec, new { @class="S4T_DropDownList", style = "width:200px" })
+                @Html.ValidationMessageFor(model => model.LoaiViec, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="divRow">
+        <label class="divLabel" id="lbl"></label>
+        <div class="divControl">
+            <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+        </div>
+    </div>
+
+    <div class="loading" style="display: none;"></div>
+}
+
+<style type="text/css">
+    .row {
+        float: left;
+        width: 100%;
+    }
+
+    .text-danger {
+        color: red;
+    }
+
+    .lb {
+        float: left;
+    }
+
+    .control-label {
+        float: left;
+        padding-top: 4px;
+        width: 100px;
+    }
+
+    .row {
+        margin-top: 10px;
+    }
+
+    .form-control {
+        width: 190px;
+    }
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#NguoiThucHien").kendoMultiSelect({
+            dataTextField: "text",
+            dataValueField: "value",
+            change: onChange
+        });
+        if ($("#NguoiThucHien_ID").val() != "")
+            $("#NguoiThucHien").data("kendoMultiSelect").value($("#NguoiThucHien_ID").val().split(','));
+        else
+            $("#NguoiThucHien").data("kendoMultiSelect").value([]);
+
+        function onChange() {
+            $("#NguoiThucHien_ID").val($("#NguoiThucHien").data("kendoMultiSelect").value());
+        }
+
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#TuNgay").kendoDatePicker({
+            min: new Date()
+            , value: new Date()
+            , change: startChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        var end = $("#DenNgay").kendoDatePicker({
+            change: endChange
+            , format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+
+        $('#TuNgay').removeAttr('data-val-date');
+        $('#DenNgay').removeAttr('data-val-date');
+
+        if(@Html.Raw(Json.Encode(PhamVi)) != null)
+        {
+            $("#phamvi").hide();
+        }
+
+        //$("#TuNgay").mask("99/99/9999");
+
+        $('#myForm').submit(function (e) {
+            var maxSize = 16384; // ~ 16MB
+            var allowFile = true;
+            $("input[type=file]").each(function () {
+                //var fileInput = $('#fileVanBan');
+                var fileInput = $(this);
+
+                if (fileInput.get(0).files.length) {
+                    var fileSize = fileInput.get(0).files[0].size / 1024; // in MB
+                    if (fileSize > maxSize) {
+                        alert('File vượt quá dung lượng cho phép là 16 MB');
+                        allowFile = false;
+                    }
+                }
+                //else {
+                //alert('Mời chọn 1 file');
+                //return false;
+                //}
+
+                // Check file type
+                var ext = $(this).val().split('.').pop().toLowerCase();
+                if (ext != "" && $.inArray(ext, ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar', 'pptx', 'ppt']) == -1) {
+                    alert('Không thể upload file có dạng .' + ext);
+                    $(this).val("");
+                    allowFile = false;
+                }
+            });
+            if(allowFile == false)
+                return false;
+
+            $(".loading").show();
+            setTimeout(function () { $('.loading').hide(); }, 60000); // 60 s tự động tắt
+        });
+    });
+
+    function XoaFile(name,id) {
+        if (!confirm("bạn chắc chắn muốn xóa?"))
+            return;
+        var hilddenData = $("#FileXoa").val();
+        if (hilddenData.indexOf(name) == -1){
+            //alert("đã xóa " + $("#" + id).html());
+            $("#" + id).remove();
+            $("#FileXoa").val(hilddenData + name + ";");
+        }
+    }
+</script>
+

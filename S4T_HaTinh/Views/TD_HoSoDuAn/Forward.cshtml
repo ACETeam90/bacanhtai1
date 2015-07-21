@@ -1,0 +1,139 @@
+﻿@model S4T_HaTinh.Models.TD_LuongCongViec
+
+@{
+    
+}
+@Styles.Render("~/Content/Kendo/css")
+@*<script src="~/Scripts/jquery-1.11.1.js" type="text/javascript"></script>*@
+<script src="~/Scripts/s4t-hatinh.js" type="text/javascript"></script> 
+<link href="~/Content/skin.css" rel="stylesheet" />
+@*<link href="~/Content/default.css" rel="stylesheet" />*@
+<style type="text/css">
+    label.divLabel {
+        float: left;
+        width: 25%;
+    }
+
+    div.divControl {
+        float: left;
+        width: 70%;
+    }
+</style>
+
+<form action="Forward" method="post" enctype="multipart/form-data" id="frmUpload">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.MaHoSo)
+    @Html.HiddenFor(model => model.STT)
+    @Html.HiddenFor(model => model.LuongCha_ID)
+    @Html.HiddenFor(model => model.Cap_ID)
+    @Html.HiddenFor(model => model.Prefix)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="divRow" style="margin-top:2px;">
+        @Html.LabelFor(model => model.NgayHenTra, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            @Html.Raw(ViewBag.NgayHenTra)
+            @*@Html.TextBoxFor(model => model.NgayHenTra, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.NgayHenTra, "", new { @class = "text-danger" })*@
+        </div>
+    </div>
+
+    <div class="divRow">
+        @Html.LabelFor(model => model.NguoiNhan, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            @if (ViewBag.NguoiNhan != null)
+            {
+                var slNguoiNhan = new SelectList(ViewBag.NguoiNhan, "UserName", "HoVaTen");
+                @Html.DropDownListFor(model => model.NguoiNhan, slNguoiNhan, new { @class = "S4T_ComboBox", @style="width:250px;" })
+            }
+            else
+            {
+                @Html.DisplayTextFor(model => model.NguoiNhan)
+                @Html.HiddenFor(model => model.NguoiNhan)
+            }
+            @Html.ValidationMessageFor(model => model.NguoiNhan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="divRow">
+        @Html.LabelFor(model => model.NoiDung, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            @Html.TextAreaFor(model => model.NoiDung, new { @class = "form-control",style = "width:98%; height: 100px"@*, @cols = 56, @rows = 7*@ })
+            @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="divRow">
+        @Html.Label("lblFileDinhKem", "Văn bản đính kèm", new { @class = "divLabel" })
+        <div class="divControl">
+            <input type="file" id="fileVanBan" name="fileVanBan" class="S4T_UploadOneFile"
+                   accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/x-rar-compressed,application/zip" />
+        </div>
+    </div>
+
+    <div class="divRow">
+        <label class="divLabel" id="lbl"></label>
+        <div class="divControl">
+            <button type="submit" id="btnUpload" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Gửi</button>
+            <input type="text" id="txtSuccess" style="display:none" />
+            @*<input type="button" value="show" onclick="Show()"/>*@
+        </div>        
+    </div>
+
+    <div class="loadingDialog" style="display: none;"></div>
+</form>
+@Scripts.Render("~/bundles/kendo")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@ViewBag.DisableNguoiYeuCau' == 'True') {
+            $('#NguoiNhan').attr('readonly', true);
+        }
+        
+        //$("#NgayHenTra").kendoDatePicker({
+        //    value: new Date()
+        //    , min: new Date()
+        //    , format: "dd/MM/yyyy"
+        //}).data("kendoDatePicker");
+        
+        var status = "NOT";
+        //alert("@ViewBag.Status");
+        @Html.Raw(ViewBag.Status)
+        if (status == "OK") {
+            $('#txtSuccess').val('Success');
+            window.parent.jQuery('#dialogFileChuyenTiep').dialog('close');
+        } else if (status == "ERROR") {
+            alert("Có lỗi trong quá trình gửi ý kiến");
+            window.parent.jQuery('#dialogFileChuyenTiep').dialog('close');
+        }        
+    });
+
+    // Sư kiện submit file
+    $('#frmUpload').submit(function (e) {
+        var fileInput = $('#fileVanBan');
+        var maxSize = 16384; // ~ 16MB
+        if (fileInput.get(0).files.length) {
+            var fileSize = fileInput.get(0).files[0].size / 1024; // in MB
+            if (fileSize > maxSize) {
+                alert('File vượt quá dung lượng cho phép là 16 MB');
+                return false;
+            }
+        }
+        //else {
+        //alert('Mời chọn 1 file');
+        //return false;
+        //}
+
+        // Check file type
+        var ext = $(this).val().split('.').pop().toLowerCase();
+        if (ext != "" && $.inArray(ext, ['doc', 'docx', 'xls', 'xlsx', 'zip', 'rar', 'pptx', 'ppt']) == -1) {
+            alert('Không thể upload file có dạng .' + ext);
+            $(this).val("");
+            allowFile = false;
+        }
+
+        $(".loadingDialog").show();
+        setTimeout(function () { $('.loadingDialog').hide(); }, 60000); // 60 s tự động tắt
+    });
+</script>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.ToChucChinhSachCNTT>
+@using S4T_HaTinh.Models;
+@using S4T_HaTinh.Common;
+
+@{
+    ViewBag.Title = "QUẢN LÝ TỔ CHỨC CHÍNH SÁCH CNTT";
+    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi(), "DanhMuc_ID", "TenDanhMuc");
+    var items = new List<SelectListItem>();
+    items.Add(new SelectListItem() { Text = "Chọn đơn vị", Value = "-1", Selected = true });
+    var listDonVi = new SelectList(items, "Value", "Text");
+
+    <h2>@ViewBag.Title</h2>
+    
+    <table>
+        <tr>
+            <td>Nhóm đơn vị</td>
+            <td>@Html.DropDownList("ddlNhomDonVi", listNhomDonVi,"Chọn nhóm đơn vị", new { @class = "S4T_ComboBox", @onchange = "NhomDonVi_OnChange()", @style="width:300px;" })</td>
+            <td>Đơn vị</td>
+            <td>@Html.DropDownList("ddlDonVi", listDonVi, new { @class = "S4T_ComboBox", @sub="sub", @onchange = "DonVi_Onchange()", @style = "width:300px;" })</td>
+        </tr>
+    </table>
+
+    <table id="gridData">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Tên báo cáo")
+                </th>
+                <th>
+                    @Html.DisplayName("Từ ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Đến ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Trạng thái")
+                </th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //NhomDonVi_OnChange();
+    });
+
+    // Lấy danh sách đơn vị cấp trên theo nhóm đơn vị
+    function NhomDonVi_OnChange() {
+        var nhomDonVi_ID = $("#ddlNhomDonVi").val();
+        if (nhomDonVi_ID != "") {
+            $.post("NhomDonVi_OnChange", { "nhomDonVi_ID": nhomDonVi_ID }).done(function (data) {
+                if (data.msg == null) {
+                    $("#ddlDonVi").html(data.danhSach);
+                    $("#ddlDonVi").kendoComboBox();
+                    DonVi_Onchange();
+                } else {
+                    alert(data.msg);
+                }
+            });
+        } else {
+            $("#ddlDonVi").html("");
+        }
+    }
+
+    // Lấy danh sách báo cáo MTCS theo mã đơn vị
+    function DonVi_Onchange() {
+        if ($("#ddlDonVi").val() != "") {
+            $.post("GetReportByDonVi", { "donVi_ID": $("#ddlDonVi").val() }).done(function (data) {
+                if (data.msg == null) {
+                    $("#gridData > tbody").html(data.danhSach);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        }
+    }
+</script>

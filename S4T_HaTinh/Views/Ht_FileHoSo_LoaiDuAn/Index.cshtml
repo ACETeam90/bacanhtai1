@@ -1,0 +1,92 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_FileHoSo_LoaiDuAn>
+
+@{
+
+}
+
+<h2>CẤU HÌNH VĂN BẢN ĐÍNH KÈM THEO LOẠI DỰ ÁN</h2>
+
+<p>
+    <input type="button" class="login_button" value="Tạo mới" onclick="location.href = '/Ht_FileHoSo_LoaiDuAn/Create'" style="margin-top: 8px;" />
+</p>
+
+<table class="tableDefault">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiDuAn_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenFile)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SoBanChinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoBanSao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoBanPhoTo)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.GhiChu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th></th>
+    </tr>
+
+@if (Model != null) {
+    int i = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@i</td>
+            <td>
+                @Html.DisplayFor(modelItem => MvcApplication.ListLoaiDuAn().FirstOrDefault(o => o.LoaiDuAn_ID == item.LoaiDuAn_ID).TenLoaiDuAn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenFile)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.SoBanChinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoBanSao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoBanPhoTo)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.LoaiDanhMuc_ID == item.TrangThai).TenDanhMuc)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.LoaiFile_ID }) |
+                <a title="Xóa" onclick="Delete(@item.LoaiFile_ID)">Xóa</a>
+            </td>
+        </tr>
+        i++;
+    }
+}
+</table>
+<script type="text/javascript">
+        function Delete(id) {
+            if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+            $.ajax({
+                type: 'POST',
+                url: "/Ht_FileHoSo_LoaiDuAn/Delete?id=" + id,
+                success: function (data) {
+                    if (data.msg == "ok") {
+                        //alert("Đã xóa thành công");
+                        location.reload();
+                    } else {
+                        alert(data.msg);
+                    }},
+                //async:true
+            });
+        }
+</script>

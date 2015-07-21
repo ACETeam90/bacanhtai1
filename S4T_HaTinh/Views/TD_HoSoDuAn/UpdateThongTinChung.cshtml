@@ -1,0 +1,508 @@
+﻿@model S4T_HaTinh.Models.TD_HoSoDuAn
+@using System.Configuration;
+@{
+    //var configPheDuyetChuTruongDauTu = ConfigurationManager.AppSettings["PheDuyetChuTruongDauTu"];
+    //int intPheDuyetChuTruongDauTu = string.IsNullOrEmpty(configPheDuyetChuTruongDauTu) ? 0 : Convert.ToInt32(configPheDuyetChuTruongDauTu);
+
+    //var configPheDuyetDuAn = ConfigurationManager.AppSettings["PheDuyetDuAn"];
+    //int intPheDuyetDuAn = string.IsNullOrEmpty(configPheDuyetDuAn) ? 0 : Convert.ToInt32(configPheDuyetDuAn);
+
+    //var configPheDuyetThietKe = ConfigurationManager.AppSettings["PheDuyetThietKe"];
+    //int intPheDuyetThietKe = string.IsNullOrEmpty(configPheDuyetThietKe) ? 0 : Convert.ToInt32(configPheDuyetThietKe);
+
+    var slLoaiDuAn = new SelectList(S4T_HaTinh.MvcApplication.ListLoaiDuAn(), "LoaiDuAn_ID", "TenLoaiDuAn");
+    var listVBQuyetDinh = (List<S4T_HaTinh.Models.View_Loai_Nhom_VanBan>)ViewBag.ListVBQuyetDinh;
+}
+<script src="~/Scripts/Kendo/kendo_2015.2.624.all.min.js"></script>
+@*<link href="~/Content/Kendo/kendo.common-material_2015.2.624.min.css" rel="stylesheet" />*@
+@*<link href="~/Content/Kendo/kendo.material_2015.2.624.min.css" rel="stylesheet" />*@
+
+@*<link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.common-material.min.css" />
+<link rel="stylesheet" href="http://cdn.kendostatic.com/2015.2.624/styles/kendo.material.min.css" />
+script src="http://cdn.kendostatic.com/2015.2.624/js/jquery.min.js"></script>
+<script src="http://cdn.kendostatic.com/2015.2.624/js/kendo.all.min.js"></script>
+*@
+
+<h2>THÔNG TIN CHUNG</h2>
+<h5>Mã hồ sơ: @Model.MaHoSo</h5>
+<hr />
+
+@using (Html.BeginForm("UpdateThongTinChung", "TD_HoSoDuAn", FormMethod.Post, new { enctype = "multipart/form-data", id = "myForm" }))
+{
+    @Html.Raw(ViewBag.Mess)
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.HoSoDuAn_ID)
+        @Html.HiddenFor(model => model.MaHoSo)
+        
+        <h5>1.	Thông tin chung về dự án</h5>
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChuDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @ViewBag.ChuDauTu
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenDuAn, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @ViewBag.TenDuAn
+            </div>
+        </div>
+
+        <div class="divRow">
+            <table class="tableDefault" id="tableFileHoSo" style="width:840px;">
+                <thead>
+                    <tr>
+                        <th>Trích yếu</th>
+                        <th>Số ký hiệu</th>
+                        <th>Tập tin văn bản</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+        var i = 0;
+
+        if (listVBQuyetDinh.Any())
+        {
+            foreach (var item in listVBQuyetDinh)
+            {
+                var file = Model.ListFile.FirstOrDefault(o => o.VanBan_ID == item.VanBan_ID);
+                if (file != null)
+                {
+                    <tr>
+                        <td>
+                            <span>@file.TrichYeu</span>
+                        </td>
+                        <td>
+                            <span>@file.SoKyHieu</span>
+                        </td>
+                        <td>
+                            <a href="/TD_HoSoDuAn/Download?id=@file.FileHoSoDinhKem_ID&prefixName=TD_HoSoDuAn">@file.TenHienThi</a>
+                        </td>
+                        <td>
+                            @*<button type="button" class="k-button k-button-icontext" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdateFile", "TD_HoSoDuAn", new { id = file.FileHoSoDinhKem_ID, maHoSo = Model.MaHoSo}))', 543, 230, true); return false;"><span class="k-icon k-i-plus"></span>Sửa</button>*@
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <span>@item.TenVanBan</span>
+                        </td>
+                        <td>
+                            <span>@item.SoKyHieu</span>
+                        </td>
+                        <td>
+                            <span>(Không có file)</span>
+                        </td>
+                        <td>
+                            <button type="button" class="k-button k-button-icontext" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdateFile", "TD_HoSoDuAn", new { maHoSo = Model.MaHoSo, vanBan_ID = item.VanBan_ID }))', 543, 230, true); return false;"><span class="k-icon k-i-plus"></span>Chọn file</button>
+                            @*<div id="FileQD_@i">
+                                <button type="button" class="k-button k-button-icontext" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdateFile", "TD_HoSoDuAn", new { maHoSo = Model.MaHoSo, vanBan_ID = item.VanBan_ID }))', 490, 158, true); return false;"><span class="k-icon k-i-plus"></span>Chọn file</button>
+                            </div>*@
+                            @*<input type="file" name="files" id="file_@i"
+    accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                 application/x-rar-compressed,
+                 application/zip"
+                                />*@ 
+                                   
+                        </td>
+                    </tr>
+                }
+                i++;
+            }
+        }
+                    }
+                </tbody>
+            </table>
+
+            @* Refresh lại list PMCN *@
+            <input type="button" id="btnRefreshListFileQuyetDinh" style="display: none" />
+            <script type="text/javascript">
+                //$(document).ready(function () {
+                $('#btnRefreshListFileQuyetDinh').click(function () {
+                    $.post("/TD_HoSoDuAn/RefreshFileQuyetDinh",{ "maHoSo": @Model.MaHoSo }).done(function (data) {
+                        if (data.msg != null) {
+                            alert(data.msg);
+                        } else {
+                            $("#tableFileHoSo tbody").html(data.danhSach);
+                        }
+                    });
+                });
+
+                //});
+            </script>
+
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.str1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.str1, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.str1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NhaThau, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NhaThau, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.NhaThau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.MucTieu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.MucTieu, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.MucTieu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuyMo, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.QuyMo, new { @class = "form-control", rows = 10, cols = 70 })
+                @Html.ValidationMessageFor(model => model.QuyMo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DiaDiem, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DiaDiem, new { @class = "S4T_AutoComplete", @style = "width:650px;" })
+                @Html.ValidationMessageFor(model => model.DiaDiem, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguonVon, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NguonVon, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:200px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.NguonVon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HinhThucQuanLy_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.HinhThucQuanLy_ID, (List<SelectListItem>)ViewBag.HinhThucQuanLy, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.HinhThucQuanLy_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            Thời gian thực hiện
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.int1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.int1, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.int1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.int2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.int2, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.int2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.QuyTrinhQuanLy, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.QuyTrinhQuanLy, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.QuyTrinhQuanLy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NhomDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.NhomDuAn_ID, (List<SelectListItem>)ViewBag.NhomDuAn, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.NhomDuAn_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.LoaiDuAn_ID, slLoaiDuAn, new { @class = "S4T_DropDownList", @onchange = "LoaiDuAn_OnChange()", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.LoaiDuAn_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TinhChatDuAn_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.TinhChatDuAn_ID, (List<SelectListItem>)ViewBag.TinhChatDuAn, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.TinhChatDuAn_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TinhTrangThucHien, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.TinhTrangThucHien, new { @class = "form-control", rows = 10, cols = 70 })
+                @Html.ValidationMessageFor(model => model.TinhTrangThucHien, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TongMucDauTu, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.TongMucDauTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            Trong đó, bao gồm:
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiXayLap, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiXayLap, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiXayLap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiThietBi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiThietBi, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiThietBi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiQuanLy, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiQuanLy, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiQuanLy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiTuVan, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiTuVan, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiTuVan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiKhac, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiKhac, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiKhac, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ChiPhiDuPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ChiPhiDuPhong, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.ChiPhiDuPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @Html.Hidden("TrangThai", S4T_HaTinh.Common.TrangThai.HoatDong)
+
+        <br />
+        <h5>2. Tiến độ triển khai dự án và kết quả đạt được trong năm</h5>
+        <div class="divRow">
+            a)	Tình hình bố trí kinh phí cho dự án trong năm:
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachTrungUong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NganSachTrungUong, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.NganSachTrungUong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachTinh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NganSachTinh, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.NganSachTinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NganSachDonVi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NganSachDonVi, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.NganSachDonVi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NguonKhac, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NguonKhac, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.NguonKhac, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            b)	Tiến độ triển khai và kết quả đạt được trong năm:
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HangMucTrienKhai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.HangMucTrienKhai, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.HangMucTrienKhai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ThoiGianHoanThanh, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ThoiGianHoanThanh, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.ThoiGianHoanThanh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SanPhamHangMuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SanPhamHangMuc, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
+                @Html.ValidationMessageFor(model => model.SanPhamHangMuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.KinhPhiThucHienHangMuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.KinhPhiThucHienHangMuc, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
+                <span>VNĐ</span>
+                @Html.ValidationMessageFor(model => model.KinhPhiThucHienHangMuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <h5>3.	Kết quả đầu tư</h5>
+        <div class="divRow">
+            @Html.LabelFor(model => model.KetQuaDauTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextAreaFor(model => model.KetQuaDauTu, new { @class = "form-control", rows = 10, cols = 70 })
+                @Html.ValidationMessageFor(model => model.KetQuaDauTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <h5>4. Phụ lục báo cáo:</h5>
+
+        <button type="button" class="k-button k-button-icontext" onclick="javascript:OpenWindow('@(Url.Action("_CreateOrUpdateFile", "TD_HoSoDuAn", new { maHoSo = Model.MaHoSo}))', 490, 158, true); return false;"><span class="k-icon k-i-plus"></span>Chọn file</button>
+        
+        @*@Html.Partial("_ListFile", Model.ListFile)*@
+        @Html.Action("_ListFile", "TD_HoSoDuAn", new { list = Model.ListFile })
+
+        @* Refresh lại list PMCN *@
+        <input type="button" id="btnRefreshListFile" style="display: none" />
+        <script type="text/javascript">
+            //$(document).ready(function () {
+            $('#btnRefreshListFile').click(function () {
+                $.post("/TD_HoSoDuAn/RefreshListFile").done(function (data) {
+                        if (data.msg != null) {
+                            alert(data.msg);
+                        } else {
+                            $("#gridListFile tbody").html(data.danhSach);
+                        }
+                    });
+                });
+
+            //});
+        </script>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading" style="display: none;"></div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#int1").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        }).data("kendoDatePicker");
+
+        $("#int2").kendoDatePicker({
+            start: "decade",
+            depth: "decade",
+            format: "yyyy"
+        }).data("kendoDatePicker");
+
+        var denNgay = $("#int2").val();
+        var tuNgay = $("#int1").val();
+
+        ////01/01/0001 00:00:00
+        if ($("#int1").val() == "0") {
+            $('#int1').val("");
+        }
+        if ($("#int2").val() == "0") {
+            $('#int2').val("");
+        }
+
+        $('#int1').removeAttr('data-val-date');
+        $('#int2').removeAttr('data-val-date');
+    });
+    
+    @*$("#file_0").kendoUpload({
+        async: {
+            saveUrl: '@Url.Action("SaveFile", "TD_HoSoDuAn", new { id = intPheDuyetChuTruongDauTu })',     //OR// "Upload/Save"
+            removeUrl: '@Url.Action("Remove", "TD_HoSoDuAn")', //OR// "Upload/Remove"
+            autoUpload: true
+        }
+    });
+
+    $("#file_1").kendoUpload({
+        async: {
+            saveUrl: '@Url.Action("SaveFile", "TD_HoSoDuAn", new { id = intPheDuyetDuAn })',     //OR// "Upload/Save"
+            removeUrl: '@Url.Action("Remove", "TD_HoSoDuAn")', //OR// "Upload/Remove"
+            autoUpload: true
+        }
+    });
+
+    $("#file_2").kendoUpload({
+        async: {
+            saveUrl: '@Url.Action("SaveFile", "TD_HoSoDuAn", new { id = intPheDuyetThietKe })',     //OR// "Upload/Save"
+            removeUrl: '@Url.Action("Remove", "TD_HoSoDuAn")', //OR// "Upload/Remove"
+            autoUpload: true
+        },
+        success: onSuccess
+    });*@
+
+    function onSuccess(e) {
+        // Array with information about the uploaded files
+        var files = e.files;
+
+        if (e.operation == "upload") {
+            //alert("Successfully uploaded " + files.length + " files");
+        }
+    }
+</script>

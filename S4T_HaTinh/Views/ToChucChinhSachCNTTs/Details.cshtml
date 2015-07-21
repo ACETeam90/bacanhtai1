@@ -1,0 +1,79 @@
+﻿@model S4T_HaTinh.Models.ToChucChinhSachCNTT
+@using S4T_HaTinh.Models;
+
+@{
+
+}
+
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+
+<h2>CHI TIẾT</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ToChucChinhSachCNTT_ID)
+    <div class="form-horizontal">
+        <table id="tblListFile" class="tableDefault">
+            <thead>
+                <tr>
+                    <th>Loại văn bản</th>
+                    <th>Số văn bản</th>
+                    <th>File đã upload</th>
+                    @*<th>Thao tác</th>*@
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+}
+
+<div id="dialogFile" style="display: none;">
+    <iframe id="iframeFile" src="/Content/loading.html" frameborder="0"></iframe>
+</div>
+
+@Scripts.Render("~/bundles/kendo")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        LoadListFile();
+    });
+
+    $(":ul").each(function () {
+        alert($(this).id());
+    });
+
+    // Lấy danh sách file
+    function LoadListFile() {
+        $.post("/ToChucChinhSachCNTTs/LoadListFile", { "id": $("#ToChucChinhSachCNTT_ID").val() }).done(function (data) {
+            if (data.msg == null) {
+                $("#tblListFile tbody").html(data.danhSachFile);
+                $("a.opendialog").hide();
+            } else {
+                alert(data.msg);
+            }
+        });
+    }
+
+    // Open Dialog
+    function OpenDialog(loaiVanBan) {
+        //ShowPopUp('dialogFile', 'iframeFile', "Up?loaiVanBan=" + loaiVanBan, 650, 300, "UPLOAD FILE");
+    }
+
+    // Show Dialog
+    function ShowPopUp(dialogName, ifameName, strSrc, w, h, title) {
+        $('#' + ifameName).attr('height', h - 30 + 'px');
+        $('#' + ifameName).attr('width', w - 10 + 'px');
+        $("#" + dialogName).dialog({
+            title: title, width: w, heigth: h,
+            close: function (event, ui) {
+                LoadListFile();
+            }
+        });
+        $("#" + dialogName).dialog("open");
+        $('#' + ifameName).attr('src', strSrc);
+        $('#' + ifameName).attr('allowfullscreen', 'true');
+    }
+
+</script>

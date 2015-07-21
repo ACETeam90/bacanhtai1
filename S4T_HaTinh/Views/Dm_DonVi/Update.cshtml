@@ -1,0 +1,402 @@
+﻿@model S4T_HaTinh.Models.Dm_DonVi
+
+@{
+    var slTrinhDoCNTT = MvcApplication.ListTrinhDoCNTT().Select(o => new SelectListItem()
+            {
+                Text = o.TenDanhMuc,
+                Value = o.DanhMuc_ID.ToString()
+            });
+    var item2 = new List<SelectListItem>();
+    item2.Add(new SelectListItem()); 
+    item2.AddRange(slTrinhDoCNTT);
+    
+    var items = new List<SelectListItem>();
+    items.Add(new SelectListItem()); 
+    var listGiamDocCNTT = new SelectList(items, "Value", "Text");
+}
+
+<h2>SỬA THÔNG TIN ĐƠN VỊ</h2>
+<h4>@Model.TenDonVi</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DonVi_ID)
+        @Html.HiddenFor(model => model.NhomDonVi_ID)
+        @Html.HiddenFor(model => model.DonViCap1_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenDonVi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenDonVi, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.TenDonVi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NamThanhLap, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.NamThanhLap, new { @class = "S4T_NumericTextBox", @min = "1900" })
+                @Html.ValidationMessageFor(model => model.NamThanhLap, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DiaChi, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DienThoai, new { @class = "S4T_AutoComplete", @style = "width:150px;" })
+                @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Website, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.GiamDoc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.GiamDoc, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.GiamDoc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc1, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc2, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc3, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc3, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc4, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc4, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc5, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc5, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc5, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc6, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc6, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc6, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc7, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.PhoGiamDoc7, new { @class = "S4T_AutoComplete", @style = "width:400px;", @onblur = "ChangeDDLTenGiamDocCNT()" })
+                @Html.ValidationMessageFor(model => model.PhoGiamDoc7, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Giám đốc CNTT(CIO)</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Ten_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownList("ddlTenGiamDocCNTT", listGiamDocCNTT, new { @class = "S4T_DropDownList", @style = "width:300px;", @onchange = "SetTenGiamDocCNTT()" })
+                @Html.HiddenFor(model => model.Ten_GiamDocCNTT)
+                @Html.ValidationMessageFor(model => model.Ten_GiamDocCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DienThoai_GiamDocCNTT, new { @class = "S4T_AutoComplete", @style = "width:150px;" })
+                @Html.ValidationMessageFor(model => model.DienThoai_GiamDocCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email_GiamDocCNTT, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Email_GiamDocCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Chánh văn phòng UBND</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Ten_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Ten_ChanhVanPhong, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Ten_ChanhVanPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DienThoai_ChanhVanPhong, new { @class = "S4T_AutoComplete", @style = "width:150px;" })
+                @Html.ValidationMessageFor(model => model.DienThoai_ChanhVanPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email_ChanhVanPhong, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Email_ChanhVanPhong, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCBCC, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoCBCC, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoCBCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoDonViTrucThuoc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoDonViTrucThuoc, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoDonViTrucThuoc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_DVTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoCB_DVTT, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoCB_DVTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HasPhongCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none;  margin-left: -11px;">
+                    <li>
+                        <input type="radio" id="rd_value_HasPhongCNTT_1" name="rd_value_HasPhongCNTT" style="float:left;width:30px;" onclick="$('#HasPhongCNTT').val(1);" />
+                        <span style="float:left;width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_HasPhongCNTT_2" name="rd_value_HasPhongCNTT" style="float:left;width:30px;" onclick="$('#HasPhongCNTT').val(0);" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.HasPhongCNTT)
+                @Html.ValidationMessageFor(model => model.HasPhongCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_PhongCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoCB_PhongCNTT, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoCB_PhongCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HasToCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <ul style="list-style:none;  margin-left: -11px;">
+                    <li>
+                        <input type="radio" id="rd_value_HasToCNTT_1" name="rd_value_HasToCNTT" style="float:left;width:30px;" onclick="$('#HasToCNTT').val(1);" />
+                        <span style="float:left;width:30px;">Có</span>
+                    </li>
+                    <li>
+                        <input type="radio" id="rd_value_HasToCNTT_2" name="rd_value_HasToCNTT" style="float:left;width:30px;" onclick="$('#HasToCNTT').val(0);" />
+                        <span style="width:30px;">Không</span>
+                    </li>
+                </ul>
+                @Html.HiddenFor(model => model.HasToCNTT)
+                @Html.ValidationMessageFor(model => model.HasToCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_ToCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.SoCB_ToCNTT, new { @class = "S4T_NumericTextBox", @min = "0" })
+                @Html.ValidationMessageFor(model => model.SoCB_ToCNTT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Cán bộ chuyên trách CNTT (VP) 1</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HoTen_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.HoTen_CBCT1, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.HoTen_CBCT1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrinhDoCNTT_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.TrinhDoCNTT_CBCT1, item2, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.TrinhDoCNTT_CBCT2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DienThoai_CBCT1, new { @class = "S4T_AutoComplete", @style = "width:150px;" })
+                @Html.ValidationMessageFor(model => model.DienThoai_CBCT1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email_CBCT1, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Email_CBCT1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Cán bộ chuyên trách CNTT (VP) 2</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HoTen_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.HoTen_CBCT2, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.HoTen_CBCT2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrinhDoCNTT_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.TrinhDoCNTT_CBCT2, item2, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.TrinhDoCNTT_CBCT2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.DienThoai_CBCT2, new { @class = "S4T_AutoComplete", @style = "width:150px;" })
+                @Html.ValidationMessageFor(model => model.DienThoai_CBCT2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email_CBCT2, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.Email_CBCT2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Chọn lại tên giám đốc CNTT
+        var tenGiamDocCNTT = $("#Ten_GiamDocCNTT").val();
+        ChangeDDLTenGiamDocCNT();
+        if (tenGiamDocCNTT != "") {
+            var ddl = $("#ddlTenGiamDocCNTT").kendoDropDownList().data("kendoDropDownList");
+            ddl.value(tenGiamDocCNTT);
+        }
+
+        // Check lại Phòng CNTT, Tổ CNTT'
+        if ($("HasPhongCNTT").val() == "1")
+            $("#rd_value_HasPhongCNTT_1").prop("checked", true);
+        else if ($("HasPhongCNTT").val() == "0")
+            $("#rd_value_HasPhongCNTT_2").prop("checked", true);
+
+        if ($("HasToCNTT").val() == "1")
+            $("#rd_value_HasToCNTT_1").prop("checked", true);
+        else if ($("HasPhongCNTT").val() == "0")
+            $("#rd_value_HasToCNTT_2").prop("checked", true);
+    });
+
+    // Set lại tên giám đốc CNTT
+    function SetTenGiamDocCNTT() {
+        $("#Ten_GiamDocCNTT").val($("#ddlTenGiamDocCNTT").val());
+    }
+
+    // Load danh sách tên giám đốc CNTT
+    function ChangeDDLTenGiamDocCNT() {
+        var sl = "<select>";
+        if ($("#GiamDoc").val() != "")
+            sl += "<option value='" + $("#GiamDoc").val().trim() + "'>" + $("#GiamDoc").val().trim() + "</option>";
+        for (var i = 1; i <= 7; i++) {
+            if ($("#PhoGiamDoc" + i).val() != "")
+                sl += "<option value='" + $("#PhoGiamDoc" + i).val().trim() + "'>" + $("#PhoGiamDoc" + i).val().trim() + "</option>";
+        }
+        sl += "</select>";
+        //alert(sl);
+        $("#ddlTenGiamDocCNTT ").html(sl);
+        $("#ddlTenGiamDocCNTT").kendoDropDownList({
+            //filter: "contains",
+            ignoreCase: true
+        });
+    }
+</script>

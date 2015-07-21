@@ -1,0 +1,385 @@
+﻿@model S4T_HaTinh.Models.Dm_DonVi
+
+@{
+    ViewBag.Title = "Sửa";
+    var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa), "DanhMuc_ID", "TenDanhMuc");
+    var listNganhNghe = new SelectList(MvcApplication.ListNganhNghe(), "DanhMuc_ID", "TenDanhMuc");
+    var listLoaiHinhDoanhNghiep = new SelectList(MvcApplication.ListLoaiHinhDoanhNghiep(), "DanhMuc_ID", "TenDanhMuc");
+    var listTrinhDoCNTT = MvcApplication.ListTrinhDoCNTT();
+    var items = new List<SelectListItem>();
+    items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true }); ;
+    var listDonViCap1 = new SelectList(items, "Value", "Text");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DonVi_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenDonVi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenDonVi, new { @class = "S4T_AutoComplete", @style = "width:400px;" })
+                @Html.ValidationMessageFor(model => model.TenDonVi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NhomDonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.NhomDonVi_ID, listNhomDonVi, new { @class = "S4T_ComboBox", @style = "width:300px;", @onchange = "NhomDonVi_OnChange()" })
+                @Html.ValidationMessageFor(model => model.NhomDonVi_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonViCap1_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.DonViCap1_ID, (List<SelectListItem>)ViewBag.SelectListDonViCap1, new { @class = "S4T_ComboBox", @style = "width:300px;" })
+                @Html.ValidationMessageFor(model => model.DonViCap1_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.TrangThai, listTrangThai, new { @class = "S4T_DropDownList", @style = "width:180px;" })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button> 
+            </div>
+        </div>
+        <br />
+        <hr style="border:0"/>
+        <h3>Thông tin chi tiết</h3>
+        <hr />
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NamThanhLap, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.NamThanhLap)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DiaChi)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DienThoai)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Email)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Website)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.GiamDoc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.GiamDoc)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc1)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc2)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc3, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc3)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc4, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc4)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc5, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc5)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc6, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc6)
+            </div>
+        </div>
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhoGiamDoc7, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.PhoGiamDoc7)
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Giám đốc CNTT</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Ten_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Ten_GiamDocCNTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DienThoai_GiamDocCNTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_GiamDocCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Email_GiamDocCNTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Chánh văn phòng</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Ten_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Ten_ChanhVanPhong)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DienThoai_ChanhVanPhong)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_ChanhVanPhong, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Email_ChanhVanPhong)
+            </div>
+        </div>
+        
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCBCC, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoCBCC)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoDonViTrucThuoc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoDonViTrucThuoc)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_DVTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoCB_DVTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HasPhongCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @if(Model.HasPhongCNTT == 1){
+                    <span>Có</span>
+                }else{
+                    <span>Không</span>
+                }
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_PhongCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoCB_PhongCNTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HasToCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @if(Model.HasToCNTT == 1){
+                    <span>Có</span>
+                }else{
+                    <span>Không</span>
+                }
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.SoCB_ToCNTT, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.SoCB_ToCNTT)
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Cán bộ chuyên trách 1</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HoTen_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.HoTen_CBCT1)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgaySinh_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.NgaySinh_CBCT1)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrinhDoCNTT_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => listTrinhDoCNTT.FirstOrDefault(o => o.DanhMuc_ID == model.TrinhDoCNTT_CBCT1).TenDanhMuc)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DienThoai_CBCT1)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_CBCT1, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Email_CBCT1)
+            </div>
+        </div>
+
+        <div class="divRow">
+            <span>Cán bộ chuyên trách 2</span>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HoTen_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.HoTen_CBCT2)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.NgaySinh_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.NgaySinh_CBCT2)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrinhDoCNTT_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => listTrinhDoCNTT.FirstOrDefault(o => o.DanhMuc_ID == model.TrinhDoCNTT_CBCT2).TenDanhMuc)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DienThoai_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.DienThoai_CBCT2)
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email_CBCT2, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DisplayTextFor(model => model.Email_CBCT2)
+            </div>
+        </div>
+
+        @*<div class="divRow">
+                @Html.LabelFor(model => model.NganhNghe_ID, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.DropDownListFor(model => model.NganhNghe_ID, listNganhNghe, new { @class = "S4T_ComboBox", @style = "width:300px;" })
+                    @Html.ValidationMessageFor(model => model.NganhNghe_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="divRow">
+                @Html.LabelFor(model => model.LoaiHinhDoanhNghiep_ID, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.DropDownListFor(model => model.LoaiHinhDoanhNghiep_ID, listLoaiHinhDoanhNghiep, new { @class = "S4T_ComboBox", @style = "width:300px;" })
+                    @Html.ValidationMessageFor(model => model.LoaiHinhDoanhNghiep_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="divRow">
+                @Html.LabelFor(model => model.QuyMo, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.TextAreaFor(model => model.QuyMo, new { @class = "form-control", rows = 8, cols = 40 })
+                    @Html.ValidationMessageFor(model => model.QuyMo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        *@
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //NhomDonVi_OnChange();
+    });
+
+    // Lấy danh sách đơn vị cấp trên theo nhóm đơn vị
+    function NhomDonVi_OnChange() {
+        var nhomDonVi_ID = $("#NhomDonVi_ID").val();
+        var donViCap1_ID = $("#DonViCap1_ID").val();
+        if (nhomDonVi_ID != "") {
+            $.post("/Dm_DonVi/NhomDonVi_OnChange", { "nhomDonVi_ID": nhomDonVi_ID, "view": "Update" }).done(function (data) {
+                if (data.msg == null) {
+                    $("#DonViCap1_ID").html(data.danhSach);
+                    $("#DonViCap1_ID").kendoComboBox();
+                } else {
+                    alert(data.msg);
+                }
+            });
+        } else {
+            alert("Không tìm thấy mã nhóm đơn vị");
+        }
+    }
+</script>

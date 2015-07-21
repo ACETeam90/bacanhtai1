@@ -1,0 +1,79 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.TD_CauHinh>
+
+@{
+    
+}
+
+<h2>Cấu hình thẩm định hồ sơ</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table class="tableDefault">
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenCauHinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaCauHinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsGlobal)
+        </th>
+        <th></th>
+    </tr>
+@if(Model != null){
+    int i=1;
+    foreach (var item in Model) {
+    <tr>
+        <td>
+            @i
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenCauHinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaCauHinh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsGlobal)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new {  id=item.CauHinh_ID  }) |
+            <a title="Xóa" onclick="Delete(@item.CauHinh_ID)">Xóa</a>
+        </td>
+    </tr>
+    i++;
+    }   
+}
+</table>
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+        $.ajax({
+            type: 'POST',
+            url: "/TD_CauHinh/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }},
+            //async:true
+        });
+    }
+</script>

@@ -1,0 +1,40 @@
+﻿@model S4T_HaTinh.Models.Dm_DanhMucChung
+
+@{
+    ViewBag.Title = "TẠO MỚI";
+    //var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenDanhMuc, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenDanhMuc, new { @class = "S4T_AutoComplete", @style="width:350px;" })
+                @Html.ValidationMessageFor(model => model.TenDanhMuc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.LoaiDanhMuc_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.LoaiDanhMuc_ID, (SelectList)ViewBag.SelectListLoaiDanhMuc, new { @class = "S4T_DropDownList", @style = "width:250px;" })
+                @Html.ValidationMessageFor(model => model.LoaiDanhMuc_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,77 @@
+﻿@model S4T_HaTinh.Models.TD_FileHoSoDinhKem
+@using System.Configuration;
+@{
+    ViewBag.HideMenu = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string phuLucHoSoKhac = ConfigurationManager.AppSettings["PhuLucHoSoKhac"];
+    int intPhuLucHoSoKhac = string.IsNullOrEmpty(phuLucHoSoKhac) ? 0 : Convert.ToInt32(phuLucHoSoKhac);
+}
+
+<style type="text/css">
+    .contentPane{
+        min-height:100px !important;
+    }
+    label.divLabel{
+        width:15% !important;
+    }
+    .divControl{
+        width:80% !important;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    if (ViewBag.RefreshPage == true)
+    {
+        <script type="text/javascript">
+            try {window.opener.document.forms['myForm'].@(ViewBag.btnId).click();}
+            catch (e){}
+            window.close();
+        </script>
+    }
+    
+    @Html.Raw(ViewBag.Mess)
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.FileHoSoDinhKem_ID)
+        @Html.HiddenFor(model => model.MaHoSo)
+        
+        @{
+            if (Model.VanBan_ID != intPhuLucHoSoKhac && Model.VanBan_ID != 0)
+            {
+                <div class="divRow">
+                    <label class="divLabel">Trích yếu</label>
+                    <div class="divControl">
+                        @Html.TextBoxFor(model => model.TrichYeu, new { @class = "S4T_AutoComplete", @style = "width:412px;" })
+                        @Html.ValidationMessageFor(model => model.TrichYeu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            
+                <div class="divRow">
+                    <label class="divLabel">Số ký hiệu</label>
+                    <div class="divControl">
+                        @Html.TextBoxFor(model => model.SoKyHieu, new { @class = "S4T_AutoComplete", @style = "width:412px;" })
+                        @Html.ValidationMessageFor(model => model.SoKyHieu, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            }
+        }
+
+        <div class="divRow">
+            <label class="divLabel">Chọn file</label>
+            <div class="divControl">
+                <input type="file" name="file" id="file" class="S4T_UploadOneFile"
+                       accept="application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/msword,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                            application/x-rar-compressed,
+                                            application/zip" />
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

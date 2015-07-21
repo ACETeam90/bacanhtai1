@@ -1,0 +1,117 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Ht_PhanHeChucNang>
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "DANH SÁCH PHÂN HỆ CHỨC NĂNG";
+    var listTrangThai = MvcApplication.ListTrangThai();
+    var slPhanHe = new SelectList(ViewBag.ListPhanHe, "PhanHe_ID", "TenPhanHe");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Index", "Ht_PhanHeChucNang", FormMethod.Get, new { id = "searchForm"}))
+{
+    <table>
+        <tr>
+            <td>Phân hệ</td>
+            <td>@Html.DropDownList("ddlPhanHe", slPhanHe, new { @class = "S4T_DropDownList", @style = "width: 250px;", @onchange = "PhanHe_OnChange()" })</td>
+        </tr>
+    </table>
+    <input type="text" name="status" value="1" style="display:none" />
+}
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <colgroup>
+        <col width="25" />
+        <col width="70" />
+        <col width="200" />
+        <col width="150" />
+        <col width="100" />
+        <col width="80" />
+        <col width="40" />
+        <col width="60" />
+    </colgroup>
+    <tr>
+        <th>STT</th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanHeChucNang_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenChucNang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ControllerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThuTu)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null) { 
+        var i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhanHeChucNang_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenChucNang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ControllerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => listTrangThai.FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThuTu)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.PhanHeChucNang_ID }) |
+                    <a title="Xóa" href='javascript:void(0);' onclick="Delete(@item.PhanHeChucNang_ID)">Xóa</a>
+                </td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn có chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Ht_PhanHeChucNang/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+
+    function PhanHe_OnChange(){
+        //$.get("/Ht_PhanHeChucNang/Index",{"ddlPhanHe": $("#ddlPhanHe").val()});
+        //var form = $("#searchForm");
+        $("#searchForm").submit();
+    }
+</script>

@@ -1,0 +1,135 @@
+﻿@model S4T_HaTinh.Models.RegisterViewModel
+@using S4T_HaTinh.Models;
+@{
+    var listDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var list = (IEnumerable<AspNetRoles>) ViewBag.ListRole;
+    var listRole = new SelectList(list.Where(o => o.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong), "Id", "TenHienThi");
+}
+
+<h2>Thêm mới</h2>
+
+@using (Html.BeginForm())
+{ 
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+        @if (ViewBag.DonViSoThongTinTruyenThong != null)
+        {
+            <div class="divRow">
+                @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.DropDownListFor(model => model.RoleId, listRole, new { @class = "S4T_ComboBox", @style = "width:250px;" })
+                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            
+            <div class="divRow">
+                @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    @Html.TextBoxFor(model => model.UserName, new { @class = "S4T_AutoComplete", @style="width:250px;" })
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="divRow">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    <span style="width: 250px; font-family: Calibri; font-size: small; "
+                          class="k-widget k-autocomplete k-header k-state-default">
+                        @Html.PasswordFor(model => model.Password, new { @class = "k-input", @style = "width: 100%; font-family: Calibri; font-size: small;" })
+                        @*<input id="Password" type="password"
+                               style="width: 100%; font-family: Calibri; font-size: small;"
+                               class="k-input">*@
+                    </span>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+        else  // Nếu là đơn vị
+        {
+            <div class="divRow">
+                @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "divLabel" })
+                <div class="divControl">
+                    <span id="txtRole"></span>
+                    @Html.HiddenFor(model => model.RoleId)
+                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.HoVaTen, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.HoVaTen, new { @class = "S4T_AutoComplete", @style = "width:350px;" })
+                @Html.ValidationMessageFor(model => model.HoVaTen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @if (ViewBag.DonViSoThongTinTruyenThong != null)
+                {
+                    @Html.Label("lblDonVi", listDonVi.FirstOrDefault(o => o.Value == ViewBag.DonViSoThongTinTruyenThong.ToString()).Text)
+                    @Html.HiddenFor(model => model.DonVi_ID)
+                }
+                else
+                {
+                    @Html.DropDownListFor(model => model.DonVi_ID, listDonVi, new { @class = "S4T_ComboBox", @style = "width:300px;", @onchange = "DonVi_Onchange()" })
+                }
+                @Html.ValidationMessageFor(model => model.DonVi_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Email, new { @class = "S4T_AutoComplete", @style = "width:350px;" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@ViewBag.DonViSoThongTinTruyenThong' == '') {
+            DonVi_Onchange();
+        }
+    });
+
+    function goBackpage() {
+        if ('@ViewBag.DonViSoThongTinTruyenThong' == '') {
+            location.href = "/Ht_User/ListUser";
+        } else {
+            location.href = "/Ht_User/ListChuyenVienSo";
+        }
+    }
+
+    // Thay đổi đơn vị sẽ thay đổi loại user
+    function DonVi_Onchange() {
+        var DonVi_ID = $("#DonVi_ID").val();
+        if (DonVi_ID != "") {
+            $.post("/Ht_User/DonVi_Onchange", { "donVi_ID": DonVi_ID, "view": "Create" }).done(function (data) {
+                if (data.msg == null) {
+                    $("#txtRole").text(data.RoleName);
+                    $("#RoleId").val(data.Role_ID);
+                } else {
+                    alert(data.msg);
+                }
+            });
+        } else {
+            alert("Không tìm thấy mã đơn vị");
+        }
+    }
+</script>

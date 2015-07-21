@@ -1,0 +1,26 @@
+﻿@model S4T_HaTinh.Models.IndexViewModel
+@{
+    ViewBag.Title = "THÔNG TIN NGƯỜI DÙNG";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<hr />
+<div class="form-horizontal">
+    <div class="divRow">
+        <label class="divLabel" style="margin-top: 0px;width: 70px;">Mật khẩu</label>
+        <div class="divControl">
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Đổi mật khẩu", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Tạo mật khẩu", "SetPassword")
+            }
+            ]
+        </div>
+    </div>
+</div>

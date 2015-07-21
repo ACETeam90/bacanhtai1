@@ -1,0 +1,164 @@
+﻿@using S4T_HaTinh.Models
+@model LoginViewModel
+@{
+    //Layout = null;   
+    //Layout = "~/Views/Shared/_Layout_Null.cshtml";
+    var items = new List<SelectListItem>();
+    items.Add(new SelectListItem() { Text = "(Không có)", Value = "-1", Selected = true }); ;
+    var listDonViCap1 = new SelectList(items, "Value", "Text");
+}
+<link href="~/Content/login.css" rel="stylesheet" />
+@Html.AntiForgeryToken()
+<body>
+    <div id="tabbed_box_1" class="tabbed_box">
+        <div class="tabbed_area">
+            <ul class="tabs">
+                <li><a href="#" title="content_1" class="tab active">Chuyên viên-Admin</a></li>
+                <li><a href="#" title="content_2" class="tab">Đơn vị</a></li>
+            </ul> 
+
+            <div id="content_1" class="content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <section id="loginForm">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(m => m.UserRolesName, new { Value = "ChuyenVien" })
+
+                                    <div id="divLoginAdmin">
+                                        <div class="divRow">
+                                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                                            <div class="divControl">
+                                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="divRow">
+                                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                            <div class="divControl">
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="divRow">
+                                        <div class="col-md-offset-2 divControl">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="divRow">
+                                        <div class="col-md-offset-2 divControl">
+                                            <input type="submit" value="Đăng nhập" class="k-button k-button-icontext" />
+                                        </div>
+                                    </div>
+                                }
+                            </section>
+                        </div>
+                    </div>
+            </div>
+            <div id="content_2" class="content">
+                <ul>
+                    @Html.Raw(ViewBag.NhomDonVi)
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div id="divNhomDonVi" style="display:none">@Html.Raw(ViewBag.NhomDonVi);</div>
+
+<div id="divLogin_DonVi">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.UserRolesName, new { Value = "User" })
+        <ul id="ulDonVi" style="display:none">
+            <table>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.HoVaTen, new { @class = "col-md-2 control-label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.HoVaTen, new { @class = "form-control" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(m => m.TenDonVi, new { @class = "col-md-2 control-label" })
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.TenDonVi, listDonViCap1, new { @class = "S4T_ComboBox" })
+                    </td>
+                </tr>
+            </table>
+            <div class="divRow">
+                <div class="col-md-offset-2 divControl">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
+            @*<li>
+        @Html.LabelFor(m => m.HoVaTen, new { @class = "col-md-2 control-label" })
+        @Html.TextBoxFor(m => m.HoVaTen, new { @class = "form-control" })
+    </li>
+    <li>
+        @Html.LabelFor(m => m.TenDonVi, new { @class = "col-md-2 control-label" })
+        @Html.DropDownListFor(m => m.TenDonVi, listDonViCap1, new { @class = "S4T_ComboBox" })
+    </li>*@
+            <li> <input type="submit" value="Đăng nhập" /></li>
+        </ul>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("a.tab").click(function () {
+            // tắt tất cả các tab
+            $(".active").removeClass("active");
+
+            // bật tab đang click lên
+            $(this).addClass("active");
+
+            // tạo hiệu ứng trượt lên trên cho nội dung của tab đang click
+            $(".content").slideUp();
+
+            // Nếu là tab đầu tiên thì set hiệu ứng là trượt xuống dưới
+            var content_show = $(this).attr("title");
+            $("#" + content_show).slideDown();
+        });
+    });
+
+    //$("a.child").click(function () {
+    $("a[name*='DonViCapDuoi']").click(function () {
+        //$("#content_2").html($("#divNhomDonVi").html());
+        var id = $(this).attr("id");
+
+        // Lấy danh sách đơn vị cấp dưới
+        $.post("GetDonViCapDuoi", { "id": id }).done(function (data) {
+            if (data.msg == null) {
+                $("#TenDonVi").html(data.danhSach);
+            } 
+        });
+
+        $('#divDonViLogin_' + id).append($("#divLogin_DonVi").html());
+        $("#ulDonVi").show();
+        // tắt tất cả các tab
+        //$(".active").removeClass("active");
+
+        //// bật tab đang click lên
+        //$(this).addClass("active");
+    });
+
+    // Convert string to html
+    function DecodeHtml(str) {
+        return $('<div/>').html(str).text();
+    }
+</script>

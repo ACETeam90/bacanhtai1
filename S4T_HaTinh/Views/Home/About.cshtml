@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<script src="~/Scripts/jquery-ui-1.11.2/jquery-ui.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.all.css" rel="stylesheet" />
+<form action='About' method='post' name='testform'>
+    @Html.ValidationSummary(true)
+    @Html.TextBox("txt", "123")
+    <input type="submit" name="Create" value="Tạo mới" class="k-button k-button-icontext" />
+    <input type="submit" name="CreateAndForward" value="Tạo mới và chuyển tiếp" class="k-button k-button-icontext" />
+    <input type="button" value="Chuyển tiếp" id="showDialog" class="k-button k-button-icontext" onclick="ShowDialog()" />
+</form>
+
+<div id="dialog"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$('form[name="testform"]').submit(function (event) { process_form_submission(event); });
+    });
+
+    $("input[name='Create']").click(function () {
+        alert("tao moi");
+        var options = {
+            data: { 'action': 'save' }
+        };
+        $(this).parent().ajaxSubmit();
+    });
+
+    $("input[name='CreateAndForward']").click(function () {
+        alert("tao moi");
+        var options = {
+            data: { 'action': 'save' }
+        };
+        $(this).parent().ajaxSubmit();
+    });
+
+    function process_form_submission(event) {
+        event.preventDefault();
+        //var target = $(event.target);
+        var me = event.currentTarget;
+        var data = me.data.value;
+        var which_button = me.name1.value;       // <-- this is what I want to know
+        var val = $("input[type=submit][clicked=true]").val();
+        alert('data: ' + data + ', button: ' + which_button + ', name: ' + val);
+    }
+
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            OK: function () { $(this).dialog("close"); }
+        },
+    });
+    function ShowDialog() {
+        alert("test");
+        $("#dialog").dialog("open");
+    };
+
+</script>

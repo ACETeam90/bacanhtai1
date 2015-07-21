@@ -1,0 +1,76 @@
+﻿@model S4T_HaTinh.Models.Ht_PhanHeChucNang
+@using S4T_HaTinh.Models;
+@{
+    ViewBag.Title = "SỬA";
+    var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+    var listPhanHe = new SelectList(ViewBag.ListPhanHe, "PhanHe_ID", "TenPhanHe");    
+}
+
+<h2>SỬA</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PhanHeChucNang_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanHe_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.PhanHe_ID, listPhanHe, new { @class = "S4T_ComboBox", @style = "width:250px;" })
+                @Html.ValidationMessageFor(model => model.PhanHe_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TenChucNang, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.TenChucNang, new { @class = "S4T_AutoComplete", @style = "width:350px;" })
+                @Html.ValidationMessageFor(model => model.TenChucNang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ControllerName, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ControllerName, new { @class = "S4T_AutoComplete", @style = "width:350px;" })
+                @Html.ValidationMessageFor(model => model.ControllerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ActionName, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ActionName, new { @class = "S4T_AutoComplete", @style = "width:350px;" })
+                @Html.ValidationMessageFor(model => model.ActionName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.ThuTu, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.ThuTu, new { @class = "S4T_DecimalTextBox", @min=0 })
+                @Html.ValidationMessageFor(model => model.ThuTu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TrangThai, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.TrangThai, listTrangThai, new { @class = "S4T_DropDownList" })
+                @Html.ValidationMessageFor(model => model.TrangThai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}

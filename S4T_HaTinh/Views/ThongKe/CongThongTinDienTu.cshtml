@@ -1,0 +1,296 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetCongThongTinDienTu_Result>
+@{
+
+}
+@* style="table-layout: fixed; width: 100%" *@
+<table class="tableDefault" >
+    <tr>
+        <th rowspan="3" style="min-width: 30px">STT</th>
+        <th rowspan="3">Tên đơn vị</th>
+        <th rowspan="3">Số CBCC</th>
+        <th rowspan="3">Số DVTT</th>
+        <th rowspan="3">Số CB DVTT</th>
+        <th rowspan="3">Công nghệ lõi</th>
+        <th rowspan="3">Ngôn ngữ lập trình</th>
+        <th rowspan="3">Hệ quản trị CSDL</th>
+        <th rowspan="3">Đơn vị thực hiện</th>
+        <th rowspan="3">Nâng cấp trong năm</th>
+        <th rowspan="3">Nội dung nâng cấp</th>
+        <th rowspan="3">Đơn vị thực hiện</th>
+        <th colspan="55">Thông tin được cung cấp và cập nhật đầy đủ trên Website/Portal</th>
+        
+        <th rowspan="3">Tổng số các đơn vị trực thuộc có cổng/trang thông tin điện tử</th>
+        <th rowspan="3">Tổng mức đầu tư</th>
+    </tr>
+    <tr>
+        <th colspan="8">Thông tin giới thiệu </th>
+        <th rowspan="2">Tuần suất cập nhật </th>
+        <th colspan="3">Thông tin chỉ đạo, điều hành của đơn vị</th>
+        <th colspan="2">Thông tin tuyên truyền, phổ biến, hướng dẫn thực hiện pháp luật, chế độ, chính sách  </th>
+        <th colspan="3 ">Chiến lược, định hướng, quy hoạch, kế hoạch của ngành hoặc địa phương </th>
+        <th colspan="4 ">Văn bản quy phạm pháp luật của ngành hoặc địa phương </th>
+        <th colspan="3 ">Thông tin về dự án, hạng mục đầu tư, đấu thầu mua sắm công của đơn vị </th>
+        <th colspan="2 ">Thông tin về đề tài khoa học có sử dụng ngân sách nhà nước của đơn vị </th>
+        <th colspan="3 ">Lấy ý kiến, góp ý của tổ chức, cá nhân  </th>
+        <th colspan="9 ">Chức năng hỗ trợ khai thác thông tin  </th>
+        <th colspan="4 ">Cung cấp dịch vụ công trực tuyến trên Cổng Thông tin điện tử của đơn vị </th>
+        <th colspan="4">Đảm bảo nhân lực  </th>
+        <th colspan="3">Đảm bảo an toàn thông tin và dữ liệu  </th>
+        <th colspan="3">Văn bản về chính sách quản trị và vận hành Cổng TTĐT </th>
+        <th colspan="3">Đăng tải thông tin theo quy định</th>
+    </tr>
+    <tr>
+        <th>Thông tin về sơ đồ, cơ cấu tổ chức bộ máy cơ quan</th>
+        <th>Chức năng, nhiệm vụ, quyền hạn của cơ quan và các đơn vị trực thuộc</th>
+        <th>Giới thiệu tóm lược sự hình thành và phát triển của cơ quan</th>
+        <th>Thông tin tóm tắt và nhiệm vụ đảm nhiệm của lãnh đạo cơ quan</th>
+        <th>Thông tin giao dịch chính thức của cơ quan </th>
+        <th>Thông tin liên hệ của CBCC có thẩm quyền</th>
+        <th>Đăng tải bản đồ địa giới</th>
+        <th>Thông tin thống kê về ngành, lĩnh vực hoặc thông tin thống kê của địa phương </th>
+
+        <th>Tổng số văn bản chỉ đạo điều hành của đơn vị</th>
+        <th>Tổng số văn bản chỉ đạo điều hành được đăng tải</th>
+        <th>Đăng lịch làm việc của lãnh đạo cơ quan</th>
+
+        <th>Có chuyên trang hoặc chuyên mục về phổ biến văn bản QPPL </th>
+        <th>Số tin, bài viết phổ biến chính sách pháp luật đăng tải</th>
+
+        <th>Có chuyên mục hoặc chuyên trang về chiến lược, quy hoạch, kế hoạch</th>
+        <th>Số lượng Chiến lược, Quy hoạch của ngành hoặc địa phương đã đăng tải</th>
+        <th>Số lượng Kế hoạch phát triển của ngành hoặc địa phương đã đăng tải</th>
+
+        <th>Chuyên trang về văn bản quy phạm pháp luật </th>
+        <th>Số văn bản quy phạm pháp luật đã đăng tải</th>
+        <th>Liên kết đến các chuyên trang quản lý văn bản quy phạm pháp luật khác</th>
+        <th>Cho phép tải về các văn bản quy phạm pháp luật</th>
+
+        <th>Có chuyên trang hoặc hạng mục đầu tư, mua sắm</th>
+        <th>Số dự án, hạng mục đầu tư, đấu thầu mua sắm công được đăng tải</th>
+        <th>Đăng những thông tin tối thiểu của mỗi dự án, hạng mục đầu tư, đấu thầu mua sắm công </th>
+
+        <th>Có chuyên trang hoặc chuyên mục về đề tài khoa học </th>
+        <th>Số lượng đề tài khoa học được đăng tải với đầy đủ danh mục </th>
+
+        <th>Có chuyên trang hoặc chuyên mục góp ý </th>
+        <th>Số dự thảo văn bản quy phạm pháp luật cần xin ý kiến đã đăng tải</th>
+        <th>Cung cấp các thông tin và chức năng; toàn văn nội dung vấn đề cần xin ý kiến</th>
+
+        <th>Chức năng tìm kiếm và tìm kiếm được đầy đủ nội dung thông tin, bài cần tìm</th>
+        <th>Sơ đồ website thể hiện cây cấu trúc các hạng mục thông tin của trang TTĐT</th>
+        <th>Đăng câu hỏi, trả lời trong mục trao đổi- hỏi đáp đối với những vấn đề có liên quan chung</th>
+        <th>Cung cấp dữ liệu đặc tả theo quy định cho mỗi tin bài</th>
+        <th>Sử dụng bộ mã ký tự chữ Việt Unicode theo tiêu chuẩn TCVN 6909:2001</th>
+        <th>Khả năng tương thích với nhiều trình duyệt</th>
+        <th>Liên kết tới website các đơn vị trực thuộc hoặc các cơ quan liên quan</th>
+        <th>Chức năng hỗ trợ người khuyết tật tiếp cận thông tin</th>
+        <th>Tên miền Cổng Thông tin điện tử</th>
+
+        <th>Tổng số TTHC phải giải quyết tại đơn vị</th>
+        <th>Tổng số DVC mức 1 được cung cấp trên Cổng TTĐT</th>
+        <th>Tổng số DVC mức 2 được cung cấp trên Cổng TTĐT</th>
+        <th>Tổng số DVC mức 3 trở lên được cung cấp trên Cổng TTĐT</th>
+
+        <th>Ban hành quyết định thành lập Ban biên tập đúng quy định</th>
+        <th>Bố trí chuyên viên quản trị kỹ thuật</th>
+        <th>Bố trí nhân lực xử lý dịch vụ công trực tuyến</th>
+        <th>Tập huấn, đào tạo cán bộ Ban biên tập và chuyên viên quản trị trong năm</th>
+
+        <th>Thực hiện các biện pháp kỹ thuật để bảo đảm an toàn thông tin và dữ liệu trên Cổng Thông tin điện tử</th>
+        <th>Xây dựng giải pháp hiệu quả chống lại các tấn công gây mất an toàn thông tin của Cổng Thông tin điện tử</th>
+        <th>Xây dựng phương án dự phòng khắc phục sự cố bảo đảm hệ thống Cổng Thông tin điện tử hoạt động liên tục ở mức tối đa</th>
+
+        <th>Ban hành quy chế phối hợp giữa các đơn vị trong cơ quan để cung cấp và xử lý thông tin</th>
+        <th>Ban hành quy chế hoạt động của Cổng TTĐT:</th>
+        <th>Thực hiện chế độ báo cáo định kỳ hàng năm về tình hình hoạt động của Cổng TTĐT</th>
+
+        <th>Cập nhật thông tin theo quy định tại Điều 17 Nghị định số 43/2011/NĐ-CP</th>
+        <th>Nội dung các thông tin đăng tải trên Cổng TTĐT</th>
+        <th>Thực hiện quy định khác của Nghị định 72/2013/NĐ-CP về bản quyền thông tin đăng tải</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Html.DisplayFor(m => item.TenDonVi)</td>
+                <td>@Html.DisplayFor(m => item.SoCBCC)</td>
+                <td>@Html.DisplayFor(m => item.SoDonViTrucThuoc)</td>
+                <td>@Html.DisplayFor(m => item.SoCB_DVTT)</td>
+
+                <td>@Html.DisplayFor(m => item.CongNgheLoi)</td>
+                <td>@Html.DisplayFor(m => item.NgonNguLapTrinh)</td>
+                <td>@Html.DisplayFor(m => item.CSDL)</td>
+                <td>@Html.DisplayFor(m => item.DonViThucHien)</td>
+                <td>@Html.DisplayFor(m => item.NangCapTrongNam)</td>
+                <td>@Html.DisplayFor(m => item.NoiDung)</td>
+                <td>@Html.DisplayFor(m => item.DonViThucHien2)</td>
+
+                <td>@Html.DisplayFor(m => item.CoCauToChuc)</td>
+                <td>@Html.DisplayFor(m => item.ChucNang_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.LichSuHinhThanh)</td>
+                <td>@Html.DisplayFor(m => item.ThongTinTomTat)</td>
+                <td>@Html.DisplayFor(m => item.ThongTinGiaoDich)</td>
+                <td>@Html.DisplayFor(m => item.ThongTinLienHe)</td>
+                <td>@Html.DisplayFor(m => item.BanDoDiaGioi)</td>
+                <td>@Html.DisplayFor(m => item.ThongTinThongKe)</td>
+
+                <td>@Html.DisplayFor(m => item.TanSuatCapNhat)</td>
+
+                <td>@Html.DisplayFor(m => item.VanBanChiDao)</td>
+                <td>@Html.DisplayFor(m => item.VanBanChiDao_DangTai)</td>
+                <td>@Html.DisplayFor(m => item.LichLamViec)</td>
+
+                <td>@Html.DisplayFor(m => item.PhoBienVanBan)</td>
+                <td>@Html.DisplayFor(m => item.Tin_BaiViet)</td>
+
+                <td>@Html.DisplayFor(m => item.ChuyenMuc_ChuyenTrang)</td>
+                <td>@Html.DisplayFor(m => item.ChienLuoc_QuyHoach)</td>
+                <td>@Html.DisplayFor(m => item.KeHoachPhatTrien)</td>
+
+                <td>@Html.DisplayFor(m => item.VanBanQuyPham)</td>
+                <td>@Html.DisplayFor(m => item.VanBanChiDao_DangTai)</td>
+                <td>@Html.DisplayFor(m => item.ChuyenTrang_QuanLy)</td>
+                <td>@Html.DisplayFor(m => item.VanBanQuyPham_TaiVe)</td>
+
+                <td>@Html.DisplayFor(m => item.HangMucDauTu)</td>
+                <td>@Html.DisplayFor(m => item.SoDuAn)</td>
+                <td>@Html.DisplayFor(m => item.ThongTinToiThieu)</td>
+
+                <td>@Html.DisplayFor(m => item.DeTaiKhoaHoc)</td>
+                <td>@Html.DisplayFor(m => item.SoLuongDeTaiKH_DangTai)</td>
+
+                <td>@Html.DisplayFor(m => item.GopY)</td>
+                <td>@Html.DisplayFor(m => item.YKienDangTai)</td>
+                <td>@Html.DisplayFor(m => item.CungCapThongTin)</td>
+
+                <td>@Html.DisplayFor(m => item.ChucNangTimKiem)</td>
+                <td>@Html.DisplayFor(m => item.SoDoWebsite)</td>
+                <td>@Html.DisplayFor(m => item.TraoDoi_HoiDap)</td>
+                <td>@Html.DisplayFor(m => item.DuLieuDacTa)</td>
+                <td>@Html.DisplayFor(m => item.Unicode)</td>
+                <td>@Html.DisplayFor(m => item.TuongThichTrinhDuyet)</td>
+                <td>@Html.DisplayFor(m => item.LienKetWebsite)</td>
+                <td>@Html.DisplayFor(m => item.NguoiKhuyetTat)</td>
+                <td>@Html.DisplayFor(m => item.TenMien_CTTDT)</td>
+
+                <td>@Html.DisplayFor(m => item.TTHC_DonVi)</td>
+                <td>@Html.DisplayFor(m => item.DVC1)</td>
+                <td>@Html.DisplayFor(m => item.DVC2)</td>
+                <td>@Html.DisplayFor(m => item.DVC3)</td>
+
+                <td>@Html.DisplayFor(m => item.BanBienTap)</td>
+                <td>@Html.DisplayFor(m => item.QuanTriKyThuat)</td>
+                <td>@Html.DisplayFor(m => item.DichVuCongTT)</td>
+                <td>@Html.DisplayFor(m => item.TapHuanDaoTao)</td>
+
+                <td>@Html.DisplayFor(m => item.BienPhapKyThuat)</td>
+                <td>@Html.DisplayFor(m => item.GiaiPhapHieuQua)</td>
+                <td>@Html.DisplayFor(m => item.PhuongAnDuPhong)</td>
+
+                <td>@Html.DisplayFor(m => item.BanHanhQuyChe)</td>
+                <td>@Html.DisplayFor(m => item.BanHanhQuyChe_TTDT)</td>
+                <td>@Html.DisplayFor(m => item.BaoCaoHangNam_TTDT)</td>
+
+                <td>@Html.DisplayFor(m => item.CapNhatThongTin)</td>
+                <td>@Html.DisplayFor(m => item.NoiDungThongTin)</td>
+                <td>@Html.DisplayFor(m => item.QuyDinhKhac)</td>
+
+                <td>@Html.DisplayFor(m => item.SoDVCoCTTDT)</td>
+                <td>@Html.DisplayFor(m => item.TongMucDauTu)</td>
+            </tr>
+            i++;
+        }
+        <tr>
+            <td></td>
+            <td>Tổng cộng</td>
+            <td>@ViewBag.SoCBCC</td>
+            <td>@ViewBag.SoDonViTrucThuoc</td>
+            <td>@ViewBag.SoCB_DVTT</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+
+            <td>@ViewData["VanBanChiDao"]</td>
+            <td>@ViewData["VanBanChiDao_DangTai"]</td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+                
+            <td>@ViewData["TTHC_DonVi"]</td>
+            <td>@ViewData["DVC1"]</td>
+            <td>@ViewData["DVC2"]</td>
+            <td>@ViewData["DVC3"]</td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+                
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+
+            <td>@ViewData["TongMucDauTu"]</td>
+        </tr>
+    }
+</table>

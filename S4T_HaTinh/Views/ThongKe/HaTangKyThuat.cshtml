@@ -1,0 +1,149 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetHaTangKyThuat_Result>
+@{
+    
+}
+
+<table class="tableDefault" >
+    <tr>
+        <th rowspan="2" style="min-width: 30px">STT</th>
+        <th rowspan="2">Tên đơn vị</th>
+        <th rowspan="2">Số CBCC</th>
+        <th rowspan="2">Số DVTT</th>
+        <th rowspan="2">Số CB DVTT</th>
+        <th colspan="5">Tại đơn vị</th>
+        <th colspan="5">Tại đơn vị trực thuộc</th>
+        <th rowspan="2">Phòng họp trực tuyến</th>
+        <th colspan="4">Kết nối Internet</th>
+        <th rowspan="2">Màn hình hiển thị lịch công tác</th>
+        <th rowspan="2">Màn hình tra cứu thủ tục hành chính</th>
+        <th colspan="11">Bảo đảm an toàn, an ninh thông tin </th>
+        <th rowspan="2">Tổng mức đầu tư</th>
+    </tr>
+    <tr>
+        <th>Máy tính để bàn</th>
+        <th>Laptop</th>
+        <th>Máy chủ</th>
+        <th>Số máy kết nối Internet</th>
+        <th>PM Virus bản quyền</th>
+
+        <th>Máy tính để bàn</th>
+        <th>Laptop</th>
+        <th>Máy chủ</th>
+        <th>Số máy kết nối Internet</th>
+        <th>PM Virus bản quyền</th>
+
+        <th>ADSL</th>
+        <th>Cáp quang</th>
+        <th>Leased Line</th>
+        <th>Mạng chuyên dụng</th>
+
+        <th>Có tường lửa</th>
+        <th>Có hệ thống phát hiện và phòng, chống truy cập trái phép</th>
+        <th>Có cảnh báo cháy, nổ tại phòng máy chủ</th>
+        <th>Có chống sét tại phòng máy chủ</th>
+
+        <th>Băng từ</th>
+        <th>Tủ đĩa</th>
+        <th>SAN</th>
+        <th>NAS</th>
+        <th>DAS</th>
+        <th>RAID</th>
+        <th>Khác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        int i = 1;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@Html.DisplayFor(m => item.TenDonVi)</td>
+                <td>@Html.DisplayFor(m => item.SoCBCC)</td>
+                <td>@Html.DisplayFor(m => item.SoDonViTrucThuoc)</td>
+                <td>@Html.DisplayFor(m => item.SoCB_DVTT)</td>
+
+                <td>@Html.DisplayFor(m => item.MayBan)</td>
+                <td>@Html.DisplayFor(m => item.LapTop)</td>
+                <td>@Html.DisplayFor(m => item.MayChu)</td>
+                <td>@Html.DisplayFor(m => item.MayNoiMangInternet)</td>
+                <td>@Html.DisplayFor(m => item.VirusCoBanQuyen)</td>
+
+                <td>@Html.DisplayFor(m => item.MayBan_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.LapTop_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.MayChu_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.MayNoiMangInternet_DVTT)</td>
+                <td>@Html.DisplayFor(m => item.VirusCoBanQuyen_DVTT)</td>
+
+                <td>@Html.DisplayFor(m => item.PhongHopTrucTuyen)</td>
+
+                <td>@Html.DisplayFor(m => item.ADSL)</td>
+                <td>@Html.DisplayFor(m => item.CapQuang)</td>
+                <td>@Html.DisplayFor(m => item.LeasedLine)</td>
+                <td>@Html.DisplayFor(m => item.MangChuyenDung)</td>
+
+                <td>@Html.DisplayFor(m => item.ManHinh_LichCongTac)</td>
+                <td>@Html.DisplayFor(m => item.ManHinh_TraCuuTTHC)</td>
+
+                <td>@Html.DisplayFor(m => item.HeThongTuongLua)</td>
+                <td>@Html.DisplayFor(m => item.PhongChongTruyCapTraiPhep)</td>
+                <td>@Html.DisplayFor(m => item.CanhBaoChayNo)</td>
+                <td>@Html.DisplayFor(m => item.ChongSet)</td>
+
+                <td>@Html.DisplayFor(m => item.BangTu)</td>
+                <td>@Html.DisplayFor(m => item.TuDia)</td>
+                <td>@Html.DisplayFor(m => item.SAN)</td>
+                <td>@Html.DisplayFor(m => item.NAS)</td>
+                <td>@Html.DisplayFor(m => item.DAS)</td>
+                <td>@Html.DisplayFor(m => item.RAID)</td>
+                <td>@Html.DisplayFor(m => item.Khac)</td>
+                <td>@Html.DisplayFor(m => item.TongMucDauTu)</td>
+            </tr>
+            i++;
+        }
+        <tr>
+            <td></td>
+            <td>Tổng cộng</td>
+            <td>@ViewBag.SoCBCC</td>
+            <td>@ViewBag.SoDonViTrucThuoc</td>
+            <td>@ViewBag.SoCB_DVTT</td>
+
+            <td>@ViewBag.MayBan</td>
+            <td>@ViewBag.LapTop</td>
+            <td>@ViewBag.MayChu</td>
+            <td>@ViewBag.MayNoiMangInternet</td>
+            <td>@ViewBag.VirusCoBanQuyen</td>
+
+            <td>@ViewBag.MayBan_DVTT</td>
+            <td>@ViewBag.LapTop_DVTT</td>
+            <td>@ViewBag.MayChu_DVTT</td>
+            <td>@ViewBag.MayNoiMangInternet_DVTT</td>
+            <td>@ViewBag.VirusCoBanQuyen_DVTT</td>
+
+            <td>@ViewBag.PhongHopTrucTuyen</td>
+
+            <td>@ViewBag.ADSL</td>
+            <td>@ViewBag.CapQuang</td>
+            <td>@ViewBag.LeasedLine</td>
+            <td>@ViewBag.MangChuyenDung</td>
+
+            <td>@ViewBag.ManHinh_LichCongTac</td>
+            <td>@ViewBag.ManHinh_TraCuuTTHC</td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>@ViewBag.TongMucDauTu</td>
+        </tr>
+    }
+</table>

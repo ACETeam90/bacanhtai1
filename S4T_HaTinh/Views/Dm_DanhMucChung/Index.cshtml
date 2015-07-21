@@ -1,0 +1,144 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.Dm_DanhMucChung>
+@using S4T_HaTinh.Common;
+@{
+    ViewBag.Title = "DANH MỤC CHUNG";
+    var slTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset class="fieldsetSearch">
+    <legend>Tìm kiếm</legend>
+
+    <div class="section-search">
+        @using (Html.BeginForm("Index", "Dm_DanhMucChung", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+        {
+            <div style="width: 600px;">
+                @Html.TextBox("strName", "", new { @class = "S4T_AutoComplete", @style = "width:600px;", @placeholder = "Nhập tên danh mục cần tìm" })
+                <span class="input-btn"><button type="submit" class="zicon btn hide-text">Tìm kiếm</button></span>
+            </div>
+            <div>
+                <ul class="ulSearch" style="list-style:none;">
+                    <li class="liSearch labelSearch">Loại danh mục</li>
+                    <li class="liSearch">@Html.DropDownList("loaiDanhMuc", (SelectList)ViewBag.SelectListLoaiDanhMuc, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:300px;" })</li>
+                    <li class="liSearch labelSearch">Trạng thái</li>
+                    <li class="liSearch">@Html.DropDownList("trangThai", slTrangThai, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:130px;" })</li>
+                </ul>
+            </div>
+        }
+    </div>
+</fieldset>
+
+<div style="padding-bottom: 12px;">
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</div>
+
+<table id="gridData">
+    <colgroup>
+        <col width="50"/>
+        <col width="80"/>
+        <col />
+        <col width="150"/>
+        <col width="150" />
+        <col width="200" />
+    </colgroup>
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            Mã danh mục
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDanhMuc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiDanhMuc_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrangThai)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        var i = 1;
+        var active = S4T_HaTinh.Common.TrangThai.HoatDong;
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @i
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DanhMuc_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenDanhMuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => MvcApplication.ListLoaiDanhMuc.FirstOrDefault(o => o.LoaiDanhMuc_ID == item.LoaiDanhMuc_ID).TenLoai)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => MvcApplication.ListTrangThai().FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.DanhMuc_ID })
+                    @{
+                        if (@item.TrangThai == active)
+                        {
+                            <span>|</span>  <a title="Không hoạt động" href='javascript:void(0);' onclick="Delete(@item.DanhMuc_ID)">Không hoạt động</a>
+                        }
+                        else
+                        {
+                            <span>|</span>  <a title="Hoạt động" href='javascript:void(0);' onclick="Active(@item.DanhMuc_ID)">Hoạt động</a>
+                        }
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+    }
+</table>
+
+<script type="text/javascript">
+    function Delete(id) {
+        if (!confirm("Bạn chắc chắn loại bỏ dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Dm_DanhMucChung/Delete?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }},
+            async:true
+        });
+    }
+
+    function Active(id) {
+        if (!confirm("Bạn chắc chắn khôi phục dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Dm_DanhMucChung/Active?id=" + id,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    //alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            },
+            async: true
+        });
+    }
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+</script>

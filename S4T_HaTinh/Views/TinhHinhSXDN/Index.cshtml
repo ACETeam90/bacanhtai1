@@ -1,0 +1,67 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.TinhHinhSXDN>
+@using S4T_HaTinh.Models;
+@using S4T_HaTinh.Common;
+@{
+    ViewBag.Title = "TÌNH HÌNH SẢN XUẤT KINH DOANH CỦA DOANH NGHIỆP TRÊN ĐỊA BÀN TỈNH";
+    if (Model != null)
+    {
+        var listLichNhap = (IEnumerable<Ht_LichNhapLieu>)ViewBag.ListLichNhap;
+        var listStatusNhapLieu = MvcApplication.ListTrangThaiNhapLieu();
+        <h2>@ViewBag.Title</h2>
+        <h3>@ViewBag.TenDonVi</h3>
+        <p>
+            @Html.Raw(@ViewBag.CreateLink)
+        </p>
+        <table class="tableDefault">
+            <tr>
+                <th>
+                    @Html.DisplayName("Tên báo cáo")
+                </th>
+                <th>
+                    @Html.DisplayName("Từ ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Đến ngày")
+                </th>
+                <th>
+                    @Html.DisplayName("Trạng thái")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw("TÌNH HÌNH SẢN XUẤT KINH DOANH CỦA DOANH NGHIỆP TRÊN ĐỊA BÀN TỈNH")
+                    </td>
+                    @{
+                var objLichNhap = listLichNhap.FirstOrDefault(o => o.LichNhap_ID == item.LichNhap_ID);
+                <td>@Html.Raw(objLichNhap == null ? "" : objLichNhap.TuNgay.ToShortDateString())</td>
+                <td>@Html.Raw(objLichNhap == null ? "" : objLichNhap.DenNgay.ToShortDateString())</td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => listStatusNhapLieu.FirstOrDefault(o => o.DanhMuc_ID == item.Success).TenDanhMuc)
+                    </td>
+                    <td>
+                        @if (item.Success == (byte)TrangThaiNhapLieu.Sua)
+                        {
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.TinhHinhSXDN_ID })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Chi tiết", "Details", new { id = item.TinhHinhSXDN_ID })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    }
+    else
+    {
+        <h4>Không tìm thấy dữ liệu</h4>
+    }
+}
+

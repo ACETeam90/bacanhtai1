@@ -1,0 +1,140 @@
+﻿@model S4T_HaTinh.Models.Ht_LichNhapLieu
+
+@{
+    ViewBag.Title = "Sửa";
+    var listDotBaoCao = MvcApplication.ListDotBaoCao();
+    var slDotBaoCao = new SelectList(listDotBaoCao.Where(o => o.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong), "DanhMuc_ID", "TenDanhMuc");
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Edit", "Ht_LichNhapLieu", FormMethod.Post, new { id="submitForm"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.LichNhap_ID)
+        @Html.HiddenFor(model => model.DonVi_ID)
+        @Html.HiddenFor(model => model.PhanHe_ID)
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DonVi_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <text>@ViewBag.TenDonVi</text>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.PhanHe_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                <text>@ViewBag.TenPhanHe</text>
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.Nam, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.TextBoxFor(model => model.Nam, new { @class = "S4T_NumericTextBox", @min = "1900", @max = "2100" })
+                @Html.ValidationMessageFor(model => model.Nam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DotBaoCao_ID, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.DropDownListFor(model => model.DotBaoCao_ID, slDotBaoCao, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
+                @Html.ValidationMessageFor(model => model.DotBaoCao_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.TuNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.TuNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TuNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            @Html.LabelFor(model => model.DenNgay, htmlAttributes: new { @class = "divLabel" })
+            <div class="divControl">
+                @Html.EditorFor(model => model.DenNgay, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DenNgay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="divRow">
+            <label class="divLabel" id="lbl"></label>
+            <div class="divControl">
+                <button type="submit" class="k-button k-button-icontext"><span class="k-icon k-i-tick"></span>Lưu</button>
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var tuNgay = $("#TuNgay").val();
+        var denNgay = $("#DenNgay").val();
+
+        // create DatePicker from input HTML element
+        function startChange() {
+            var startDate = start.value(),
+            endDate = end.value();
+
+            if (startDate) {
+                startDate = new Date(startDate);
+                startDate.setDate(startDate.getDate());
+                end.min(startDate);
+            } else if (endDate) {
+                start.max(new Date(endDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        function endChange() {
+            var endDate = end.value(),
+            startDate = start.value();
+
+            if (endDate) {
+                endDate = new Date(endDate);
+                endDate.setDate(endDate.getDate());
+                start.max(endDate);
+            } else if (startDate) {
+                end.min(new Date(startDate));
+            } else {
+                endDate = new Date();
+                start.max(endDate);
+                end.min(endDate);
+            }
+        }
+
+        var start = $("#TuNgay").kendoDatePicker({
+             min: new Date()
+            , change: startChange
+            , format: "dd/MM/yyyy"
+            
+        }).data("kendoDatePicker");
+
+        var end = $("#DenNgay").kendoDatePicker({
+            change: endChange
+            ,format: "dd/MM/yyyy"
+        }).data("kendoDatePicker");
+
+        start.max(end.value());
+        end.min(start.value());
+
+        $('#TuNgay').removeAttr('data-val-date');
+        $('#DenNgay').removeAttr('data-val-date');
+
+        if (tuNgay.indexOf("01/01/0001") == -1)
+            $("#TuNgay").val(tuNgay);
+        if (denNgay.indexOf("01/01/0001") == -1)
+            $("#DenNgay").val(denNgay);
+    });
+</script>

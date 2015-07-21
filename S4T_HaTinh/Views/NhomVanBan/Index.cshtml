@@ -1,0 +1,57 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.NhomVanBan>
+
+@{
+    var listTrangThai = MvcApplication.ListTrangThai();
+    var listLoaiVB = (List<SelectListItem>)ViewBag.LoaiVB;
+}
+
+<h2>DANH MỤC NHÓM VĂN BẢN</h2>
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+<table id="gridData">
+    <tr>
+        <th>STT</th>
+        <th>
+            Loại văn bản
+        </th>
+        <th>
+            Mã nhóm văn bản
+        </th>
+        <th>
+            Tên nhóm văn bản
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+@{
+    int stt = 1;
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>@stt</td>
+            <td>
+                @Html.DisplayFor(modelItem => listLoaiVB.FirstOrDefault(o => o.Value == item.LoaiVanBan_ID.ToString()).Text)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaNhomVanBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNhomVanBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => listTrangThai.FirstOrDefault(o => o.DanhMuc_ID == item.TrangThai).TenDanhMuc)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.NhomVanBan_ID })
+            </td>
+        </tr>
+        stt++;
+    }
+}
+
+</table>

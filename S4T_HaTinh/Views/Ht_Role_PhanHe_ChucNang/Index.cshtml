@@ -1,0 +1,110 @@
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetChucNangByRole_Result>
+@using S4T_HaTinh.Models;
+@{
+    var listRole = new SelectList(ViewBag.ListRole,"Id","TenHienThi");
+    var listChucNang = new SelectList(ViewBag.ListChucNang, "PhanHeChucNang_ID", "TenChucNang");
+}
+@using (Html.BeginForm("Index", "Ht_Role_PhanHe_ChucNang", FormMethod.Get, new { id = "searchForm", @class = "search" }))
+{
+    <table>
+        <tr>
+            <td>Vai trò</td>
+            <td>@Html.DropDownList("ddlVaiTro", listRole, new { @class = "S4T_DropDownList", @onchange="SearchFormOnchange()", @style = "width:250px;" })</td>
+            @*<td><input type="submit" value="Tìm kiếm" /></td>*@
+        </tr>
+    </table>
+    <input type="text" name="status" value="1" style="display:none" />
+}
+
+<p>
+    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+</p>
+
+<table id="gridData">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenChucNang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHienThi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsView)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEdit)
+        </th>
+        <th>Thao tác</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenChucNang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenHienThi)
+                </td>
+                <td>
+                    @{
+                        if (item.IsView == 1)
+                        {
+                            <span>Có</span>
+                        }
+                        else
+                        {
+                            <span>Không</span>
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.IsEdit == 1)
+                        {
+                            <span>Có</span>
+                        }
+                        else
+                        {
+                            <span>Không</span>
+                        }
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { chucNang_ID = item.PhanHeChucNang_ID, role_ID = item.RoleId }) |
+                    <a onclick="Delete('@item.PhanHeChucNang_ID', '@item.RoleId')">Xóa</a>
+                    @*@Html.ActionLink("Xóa", "Delete", new { chucNang_ID = item.PhanHeChucNang_ID, role_ID = item.RoleId })*@
+                </td>
+            </tr>
+        }
+    }
+</table>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });
+
+    function Delete(chucNang_ID, role_ID) {
+        if (!confirm("Bạn có chắc chắn không dùng dữ liệu này?")) return;
+
+        $.ajax({
+            type: 'POST',
+            url: "/Ht_Role_PhanHe_ChucNang/Delete?chucNang_ID=" + chucNang_ID + '&role_ID=' + role_ID,
+            success: function (data) {
+                if (data.msg == "ok") {
+                    alert("Đã xóa thành công");
+                    location.reload();
+                } else {
+                    alert(data.msg);
+                }
+            }
+            //,async: true
+        });
+    }
+
+    function SearchFormOnchange() {
+        $("#searchForm").submit();
+    }
+</script>
