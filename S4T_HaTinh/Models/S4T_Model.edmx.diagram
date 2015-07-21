@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b84f519b622408184a1af6a2300f451" Name="Diagram1" ZoomLevel="10">
+        <EntityTypeShape EntityType="S4T_Model.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.AspNetRoles" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.AspNetUserClaims" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.AspNetUserLogins" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.AspNetUserRoles" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.AspNetUsers" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.CongNghiepCNTT" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.CongThongTinDienTu" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.CongThongTinDienTu_Huyen" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_CapXuLy" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_DanhMucChung" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_DonVi" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_LoaiDanhMuc" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_LoaiDuAn" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_LoaiKeHoach" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_LoaiVanBan" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Dm_ThongTinDonVi" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.EditUserViewModels" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.HaTangKyThuatCNTT" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.HaTangKyThuatCNTT_Huyen" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.HaTangNhanLucCNTT" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.HaTangNhanLucCNTT_Huyen" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_CauHinhUpload" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_FileDinhKem" Width="1.5" PointX="18.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_FileHoSo_LoaiDuAn" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_LichNhapLieu" Width="1.5" PointX="12.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.HT_Log" Width="1.5" PointX="18.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_PhanHe" Width="1.5" PointX="18.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_PhanHeChucNang" Width="1.5" PointX="18.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_Role_PhanHe_ChucNang" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_ThamSoHeThong" Width="1.5" PointX="20.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_User" Width="1.5" PointX="20.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.KeHoach" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.PhanMemQLCN" Width="1.5" PointX="20.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.sysdiagrams" Width="1.5" PointX="20.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TD_CauHinh" Width="1.5" PointX="20.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TD_FileHoSoDinhKem" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TD_HoSoDuAn" Width="1.5" PointX="2.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TD_LuongCongViec" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TD_LuongCongViec_FileDinhKem" Width="1.5" PointX="4.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TienDo" Width="1.5" PointX="6.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TinhHinhSXDN" Width="1.5" PointX="8.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TN_Chuyen" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.TN_DauViec" Width="1.5" PointX="10.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.ToChucChinhSachCNTT" Width="1.5" PointX="12.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.UngDungCNTT" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.UngDungCNTT_PMQLCN" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.UngDungCNTTTaiDN" Width="1.5" PointX="24.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.VanBan" Width="1.5" PointX="24.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="S4T_Model.Ht_MaxID" Width="1.5" PointX="24.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="S4T_Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="S4T_Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_CongThongTinDienTu" Width="1.5" PointX="19.375" PointY="24.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_HaTangKyThuat" Width="1.5" PointX="25.375" PointY="17.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_HaTangNhanLuc" Width="1.5" PointX="5.375" PointY="26.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_UngDungCNTT" Width="1.5" PointX="13.375" PointY="26.75" />
+        <EntityTypeShape EntityType="S4T_Model.UngDungCNTT_Huyen" Width="1.5" PointX="21.375" PointY="24.75" />
+        <EntityTypeShape EntityType="S4T_Model.LoaiVanBan" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="S4T_Model.NhomVanBan" Width="1.5" PointX="27.375" PointY="3.75" />
+        <EntityTypeShape EntityType="S4T_Model.View_Loai_Nhom_VanBan" Width="1.5" PointX="27.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
