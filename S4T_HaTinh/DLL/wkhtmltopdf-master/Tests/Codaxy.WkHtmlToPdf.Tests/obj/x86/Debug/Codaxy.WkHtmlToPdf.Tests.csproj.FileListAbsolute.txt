@@ -1,0 +1,6 @@
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\bin\Debug\Codaxy.WkHtmlToPdf.Tests.exe.config
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\bin\Debug\Codaxy.WkHtmlToPdf.Tests.exe
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\bin\Debug\Codaxy.WkHtmlToPdf.Tests.pdb
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\obj\x86\Debug\Codaxy.WkHtmlToPdf.Tests.csprojResolveAssemblyReference.cache
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\obj\x86\Debug\Codaxy.WkHtmlToPdf.Tests.exe
+E:\Work\FIS\Code\S4T_HaTinh_Bitbucket\Code\S4T_HaTinh\DLL\wkhtmltopdf-master\Tests\Codaxy.WkHtmlToPdf.Tests\obj\x86\Debug\Codaxy.WkHtmlToPdf.Tests.pdb
