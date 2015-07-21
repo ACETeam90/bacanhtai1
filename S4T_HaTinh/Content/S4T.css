@@ -1,0 +1,83 @@
+﻿@charset "UTF-8";
+
+span.k-widget k-combobox k-header{
+    min-width:250px;
+    max-width:350px;
+}
+
+.section-search {
+    position: relative;
+    height: 100%;
+}
+
+.section-search .search {
+  float: left;
+  margin-top: 10px;
+  /*width: 480px;*/
+  position: relative;
+}
+
+.section-search .search .input-txt {
+    float: left;
+    padding: 5px 15px;
+    width: 100%;
+    border: 0 none;
+    height: 29px;
+}
+
+.section-search .search .input-btn {
+  white-space: nowrap;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-left: -31px;
+}
+
+.search .input-btn .btn {
+  width: 34px;
+  height: 29px;
+  background-position: 5px -34px;
+  line-height: 29px;
+}
+
+.hide-text {
+  border: 0;
+  background-color: transparent;
+  color: transparent;
+  text-shadow: none;
+  font: 0/0 a;
+}
+
+.zicon {
+  background-image: url("../Content/images/icon.png");
+  background-repeat: no-repeat;
+}
+
+.zicon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+.ulSearch{
+    margin: 0;
+}
+
+.liSearch {
+     float: left;
+  position: relative;
+  padding: 9px 9px 5px 1px;
+  display: block;
+}
+
+.labelSearch{
+    margin-top:5px;
+}
+
+.fieldsetSearch{
+    border: 2px groove;  
+    border-width: 1px;
+    -webkit-padding-start: 0.75em;
+    -webkit-padding-end: 0.75em;
+    -webkit-padding-after: 0.625em;
+}
