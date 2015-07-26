@@ -519,6 +519,7 @@
           <Property Name="RAID" Type="tinyint" Nullable="false" />
           <Property Name="BuuDienXa" Type="int" Nullable="false" />
           <Property Name="BuuDienXa_Internet" Type="int" Nullable="false" />
+          <Property Name="BuuDienXa_DaiLyInternet" Type="int" Nullable="false" />
           <Property Name="HoiNghiTruyenHinhCapHuyen" Type="tinyint" Nullable="false" />
           <Property Name="SoCuocHopCapHuyen" Type="int" Nullable="false" />
           <Property Name="HoiNghiTruyenHinhCapXa" Type="tinyint" Nullable="false" />
@@ -1400,6 +1401,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.Ht_MaxID' does not have a primary k
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Guid" Type="nvarchar" MaxLength="50" />
           <Property Name="UngDungCNTT_ID" Type="int" Nullable="false" />
           <Property Name="TenPhanMem" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="LienThongSBN" Type="int" Nullable="false" />
@@ -8590,6 +8592,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="HaTangKyThuatCNTT_Huyen">
             <EntityTypeMapping TypeName="S4T_Model.HaTangKyThuatCNTT_Huyen">
               <MappingFragment StoreEntitySet="HaTangKyThuatCNTT_Huyen">
+                <ScalarProperty Name="BuuDienXa_DaiLyInternet" ColumnName="BuuDienXa_DaiLyInternet" />
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="HaTangKyThuatCNTTHuyen_ID" ColumnName="HaTangKyThuatCNTTHuyen_ID" />
                 <ScalarProperty Name="LichNhap_ID" ColumnName="LichNhap_ID" />
@@ -9284,6 +9287,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="UngDungCNTT_PMQLCN">
             <EntityTypeMapping TypeName="S4T_Model.UngDungCNTT_PMQLCN">
               <MappingFragment StoreEntitySet="UngDungCNTT_PMQLCN">
+                <ScalarProperty Name="Guid" ColumnName="Guid" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UngDungCNTT_ID" ColumnName="UngDungCNTT_ID" />
                 <ScalarProperty Name="TenPhanMem" ColumnName="TenPhanMem" />
