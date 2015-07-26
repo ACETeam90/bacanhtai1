@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Sửa";
     var listTrangThai = new SelectList(MvcApplication.ListTrangThai(), "DanhMuc_ID", "TenDanhMuc");
-    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa), "DanhMuc_ID", "TenDanhMuc");
+    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().Where(o => o.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong), "DanhMuc_ID", "TenDanhMuc");
     var listNganhNghe = new SelectList(MvcApplication.ListNganhNghe(), "DanhMuc_ID", "TenDanhMuc");
     var listLoaiHinhDoanhNghiep = new SelectList(MvcApplication.ListLoaiHinhDoanhNghiep(), "DanhMuc_ID", "TenDanhMuc");
     var listTrinhDoCNTT = MvcApplication.ListTrinhDoCNTT();

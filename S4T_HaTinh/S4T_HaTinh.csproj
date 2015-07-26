@@ -236,7 +236,6 @@
     <Compile Include="Controllers\Dm_DonViController.cs" />
     <Compile Include="Controllers\Dm_LoaiDanhMucController.cs" />
     <Compile Include="Controllers\Dm_LoaiDuAnController.cs" />
-    <Compile Include="Controllers\Dm_ThongTinDonViController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HaTangKyThuatCNTTsController.cs" />
     <Compile Include="Controllers\HaTangKyThuatCNTT_HuyenController.cs" />
@@ -331,9 +330,6 @@
     <Compile Include="Models\Dm_LoaiVanBan.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dm_ThongTinDonVi.cs">
-      <DependentUpon>S4T_Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\EditUserViewModels.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
@@ -415,16 +411,28 @@
     <Compile Include="Models\sp_GetChucNangByRole_Result.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetCongThongTinDienTuCapHuyen_Result.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetCongThongTinDienTu_Result.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_GetHaTangKyThuatCapHuyen_Result.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_GetHaTangKyThuat_Result.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetHaTangNhanLucCapHuyen_Result.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetHaTangNhanLuc_Result.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetMaxLuongCongViecByMaHoSo_Result.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_GetUngDungCNTTCapHuyen_Result.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_GetUngDungCNTT_Result.cs">
@@ -493,13 +501,25 @@
     <Compile Include="Models\ViewLichNhap_CongThongTinDienTu.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewLichNhap_CongThongTinDienTuCapHuyen.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewLichNhap_HaTangKyThuat.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewLichNhap_HaTangKyThuatCapHuyen.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewLichNhap_HaTangNhanLuc.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewLichNhap_HaTangNhanLucCapHuyen.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewLichNhap_UngDungCNTT.cs">
+      <DependentUpon>S4T_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewLichNhap_UngDungCNTTCapHuyen.cs">
       <DependentUpon>S4T_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\View_Loai_Nhom_VanBan.cs">
@@ -2094,6 +2114,7 @@
     <Content Include="Views\VanBan\_CreateOrUpdate.cshtml" />
     <Content Include="Views\TD_HoSoDuAn\_CreateOrUpdateFile.cshtml" />
     <Content Include="Views\TD_HoSoDuAn\_ListFile.cshtml" />
+    <Content Include="Views\ThongKe\HaTangKyThuatCapHuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Kendo\js\" />

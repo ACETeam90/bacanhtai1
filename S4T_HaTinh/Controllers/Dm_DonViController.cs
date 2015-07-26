@@ -26,7 +26,9 @@ namespace S4T_HaTinh.Controllers
             if (per == PermissionType.Deny) return Content(ExceptionViewer.GetMessage("VIEW_NOT_PERMISSION"));
 
             // Fix trường hợp Nhóm đơn vị chọn tất cả khi chọn 1 Nhóm đơn vị sẽ select all theo nhóm đơn vị đó. Hiện tại chỉ lấy các đơn vị cấp 1
-            if (!string.IsNullOrEmpty(ddlNhomDonVi) && string.IsNullOrEmpty(ddlDonViCap1))
+            if (!string.IsNullOrEmpty(ddlNhomDonVi))
+                ddlNhomDonVi = ddlNhomDonVi.Trim();
+            if (!string.IsNullOrEmpty(ddlNhomDonVi) && string.IsNullOrEmpty(ddlDonViCap1) && ddlNhomDonVi != DonVi.NhomDonViCapHuyen.ToString() && ddlNhomDonVi != DonVi.NhomDonViCapXa.ToString())
                 ddlDonViCap1 = "-1";
 
             var list = (IEnumerable<Dm_DonVi>) MvcApplication.ListDonVi;
@@ -39,11 +41,8 @@ namespace S4T_HaTinh.Controllers
             int nhomDonVi_ID = 0, donViCap1_ID;
             if (!String.IsNullOrEmpty(ddlNhomDonVi) && int.TryParse(ddlNhomDonVi, out nhomDonVi_ID))
             {
-                GetViewBag(nhomDonVi_ID); 
-                if (nhomDonVi_ID == DonVi.NhomDonViCapXa)
-                    list = S4T_HaTinhBase.ListDonViByNhomDonVi(DonVi.NhomDonViCapXa);
-                else
-                    list = list.Where(o => o.NhomDonVi_ID == nhomDonVi_ID);
+                GetViewBag(nhomDonVi_ID);
+                list = list.Where(o => o.NhomDonVi_ID == nhomDonVi_ID);
             }
             else
                 GetViewBag(0);
@@ -81,13 +80,25 @@ namespace S4T_HaTinh.Controllers
             //items.Add(new SelectListItem() { Text = "Tất cả", Value = "", Selected = true });
 
             // Lấy list đơn vị cấp trên 
-            var listDonViCap1 = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.DonViCap1_ID == -1); 
+            var listDonViCap1 = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong); 
             if (ddlNhomDonVi != 0 && listDonViCap1.Any())
             {
-                if(ddlNhomDonVi == DonVi.NhomDonViCapXa)
+                if(ddlNhomDonVi == DonVi.NhomDonViCapXa){
+                    items.Add(new SelectListItem() { Text = "", Value = "null", Selected = true });
                     listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
+                
+                }
+                else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                {
+                    items.Add(new SelectListItem() { Text = "", Value = "null", Selected = true });
+                    listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
+                }
+
                 else
+                {
                     listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == ddlNhomDonVi);
+                    items.Add(new SelectListItem() { Text = "", Value = "-1" });
+                }
 
                 var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
                 { 
@@ -96,7 +107,6 @@ namespace S4T_HaTinh.Controllers
                 });
                 
                 //items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
-                items.Add(new SelectListItem() { Text = "", Value = "-1" });
                 items.AddRange(slListDVCap1);
             }
             ViewBag.ListDonViCap1 = listDonViCap1;
@@ -110,7 +120,7 @@ namespace S4T_HaTinh.Controllers
             var per = S4T_HaTinhBase.CheckPermission(Request.RequestContext.RouteData.GetRequiredString("controller"));
             if (per != PermissionType.Write) return Content(ExceptionViewer.GetMessage("UPDATE_NOT_PERMISSION"));
 
-            var listNhomDonVi = MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa).OrderBy(o => o.TenDanhMuc);
+            var listNhomDonVi = MvcApplication.ListNhomDonVi().Where(o => o.TrangThai == TrangThai.HoatDong).OrderBy(o => o.TenDanhMuc);
             if (listNhomDonVi.Any()) GetViewBag(listNhomDonVi.First().DanhMuc_ID);
             else
             {
@@ -369,7 +379,11 @@ namespace S4T_HaTinh.Controllers
                 else
                 {
                     str.Append("<option value='-1'></option>");
-                    list = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.NhomDonVi_ID == nhomDonVi_ID && o.DonViCap1_ID == -1).OrderBy(o => o.TenDonVi);
+                    if (nhomDonVi_ID == DonVi.NhomDonViCapXa)
+                        list = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen).OrderBy(o => o.TenDonVi);
+                    else if (nhomDonVi_ID == DonVi.NhomDonViCapHuyen)
+                        list = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.NhomDonVi_ID == DonVi.NhomDonViCapTinh).OrderBy(o => o.TenDonVi);
+
                 }
                 
                 if (list.Any())

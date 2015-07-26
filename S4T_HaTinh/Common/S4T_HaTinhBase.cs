@@ -125,15 +125,6 @@ namespace S4T_HaTinh.Common
         /// </summary>
         public static IEnumerable<Dm_DonVi> ListDonViByNhomDonVi(int nhomDonVi_ID)
         {
-            if (nhomDonVi_ID == DonVi.NhomDonViCapXa)
-            {
-                //var listDVCapHuyen = MvcApplication.ListDonVi.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
-                //var listDVHuyenId = listDVCapHuyen.Select(o => o.DonVi_ID);
-                //var listDonViCapXa = listDVCapHuyen.Where(o => o.TrangThai == TrangThai.HoatDong && listDVHuyenId.Contains(o.DonViCap1_ID)).OrderBy(o => o.TenDonVi);
-                //return listDonViCapXa;
-                return MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen && o.DonViCap1_ID != -1).OrderBy(o => o.TenDonVi);
-            }
-
             return MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong && o.NhomDonVi_ID == nhomDonVi_ID).OrderBy(o => o.TenDonVi);
         }
 

@@ -32,7 +32,7 @@
                         @Html.DropDownList("donVi_ID", slDonVi, "Chọn đơn vị", new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:300px;" })
                     </li>*@
                     <li class="liSearch labelSearch">
-                        Phân hệ
+                        Báo cáo
                     </li>
                     <li class="liSearch">
                         @Html.DropDownListFor(model => model.PhanHeChucNang, listPhanHe, new { @class = "S4T_ComboBox", @style = "width: 220px;" })
@@ -80,7 +80,7 @@
 
     function DonVi_Onchange() {
         if ($("#ddlDonVi").val() != "") {
-            $.post("/HT_QuanLyNhapLieu/GetReportByDonVi", { "donVi_ID": $("#ddlDonVi").val(), "phanHe_ID": $("#ddlPhanHe").val(), "trangThaiNhapLieu": $("#ddlTrangThaiNhapLieu").val() }).done(function (data) {
+            $.post("/HT_QuanLyNhapLieu/GetReportByDonVi", { "donVi_ID": $("#NhomDonVi").val(), "phanHe_ID": $("#PhanHeChucNang").val(), "trangThaiNhapLieu": $("#ddlTrangThaiNhapLieu").val() }).done(function (data) {
                 if (data.msg == null) {
                     $("#gridData > tbody").html(data.danhSach);
                 } else {

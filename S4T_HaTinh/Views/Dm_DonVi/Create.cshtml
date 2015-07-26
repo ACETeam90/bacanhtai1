@@ -1,7 +1,7 @@
 ﻿@model S4T_HaTinh.Models.Dm_DonVi
 
 @{
-    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa).OrderBy(o => o.TenDanhMuc), "DanhMuc_ID", "TenDanhMuc");
+    var listNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi().Where(o => o.TrangThai == S4T_HaTinh.Common.TrangThai.HoatDong).OrderBy(o => o.TenDanhMuc), "DanhMuc_ID", "TenDanhMuc");
     //var listNganhNghe = new SelectList(MvcApplication.ListNganhNghe(), "DanhMuc_ID", "TenDanhMuc");
     //var listLoaiHinhDoanhNghiep = new SelectList(MvcApplication.ListLoaiHinhDoanhNghiep(), "DanhMuc_ID", "TenDanhMuc");
     //var items = new List<SelectListItem>();

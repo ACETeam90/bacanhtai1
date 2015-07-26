@@ -64,7 +64,8 @@ namespace S4T_HaTinh.Common
     {
         public const int SoThongTinTruyenThong = 97;
         public const int NhomDonViCapHuyen = 12;
-        public const int NhomDonViCapXa = 42;
+        public const int NhomDonViCapXa = 51;
+        public const int NhomDonViCapTinh = 11;
     }
 
     public class LoaiChuyen
