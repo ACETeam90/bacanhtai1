@@ -16,7 +16,7 @@ namespace S4T_HaTinh.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     using System.Data.SqlClient;
-
+    
     public partial class S4T_HaTinhEntities : DbContext
     {
         public S4T_HaTinhEntities()
@@ -87,7 +87,11 @@ namespace S4T_HaTinh.Models
         public virtual DbSet<LoaiVanBan> LoaiVanBan { get; set; }
         public virtual DbSet<NhomVanBan> NhomVanBan { get; set; }
         public virtual DbSet<View_Loai_Nhom_VanBan> View_Loai_Nhom_VanBan { get; set; }
-
+        public virtual DbSet<ViewLichNhap_CongThongTinDienTuCapHuyen> ViewLichNhap_CongThongTinDienTuCapHuyen { get; set; }
+        public virtual DbSet<ViewLichNhap_HaTangKyThuatCapHuyen> ViewLichNhap_HaTangKyThuatCapHuyen { get; set; }
+        public virtual DbSet<ViewLichNhap_HaTangNhanLucCapHuyen> ViewLichNhap_HaTangNhanLucCapHuyen { get; set; }
+        public virtual DbSet<ViewLichNhap_UngDungCNTTCapHuyen> ViewLichNhap_UngDungCNTTCapHuyen { get; set; }
+    
         public virtual ObjectResult<sp_GetChucNangByRole_Result> sp_GetChucNangByRole(string roleId)
         {
             var roleIdParameter = roleId != null ?
@@ -140,7 +144,7 @@ namespace S4T_HaTinh.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetUserByDonVi_Role_Result>("sp_GetUserByDonVi_Role @nhomDonVi_ID, @donViCap1_ID, @donVi_ID, @role, @trangThai", nhomDonVi_IDParameter, donViCap1_IDParameter, donVi_IDParameter, roleParameter, trangThaiParameter);
         }
 
-        public virtual List<sp_HoSoDuAnWithLuongXuLy_Result> sp_HoSoDuAnWithLuongXuLy(string maHoSo, string tenDuAn, string tongMucDauTu,Nullable<int> tinhChatDuAn, Nullable<int> cap_ID, string nguoiNhan, Nullable<int> trangThai)
+        public virtual List<sp_HoSoDuAnWithLuongXuLy_Result> sp_HoSoDuAnWithLuongXuLy(string maHoSo, string tenDuAn, string tongMucDauTu, Nullable<int> tinhChatDuAn, Nullable<int> cap_ID, string nguoiNhan, Nullable<int> trangThai)
         {
             var maHoSoParameter = maHoSo != null ?
                 new SqlParameter("maHoSo", maHoSo) :
@@ -150,7 +154,8 @@ namespace S4T_HaTinh.Models
                 new SqlParameter("tenDuAn", tenDuAn) :
                 new SqlParameter("tenDuAn", DBNull.Value);
 
-            if (String.IsNullOrEmpty(tongMucDauTu)) {
+            if (String.IsNullOrEmpty(tongMucDauTu))
+            {
                 tongMucDauTu = "-1";
             }
             double dTongMucDauTu = 0;
@@ -158,7 +163,8 @@ namespace S4T_HaTinh.Models
             {
                 dTongMucDauTu = Double.Parse(tongMucDauTu);
             }
-            catch (Exception){
+            catch (Exception)
+            {
                 dTongMucDauTu = -2;
             }
 
@@ -206,15 +212,15 @@ namespace S4T_HaTinh.Models
             var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
                 new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
                 new SqlParameter("NhomDonVi_ID", DBNull.Value);
-
+    
             var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
                 new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
                 new SqlParameter("DotBaoCao_ID", DBNull.Value);
-
+    
             var namParameter = nam.HasValue ?
                 new SqlParameter("Nam", nam) :
                 new SqlParameter("Nam", DBNull.Value);
-
+    
             var chucNang_IDParameter = chucNang_ID.HasValue ?
                 new SqlParameter("ChucNang_ID", chucNang_ID) :
                 new SqlParameter("ChucNang_ID", DBNull.Value);
@@ -227,15 +233,15 @@ namespace S4T_HaTinh.Models
             var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
                 new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
                 new SqlParameter("NhomDonVi_ID", DBNull.Value);
-
+    
             var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
                 new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
                 new SqlParameter("DotBaoCao_ID", DBNull.Value);
-
+    
             var namParameter = nam.HasValue ?
                 new SqlParameter("Nam", nam) :
                 new SqlParameter("Nam", DBNull.Value);
-
+    
             var chucNang_IDParameter = chucNang_ID.HasValue ?
                 new SqlParameter("ChucNang_ID", chucNang_ID) :
                 new SqlParameter("ChucNang_ID", DBNull.Value);
@@ -248,15 +254,15 @@ namespace S4T_HaTinh.Models
             var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
                 new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
                 new SqlParameter("NhomDonVi_ID", DBNull.Value);
-
+    
             var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
                 new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
                 new SqlParameter("DotBaoCao_ID", DBNull.Value);
-
+    
             var namParameter = nam.HasValue ?
                 new SqlParameter("Nam", nam) :
                 new SqlParameter("Nam", DBNull.Value);
-
+    
             var chucNang_IDParameter = chucNang_ID.HasValue ?
                 new SqlParameter("ChucNang_ID", chucNang_ID) :
                 new SqlParameter("ChucNang_ID", DBNull.Value);
@@ -269,20 +275,104 @@ namespace S4T_HaTinh.Models
             var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
                 new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
                 new SqlParameter("NhomDonVi_ID", DBNull.Value);
-
+    
             var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
                 new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
                 new SqlParameter("DotBaoCao_ID", DBNull.Value);
-
+    
             var namParameter = nam.HasValue ?
                 new SqlParameter("Nam", nam) :
                 new SqlParameter("Nam", DBNull.Value);
-
+    
             var chucNang_IDParameter = chucNang_ID.HasValue ?
                 new SqlParameter("ChucNang_ID", chucNang_ID) :
                 new SqlParameter("ChucNang_ID", DBNull.Value);
 
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetUngDungCNTT_Result>("sp_GetUngDungCNTT @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetUngDungCNTT_Result>("sp_GetUngDungCNTT  @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
+        }
+
+        public virtual List<sp_GetCongThongTinDienTuCapHuyen_Result> sp_GetCongThongTinDienTuCapHuyen(Nullable<int> nhomDonVi_ID, Nullable<int> dotBaoCao_ID, Nullable<int> nam, Nullable<int> chucNang_ID)
+        {
+            var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
+                new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
+                new SqlParameter("NhomDonVi_ID", DBNull.Value);
+    
+            var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
+                new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
+                new SqlParameter("DotBaoCao_ID", DBNull.Value);
+    
+            var namParameter = nam.HasValue ?
+                new SqlParameter("Nam", nam) :
+                new SqlParameter("Nam", DBNull.Value);
+    
+            var chucNang_IDParameter = chucNang_ID.HasValue ?
+                new SqlParameter("ChucNang_ID", chucNang_ID) :
+                new SqlParameter("ChucNang_ID", DBNull.Value);
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetCongThongTinDienTuCapHuyen_Result>("sp_GetCongThongTinDienTuCapHuyen  @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
+        }
+
+        public virtual List<sp_GetHaTangKyThuatCapHuyen_Result> sp_GetHaTangKyThuatCapHuyen(Nullable<int> nhomDonVi_ID, Nullable<int> dotBaoCao_ID, Nullable<int> nam, Nullable<int> chucNang_ID)
+        {
+            var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
+                new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
+                new SqlParameter("NhomDonVi_ID", DBNull.Value);
+    
+            var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
+                new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
+                new SqlParameter("DotBaoCao_ID", DBNull.Value);
+    
+            var namParameter = nam.HasValue ?
+                new SqlParameter("Nam", nam) :
+                new SqlParameter("Nam", DBNull.Value);
+    
+            var chucNang_IDParameter = chucNang_ID.HasValue ?
+                new SqlParameter("ChucNang_ID", chucNang_ID) :
+                new SqlParameter("ChucNang_ID", DBNull.Value);
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetHaTangKyThuatCapHuyen_Result>("sp_GetHaTangKyThuatCapHuyen  @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
+        }
+
+        public virtual List<sp_GetHaTangNhanLucCapHuyen_Result> sp_GetHaTangNhanLucCapHuyen(Nullable<int> nhomDonVi_ID, Nullable<int> dotBaoCao_ID, Nullable<int> nam, Nullable<int> chucNang_ID)
+        {
+            var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
+                new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
+                new SqlParameter("NhomDonVi_ID", DBNull.Value);
+    
+            var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
+                new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
+                new SqlParameter("DotBaoCao_ID", DBNull.Value);
+    
+            var namParameter = nam.HasValue ?
+                new SqlParameter("Nam", nam) :
+                new SqlParameter("Nam", DBNull.Value);
+    
+            var chucNang_IDParameter = chucNang_ID.HasValue ?
+                new SqlParameter("ChucNang_ID", chucNang_ID) :
+                new SqlParameter("ChucNang_ID", DBNull.Value);
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetHaTangNhanLucCapHuyen_Result>("sp_GetHaTangNhanLucCapHuyen  @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
+        }
+
+        public virtual List<sp_GetUngDungCNTTCapHuyen_Result> sp_GetUngDungCNTTCapHuyen(Nullable<int> nhomDonVi_ID, Nullable<int> dotBaoCao_ID, Nullable<int> nam, Nullable<int> chucNang_ID)
+        {
+            var nhomDonVi_IDParameter = nhomDonVi_ID.HasValue ?
+                new SqlParameter("NhomDonVi_ID", nhomDonVi_ID) :
+                new SqlParameter("NhomDonVi_ID", DBNull.Value);
+    
+            var dotBaoCao_IDParameter = dotBaoCao_ID.HasValue ?
+                new SqlParameter("DotBaoCao_ID", dotBaoCao_ID) :
+                new SqlParameter("DotBaoCao_ID", DBNull.Value);
+    
+            var namParameter = nam.HasValue ?
+                new SqlParameter("Nam", nam) :
+                new SqlParameter("Nam", DBNull.Value);
+    
+            var chucNang_IDParameter = chucNang_ID.HasValue ?
+                new SqlParameter("ChucNang_ID", chucNang_ID) :
+                new SqlParameter("ChucNang_ID", DBNull.Value);
+
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteStoreQuery<sp_GetUngDungCNTTCapHuyen_Result>("sp_GetUngDungCNTTCapHuyen  @NhomDonVi_ID, @DotBaoCao_ID, @Nam, @ChucNang_ID", nhomDonVi_IDParameter, dotBaoCao_IDParameter, namParameter, chucNang_IDParameter).ToList();
         }
     }
 }

@@ -65,6 +65,10 @@
         <EntityTypeShape EntityType="S4T_Model.LoaiVanBan" Width="1.5" PointX="27.375" PointY="0.75" />
         <EntityTypeShape EntityType="S4T_Model.NhomVanBan" Width="1.5" PointX="27.375" PointY="3.75" />
         <EntityTypeShape EntityType="S4T_Model.View_Loai_Nhom_VanBan" Width="1.5" PointX="27.375" PointY="6.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_CongThongTinDienTuCapHuyen" Width="1.5" PointX="27.375" PointY="14.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_HaTangKyThuatCapHuyen" Width="1.5" PointX="15.375" PointY="27.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_HaTangNhanLucCapHuyen" Width="1.5" PointX="29.375" PointY="0.75" />
+        <EntityTypeShape EntityType="S4T_Model.ViewLichNhap_UngDungCNTTCapHuyen" Width="1.5" PointX="7.375" PointY="29.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
