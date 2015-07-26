@@ -41,11 +41,11 @@ namespace S4T_HaTinh.Controllers
             int nhomDonVi_ID = 0, donViCap1_ID;
             if (!String.IsNullOrEmpty(ddlNhomDonVi) && int.TryParse(ddlNhomDonVi, out nhomDonVi_ID))
             {
-                GetViewBag(nhomDonVi_ID);
+                GetViewBag(nhomDonVi_ID, ViewReport.Index);
                 list = list.Where(o => o.NhomDonVi_ID == nhomDonVi_ID);
             }
             else
-                GetViewBag(0);
+                GetViewBag(0, ViewReport.Index);
 
             if (!String.IsNullOrEmpty(ddlDonViCap1) && int.TryParse(ddlDonViCap1, out donViCap1_ID))
             {
@@ -71,44 +71,53 @@ namespace S4T_HaTinh.Controllers
         /// <summary>
         /// Get all ViewBag 
         /// </summary>
-        private void GetViewBag(int? ddlNhomDonVi)
+        private void GetViewBag(int? ddlNhomDonVi, ViewReport viewType)
         {
-            // Nhóm đơn vị
-            //ViewBag.SelectListNhomDonVi = new SelectList(MvcApplication.ListNhomDonVi(), "DanhMuc_ID", "TenDanhMuc");
-
-            var items = new List<SelectListItem>();
-            //items.Add(new SelectListItem() { Text = "Tất cả", Value = "", Selected = true });
-
             // Lấy list đơn vị cấp trên 
             var listDonViCap1 = MvcApplication.ListDonVi.Where(o => o.TrangThai == TrangThai.HoatDong); 
-            if (ddlNhomDonVi != 0 && listDonViCap1.Any())
-            {
-                if(ddlNhomDonVi == DonVi.NhomDonViCapXa){
-                    items.Add(new SelectListItem() { Text = "", Value = "null", Selected = true });
-                    listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
-                
-                }
-                else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
-                {
-                    items.Add(new SelectListItem() { Text = "", Value = "null", Selected = true });
-                    listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
-                }
+            var items = new List<SelectListItem>();
 
+            if (viewType == ViewReport.Index)
+            {
+                items.Add(new SelectListItem() { Text = "", Value = "", Selected = true });
+
+                if (ddlNhomDonVi == DonVi.NhomDonViCapXa || ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                {
+                    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
+                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
+                    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
+
+                    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
+                    {
+                        Text = o.TenDonVi,
+                        Value = o.DonVi_ID.ToString()
+                    });
+
+                    items.AddRange(slListDVCap1);
+                }
+            }
+            else
+            {
+                if(ddlNhomDonVi != DonVi.NhomDonViCapHuyen && ddlNhomDonVi != DonVi.NhomDonViCapXa)
+                    items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
                 else
                 {
-                    listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == ddlNhomDonVi);
-                    items.Add(new SelectListItem() { Text = "", Value = "-1" });
-                }
+                    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
+                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
+                    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
 
-                var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
-                { 
-                    Text = o.TenDonVi,
-                    Value = o.DonVi_ID.ToString()
-                });
-                
-                //items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
-                items.AddRange(slListDVCap1);
+                    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
+                    {
+                        Text = o.TenDonVi,
+                        Value = o.DonVi_ID.ToString()
+                    });
+
+                    items.AddRange(slListDVCap1);
+                }
             }
+
             ViewBag.ListDonViCap1 = listDonViCap1;
             ViewBag.SelectListDonViCap1 = items;
         }
@@ -121,10 +130,10 @@ namespace S4T_HaTinh.Controllers
             if (per != PermissionType.Write) return Content(ExceptionViewer.GetMessage("UPDATE_NOT_PERMISSION"));
 
             var listNhomDonVi = MvcApplication.ListNhomDonVi().Where(o => o.TrangThai == TrangThai.HoatDong).OrderBy(o => o.TenDanhMuc);
-            if (listNhomDonVi.Any()) GetViewBag(listNhomDonVi.First().DanhMuc_ID);
+            if (listNhomDonVi.Any()) GetViewBag(listNhomDonVi.First().DanhMuc_ID, ViewReport.Create);
             else
             {
-                GetViewBag(0);
+                GetViewBag(0, ViewReport.Create);
             }
             return View();
         }
@@ -149,7 +158,7 @@ namespace S4T_HaTinh.Controllers
                 return RedirectToAction("Index");
             }
 
-            GetViewBag(MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa).First().DanhMuc_ID);
+            GetViewBag(MvcApplication.ListNhomDonVi().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.DonVi.NhomDonViCapXa).First().DanhMuc_ID, ViewReport.Create);
             return View(dm_DonVi);
         }
 
@@ -164,7 +173,7 @@ namespace S4T_HaTinh.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GetViewBag(ddlNhomDonVi);
+            GetViewBag(ddlNhomDonVi, ViewReport.Edit);
             Dm_DonVi dm_DonVi = await db.Dm_DonVi.FindAsync(id);
             if (dm_DonVi == null)
             {
@@ -221,8 +230,8 @@ namespace S4T_HaTinh.Controllers
 
                 ModelState.AddModelError("", sb.ToString());
             }
-            
-            GetViewBag(dm_DonVi.NhomDonVi_ID);
+
+            GetViewBag(dm_DonVi.NhomDonVi_ID, ViewReport.Edit);
 
             if (dm_DonVi.NhomDonVi_ID == DonVi.NhomDonViCapHuyen)
                 return View("EditHuyen", objDonVi);
