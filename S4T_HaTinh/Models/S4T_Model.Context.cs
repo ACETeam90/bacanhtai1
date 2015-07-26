@@ -45,7 +45,6 @@ namespace S4T_HaTinh.Models
         public virtual DbSet<Dm_LoaiDuAn> Dm_LoaiDuAn { get; set; }
         public virtual DbSet<Dm_LoaiKeHoach> Dm_LoaiKeHoach { get; set; }
         public virtual DbSet<Dm_LoaiVanBan> Dm_LoaiVanBan { get; set; }
-        public virtual DbSet<Dm_ThongTinDonVi> Dm_ThongTinDonVi { get; set; }
         public virtual DbSet<EditUserViewModels> EditUserViewModels { get; set; }
         public virtual DbSet<HaTangKyThuatCNTT> HaTangKyThuatCNTT { get; set; }
         public virtual DbSet<HaTangKyThuatCNTT_Huyen> HaTangKyThuatCNTT_Huyen { get; set; }

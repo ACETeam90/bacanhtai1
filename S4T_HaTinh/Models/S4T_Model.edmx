@@ -376,42 +376,6 @@
           <Property Name="TenLoaiVanBan" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="TrangThai" Type="tinyint" Nullable="false" />
         </EntityType>
-        <EntityType Name="Dm_ThongTinDonVi">
-          <Key>
-            <PropertyRef Name="ThongTin_ID" />
-          </Key>
-          <Property Name="ThongTin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DonVi_ID" Type="int" Nullable="false" />
-          <Property Name="TenDonVi" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="500" />
-          <Property Name="DienThoai" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="250" />
-          <Property Name="Website" Type="nvarchar" MaxLength="250" />
-          <Property Name="GiamDoc" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc1" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc2" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc3" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc4" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc5" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc6" Type="nvarchar" MaxLength="250" />
-          <Property Name="PhoGiamDoc7" Type="nvarchar" MaxLength="250" />
-          <Property Name="GiamDocCNTT" Type="nvarchar" MaxLength="250" />
-          <Property Name="SoLuongCBCC" Type="int" />
-          <Property Name="SoDonViTrucThuoc" Type="int" />
-          <Property Name="SoLuongNV_DVTT" Type="int" />
-          <Property Name="PhongCNTT" Type="tinyint" />
-          <Property Name="SoLuongCB_PhongCNTT" Type="int" />
-          <Property Name="ToCNTT" Type="tinyint" />
-          <Property Name="SoLuongCB_ToCNTT" Type="int" />
-          <Property Name="HoTen_CBCT1" Type="nvarchar" MaxLength="250" />
-          <Property Name="TrinhDoCNTT_CBCT1" Type="nvarchar" MaxLength="50" />
-          <Property Name="SoDienThoai_CBCT1" Type="varchar" MaxLength="50" />
-          <Property Name="Email_CBCT1" Type="nvarchar" MaxLength="250" />
-          <Property Name="HoTen_CBCT2" Type="nvarchar" MaxLength="250" />
-          <Property Name="TrinhDoCNTT_CBCT2" Type="nvarchar" MaxLength="50" />
-          <Property Name="SoDienThoai_CBCT2" Type="varchar" MaxLength="50" />
-          <Property Name="Email_CBCT2" Type="nvarchar" MaxLength="250" />
-        </EntityType>
         <EntityType Name="EditUserViewModels">
           <Key>
             <PropertyRef Name="UserName" />
@@ -3176,7 +3140,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySet Name="Dm_LoaiDuAn" EntityType="Self.Dm_LoaiDuAn" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dm_LoaiKeHoach" EntityType="Self.Dm_LoaiKeHoach" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dm_LoaiVanBan" EntityType="Self.Dm_LoaiVanBan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Dm_ThongTinDonVi" EntityType="Self.Dm_ThongTinDonVi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EditUserViewModels" EntityType="Self.EditUserViewModels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HaTangKyThuatCNTT" EntityType="Self.HaTangKyThuatCNTT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HaTangKyThuatCNTT_Huyen" EntityType="Self.HaTangKyThuatCNTT_Huyen" Schema="dbo" store:Type="Tables" />
@@ -4442,86 +4405,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TenLoaiVanBan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TrangThai" Type="Byte" Nullable="false" />
         </EntityType>
-        <EntityType Name="Dm_ThongTinDonVi">
-          <Key>
-            <PropertyRef Name="ThongTin_ID" />
-          </Key>
-          <Property Name="ThongTin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DonVi_ID" Type="Int32" Nullable="false" />
-          <Property Name="TenDonVi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NamThanhLap" Type="Int32" />
-          <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Website" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="GiamDoc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc4" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc5" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc6" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhoGiamDoc7" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Ten_GiamDocCNTT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai_GiamDocCNTT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Email_GiamDocCNTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Ten_ChanhVanPhong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai_ChanhVanPhong" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Email_ChanhVanPhong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Ten_TruongPhongVHTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai_TruongPhongVHTT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Email_TruongPhongVHTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Ten_PhoPhongVHTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai_PhoPhongVHTT" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
-          <Property Name="Email_PhoPhongVHTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TongDienTich" Type="Int32" />
-          <Property Name="TongSoXa" Type="Int32" />
-          <Property Name="TongSoHoGiaDinh" Type="Int32" />
-          <Property Name="TongDanSo" Type="Int32" />
-          <Property Name="SoCBCC" Type="Int32" />
-          <Property Name="SoCBCC_Xa" Type="Int32" />
-          <Property Name="SoTruongMamNon" Type="Int32" />
-          <Property Name="SoTruongTieuHoc" Type="Int32" />
-          <Property Name="SoTruongTHCS" Type="Int32" />
-          <Property Name="SoTruongTHPT" Type="Int32" />
-          <Property Name="SoTrungTamGDTX" Type="Int32" />
-          <Property Name="SoTruongDayNghe" Type="Int32" />
-          <Property Name="SoTruongTrungCap" Type="Int32" />
-          <Property Name="SoTruongCaoDang" Type="Int32" />
-          <Property Name="SoTruongDaiHoc" Type="Int32" />
-          <Property Name="SoTramYTe" Type="Int32" />
-          <Property Name="SoTrungTamYTeDuPhong" Type="Int32" />
-          <Property Name="SoBenhVien" Type="Int32" />
-          <Property Name="SoDoanhNghiepCNTT" Type="Int32" />
-          <Property Name="SoNVCNTT" Type="Int32" />
-          <Property Name="SoHopTacXa" Type="Int32" />
-          <Property Name="SoLangNgheTruyenThong" Type="Int32" />
-          <Property Name="SoDonViTrucThuoc" Type="Int32" />
-          <Property Name="SoCB_DVTT" Type="Int32" />
-          <Property Name="HasPhongCNTT" Type="Byte" />
-          <Property Name="SoCB_PhongCNTT" Type="Int32" />
-          <Property Name="HasToCNTT" Type="Byte" />
-          <Property Name="SoCB_ToCNTT" Type="Int32" />
-          <Property Name="HoTen_CBCT1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySinh_CBCT1" Type="DateTime" Precision="3" />
-          <Property Name="TrinhDoCNTT_CBCT1" Type="Int32" />
-          <Property Name="DienThoai_CBCT1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email_CBCT1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HoTen_CBCT2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="TrinhDoCNTT_CBCT2" Type="Int32" />
-          <Property Name="DienThoai_CBCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email_CBCT2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NgaySinh_CBCT2" Type="DateTime" Precision="3" />
-          <Property Name="GiamDocCNTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SoLuongCBCC" Type="Int32" />
-          <Property Name="SoLuongNV_DVTT" Type="Int32" />
-          <Property Name="PhongCNTT" Type="Byte" />
-          <Property Name="SoLuongCB_PhongCNTT" Type="Int32" />
-          <Property Name="ToCNTT" Type="Byte" />
-          <Property Name="SoLuongCB_ToCNTT" Type="Int32" />
-          <Property Name="SoDienThoai_CBCT1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="SoDienThoai_CBCT2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="EditUserViewModels">
           <Key>
             <PropertyRef Name="UserName" />
@@ -5375,7 +5258,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySet Name="Dm_LoaiDuAn" EntityType="Self.Dm_LoaiDuAn" />
           <EntitySet Name="Dm_LoaiKeHoach" EntityType="Self.Dm_LoaiKeHoach" />
           <EntitySet Name="Dm_LoaiVanBan" EntityType="Self.Dm_LoaiVanBan" />
-          <EntitySet Name="Dm_ThongTinDonVi" EntityType="Self.Dm_ThongTinDonVi" />
           <EntitySet Name="EditUserViewModels" EntityType="Self.EditUserViewModels" />
           <EntitySet Name="HaTangKyThuatCNTT" EntityType="Self.HaTangKyThuatCNTT" />
           <EntitySet Name="HaTangKyThuatCNTT_Huyen" EntityType="Self.HaTangKyThuatCNTT_Huyen" />
@@ -8635,43 +8517,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="LoaiVanBan_ID" ColumnName="LoaiVanBan_ID" />
                 <ScalarProperty Name="TenLoaiVanBan" ColumnName="TenLoaiVanBan" />
                 <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Dm_ThongTinDonVi">
-            <EntityTypeMapping TypeName="S4T_Model.Dm_ThongTinDonVi">
-              <MappingFragment StoreEntitySet="Dm_ThongTinDonVi">
-                <ScalarProperty Name="SoDienThoai_CBCT2" ColumnName="SoDienThoai_CBCT2" />
-                <ScalarProperty Name="SoDienThoai_CBCT1" ColumnName="SoDienThoai_CBCT1" />
-                <ScalarProperty Name="SoLuongCB_ToCNTT" ColumnName="SoLuongCB_ToCNTT" />
-                <ScalarProperty Name="ToCNTT" ColumnName="ToCNTT" />
-                <ScalarProperty Name="SoLuongCB_PhongCNTT" ColumnName="SoLuongCB_PhongCNTT" />
-                <ScalarProperty Name="PhongCNTT" ColumnName="PhongCNTT" />
-                <ScalarProperty Name="SoLuongNV_DVTT" ColumnName="SoLuongNV_DVTT" />
-                <ScalarProperty Name="SoLuongCBCC" ColumnName="SoLuongCBCC" />
-                <ScalarProperty Name="GiamDocCNTT" ColumnName="GiamDocCNTT" />
-                <ScalarProperty Name="ThongTin_ID" ColumnName="ThongTin_ID" />
-                <ScalarProperty Name="DonVi_ID" ColumnName="DonVi_ID" />
-                <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Website" ColumnName="Website" />
-                <ScalarProperty Name="GiamDoc" ColumnName="GiamDoc" />
-                <ScalarProperty Name="PhoGiamDoc1" ColumnName="PhoGiamDoc1" />
-                <ScalarProperty Name="PhoGiamDoc2" ColumnName="PhoGiamDoc2" />
-                <ScalarProperty Name="PhoGiamDoc3" ColumnName="PhoGiamDoc3" />
-                <ScalarProperty Name="PhoGiamDoc4" ColumnName="PhoGiamDoc4" />
-                <ScalarProperty Name="PhoGiamDoc5" ColumnName="PhoGiamDoc5" />
-                <ScalarProperty Name="PhoGiamDoc6" ColumnName="PhoGiamDoc6" />
-                <ScalarProperty Name="PhoGiamDoc7" ColumnName="PhoGiamDoc7" />
-                <ScalarProperty Name="SoDonViTrucThuoc" ColumnName="SoDonViTrucThuoc" />
-                <ScalarProperty Name="HoTen_CBCT1" ColumnName="HoTen_CBCT1" />
-                <ScalarProperty Name="TrinhDoCNTT_CBCT1" ColumnName="TrinhDoCNTT_CBCT1" />
-                <ScalarProperty Name="Email_CBCT1" ColumnName="Email_CBCT1" />
-                <ScalarProperty Name="HoTen_CBCT2" ColumnName="HoTen_CBCT2" />
-                <ScalarProperty Name="TrinhDoCNTT_CBCT2" ColumnName="TrinhDoCNTT_CBCT2" />
-                <ScalarProperty Name="Email_CBCT2" ColumnName="Email_CBCT2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
