@@ -26,10 +26,10 @@ namespace S4T_HaTinh.Controllers
             if (per == PermissionType.Deny) return Content(ExceptionViewer.GetMessage("VIEW_NOT_PERMISSION"));
 
             // Fix trường hợp Nhóm đơn vị chọn tất cả khi chọn 1 Nhóm đơn vị sẽ select all theo nhóm đơn vị đó. Hiện tại chỉ lấy các đơn vị cấp 1
-            if (!string.IsNullOrEmpty(ddlNhomDonVi))
-                ddlNhomDonVi = ddlNhomDonVi.Trim();
-            if (!string.IsNullOrEmpty(ddlNhomDonVi) && string.IsNullOrEmpty(ddlDonViCap1) && ddlNhomDonVi != DonVi.NhomDonViCapHuyen.ToString() && ddlNhomDonVi != DonVi.NhomDonViCapXa.ToString())
-                ddlDonViCap1 = "-1";
+            //if (!string.IsNullOrEmpty(ddlNhomDonVi))
+            //    ddlNhomDonVi = ddlNhomDonVi.Trim();
+            //if (!string.IsNullOrEmpty(ddlNhomDonVi) && string.IsNullOrEmpty(ddlDonViCap1) && ddlNhomDonVi != DonVi.NhomDonViCapHuyen.ToString() && ddlNhomDonVi != DonVi.NhomDonViCapXa.ToString())
+            //    ddlDonViCap1 = "-1";
 
             var list = (IEnumerable<Dm_DonVi>) MvcApplication.ListDonVi;
 
@@ -81,43 +81,52 @@ namespace S4T_HaTinh.Controllers
             {
                 items.Add(new SelectListItem() { Text = "", Value = "", Selected = true });
 
-                if (ddlNhomDonVi == DonVi.NhomDonViCapXa || ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
-                {
-                    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
-                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
-                    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
-                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
+                //if (ddlNhomDonVi == DonVi.NhomDonViCapXa || ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                //{
+                //    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
+                //        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
+                //    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                //        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
 
-                    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
-                    {
-                        Text = o.TenDonVi,
-                        Value = o.DonVi_ID.ToString()
-                    });
+                //    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
+                //    {
+                //        Text = o.TenDonVi,
+                //        Value = o.DonVi_ID.ToString()
+                //    });
 
-                    items.AddRange(slListDVCap1);
-                }
+                //    items.AddRange(slListDVCap1);
+                //}
             }
             else
             {
-                if(ddlNhomDonVi != DonVi.NhomDonViCapHuyen && ddlNhomDonVi != DonVi.NhomDonViCapXa)
-                    items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
-                else
-                {
-                    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
-                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
-                    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
-                        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
+                items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
 
-                    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
-                    {
-                        Text = o.TenDonVi,
-                        Value = o.DonVi_ID.ToString()
-                    });
+                //if(ddlNhomDonVi != DonVi.NhomDonViCapHuyen && ddlNhomDonVi != DonVi.NhomDonViCapXa)
+                //    items.Add(new SelectListItem() { Text = "", Value = "-1", Selected = true });
+                //else
+                //{
+                //    if (ddlNhomDonVi == DonVi.NhomDonViCapXa)
+                //        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapHuyen);
+                //    else if (ddlNhomDonVi == DonVi.NhomDonViCapHuyen)
+                //        listDonViCap1 = listDonViCap1.Where(o => o.NhomDonVi_ID == DonVi.NhomDonViCapTinh);
 
-                    items.AddRange(slListDVCap1);
-                }
+                //    var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
+                //    {
+                //        Text = o.TenDonVi,
+                //        Value = o.DonVi_ID.ToString()
+                //    });
+
+                //    items.AddRange(slListDVCap1);
+                //}
             }
 
+            var slListDVCap1 = listDonViCap1.OrderBy(o => o.TenDonVi).Select(o => new SelectListItem()
+            {
+                Text = o.TenDonVi,
+                Value = o.DonVi_ID.ToString()
+            });
+
+            items.AddRange(slListDVCap1);
             ViewBag.ListDonViCap1 = listDonViCap1;
             ViewBag.SelectListDonViCap1 = items;
         }
