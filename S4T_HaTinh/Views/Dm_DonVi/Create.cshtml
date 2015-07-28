@@ -29,7 +29,9 @@
         <div class="divRow">
             @Html.LabelFor(model => model.NhomDonVi_ID, htmlAttributes: new { @class = "divLabel" })
             <div class="divControl">
-                @Html.DropDownListFor(model => model.NhomDonVi_ID, listNhomDonVi, new { @class = "S4T_ComboBox", @style="width:300px;", @onchange = "NhomDonVi_OnChange()" })
+                @Html.DropDownListFor(model => model.NhomDonVi_ID, listNhomDonVi, new { @class = "S4T_ComboBox", @style="width:300px;"
+               //, @onchange = "NhomDonVi_OnChange()" 
+           })
                 @Html.ValidationMessageFor(model => model.NhomDonVi_ID, "", new { @class = "text-danger" })
             </div>
         </div>

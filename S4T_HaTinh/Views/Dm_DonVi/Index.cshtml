@@ -24,10 +24,12 @@
             <div>
                 <ul class="ulSearch" style="list-style:none;">
                     <li class="liSearch labelSearch">Nhóm đơn vị</li>
-                    <li class="liSearch">@Html.DropDownList("ddlNhomDonVi", slNhomDonVi, "Tất cả", new { @class = "S4T_ComboBox", @onchange = "NhomDonVi_OnChange()", @style = "width:250px;" })</li>
+                    <li class="liSearch">@Html.DropDownList("ddlNhomDonVi", slNhomDonVi, "Tất cả", new { @class = "S4T_ComboBox", @*@onchange = "NhomDonVi_OnChange()",*@ 
+                        @onchange = "SearchFormOnchange()", @style = "width:250px;"
+                                    })</li>
 
                     <li class="liSearch labelSearch">Trực thuộc</li>
-                    <li class="liSearch">@Html.DropDownList("ddlDonViCap1", (List<SelectListItem>)ViewBag.SelectListDonViCap1, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:250px;" })</li>
+                    <li class="liSearch">@Html.DropDownList("ddlDonViCap1", (List<SelectListItem>)ViewBag.SelectListDonViCap1, new { @class = "S4T_ComboBox", @onchange = "SearchFormOnchange()", @style = "width:250px;" })</li>
 
                     <li class="liSearch labelSearch">Trạng thái</li>
                     <li class="liSearch">@Html.DropDownList("ddlTrangThai", slTrangThai, new { @class = "S4T_DropDownList", @onchange = "SearchFormOnchange()", @style = "width:130px;" })</li>
