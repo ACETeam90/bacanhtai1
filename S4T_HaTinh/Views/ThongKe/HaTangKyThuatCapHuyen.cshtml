@@ -1,4 +1,4 @@
-﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetCongThongTinDienTu_Result>
+﻿@model IEnumerable<S4T_HaTinh.Models.sp_GetHaTangKyThuatCapHuyen_Result>
 @{
 
 }
@@ -12,20 +12,8 @@
     <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
     <meta name=ProgId content=Excel.Sheet>
     <meta name=Generator content="Microsoft Excel 15">
-    <link id=Main-File rel=Main-File
-          href="../Bieu%20mau%20Can%20loc%20-%20ban%20chinh2.htm">
     <link rel=File-List href=filelist.xml>
     <link rel=Stylesheet href=stylesheet.css>
-    <style>
-<!--table
-	{mso-displayed-decimal-separator:"\.";
-	mso-displayed-thousand-separator:"\,";}
-@page
-	{margin:.75in .7in .75in .7in;
-	mso-header-margin:.3in;
-	mso-footer-margin:.3in;}
--->
-    </style>
     <![if !supportTabStrip]>
     <script language="JavaScript">
 <!--
@@ -40,11 +28,6 @@ function fnUpdateTabs()
  }
 }
 
-if (window.name!="frSheet")
- window.location.replace("../Bieu%20mau%20Can%20loc%20-%20ban%20chinh2.htm");
-else
- fnUpdateTabs();
-//-->
     </script>
     <![endif]>
 </head>
@@ -114,13 +97,18 @@ else
         <col width=75 style='mso-width-source:userset;mso-width-alt:2742;width:56pt'>
         <col width=64 style='width:48pt'>
         <col width=118 style='mso-width-source:userset;mso-width-alt:4315;width:89pt'>
-        <tr height=106 style='mso-height-source:userset;height:79.5pt'>
-            <td colspan=17 height=106 class=xl275 width=1314 style='height:79.5pt;
-  width:988pt'>
-                B&#7842;NG T&#7892;NG H&#7906;P S&#7888; LI&#7878;U KÈM THEO BÁO
-                CÁO T&#7920; KI&#7874;M TRA - THÔNG TIN V&#7872; H&#7840; T&#7846;NG K&#7928;
-                THU&#7852;T CNTT<br>
-                (Dành cho UBND các huy&#7879;n, th&#7883; xã, thành ph&#7889;)<span style='mso-spacerun:yes'></span>
+        <tr height=106 valign=bottom style='mso-height-source:userset;height:79.5pt'>
+            <td colspan=17 height=106 class=xl243 align=center valign=middle width=1314
+                style='height:79.5pt;width:988pt'>
+                <font class="font20" face="Times New Roman"
+                      size="4">
+                    <b>
+                        B&#7842;NG T&#7892;NG H&#7906;P S&#7888; LI&#7878;U KÈM THEO BÁO
+                        CÁO T&#7920; KI&#7874;M TRA - THÔNG TIN V&#7872; H&#7840; T&#7846;NG K&#7928;
+                        THU&#7852;T CNTT<br>
+                        (Dành cho UBND các huy&#7879;n, th&#7883; xã, thành ph&#7889;)<span style='mso-spacerun:yes'></span>
+                    </b>
+                </font>
             </td>
             <td width=83 style='width:62pt'></td>
             <td width=77 style='width:58pt'></td>
@@ -186,9 +174,9 @@ else
             <td width=64 style='width:48pt'></td>
             <td width=118 style='width:89pt'></td>
         </tr>
-        <tr height=22 style='mso-height-source:userset;height:16.5pt'>
+        <tr height=22 valign=bottom style='mso-height-source:userset;height:16.5pt'>
             <td height=22 style='height:16.5pt'></td>
-            <td colspan=6 class=xl244 width=537 style='width:403pt'></td>
+            <td colspan=6 class=xl248 width=537 style='width:403pt'></td>
             <td colspan=28 style='mso-ignore:colspan'></td>
             <td class=xl66 width=85 style='width:64pt'></td>
             <td class=xl66 width=78 style='width:59pt'></td>
@@ -200,558 +188,771 @@ else
             <td class=xl66 width=64 style='width:48pt'></td>
             <td class=xl66 width=64 style='width:48pt'></td>
             <td colspan=18 style='mso-ignore:colspan'></td>
-            <td colspan=10 class=xl245>&nbsp;</td>
+            <td colspan=10 class=xl249 bgcolor="#FFC000">
+                <font class="font11"
+                      face="Times New Roman" size="4" color="#000000">&nbsp;</font>
+            </td>
             <td colspan=8 style='mso-ignore:colspan'></td>
         </tr>
-        <tr height=61 style='mso-height-source:userset;height:45.75pt'>
-            <td rowspan=2 height=201 class=xl203 width=34 style='border-bottom:.5pt solid black;
-  height:150.75pt;width:26pt'>
+        <tr height=61 valign=bottom style='mso-height-source:userset;height:45.75pt'>
+            <td rowspan=2 height=201 class=xl203 align=center valign=middle width=34
+                style=' border: 1px solid black;height:150.75pt;width:26pt'>
                 STT
             </td>
-            <td rowspan=2 class=xl203 width=193 style='border-bottom:.5pt solid black;
-  width:145pt'>
+            <td rowspan=2 class=xl203 align=center valign=middle width=193
+                style='border: 1px solid black;width:145pt'>
                 Tên &#273;&#417;n v&#7883;
             </td>
-            <td rowspan=2 class=xl203 width=77 style='border-bottom:.5pt solid black;
-  width:58pt'>
-                Mã &#273;&#417;n v&#7883;<font class="font5"> (*)</font>
+            <td colspan=4 class=xl250 bgcolor="#8DB4E2" align=center valign=middle
+                width=267 style='border-right: 1px solid black;border-left: 1px solid black;width:200pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; thuê bao Internet t&#7841;i UBND c&#7845;p
+                        huy&#7879;n
+                    </b>
+                </font>
             </td>
-            <td colspan=4 class=xl246 width=267 style='border-right:.5pt solid black;
-  border-left:none;width:200pt'>
-                S&#7889; thuê bao Internet t&#7841;i UBND
-                c&#7845;p huy&#7879;n
+            <td colspan=6 class=xl77 bgcolor="#F79646" align=center valign=middle
+                width=449 style='border-left: 1px solid black;width:338pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889;
+                        máy ch&#7911; và máy tính hi&#7879;n &#273;ang s&#7917; d&#7909;ng t&#7841;i
+                        UBND c&#7845;p huy&#7879;n
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl77 width=449 style='border-left:none;width:338pt'>
-                S&#7889;
-                máy ch&#7911; và máy tính hi&#7879;n &#273;ang s&#7917; d&#7909;ng t&#7841;i
-                UBND c&#7845;p huy&#7879;n
+            <td colspan=6 class=xl253 bgcolor="#4BACC6" align=center valign=middle
+                width=454 style='border-right:.5pt solid black;border-left: 1px solid black;width:341pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng &#7903; C&#7845;p huy&#7879;n &#7911;y
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl249 width=454 style='border-right:.5pt solid black;
-  border-left:none;width:341pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng &#7903; C&#7845;p huy&#7879;n &#7911;y
+            <td colspan=6 class=xl256 bgcolor="#8064A2" align=center valign=middle
+                width=587 style='border-right:.5pt solid black;border-left: 1px solid black;width:443pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng t&#7841;i UBND C&#7845;p xã
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl252 width=587 style='border-right:.5pt solid black;
-  border-left:none;width:443pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng t&#7841;i UBND C&#7845;p xã
+            <td colspan=6 class=xl259 bgcolor="#9BBB59" align=center valign=middle
+                width=465 style='border-right:.5pt solid black;border-left: 1px solid black;width:349pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng trong ngành Giáo d&#7909;c
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl255 width=465 style='border-right:.5pt solid black;
-  border-left:none;width:349pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng trong ngành Giáo d&#7909;c
+            <td colspan=6 class=xl262 bgcolor="#C0504D" align=center valign=middle
+                style='border-right:.5pt solid black;border-left: 1px solid black'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng trong ngành Y t&#7871;
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl258 style='border-right:.5pt solid black;border-left:
-  none'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n &#273;ang s&#7917;
-                d&#7909;ng trong ngành Y t&#7871;
+            <td colspan=6 class=xl265 bgcolor="#4F81BD" align=center width=391
+                style='border-right:.5pt solid black;border-left: 1px solid black;width:293pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng t&#7841;i các &#272;&#417;n v&#7883; s&#7921;
+                        nghi&#7879;p khác
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl261 width=391 style='border-right:.5pt solid black;
-  border-left:none;width:293pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng t&#7841;i các &#272;&#417;n v&#7883; s&#7921;
-                nghi&#7879;p khác
+            <td colspan=6 class=xl268 bgcolor="#C4BD97" align=center width=384
+                style='border-right:.5pt solid black;border-left: 1px solid black;width:288pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng t&#7841;i B&#432;u &#273;i&#7879;n VHX
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl264 width=384 style='border-right:.5pt solid black;
-  border-left:none;width:288pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng t&#7841;i B&#432;u &#273;i&#7879;n VHX
+            <td colspan=6 class=xl271 bgcolor="#FFFF00" align=center valign=middle
+                width=384 style='border-right:.5pt solid black;border-left: 1px solid black;width:288pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng trong Doanh nghi&#7879;p (không bao g&#7891;m
+                        doanh nghi&#7879;p CNTT)
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl267 width=384 style='border-right:.5pt solid black;
-  border-left:none;width:288pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng trong Doanh nghi&#7879;p (không bao g&#7891;m
-                doanh nghi&#7879;p CNTT)
+            <td colspan=6 class=xl274 bgcolor="#92D050" align=center width=400
+                style='border-right:.5pt solid black;border-left: 1px solid black;width:300pt'>
+                <font face="Times New Roman">
+                    <b>
+                        S&#7889; máy ch&#7911; và máy tính hi&#7879;n
+                        &#273;ang s&#7917; d&#7909;ng t&#7841;i các H&#7897; gia &#273;ình
+                    </b>
+                </font>
             </td>
-            <td colspan=6 class=xl270 width=400 style='border-right:.5pt solid black;
-  border-left:none;width:300pt'>
-                S&#7889; máy ch&#7911; và máy tính hi&#7879;n
-                &#273;ang s&#7917; d&#7909;ng t&#7841;i các H&#7897; gia &#273;ình
+            <td colspan=11 class=xl245 align=center valign=middle style='border-right:
+  .5pt solid black;border-left: 1px solid black'>
+                <font class="font16" face="Times New Roman"
+                      size="3">
+                    <b>
+                        Ph&#432;&#417;ng án &#273;&#7843;m b&#7843;o an toàn cho
+                        m&#7841;ng LAN t&#7841;i UBND c&#7845;p huy&#7879;n
+                    </b>
+                </font>
             </td>
-            <td colspan=11 class=xl241 style='border-right:.5pt solid black;border-left:
-  none'>
-                Ph&#432;&#417;ng án &#273;&#7843;m b&#7843;o an toàn cho m&#7841;ng LAN
-                t&#7841;i UBND c&#7845;p huy&#7879;n
-            </td>
-            <td colspan=8 class=xl241 style='border-right:.5pt solid black;border-left:
-  none'>
-                Các Thông tin khác
+            <td colspan=8 class=xl245 align=center valign=middle style='border-right:
+  .5pt solid black;border-left: 1px solid black'>
+                <font class="font16" face="Times New Roman"
+                      size="3"><b>Các Thông tin khác</b></font>
             </td>
         </tr>
-        <tr class=xl73 height=140 style='height:105.0pt'>
-            <td height=140 class=xl204 width=64 style='height:105.0pt;border-top:none;
-  border-left:none;width:48pt'>
-                ADSL
-            </td>
-            <td class=xl205 width=75 style='border-top:none;border-left:none;width:56pt'>LeadedLine</td>
-            <td class=xl204 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Cáp
-                quang
-            </td>
-            <td class=xl204 width=64 style='border-top:none;border-left:none;width:48pt'>Khác</td>
-            <td class=xl77 width=72 style='border-top:none;border-left:none;width:54pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl77 width=81 style='border-top:none;border-left:none;width:61pt'>Laptop</td>
-            <td class=xl77 width=81 style='border-top:none;border-left:none;width:61pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl77 width=73 style='border-top:none;border-left:none;width:55pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl77 width=74 style='border-top:none;border-left:none;width:56pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl77 width=68 style='border-top:none;border-left:none;width:51pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng chuyên dùng
-            </td>
-            <td class=xl83 width=59 style='border-top:none;border-left:none;width:44pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl83 width=64 style='border-top:none;border-left:none;width:48pt'>Laptop</td>
-            <td class=xl83 width=81 style='border-top:none;border-left:none;width:61pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl83 width=90 style='border-top:none;border-left:none;width:68pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl83 width=83 style='border-top:none;border-left:none;width:62pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl83 width=77 style='border-top:none;border-left:none;width:58pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng chuyên dùng
-            </td>
-            <td class=xl84 width=97 style='border-top:none;border-left:none;width:73pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl85 width=98 style='border-top:none;border-left:none;width:74pt'>Laptop</td>
-            <td class=xl85 width=98 style='border-top:none;border-left:none;width:74pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl85 width=98 style='border-top:none;border-left:none;width:74pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl85 width=98 style='border-top:none;border-left:none;width:74pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl85 width=98 style='border-top:none;border-left:none;width:74pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng Chuyên dùng
-            </td>
-            <td class=xl80 width=98 style='border-top:none;border-left:none;width:74pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl81 width=65 style='border-top:none;border-left:none;width:49pt'>Laptop</td>
-            <td class=xl81 width=65 style='border-top:none;border-left:none;width:49pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl81 width=67 style='border-top:none;border-left:none;width:50pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl81 width=67 style='border-top:none;border-left:none;width:50pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl81 width=103 style='border-top:none;border-left:none;width:77pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng CD
-            </td>
-            <td class=xl80 width=75 style='border-top:none;border-left:none;width:56pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl81 width=54 style='border-top:none;border-left:none;width:41pt'>Laptop</td>
-            <td class=xl81 width=63 style='border-top:none;border-left:none;width:47pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl81 width=76 style='border-top:none;border-left:none;width:57pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl81 width=85 style='border-top:none;border-left:none;width:64pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl81 width=78 style='border-top:none;border-left:none;width:59pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng Chuyên dùng
-            </td>
-            <td class=xl80 width=71 style='border-top:none;border-left:none;width:53pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl81 width=60 style='border-top:none;border-left:none;width:45pt'>Laptop</td>
-            <td class=xl81 width=61 style='border-top:none;border-left:none;width:46pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl81 width=71 style='border-top:none;border-left:none;width:53pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng chuyên dùng
-            </td>
-            <td class=xl86 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl87 width=64 style='border-top:none;border-left:none;width:48pt'>Laptop</td>
-            <td class=xl87 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl87 width=64 style='border-top:none;border-left:none;width:48pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl87 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl87 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng CD
-            </td>
-            <td class=xl80 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>Laptop</td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng chuyên dùng
-            </td>
-            <td class=xl80 width=74 style='border-top:none;border-left:none;width:56pt'>
-                Máy
-                tính &#273;&#7875; bàn
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>Laptop</td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Máy
-                ch&#7911;
-            </td>
-            <td class=xl81 width=67 style='border-top:none;border-left:none;width:50pt'>
-                PM
-                virus b&#7843;n quy&#7873;n
-            </td>
-            <td class=xl81 width=67 style='border-top:none;border-left:none;width:50pt'>
-                K&#7871;t
-                n&#7889;i Internet
-            </td>
-            <td class=xl81 width=64 style='border-top:none;border-left:none;width:48pt'>
-                K&#7871;t
-                n&#7889;i m&#7841;ng chuyên dùng
-            </td>
-            <td class=xl82 width=110 style='border-top:none;border-left:none;width:83pt'>
-                S&#7889;
-                máy tính không k&#7871;t n&#7889;i Internet vì lý do an ninh
-            </td>
-            <td class=xl88 width=64 style='border-top:none;border-left:none;width:48pt'>
-                T&#432;&#7901;ng
-                l&#7917;a<br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl88 width=93 style='border-top:none;border-left:none;width:70pt'>
-                Phát
-                hi&#7879;n và phòng, ch&#7889;ng truy c&#7853;p trái phép <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl88 width=100 style='border-top:none;border-left:none;width:75pt'>
-                C&#7843;nh
-                báo cháy, n&#7893; t&#7841;i phòng máy ch&#7911;<br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl88 width=64 style='border-top:none;border-left:none;width:48pt'>
-                Ch&#7889;ng
-                sét t&#7841;i phòng máy ch&#7911;<br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                B&#259;ng
-                t&#7915;<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                T&#7911;
-                &#273;&#297;a<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                SAN<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                NAS<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                DAS<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl89 width=64 style='border-top:none;border-left:none;width:48pt'>
-                RAID<br>
-                <br>
-                <br>
-                <br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl82 width=64 style='border-top:none;border-left:none;width:48pt'>
-                S&#7889;
-                &#273;i&#7875;m b&#432;u &#273;i&#7879;n v&#259;n hóa xã
-            </td>
-            <td class=xl82 width=64 style='border-top:none;border-left:none;width:48pt'>
-                S&#7889;
-                &#273;i&#7875;m b&#432;u &#273;i&#7879;n v&#259;n hóa xã có Internet
-            </td>
-            <td class=xl82 width=131 style='border-top:none;border-left:none;width:98pt'>
-                S&#7889;
-                &#273;i&#7875;m b&#432;u &#273;i&#7879;n v&#259;n hóa xã có &#273;&#7841;i lý
-                Internet
-            </td>
-            <td class=xl82 width=92 style='border-top:none;border-left:none;width:69pt'>
-                H&#7897;i
-                ngh&#7883; truy&#7873;n hình c&#7845;p huy&#7879;n:<br>
-                <font class="font17">(có ho&#7863;c không)</font>
-            </td>
-            <td class=xl82 width=97 style='border-top:none;border-left:none;width:73pt'>
-                S&#7889;
-                cu&#7897;c h&#7885;p tr&#7921;c tuy&#7871;n c&#7911;a c&#7845;p huy&#7879;n –
-                t&#7881;nh/ 6 tháng &#273;&#7847;u n&#259;m
-            </td>
-            <td class=xl82 width=75 style='border-top:none;border-left:none;width:56pt'>
-                S&#7889;
-                l&#432;&#7907;ng H&#7897;i ngh&#7883; truy&#7873;n hình c&#7845;p xã
-            </td>
-            <td class=xl82 width=64 style='border-top:none;border-left:none;width:48pt'>
-                S&#7889;
-                cu&#7897;c h&#7885;p tr&#7921;c tuy&#7871;n c&#7845;p xã – huy&#7879;n/6
-                tháng &#273;&#7847;u n&#259;m
-            </td>
-            <td class=xl82 width=118 style='border-top:none;border-left:none;width:89pt'>
-                T&#7893;ng
-                chi ngân sách cho h&#7841; t&#7847;ng k&#7929; thu&#7853;t CNTT
-            </td>
-        </tr>
-        <tr height=62 style='mso-height-source:userset;height:46.5pt'>
-            <td height=62 class=xl78 style='height:46.5pt;border-top:none'>&nbsp;</td>
-            <td class=xl238 style='border-top:none;border-left:none'>
-                HUY&#7878;N CAN
-                L&#7896;C
-            </td>
-            <td class=xl79 style='border-top:none;border-left:none'>&nbsp;</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>80</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>61</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>2</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>135</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>141</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>414</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>22</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>15</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>37</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>21</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>21</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>300</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>54</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>23</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>297</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>308</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>308</td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>2,103
-            </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>211
-            </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>112
-            </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>1,867
-            </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>1,884
-            </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>1,884
-            </td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>86</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>25</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>4</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>92</td>
-            <td class=xl92 align=right width=85 style='border-top:none;border-left:none;
-  width:64pt'>
-                92
-            </td>
-            <td class=xl92 align=right width=78 style='border-top:none;border-left:none;
-  width:59pt'>
-                111
-            </td>
-            <td class=xl92 align=right width=71 style='border-top:none;border-left:none;
+        <tr class=xl73 height=140 valign=middle style='height:105.0pt'>
+            <td height=140 class=xl204 bgcolor="#8DB4E2" align=center width=64
+                style='height:105.0pt;border: 1px solid black;width:48pt'>
+                <font face="Times New Roman">ADSL</font>
+            </td>
+            <td class=xl205 bgcolor="#8DB4E2" align=center width=75 style='border: 1px solid black;width:56pt'>
+                <font face="Times New Roman">LeadedLine</font>
+            </td>
+            <td class=xl204 bgcolor="#8DB4E2" align=center width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman">Cáp quang</font>
+            </td>
+            <td class=xl204 bgcolor="#8DB4E2" align=center width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman">Khác</font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=72 style='border: 1px solid black;width:54pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy tính
+                        &#273;&#7875; bàn
+                    </b>
+                </font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=81 style='border: 1px solid black;width:61pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=81 style='border: 1px solid black;width:61pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy
+                        ch&#7911;
+                    </b>
+                </font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=73 style='border: 1px solid black;width:55pt'>
+                <font face="Times New Roman">
+                    <b>
+                        PM virus
+                        b&#7843;n quy&#7873;n
+                    </b>
+                </font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=74 style='border: 1px solid black;width:56pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t
+                        n&#7889;i Internet
+                    </b>
+                </font>
+            </td>
+            <td class=xl77 bgcolor="#F79646" align=center width=68 style='border: 1px solid black;width:51pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t
+                        n&#7889;i m&#7841;ng chuyên dùng
+                    </b>
+                </font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=59 style='border: 1px solid black;width:44pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy tính
+                        &#273;&#7875; bàn
+                    </b>
+                </font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=81 style='border: 1px solid black;width:61pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy
+                        ch&#7911;
+                    </b>
+                </font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=90 style='border: 1px solid black;width:68pt'>
+                <font face="Times New Roman">
+                    <b>
+                        PM virus
+                        b&#7843;n quy&#7873;n
+                    </b>
+                </font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=83 style='border: 1px solid black;width:62pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t
+                        n&#7889;i Internet
+                    </b>
+                </font>
+            </td>
+            <td class=xl83 bgcolor="#4BACC6" align=center width=77 style='border: 1px solid black;width:58pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t
+                        n&#7889;i m&#7841;ng chuyên dùng
+                    </b>
+                </font>
+            </td>
+            <td class=xl84 bgcolor="#8064A2" align=center width=97 style='border: 1px solid black;width:73pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy tính
+                        &#273;&#7875; bàn
+                    </b>
+                </font>
+            </td>
+            <td class=xl85 bgcolor="#8064A2" width=98 style='border: 1px solid black;border-left:
+  none;width:74pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl85 bgcolor="#8064A2" width=98 style='border: 1px solid black;border-left:
+  none;width:74pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl85 bgcolor="#8064A2" width=98 style='border: 1px solid black;border-left:
+  none;width:74pt'>
+                <font face="Times New Roman">
+                    <b>
+                        PM virus b&#7843;n
+                        quy&#7873;n
+                    </b>
+                </font>
+            </td>
+            <td class=xl85 bgcolor="#8064A2" width=98 style='border: 1px solid black;border-left:
+  none;width:74pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl85 bgcolor="#8064A2" width=98 style='border: 1px solid black;border-left:
+  none;width:74pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t n&#7889;i
+                        m&#7841;ng Chuyên dùng
+                    </b>
+                </font>
+            </td>
+            <td class=xl80 align=center width=98 style='border: 1px solid black;
+  width:74pt'>
+                <font face="Times New Roman"><b>Máy tính &#273;&#7875; bàn</b></font>
+            </td>
+            <td class=xl81 width=65 style='border: 1px solid black;width:49pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl81 width=65 style='border: 1px solid black;width:49pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl81 width=67 style='border: 1px solid black;width:50pt'>
+                <font face="Times New Roman"><b>PM virus b&#7843;n quy&#7873;n</b></font>
+            </td>
+            <td class=xl81 width=67 style='border: 1px solid black;width:50pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl81 width=103 style='border: 1px solid black;width:77pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i m&#7841;ng CD</b></font>
+            </td>
+            <td class=xl80 align=center width=75 style='border: 1px solid black;
+  width:56pt'>
+                <font face="Times New Roman"><b>Máy tính &#273;&#7875; bàn</b></font>
+            </td>
+            <td class=xl81 width=54 style='border: 1px solid black;width:41pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl81 width=63 style='border: 1px solid black;width:47pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl81 width=76 style='border: 1px solid black;width:57pt'>
+                <font face="Times New Roman"><b>PM virus b&#7843;n quy&#7873;n</b></font>
+            </td>
+            <td class=xl81 width=85 style='border: 1px solid black;width:64pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl81 width=78 style='border: 1px solid black;width:59pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i m&#7841;ng Chuyên dùng</b></font>
+            </td>
+            <td class=xl80 align=center width=71 style='border: 1px solid black;
   width:53pt'>
-                30
+                <font face="Times New Roman"><b>Máy tính &#273;&#7875; bàn</b></font>
             </td>
-            <td class=xl92 align=right width=60 style='border-top:none;border-left:none;
-  width:45pt'>
-                9
+            <td class=xl81 width=60 style='border: 1px solid black;width:45pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
             </td>
-            <td class=xl92 align=right width=61 style='border-top:none;border-left:none;
-  width:46pt'>
-                3
+            <td class=xl81 width=61 style='border: 1px solid black;width:46pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
             </td>
-            <td class=xl92 align=right width=71 style='border-top:none;border-left:none;
-  width:53pt'>
-                31
+            <td class=xl81 width=71 style='border: 1px solid black;width:53pt'>
+                <font face="Times New Roman"><b>PM virus b&#7843;n quy&#7873;n</b></font>
             </td>
-            <td class=xl92 align=right width=64 style='border-top:none;border-left:none;
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i m&#7841;ng chuyên dùng</b></font>
+            </td>
+            <td class=xl86 bgcolor="#C4BD97" align=center width=64 style='border-top:
+  none;border-left: 1px solid black;width:48pt'>
+                <font face="Times New Roman">
+                    <b>
+                        Máy tính
+                        &#273;&#7875; bàn
+                    </b>
+                </font>
+            </td>
+            <td class=xl87 bgcolor="#C4BD97" width=64 style='border-top: 1px solid black;border-left:
+  none;width:48pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl87 bgcolor="#C4BD97" width=64 style='border-top: 1px solid black;border-left:
+  none;width:48pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl87 bgcolor="#C4BD97" width=64 style='border-top: 1px solid black;border-left:
+  none;width:48pt'>
+                <font face="Times New Roman">
+                    <b>
+                        PM virus b&#7843;n
+                        quy&#7873;n
+                    </b>
+                </font>
+            </td>
+            <td class=xl87 bgcolor="#C4BD97" width=64 style='border-top: 1px solid black;border-left:
+  none;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl87 bgcolor="#C4BD97" width=64 style='border-top: 1px solid black;border-left:
+  none;width:48pt'>
+                <font face="Times New Roman">
+                    <b>
+                        K&#7871;t n&#7889;i
+                        m&#7841;ng CD
+                    </b>
+                </font>
+            </td>
+            <td class=xl80 align=center width=64 style='border: 1px solid black;
   width:48pt'>
-                31
+                <font face="Times New Roman"><b>Máy tính &#273;&#7875; bàn</b></font>
             </td>
-            <td class=xl92 align=right width=64 style='border-top:none;border-left:none;
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>PM virus b&#7843;n quy&#7873;n</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i m&#7841;ng chuyên dùng</b></font>
+            </td>
+            <td class=xl80 align=center width=74 style='border: 1px solid black;
+  width:56pt'>
+                <font face="Times New Roman"><b>Máy tính &#273;&#7875; bàn</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>Laptop</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>Máy ch&#7911;</b></font>
+            </td>
+            <td class=xl81 width=67 style='border: 1px solid black;width:50pt'>
+                <font face="Times New Roman"><b>PM virus b&#7843;n quy&#7873;n</b></font>
+            </td>
+            <td class=xl81 width=67 style='border: 1px solid black;width:50pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i Internet</b></font>
+            </td>
+            <td class=xl81 width=64 style='border: 1px solid black;width:48pt'>
+                <font face="Times New Roman"><b>K&#7871;t n&#7889;i m&#7841;ng chuyên dùng</b></font>
+            </td>
+            <td class=xl82 align=center width=110 style='border-top: 1px solid black;border-left:
+  none;width:83pt'>
+                <font face="Times New Roman">
+                    S&#7889; máy tính không
+                    k&#7871;t n&#7889;i Internet vì lý do an ninh
+                </font>
+            </td>
+            <td class=xl88 align=center valign=top width=64 style='border-top: 1px solid black;
+  border-left: 1px solid black;width:48pt'>
+                <font face="Times New Roman">
+                    T&#432;&#7901;ng
+                    l&#7917;a<br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl88 align=center valign=top width=93 style='border-top: 1px solid black;
+  border-left: 1px solid black;width:70pt'>
+                <font face="Times New Roman">
+                    Phát hi&#7879;n và
+                    phòng, ch&#7889;ng truy c&#7853;p trái phép <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl88 align=center valign=top width=100 style='border-top: 1px solid black;
+  border-left: 1px solid black;width:75pt'>
+                <font face="Times New Roman">
+                    C&#7843;nh báo
+                    cháy, n&#7893; t&#7841;i phòng máy ch&#7911;<br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl88 align=center valign=top width=64 style='border-top: 1px solid black;
+  border-left: 1px solid black;width:48pt'>
+                <font face="Times New Roman">
+                    Ch&#7889;ng sét
+                    t&#7841;i phòng máy ch&#7911;<br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
   width:48pt'>
-                31
+                <font face="Times New Roman">
+                    B&#259;ng t&#7915;<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
             </td>
-            <td class=xl92 align=right width=64 style='border-top:none;border-left:none;
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
   width:48pt'>
-                23
+                <font face="Times New Roman">
+                    T&#7911; &#273;&#297;a<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
             </td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>23</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>20</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>15</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>15</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>10,876
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    SAN<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
             </td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>923</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>5,321
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    NAS<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
             </td>
-            <td class=xl239 style='border-top:none;border-left:none'>
-                <span style='mso-spacerun:yes'></span>9,867
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    DAS<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
             </td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>532</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>9</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>0</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>23</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>23</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>23</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>1</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>8</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>4</td>
-            <td class=xl78 align=right style='border-top:none;border-left:none'>6</td>
-            <td class=xl240 align=right style='border-top:none;border-left:none'>3,100,000,000</td>
+            <td class=xl89 valign=top width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    RAID<br>
+                    <br>
+                    <br>
+                    <br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl82 align=center width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    S&#7889; &#273;i&#7875;m b&#432;u
+                    &#273;i&#7879;n v&#259;n hóa xã
+                </font>
+            </td>
+            <td class=xl82 align=center width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    S&#7889; &#273;i&#7875;m b&#432;u
+                    &#273;i&#7879;n v&#259;n hóa xã có Internet
+                </font>
+            </td>
+            <td class=xl82 align=center width=131 style='border-top: 1px solid black;border-left:
+  none;width:98pt'>
+                <font face="Times New Roman">
+                    S&#7889; &#273;i&#7875;m
+                    b&#432;u &#273;i&#7879;n v&#259;n hóa xã có &#273;&#7841;i lý Internet
+                </font>
+            </td>
+            <td class=xl82 align=center width=92 style='border: 1px solid black;
+  width:69pt'>
+                <font face="Times New Roman">
+                    H&#7897;i ngh&#7883; truy&#7873;n
+                    hình c&#7845;p huy&#7879;n:<br>
+                </font><font class="font17" face="Times New Roman"><i>(có ho&#7863;c không)</i></font>
+            </td>
+            <td class=xl82 align=center width=97 style='border: 1px solid black;
+  width:73pt'>
+                <font face="Times New Roman">
+                    S&#7889; cu&#7897;c h&#7885;p
+                    tr&#7921;c tuy&#7871;n c&#7911;a c&#7845;p huy&#7879;n – t&#7881;nh/ 6 tháng
+                    &#273;&#7847;u n&#259;m
+                </font>
+            </td>
+            <td class=xl82 align=center width=75 style='border: 1px solid black;
+  width:56pt'>
+                <font face="Times New Roman">
+                    S&#7889; l&#432;&#7907;ng H&#7897;i
+                    ngh&#7883; truy&#7873;n hình c&#7845;p xã
+                </font>
+            </td>
+            <td class=xl82 align=center width=64 style='border: 1px solid black;
+  width:48pt'>
+                <font face="Times New Roman">
+                    S&#7889; cu&#7897;c h&#7885;p
+                    tr&#7921;c tuy&#7871;n c&#7845;p xã – huy&#7879;n/6 tháng &#273;&#7847;u
+                    n&#259;m
+                </font>
+            </td>
+            <td class=xl82 align=center width=118 style='border-top: 1px solid black;border-left:
+  none;width:89pt'>
+                <font face="Times New Roman">
+                    T&#7893;ng chi ngân sách cho
+                    h&#7841; t&#7847;ng k&#7929; thu&#7853;t CNTT
+                </font>
+            </td>
         </tr>
-        <tr height=20 style='height:15.0pt'>
-            <td height=20 colspan=2 style='height:15.0pt;mso-ignore:colspan'></td>
-            <td class=xl65></td>
-            <td colspan=32 style='mso-ignore:colspan'></td>
-            <td class=xl66 width=85 style='width:64pt'></td>
-            <td class=xl66 width=78 style='width:59pt'></td>
-            <td class=xl66 width=71 style='width:53pt'></td>
-            <td class=xl66 width=60 style='width:45pt'></td>
-            <td class=xl66 width=61 style='width:46pt'></td>
-            <td class=xl66 width=71 style='width:53pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td colspan=36 style='mso-ignore:colspan'></td>
+        @if (Model != null)
+        {
+            int i = 1;
+            foreach (var item in Model)
+            {
+                <tr height=62 valign=bottom style='mso-height-source:userset;height:46.5pt'>
+                    <td height=62 class=xl78 style='height:46.5pt;border: 1px solid black'>
+                        <font color="#000000">@i</font>
+                    </td>
+                    <td class=xl238 style='border: 1px solid black'>
+                    <font class="font16"
+                          face="Times New Roman" size="3"><b>@Html.DisplayFor(m => item.TenDonVi)</b></font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'>
+                        <font color="#000000">@Html.DisplayFor(m => item.ADSL)</font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'>
+                        <font color="#000000">@Html.DisplayFor(m => item.LeadedLine)</font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'>
+                        <font color="#000000">@Html.DisplayFor(m => item.CapQuang)</font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac)</font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'>
+                        <font color="#000000">@Html.DisplayFor(m => item.UBND_MayBan)</font>
+                    </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.UBND_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.UBND_MayChu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.UBND_VirusBanQuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.UBND_Internet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.UBND_MangCD)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_MayBan)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_MayChu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_VirusBanQuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_Internet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HuyenUy_MangCD)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_MayBan)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_MayChu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_VirusBanQuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_Internet)</font> </td>
+
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.Xa_MangCD)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_MayBan)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_LapTop)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_MayChu)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_VirusBanQuyen)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_Internet)</font> </td>
+
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.GiaoDuc_MangCD)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.YTe_MayBan)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.YTe_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.YTe_MayChu)</font> </td>
+
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.YTe_VirusBanQuyen)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.YTe_Internet)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.YTe_MangCD)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_MayBan)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_LapTop)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black; width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_MayChu)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_VirusBanQuyen)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black; width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_Internet)</font>
+                    </td>
+                    <td class=xl92 align=right width=85 style='border: 1px solid black;width:64pt'>
+                        <font color="#000000">@Html.DisplayFor(m => item.Khac_MangCD)</font>
+                    </td>
+
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_MayBan)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_MayChu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_VirusBanQuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_Internet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.VHX_MangCD)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_MayBan)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_MayChu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_VirusBanQuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_Internet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DoanhNghiep_MangCD)</font> </td>
+
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_MayBan)</font> </td>
+
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_LapTop)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_MayChu)</font> </td>
+
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_VirusBanQuyen)</font> </td>
+                    <td class=xl239 style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_Internet)</font> </td>
+
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoGiaDinh_MangCD)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.KhongKetNoiInternet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.TuongLua)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.TruyCapTraiPhep)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.CanhBaoChayNo)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.ChongSet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.BangTu)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.TuDia)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.SAN)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.NAS)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.DAS)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.RAID)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.BuuDienXa)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.BuuDienXa_Internet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.BuuDienXa_DaiLyInternet)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoiNghiTruyenHinhCapHuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.SoCuocHopCapHuyen)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.HoiNghiTruyenHinhCapXa)</font> </td>
+                    <td class=xl78 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.SoCuocHopCapXa)</font> </td>
+                    <td class=xl240 align=right style='border: 1px solid black'> <font color="#000000">@Html.DisplayFor(m => item.TongMucDauTu)</font> </td>
+                    </tr>
+
+                i++;
+            }
+         
+        <tr>
+            <td align=right></td>
+            <td class=xl238>
+                <font class="font16"
+                      face="Times New Roman" size="3"><b>Tổng cộng</b></font>
+                </td>
+            <td align=right>@ViewBag.ADSL                       </td>
+            <td align=right>@ViewBag.LeadedLine                 </td>
+            <td align=right>@ViewBag.CapQuang                   </td>
+            <td align=right>@ViewBag.Khac                       </td>
+            <td align=right>@ViewBag.UBND_MayBan                </td>
+            <td align=right>@ViewBag.UBND_LapTop                </td>
+            <td align=right>@ViewBag.UBND_MayChu                </td>
+            <td align=right>@ViewBag.UBND_VirusBanQuyen         </td>
+            <td align=right>@ViewBag.UBND_Internet              </td>
+            <td align=right>@ViewBag.UBND_MangCD                </td>
+            <td align=right>@ViewBag.HuyenUy_MayBan             </td>
+            <td align=right>@ViewBag.HuyenUy_LapTop             </td>
+            <td align=right>@ViewBag.HuyenUy_MayChu             </td>
+            <td align=right>@ViewBag.HuyenUy_VirusBanQuyen      </td>
+            <td align=right>@ViewBag.HuyenUy_Internet           </td>
+            <td align=right>@ViewBag.HuyenUy_MangCD             </td>
+            <td align=right>@ViewBag.Xa_MayBan                  </td>
+            <td align=right>@ViewBag.Xa_LapTop                  </td>
+            <td align=right>@ViewBag.Xa_MayChu                  </td>
+            <td align=right>@ViewBag.Xa_VirusBanQuyen           </td>
+            <td align=right>@ViewBag.Xa_Internet                </td>
+            <td align=right>@ViewBag.Xa_MangCD                  </td>
+            <td align=right>@ViewBag.GiaoDuc_MayBan             </td>
+            <td align=right>@ViewBag.GiaoDuc_LapTop             </td>
+            <td align=right>@ViewBag.GiaoDuc_MayChu             </td>
+            <td align=right>@ViewBag.GiaoDuc_VirusBanQuyen      </td>
+            <td align=right>@ViewBag.GiaoDuc_Internet           </td>
+            <td align=right>@ViewBag.GiaoDuc_MangCD             </td>
+            <td align=right>@ViewBag.YTe_MayBan                 </td>
+            <td align=right>@ViewBag.YTe_LapTop                 </td>
+            <td align=right>@ViewBag.YTe_MayChu                 </td>
+            <td align=right>@ViewBag.YTe_VirusBanQuyen          </td>
+            <td align=right>@ViewBag.YTe_Internet               </td>
+            <td align=right>@ViewBag.YTe_MangCD                 </td>
+            <td align=right>@ViewBag.Khac_MayBan                </td>
+            <td align=right>@ViewBag.Khac_LapTop                </td>
+            <td align=right>@ViewBag.Khac_MayChu                </td>
+            <td align=right>@ViewBag.Khac_VirusBanQuyen         </td>
+            <td align=right>@ViewBag.Khac_Internet              </td>
+            <td align=right>@ViewBag.Khac_MangCD                </td>
+            <td align=right>@ViewBag.VHX_MayBan                 </td>
+            <td align=right>@ViewBag.VHX_LapTop                 </td>
+            <td align=right>@ViewBag.VHX_MayChu                 </td>
+            <td align=right>@ViewBag.VHX_VirusBanQuyen          </td>
+            <td align=right>@ViewBag.VHX_Internet               </td>
+            <td align=right>@ViewBag.VHX_MangCD                 </td>
+            <td align=right>@ViewBag.DoanhNghiep_MayBan         </td>
+            <td align=right>@ViewBag.DoanhNghiep_LapTop         </td>
+            <td align=right>@ViewBag.DoanhNghiep_MayChu         </td>
+            <td align=right>@ViewBag.DoanhNghiep_VirusBanQuyen  </td>
+            <td align=right>@ViewBag.DoanhNghiep_Internet       </td>
+            <td align=right>@ViewBag.DoanhNghiep_MangCD         </td>
+            <td align=right>@ViewBag.HoGiaDinh_MayBan           </td>
+            <td align=right>@ViewBag.HoGiaDinh_LapTop           </td>
+            <td align=right>@ViewBag.HoGiaDinh_MayChu           </td>
+            <td align=right>@ViewBag.HoGiaDinh_VirusBanQuyen    </td>
+            <td align=right>@ViewBag.HoGiaDinh_Internet         </td>
+            <td align=right>@ViewBag.HoGiaDinh_MangCD           </td>
+            <td align=right>@ViewBag.KhongKetNoiInternet        </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td align=right>@ViewBag.BuuDienXa                  </td>
+            <td align=right>@ViewBag.BuuDienXa_Internet         </td>
+            <td align=right>@ViewBag.BuuDienXa_DaiLyInternet    </td>
+
+            <td></td>
+            <td align=right>@ViewBag.SoCuocHopCapHuyen          </td>
+            <td align=right>@ViewBag.SoCuocHopCapXa             </td>
+            <td align=right>@ViewBag.TongChiNganSach            </td>
+            <td align=right>@ViewBag.TongMucDauTu               </td>
         </tr>
-        <tr height=25 style='height:18.75pt'>
-            <td height=25 style='height:18.75pt'></td>
-            <td colspan=8 class=xl273>
-                <font class="font44">Ghi chú:</font><font class="font42">
-                    Không nh&#7853;p thông tin vào các c&#7897;t có &#273;ánh
-                    d&#7845;u
-                </font><font class="font43">(*)</font>
-            </td>
-            <td colspan=26 style='mso-ignore:colspan'></td>
-            <td class=xl66 width=85 style='width:64pt'></td>
-            <td class=xl66 width=78 style='width:59pt'></td>
-            <td class=xl66 width=71 style='width:53pt'></td>
-            <td class=xl66 width=60 style='width:45pt'></td>
-            <td class=xl66 width=61 style='width:46pt'></td>
-            <td class=xl66 width=71 style='width:53pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td class=xl66 width=64 style='width:48pt'></td>
-            <td colspan=36 style='mso-ignore:colspan'></td>
-        </tr>
+        }
         <![if supportMisalignedColumns]>
         <tr height=0 style='display:none'>
             <td width=34 style='width:26pt'></td>

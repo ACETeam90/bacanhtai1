@@ -9,6 +9,7 @@ using System.IO;
 using System.Data.Entity.Validation;
 using S4T_HaTinh.Common;
 using S4T_HaTinh.Models;
+using System.Text;
 
 namespace S4T_HaTinh.Controllers
 {
@@ -27,6 +28,31 @@ namespace S4T_HaTinh.Controllers
             ViewBag.TrangThai = TrangThai;
 
             return View();
+        }
+
+        public ActionResult ChangeListBaoCao(int nhomDonVi_ID)
+        {
+            //var objDonVi = MvcApplication.ListDonVi.FirstOrDefault(o => o.DonVi_ID == donVi_ID);
+            var listPhanHeChucNang = new List<Ht_PhanHeChucNang>();
+
+            // Danh mục phân hệ nhập liệu
+            if (nhomDonVi_ID == DonVi.NhomDonViCapHuyen)
+                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+            else
+                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+
+            var str = new StringBuilder();
+
+            if (listPhanHeChucNang.Any())
+            {
+                foreach (var item in listPhanHeChucNang)
+                {
+                    str.AppendFormat("<option value='{0}'>{1}</option>", item.PhanHeChucNang_ID, item.TenChucNang);
+                }
+                return Json(new { danhSach = str.ToString() });
+            }
+
+            return Json(new { msg = "Không tìm thấy danh mục báo cáo" });
         }
 
         private void GetViewBag(int? nhomDonVi_ID)
@@ -242,8 +268,9 @@ namespace S4T_HaTinh.Controllers
                         ViewBag.HoGiaDinh_Internet = listHaTangKyThuatCapHuyen.Sum(m => m.HoGiaDinh_Internet);
                         ViewBag.HoGiaDinh_MangCD = listHaTangKyThuatCapHuyen.Sum(m => m.HoGiaDinh_MangCD);
                         ViewBag.KhongKetNoiInternet = listHaTangKyThuatCapHuyen.Sum(m => m.KhongKetNoiInternet);
-                        ViewBag.BuuDienXa = listHaTangKyThuatCapHuyen.Sum(m => m.KhongKetNoiInternet);
+                        ViewBag.BuuDienXa = listHaTangKyThuatCapHuyen.Sum(m => m.BuuDienXa);
                         ViewBag.BuuDienXa_Internet = listHaTangKyThuatCapHuyen.Sum(m => m.BuuDienXa_Internet);
+                        ViewBag.BuuDienXa_DaiLyInternet = listHaTangKyThuatCapHuyen.Sum(m => m.BuuDienXa_DaiLyInternet);
                         ViewBag.SoCuocHopCapHuyen = listHaTangKyThuatCapHuyen.Sum(m => m.SoCuocHopCapHuyen);
                         ViewBag.SoCuocHopCapXa = listHaTangKyThuatCapHuyen.Sum(m => m.SoCuocHopCapXa);
                         ViewBag.TongChiNganSach = listHaTangKyThuatCapHuyen.Sum(m => m.TongChiNganSach);

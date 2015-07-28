@@ -1,0 +1,130 @@
+﻿//JOIN 2 IENumerable
+ThongKeHoSoController.cs
+double countBangNgoaiNgu =
+		lstHopDongCuaNhanVien.Join(lstNhanVienTrongKhoangTuoi, nn => nn.NhomHopDong_ID.ToString(), hsnn => hsnn.NhomHopDong_ID, (nn, hsnn) => nn).Count();
+
+
+@class = "S4T_AutoComplete", @style = "width:200px;"
+
+// Dialog chuyển tiếp hồ sơ
+    $("#dialogFile").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        close: function (event, ui) {
+            $('#iframeFile').attr('src', '/Content/loading.html');
+            LoadListFile();
+        }
+    });
+
+// input Quay lại
+<input type="button" value="Quay lại" onclick="history.go(-1); return false;" style="margin-left:5px;" />
+
+// Input dạng Kendo UI
+<span style="width: 250px; font-family: Calibri; font-size: small; "
+	  class="k-widget k-autocomplete k-header k-state-default">
+	<input id="Password" type="password"
+		   style="width: 100%; font-family: Calibri; font-size: small;"
+		   class="k-input">
+</span>
+
+using System.Data.Entity.Validation;
+catch (DbEntityValidationException ex)
+	{
+		//dbContextTransaction.Rollback();
+		var exc = new ExceptionViewer();
+		exc.GetError(ex);
+	}
+
+// Xóa
+<a href='javascript:void(0);' onclick="Delete('@item.Id')">Không sử dụng</a>
+
+// Tạo mới
+<p>
+    <input type="button" value="Tạo mới" onclick="window.location.href = '/Ht_PhanHe/Create'" style="margin-top: 8px;" />
+</p>
+
+// Lưu
+<div class="divRow">
+	<label class="divLabel" id="lbl"></label>
+	<div class="divControl">
+		<input type="submit" class="save_button" value="Lưu" />
+		<input type="button" class="save_button" value="Quay lại" onclick="window.location.href = '/Dm_LoaiDanhMuc/Index'" style="margin-left:5px;" />
+	</div>
+</div>
+
+// Check phân quyền truy cập
+if (S4T_HaTinhBase.GetUserSession() == null) return RedirectToAction("Login", "Account", new { returnUrl = Request.Url.PathAndQuery });
+var per = S4T_HaTinhBase.CheckPermission(Request.RequestContext.RouteData.GetRequiredString("controller"));
+if (per == PermissionType.Deny) return JavaScript(ExceptionViewer.GetMessage("VIEW_NOT_PERMISSION"));
+
+if (per != PermissionType.Write) return JavaScript(ExceptionViewer.GetMessage("UPDATE_NOT_PERMISSION"));
+
+// Tạo searchable
+$(document).ready(function () {
+	$("#DonVi_ID").searchable().css("height", 25);
+});
+
+// Try Catch
+	try
+	{
+		
+	}
+	catch (DbEntityValidationException ex)
+	{
+		var sb = new StringBuilder();
+
+		foreach (var failure in ex.EntityValidationErrors)
+		{
+			sb.AppendFormat("{0} failed validation\n", failure.Entry.Entity.GetType());
+			foreach (var error in failure.ValidationErrors)
+			{
+				sb.AppendFormat("- {0} : {1}", error.PropertyName, error.ErrorMessage);
+				sb.AppendLine();
+			}
+		}
+
+		throw new DbEntityValidationException(
+			"Entity Validation Failed - errors follow:\n" +
+			sb.ToString(), ex
+		); // Add the original exception as the innerException
+	}
+
+	return RedirectToAction("Index");
+	
+// Tạo dialog = jquery
+	var rv = $('<div/>', {
+		'class': 'divRow', 'id': 'link-1'
+	})
+	.html($('<iframe/>', {
+		'id': 'iframeUpload',
+		'src': $(this).attr('href'),
+		'style': 'width:100%; height:100%;border:none;'
+	})).appendTo('body')
+	.dialog({
+		'title': $(this).text(),
+		'width': 450,
+		'height': 350,
+		buttons: [{
+			text: "Đóng",
+			click: function () { $(this).dialog("close"); }
+		}],
+		close: function (even, ui) {
+			//var fileName = $($('#iframeUpload')[0].contentDocument.body).find('#txtFileName').val(); // Lấy tên file từ dialog
+			//var loaiVanBan_ID = $(this).attr("loaivanban");
+			//$("#ListReport_" + $(this).attr("indexdiv") + "__TenHienThi").val(fileName);
+			$("#link-1").remove();
+		}
+	});
+
+Phân quyền theo UserRole theo MVC 5, table: AspNetRoles
+[Authorize(Roles = "Admin,ChuyenVien")]
+
+
+// Format Decimal + DateTime
+[DisplayFormat(DataFormatString = "{0:#}", ApplyFormatInEditMode = true)]
+public decimal SizeUS {get; set;}
+
+[Display(Name = "Release Date")]
+[DataType(DataType.Date), DisplayFormat( DataFormatString="{0:dd/MM/yyyy}", ApplyFormatInEditMode=true )]
+public Nullable<DateTime> release_date { get; set; }

@@ -23,7 +23,7 @@
                         Nhóm đơn vị
                     </li>
                     <li class="liSearch">
-                        @Html.DropDownListFor(model => model.NhomDonVi, slNhomDonVi, new { @class = "S4T_ComboBox", @onchange = "ChangeListDonVi()", @style = "width:220px;" })
+                        @Html.DropDownListFor(model => model.NhomDonVi, slNhomDonVi, new { @class = "S4T_ComboBox", @onchange = "NhomDonVi_Onchange()", @style = "width:220px;" })
                     </li>
                     @*<li class="liSearch labelSearch">
                         Đơn vị
@@ -78,11 +78,15 @@
         $("#searchForm").submit();
     }
 
-    function DonVi_Onchange() {
-        if ($("#ddlDonVi").val() != "") {
-            $.post("/HT_QuanLyNhapLieu/GetReportByDonVi", { "donVi_ID": $("#NhomDonVi").val(), "phanHe_ID": $("#PhanHeChucNang").val(), "trangThaiNhapLieu": $("#ddlTrangThaiNhapLieu").val() }).done(function (data) {
+    function NhomDonVi_Onchange() {
+        if ($("#NhomDonVi").val() != "") {
+            $.post("/ThongKe/ChangeListBaoCao", { "nhomDonVi_ID": $("#NhomDonVi").val() }).done(function (data) {
                 if (data.msg == null) {
-                    $("#gridData > tbody").html(data.danhSach);
+                    $("#PhanHeChucNang").html(data.danhSach);
+                    $("#PhanHeChucNang").kendoComboBox({
+                        //filter: "contains",
+                        ignoreCase: true
+                    });
                 } else {
                     alert(data.msg);
                 }

@@ -331,6 +331,7 @@ namespace S4T_HaTinh.Controllers
 
                             // Import bản ghi báo cáo vào db
                             item.LichNhap_ID = objLich.LichNhap_ID;
+                            item.Success = Convert.ToByte(TrangThaiNhapLieu.DaGui);
                             db.HaTangKyThuatCNTT_Huyen.Add(item);
                             db.SaveChanges();
                         }

@@ -2117,6 +2117,9 @@
     <Content Include="Views\TD_HoSoDuAn\_ListFile.cshtml" />
     <Content Include="Views\ThongKe\HaTangKyThuatCapHuyen.cshtml" />
     <Content Include="Templates\Template_BienNhanHoSo.docx" />
+    <Content Include="Views\ThongKe\HaTangNhanLucCapHuyen.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Kendo\js\" />
