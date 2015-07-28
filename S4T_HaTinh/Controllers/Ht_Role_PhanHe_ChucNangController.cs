@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Text;
+using System.Transactions;
+using System.Data.Entity.Validation;
 using S4T_HaTinh.Models;
 using S4T_HaTinh.Common;
 
@@ -32,37 +34,87 @@ namespace S4T_HaTinh.Controllers
             return View(list);
         }
 
-        private void GetViewBag()
+        private void GetViewBag(string roleId)
         {
             var listRole = db.AspNetRoles.OrderBy(o => o.TenHienThi);
             ViewBag.ListRole = listRole;
-            var role_ID = listRole.First().Id;
-            var listChucNangExists = db.Ht_Role_PhanHe_ChucNang.Where(o => o.RoleId == role_ID).Select(o => o.PhanHeChucNang_ID);
+
+            if(String.IsNullOrEmpty(roleId))
+                roleId = listRole.First().Id;
+            var listChucNangExists = db.Ht_Role_PhanHe_ChucNang.Where(o => o.RoleId == roleId).Select(o => o.PhanHeChucNang_ID);
             var listChucNangNotExits = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && !listChucNangExists.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang);
             ViewBag.ListChucNang = listChucNangNotExits;
         }
 
         [Authorize(Roles = "Admin")]
-        public ActionResult Create()
+        public ActionResult Create(string roleId)
         {
             if (S4T_HaTinhBase.GetUserSession() == null) return RedirectToAction("Login", "Account", new { returnUrl = Request.Url.PathAndQuery });
-            GetViewBag();
 
-            return View();
+            var obj = new Ht_Role_PhanHe_ChucNang();
+            if(!String.IsNullOrEmpty(roleId))
+            {
+                obj.RoleId = roleId;
+                GetViewBag(roleId);
+            }
+
+            GetViewBag(null);
+            return View(obj);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include = "PhanHeChucNang_ID,RoleId,IsView,IsEdit")] Ht_Role_PhanHe_ChucNang ht_Role_PhanHe_ChucNang)
+        public ActionResult Create(Ht_Role_PhanHe_ChucNang ht_Role_PhanHe_ChucNang, string strListChucNang)
         {
             if (S4T_HaTinhBase.GetUserSession() == null) return RedirectToAction("Login", "Account", new { returnUrl = Request.Url.PathAndQuery });
             if (ModelState.IsValid)
             {
-                db.Ht_Role_PhanHe_ChucNang.Add(ht_Role_PhanHe_ChucNang);
-                db.SaveChanges();
+                if (String.IsNullOrEmpty(strListChucNang))
+                    ViewBag.Mess = "Chưa chọn chức năng";
+                else
+                {
+                    string[] list = strListChucNang.Split(';');
 
-                return RedirectToAction("Index");
+                    if (list.Any())
+                    {
+                        try
+                        {
+                            using (TransactionScope scope = new TransactionScope())
+                            {
+                                int chucNang_ID = 0;
+                                foreach (var item in list)
+                                {
+                                    if (!Int32.TryParse(item, out chucNang_ID))
+                                    {
+                                        ViewBag.Mess = "Dữ liệu lỗi. Mời kiểm tra lại";
+                                    }
+                                    else
+                                    {
+                                        var obj = new Ht_Role_PhanHe_ChucNang {
+                                            IsEdit = ht_Role_PhanHe_ChucNang.IsEdit,
+                                            IsView = ht_Role_PhanHe_ChucNang.IsView,
+                                            PhanHeChucNang_ID = chucNang_ID,
+                                            RoleId = ht_Role_PhanHe_ChucNang.RoleId
+                                        };
+                                        //ht_Role_PhanHe_ChucNang.PhanHeChucNang_ID = chucNang_ID;
+                                        db.Ht_Role_PhanHe_ChucNang.Add(obj);
+                                        db.SaveChanges();
+                                    }
+                                }
+
+                                scope.Complete();
+
+                                return RedirectToAction("Index");
+                            }
+                        }
+                        catch (DbEntityValidationException ex)
+                        {
+                            var exc = new ExceptionViewer();
+                            exc.GetError(ex);
+                        }
+                    }
+                }
             }
 
             return View(ht_Role_PhanHe_ChucNang);
@@ -136,10 +188,14 @@ namespace S4T_HaTinh.Controllers
 
                 if (listChucNangNotExits.Any())
                 {
+                    str.Append("<select id='ListChucNang' name='ListChucNang' style='width: 300px;' multiple=''>");
+
                     foreach (var item in listChucNangNotExits)
                     {
                         str.AppendFormat("<option value='{0}'>{1}</option>", item.PhanHeChucNang_ID, item.TenChucNang);
                     }
+
+                    str.Append("</select>");
                 }
 
                 return Json(new { danhSach = str.ToString() });

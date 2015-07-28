@@ -17,7 +17,7 @@
 }
 
 <p>
-    <button type="button" class="k-button k-button-icontext" onclick="location.href='@Url.Action("Create")'"><span class="k-icon k-i-plus"></span>Thêm mới</button>
+    <button type="button" class="k-button k-button-icontext" onclick="Create()"><span class="k-icon k-i-plus"></span>Thêm mới</button>
 </p>
 
 <table id="gridData">
@@ -25,9 +25,9 @@
         <th>
             @Html.DisplayNameFor(model => model.TenChucNang)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.TenHienThi)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.IsView)
         </th>
@@ -45,9 +45,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TenChucNang)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.TenHienThi)
-                </td>
+                </td>*@
                 <td>
                     @{
                         if (item.IsView == 1)
@@ -74,7 +74,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("Sửa", "Edit", new { chucNang_ID = item.PhanHeChucNang_ID, role_ID = item.RoleId }) |
-                    <a onclick="Delete('@item.PhanHeChucNang_ID', '@item.RoleId')">Xóa</a>
+                    <a title="Xóa" href='javascript:void(0);' onclick="Delete('@item.PhanHeChucNang_ID', '@item.RoleId')">Xóa</a>
                     @*@Html.ActionLink("Xóa", "Delete", new { chucNang_ID = item.PhanHeChucNang_ID, role_ID = item.RoleId })*@
                 </td>
             </tr>
@@ -82,8 +82,9 @@
     }
 </table>
 <script type="text/javascript">
+    var role = '';
     $(document).ready(function () {
-        
+        role = $("#ddlVaiTro").val();
     });
 
     function Delete(chucNang_ID, role_ID) {
@@ -106,5 +107,9 @@
 
     function SearchFormOnchange() {
         $("#searchForm").submit();
+    }
+
+    function Create() {
+        location.href = '@Url.Action("Create")' + '?roleId=' + $("#ddlVaiTro").val();
     }
 </script>

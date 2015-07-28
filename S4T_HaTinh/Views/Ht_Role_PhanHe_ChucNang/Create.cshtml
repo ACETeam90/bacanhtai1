@@ -5,6 +5,11 @@
     var listChucNang = new SelectList(ViewBag.ListChucNang, "PhanHeChucNang_ID", "TenChucNang");
 }
 
+<script src="~/Scripts/jquery-ui-1.11.4.min.js" type="text/javascript"></script>
+<script src="~/Scripts/dropdown-check-list.1.4/ui.dropdownchecklist-1.4-min.js" type="text/javascript"></script>
+<link href="~/Content/dropdown-check-list.1.4/ui.dropdownchecklist.standalone.css" rel="stylesheet" />
+<link href="~/Content/dropdown-check-list.1.4/ui.dropdownchecklist.themeroller.css" rel="stylesheet" />
+
 <h2>Tạo mới</h2>
 
 @using (Html.BeginForm())
@@ -25,8 +30,13 @@
         <div class="divRow">
             @Html.LabelFor(model => model.PhanHeChucNang_ID, htmlAttributes: new { @class = "divLabel" })
             <div class="divControl">
-                @Html.DropDownListFor(model => model.PhanHeChucNang_ID, listChucNang, new { @class = "S4T_ComboBox", @style = "width:250px;" })
-                @Html.ValidationMessageFor(model => model.PhanHeChucNang_ID, "", new { @class = "text-danger" })
+                @*@Html.DropDownListFor(model => model.PhanHeChucNang_ID, listChucNang, new { @class = "S4T_ComboBox", @style = "width:250px;" })*@
+                <div id="divListChucNang">
+                    @Html.DropDownList("ListChucNang", listChucNang, "", new { @style = "width:300px;" })
+                </div>
+                <input type="hidden" id="strListChucNang" name="strListChucNang" />
+
+                @*@Html.ValidationMessageFor(model => model.PhanHeChucNang_ID, "", new { @class = "text-danger" })*@
             </div>
         </div>
 
@@ -57,7 +67,23 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
+        $("#ListChucNang").dropdownchecklist({
+            maxDropHeight: 250
+            // , firstItemChecksAll: true
+            //, emptyText: "Chọn đơn vị ..."
+                , forceMultiple: true
+                , onComplete: function (selector) {
+                    var values = "";
+                    for (i = 0; i < selector.options.length; i++) {
+                        if (selector.options[i].selected && (selector.options[i].value != "")) {
+                            if (values != "") values += ";";
+                            values += selector.options[i].value;
+                        }
+                    }
+                    //alert(values);
+                    $("#strListChucNang").val(values);
+                }
+        });
     });
 
     function ChangeListChucNang() {
@@ -66,10 +92,30 @@
             url: "/Ht_Role_PhanHe_ChucNang/ChangeListChucNang?roleId=" + $("#RoleId").val(),
             success: function (data) {
                 if (data.msg == null) {
-                    $("#PhanHeChucNang_ID").html(data.danhSach);
-                    $("#PhanHeChucNang_ID").kendoComboBox({
-                        filter: "contains",
-                        ignoreCase: true
+                    $("#strListChucNang").val("");
+                    $("#divListChucNang").html("");
+                    $("#divListChucNang").html(data.danhSach);
+                    //$("#PhanHeChucNang_ID").kendoComboBox({
+                    //    filter: "contains",
+                    //    ignoreCase: true
+                    //});
+
+                    $("#ListChucNang").dropdownchecklist({
+                        maxDropHeight: 250
+                        // , firstItemChecksAll: true
+                        //, emptyText: "Chọn đơn vị ..."
+                , forceMultiple: true
+                , onComplete: function (selector) {
+                    var values = "";
+                    for (i = 0; i < selector.options.length; i++) {
+                        if (selector.options[i].selected && (selector.options[i].value != "")) {
+                            if (values != "") values += ";";
+                            values += selector.options[i].value;
+                        }
+                    }
+                    //alert(values);
+                    $("#strListChucNang").val(values);
+                }
                     });
                 } else {
                     alert(data.msg);

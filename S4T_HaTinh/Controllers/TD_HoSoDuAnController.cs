@@ -636,13 +636,16 @@ namespace S4T_HaTinh.Controllers
                         scope.Complete();
 
                         // Xóa file đã đính kèm trước đó đi trong thư mục
-                        string[] filesPath = Directory.GetFiles(pathSource + "/TD_HoSoDuAn/Upload/" + User.Identity.GetUserId());
-                        if (filesPath.Length > 0)
+                        if (Directory.Exists(pathSource + "/TD_HoSoDuAn/Upload/" + User.Identity.GetUserId()))
                         {
-                            foreach (string item in filesPath)
+                            string[] filesPath = Directory.GetFiles(pathSource + "/TD_HoSoDuAn/Upload/" + User.Identity.GetUserId());
+                            if (filesPath.Length > 0)
                             {
-                                if (!string.IsNullOrEmpty(item))
-                                    System.IO.File.Delete(item);
+                                foreach (string item in filesPath)
+                                {
+                                    if (!string.IsNullOrEmpty(item))
+                                        System.IO.File.Delete(item);
+                                }
                             }
                         }
 
