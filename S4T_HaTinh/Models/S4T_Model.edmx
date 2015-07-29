@@ -984,7 +984,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.Ht_MaxID' does not have a primary k
           <Property Name="NgayTra" Type="datetime" Nullable="false" />
           <Property Name="TrangThai" Type="int" Nullable="false" />
           <Property Name="QuaTrinhThucHien" Type="nvarchar" MaxLength="500" />
-          <Property Name="NoiDungKhac" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="TD_LuongCongViec">
           <Key>
@@ -4985,7 +4984,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="del3" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="del4" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="del5" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="NoiDungKhac" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TD_LuongCongViec">
           <Key>
@@ -9059,7 +9057,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="TD_HoSoDuAn">
             <EntityTypeMapping TypeName="S4T_Model.TD_HoSoDuAn">
               <MappingFragment StoreEntitySet="TD_HoSoDuAn">
-                <ScalarProperty Name="NoiDungKhac" ColumnName="NoiDungKhac" />
                 <ScalarProperty Name="del5" ColumnName="del5" />
                 <ScalarProperty Name="del4" ColumnName="del4" />
                 <ScalarProperty Name="del3" ColumnName="del3" />
