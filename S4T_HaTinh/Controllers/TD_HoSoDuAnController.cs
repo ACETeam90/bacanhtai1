@@ -21,7 +21,7 @@ namespace S4T_HaTinh.Controllers
     {
         private S4T_HaTinhEntities db = new S4T_HaTinhEntities();
         private string pathSource = ConfigurationManager.AppSettings["FolderUploadPath"];
-        string phuLucHoSoKhac = ConfigurationManager.AppSettings["PhuLucHoSoKhac"];
+        private string phuLucHoSoKhac = ConfigurationManager.AppSettings["PhuLucHoSoKhac"];
 
         /// <summary>
         /// Kiểm tra quyền truy cập vào chức năng và quyền sửa

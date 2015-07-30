@@ -1791,6 +1791,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\s4t-hatinh.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\ThongKe\filelist.xml" />
+    <Content Include="Views\ThongKe\stylesheet.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

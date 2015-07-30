@@ -76,49 +76,6 @@
             </div>
         </div>
 
-        @*<div class="divRow">
-            @Html.LabelFor(model => model.HinhThucQuanLy_ID, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.DropDownListFor(model => model.HinhThucQuanLy_ID, (List<SelectListItem>) ViewBag.HinhThucQuanLy, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
-                @Html.ValidationMessageFor(model => model.HinhThucQuanLy_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            Thời gian thực hiện
-        </div>
-        <div class="divRow">
-            @Html.LabelFor(model => model.int1, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.int1, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.int1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.int2, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.int2, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.int2, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.QuyTrinhQuanLy, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.QuyTrinhQuanLy, new { @class = "S4T_AutoComplete", @style = "width:550px;" })
-                @Html.ValidationMessageFor(model => model.QuyTrinhQuanLy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.NhomDuAn_ID, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.DropDownListFor(model => model.NhomDuAn_ID, (List<SelectListItem>)ViewBag.NhomDuAn, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
-                @Html.ValidationMessageFor(model => model.NhomDuAn_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
         <div class="divRow">
             @Html.LabelFor(model => model.LoaiDuAn_ID, htmlAttributes: new { @class = "divLabel" })
             <div class="divControl">
@@ -126,14 +83,6 @@
                 @Html.ValidationMessageFor(model => model.LoaiDuAn_ID, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        @*<div class="divRow">
-            @Html.LabelFor(model => model.TinhChatDuAn_ID, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.DropDownListFor(model => model.TinhChatDuAn_ID, (List<SelectListItem>)ViewBag.TinhChatDuAn, new { @class = "S4T_DropDownList", @style = "min-width:250px;" })
-                @Html.ValidationMessageFor(model => model.TinhChatDuAn_ID, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
 
         <div class="divRow">
             @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
@@ -143,65 +92,7 @@
                 @Html.ValidationMessageFor(model => model.TongMucDauTu, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        @*<div class="divRow">
-            Trong đó, bao gồm:
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiXayLap, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiXayLap, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiXayLap, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiThietBi, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiThietBi, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiThietBi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiQuanLy, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiQuanLy, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiQuanLy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiTuVan, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiTuVan, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiTuVan, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiKhac, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiKhac, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiKhac, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="divRow">
-            @Html.LabelFor(model => model.ChiPhiDuPhong, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.ChiPhiDuPhong, new { @class = "S4T_DecimalTextBox", @min = "0", @style = "width:250px;" })
-                <span>VNĐ</span>
-                @Html.ValidationMessageFor(model => model.ChiPhiDuPhong, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
+        
         <div class="divRow">
             @Html.LabelFor(model => model.SoNgayGiaiQuyet, htmlAttributes: new { @class = "divLabel" })
             <div class="divControl">
