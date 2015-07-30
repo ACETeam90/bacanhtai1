@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="S4T_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="S4T_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -523,6 +523,7 @@
           <Property Name="HoiNghiTruyenHinhCapHuyen" Type="tinyint" Nullable="false" />
           <Property Name="SoCuocHopCapHuyen" Type="int" Nullable="false" />
           <Property Name="HoiNghiTruyenHinhCapXa" Type="tinyint" Nullable="false" />
+          <Property Name="SoHoiNghiTruyenHinhCapXa" Type="int" Nullable="false" />
           <Property Name="SoCuocHopCapXa" Type="int" Nullable="false" />
           <Property Name="TongChiNganSach" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
@@ -2019,6 +2020,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_HaTangKyThuatCapHuyen'
             <PropertyRef Name="HoiNghiTruyenHinhCapHuyen" />
             <PropertyRef Name="SoCuocHopCapHuyen" />
             <PropertyRef Name="HoiNghiTruyenHinhCapXa" />
+            <PropertyRef Name="SoHoiNghiTruyenHinhCapXa" />
             <PropertyRef Name="SoCuocHopCapXa" />
             <PropertyRef Name="TongChiNganSach" />
             <PropertyRef Name="TongMucDauTu" />
@@ -2111,6 +2113,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_HaTangKyThuatCapHuyen'
           <Property Name="HoiNghiTruyenHinhCapHuyen" Type="tinyint" Nullable="false" />
           <Property Name="SoCuocHopCapHuyen" Type="int" Nullable="false" />
           <Property Name="HoiNghiTruyenHinhCapXa" Type="tinyint" Nullable="false" />
+          <Property Name="SoHoiNghiTruyenHinhCapXa" Type="int" Nullable="false" />
           <Property Name="SoCuocHopCapXa" Type="int" Nullable="false" />
           <Property Name="TongChiNganSach" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
@@ -3539,6 +3542,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_HaTangKyThuatCapHuyen].[HoiNghiTruyenHinhCapHuyen] AS [HoiNghiTruyenHinhCapHuyen], 
     [ViewLichNhap_HaTangKyThuatCapHuyen].[SoCuocHopCapHuyen] AS [SoCuocHopCapHuyen], 
     [ViewLichNhap_HaTangKyThuatCapHuyen].[HoiNghiTruyenHinhCapXa] AS [HoiNghiTruyenHinhCapXa], 
+    [ViewLichNhap_HaTangKyThuatCapHuyen].[SoHoiNghiTruyenHinhCapXa] AS [SoHoiNghiTruyenHinhCapXa], 
     [ViewLichNhap_HaTangKyThuatCapHuyen].[SoCuocHopCapXa] AS [SoCuocHopCapXa], 
     [ViewLichNhap_HaTangKyThuatCapHuyen].[TongChiNganSach] AS [TongChiNganSach], 
     [ViewLichNhap_HaTangKyThuatCapHuyen].[TongMucDauTu] AS [TongMucDauTu], 
@@ -4561,6 +4565,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="Success" Type="Byte" Nullable="false" />
           <Property Name="TongMucDauTu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="BuuDienXa_DaiLyInternet" Type="Int32" Nullable="false" />
+          <Property Name="SoHoiNghiTruyenHinhCapXa" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="HaTangNhanLucCNTT">
           <Key>
@@ -6699,6 +6704,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="TongMucDauTu" />
             <PropertyRef Name="Success" />
             <PropertyRef Name="BuuDienXa_DaiLyInternet" />
+            <PropertyRef Name="SoHoiNghiTruyenHinhCapXa" />
           </Key>
           <Property Name="TenDonVi" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="NhomDonVi_ID" Type="Int32" Nullable="false" />
@@ -6792,6 +6798,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Success" Type="Byte" Nullable="false" />
           <Property Name="BuuDienXa_DaiLyInternet" Type="Int32" Nullable="false" />
+          <Property Name="SoHoiNghiTruyenHinhCapXa" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewLichNhap_HaTangNhanLucCapHuyen">
           <Key>
@@ -8596,6 +8603,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="HaTangKyThuatCNTT_Huyen">
             <EntityTypeMapping TypeName="S4T_Model.HaTangKyThuatCNTT_Huyen">
               <MappingFragment StoreEntitySet="HaTangKyThuatCNTT_Huyen">
+                <ScalarProperty Name="SoHoiNghiTruyenHinhCapXa" ColumnName="SoHoiNghiTruyenHinhCapXa" />
                 <ScalarProperty Name="BuuDienXa_DaiLyInternet" ColumnName="BuuDienXa_DaiLyInternet" />
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="HaTangKyThuatCNTTHuyen_ID" ColumnName="HaTangKyThuatCNTTHuyen_ID" />
@@ -10386,6 +10394,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="ViewLichNhap_HaTangKyThuatCapHuyen">
             <EntityTypeMapping TypeName="S4T_Model.ViewLichNhap_HaTangKyThuatCapHuyen">
               <MappingFragment StoreEntitySet="ViewLichNhap_HaTangKyThuatCapHuyen">
+                <ScalarProperty Name="SoHoiNghiTruyenHinhCapXa" ColumnName="SoHoiNghiTruyenHinhCapXa" />
                 <ScalarProperty Name="BuuDienXa_DaiLyInternet" ColumnName="BuuDienXa_DaiLyInternet" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />

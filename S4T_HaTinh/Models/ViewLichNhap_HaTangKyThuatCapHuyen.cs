@@ -106,5 +106,6 @@ namespace S4T_HaTinh.Models
         public string TruongNhapLai { get; set; }
         public byte Success { get; set; }
         public int BuuDienXa_DaiLyInternet { get; set; }
+        public int SoHoiNghiTruyenHinhCapXa { get; set; }
     }
 }
