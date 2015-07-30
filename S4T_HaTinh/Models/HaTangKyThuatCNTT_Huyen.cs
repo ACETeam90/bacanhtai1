@@ -266,5 +266,6 @@ namespace S4T_HaTinh.Models
 
         [Display(Name = "Trạng Thái ")]
         public byte Success { get; set; }
+        public int SoHoiNghiTruyenHinhCapXa { get; set; }
     }
 }
