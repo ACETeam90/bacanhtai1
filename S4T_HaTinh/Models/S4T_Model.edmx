@@ -7746,6 +7746,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="String" Name="TruongNhapLai" Nullable="true" />
           <Property Type="Byte" Name="Success" Nullable="false" />
           <Property Type="Int32" Name="BuuDienXa_DaiLyInternet" Nullable="false" />
+          <Property Type="Int32" Name="SoHoiNghiTruyenHinhCapXa" Nullable="false" />
         </ComplexType>
         <ComplexType Name="sp_GetHaTangNhanLucCapHuyen_Result">
           <Property Type="String" Name="TenDonVi" Nullable="false" MaxLength="250" />
@@ -11078,6 +11079,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
                 <ScalarProperty Name="BuuDienXa_DaiLyInternet" ColumnName="BuuDienXa_DaiLyInternet" />
+                <ScalarProperty Name="SoHoiNghiTruyenHinhCapXa" ColumnName="SoHoiNghiTruyenHinhCapXa" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
