@@ -246,7 +246,7 @@ namespace S4T_HaTinh.Models
         [Display(Name = "Hội nghị truyền hình cấp huyện")]
         public byte HoiNghiTruyenHinhCapHuyen { get; set; }
 
-        [Display(Name = "Số cuộc họp của cấp huyện – tỉnh/ năm")]
+        [Display(Name = "Số cuộc họp của cấp huyện – tỉnh")]
         public int SoCuocHopCapHuyen { get; set; }
 
         [Display(Name = "Hội nghị truyền hình cấp xã")]
@@ -255,13 +255,14 @@ namespace S4T_HaTinh.Models
         [Display(Name = "Số lượng Hội nghị truyền hình cấp xã")]
         public int SoHoiNghiTruyenHinhCapXa { get; set; }
 
-        [Display(Name = "Số cuộc họp cấp xã – huyện/ năm")]
+        [Display(Name = "Số cuộc họp trực tuyến cấp xã – huyện")]
         public int SoCuocHopCapXa { get; set; }
         
         [Display(Name = "Tổng chi ngân sách cho hạ tầng kỹ thuật CNTT")]
         public decimal TongChiNganSach { get; set; }
 
-        [Display(Name = "Tổng mức đầu tư")]
+        //[Display(Name = "Tổng mức đầu tư")]
+        [Display(Name = "Tổng chi ngân sách cho hạ tầng kỹ thuật CNTT")]
         public decimal TongMucDauTu { get; set; }
 
         [Display(Name = "Trường nhập lại")]

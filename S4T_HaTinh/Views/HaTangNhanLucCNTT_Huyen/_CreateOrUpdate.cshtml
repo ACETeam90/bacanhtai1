@@ -32,13 +32,13 @@
         <tr>
             <th></th>
             <th>Số trường</th>
-            <th>Môn Tin học</th>
-            <th>Ngành CNTT</th>
-            <th>Khoa CNTT</th>
-            <th>Giáo viên CNTT</th>
-            <th>GV TS CNTT</th>
-            <th>GV Th.S CNTT</th>
-            <th>SV tốt nghiệp CNTT</th>
+            <th>Số trường có dạy Môn tin học</th>
+            <th>Số trường có Ngành CNTT</th>
+            <th>Số trường có Khoa CNTT</th>
+            <th>Số G/viên có trình độ chuyên ngành CNTT</th>
+            <th>Số G/viên có trình độ Tiến sỹ về CNTT</th>
+            <th>Số G/viên có trình độ Thạc sỹ về CNTT</th>
+            <th>Số SV tốt nghiệp chuyên ngành CNTT</th>
         </tr>
         <tr>
             <td>Tiểu học</td>
@@ -55,16 +55,16 @@
                 @Html.ValidationMessageFor(model => model.TieuHoc_TinHoc, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="TieuHoc_NganhCNTT" name="TieuHoc_NganhCNTT" value="@Model.TieuHoc_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="TieuHoc_NganhCNTT" name="TieuHoc_NganhCNTT" value="@Model.TieuHoc_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_TieuHoc_NganhCNTT") }
-                @Html.ValidationMessageFor(model => model.TieuHoc_NganhCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.TieuHoc_NganhCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
-                <input type="text" id="TieuHoc_KhoaCNTT" name="TieuHoc_KhoaCNTT" value="@Model.TieuHoc_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="TieuHoc_KhoaCNTT" name="TieuHoc_KhoaCNTT" value="@Model.TieuHoc_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_TieuHoc_KhoaCNTT") }
-                @Html.ValidationMessageFor(model => model.TieuHoc_KhoaCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.TieuHoc_KhoaCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
                 <input type="text" id="TieuHoc_GVCNTT" name="TieuHoc_GVCNTT" value="@Model.TieuHoc_GVCNTT" class="S4T_NumericTextBox" @isReadOnly />
@@ -85,10 +85,10 @@
                 @Html.ValidationMessageFor(model => model.TieuHoc_ThSCNTT, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="TieuHoc_SVCNTT" name="TieuHoc_SVCNTT" value="@Model.TieuHoc_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="TieuHoc_SVCNTT" name="TieuHoc_SVCNTT" value="@Model.TieuHoc_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_TieuHoc_SVCNTT") }
-                @Html.ValidationMessageFor(model => model.TieuHoc_SVCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.TieuHoc_SVCNTT, "", new { @class = "text-danger" })*@
             </td>
         </tr>
 
@@ -107,16 +107,16 @@
                 @Html.ValidationMessageFor(model => model.THCS_TinHoc, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="THCS_NganhCNTT" name="THCS_NganhCNTT" value="@Model.THCS_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THCS_NganhCNTT" name="THCS_NganhCNTT" value="@Model.THCS_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THCS_NganhCNTT") }
-                @Html.ValidationMessageFor(model => model.THCS_NganhCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THCS_NganhCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
-                <input type="text" id="THCS_KhoaCNTT" name="THCS_KhoaCNTT" value="@Model.THCS_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THCS_KhoaCNTT" name="THCS_KhoaCNTT" value="@Model.THCS_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THCS_KhoaCNTT") }
-                @Html.ValidationMessageFor(model => model.THCS_KhoaCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THCS_KhoaCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
                 <input type="text" id="THCS_GVCNTT" name="THCS_GVCNTT" value="@Model.THCS_GVCNTT" class="S4T_NumericTextBox" @isReadOnly />
@@ -137,10 +137,10 @@
                 @Html.ValidationMessageFor(model => model.THCS_ThSCNTT, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="THCS_SVCNTT" name="THCS_SVCNTT" value="@Model.THCS_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THCS_SVCNTT" name="THCS_SVCNTT" value="@Model.THCS_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THCS_SVCNTT") }
-                @Html.ValidationMessageFor(model => model.THCS_SVCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THCS_SVCNTT, "", new { @class = "text-danger" })*@
             </td>
         </tr>
 
@@ -159,16 +159,16 @@
                 @Html.ValidationMessageFor(model => model.THPT_TinHoc, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="THPT_NganhCNTT" name="THPT_NganhCNTT" value="@Model.THPT_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THPT_NganhCNTT" name="THPT_NganhCNTT" value="@Model.THPT_NganhCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THPT_NganhCNTT") }
-                @Html.ValidationMessageFor(model => model.THPT_NganhCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THPT_NganhCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
-                <input type="text" id="THPT_KhoaCNTT" name="THPT_KhoaCNTT" value="@Model.THPT_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THPT_KhoaCNTT" name="THPT_KhoaCNTT" value="@Model.THPT_KhoaCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THPT_KhoaCNTT") }
-                @Html.ValidationMessageFor(model => model.THPT_KhoaCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THPT_KhoaCNTT, "", new { @class = "text-danger" })*@
             </td>
             <td>
                 <input type="text" id="THPT_GVCNTT" name="THPT_GVCNTT" value="@Model.THPT_GVCNTT" class="S4T_NumericTextBox" @isReadOnly />
@@ -189,10 +189,10 @@
                 @Html.ValidationMessageFor(model => model.THPT_ThSCNTT, "", new { @class = "text-danger" })
             </td>
             <td>
-                <input type="text" id="THPT_SVCNTT" name="THPT_SVCNTT" value="@Model.THPT_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
+                @*<input type="text" id="THPT_SVCNTT" name="THPT_SVCNTT" value="@Model.THPT_SVCNTT" class="S4T_NumericTextBox" @isReadOnly />
                 @if (ViewBag.IsCheck == true)
                 { @Html.CheckBox("chk_value_THPT_SVCNTT") }
-                @Html.ValidationMessageFor(model => model.THPT_SVCNTT, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.THPT_SVCNTT, "", new { @class = "text-danger" })*@
             </td>
         </tr>
 
@@ -537,7 +537,7 @@
             <th>Sử dụng thành thạo máy tính</th>
             <th>Tham gia tập huấn</th>
             <th>Tiến sỹ CNTT</th>
-            <th>Thạc sỹCNTT</th>
+            <th>Thạc sỹ CNTT</th>
             <th>Đang học Thạc sỹ</th>
             <th>Đang nghiên cứu sinh</th>
         </tr>

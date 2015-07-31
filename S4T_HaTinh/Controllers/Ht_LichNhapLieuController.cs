@@ -31,7 +31,7 @@ namespace S4T_HaTinh.Controllers
 
             if (list != null && namBaoCao != null)
                 list = list.Where(o => o.Nam == namBaoCao);
-
+            
             int trangThai;
             int donVi_ID = 0;
             int phanhe_ID;

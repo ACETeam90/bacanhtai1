@@ -315,7 +315,8 @@
         [Display(Name = "Tổng chi ngân sách cho đào tạo CNTT")]
         public decimal TongChiNganSach { get; set; }
 
-        [Display(Name = "Tổng mức đầu tư")]
+        //[Display(Name = "Tổng mức đầu tư")]
+        [Display(Name = "Tổng chi ngân sách cho đào tạo CNTT")]
         public decimal TongMucDauTu { get; set; }
 
         [Display(Name = "Trường nhập lại")]

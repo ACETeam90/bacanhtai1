@@ -56,13 +56,15 @@
         </div>
     </div>
 
-    @*<div class="divRow">
-            @Html.LabelFor(model => model.LeadedLine, htmlAttributes: new { @class = "divLabel" })
-            <div class="divControl">
-                @Html.TextBoxFor(model => model.LeadedLine, new { @class = "S4T_NumericTextBox" } )
-                @Html.ValidationMessageFor(model => model.LeadedLine, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
+    <div class="divRow">
+        @Html.LabelFor(model => model.LeadedLine, htmlAttributes: new { @class = "divLabel" })
+        <div class="divControl">
+            <input type="text" id="LeadedLine" name="LeadedLine" value="@Model.LeadedLine" class="S4T_NumericTextBox" @isReadOnly />
+            @if (ViewBag.IsCheck == true)
+            { @Html.CheckBox("chk_value_LeadedLine") }
+            @Html.ValidationMessageFor(model => model.LeadedLine, "", new { @class = "text-danger" })
+        </div>
+    </div>
 
     <div class="divRow">
         @Html.LabelFor(model => model.CapQuang, htmlAttributes: new { @class = "divLabel" })
@@ -735,7 +737,7 @@
     </div>
 </div>
 
-<div class="divRow">
+@*<div class="divRow">
     @Html.LabelFor(model => model.HoiNghiTruyenHinhCapXa, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
         <div class="divUL">
@@ -753,6 +755,16 @@
             @if (ViewBag.IsCheck == true) { @Html.CheckBox("chk_value_HoiNghiTruyenHinhCapXa") }
             @Html.ValidationMessageFor(model => model.HoiNghiTruyenHinhCapXa, "", new { @class = "text-danger" })
         </div>
+    </div>
+</div>*@
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoHoiNghiTruyenHinhCapXa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoHoiNghiTruyenHinhCapXa" name="SoHoiNghiTruyenHinhCapXa" value="@Model.SoHoiNghiTruyenHinhCapXa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoHoiNghiTruyenHinhCapXa") }
+        @Html.ValidationMessageFor(model => model.SoHoiNghiTruyenHinhCapXa, "", new { @class = "text-danger" })
     </div>
 </div>
 
