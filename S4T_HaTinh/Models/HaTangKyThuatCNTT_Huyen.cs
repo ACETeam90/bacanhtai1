@@ -252,9 +252,12 @@ namespace S4T_HaTinh.Models
         [Display(Name = "Hội nghị truyền hình cấp xã")]
         public byte HoiNghiTruyenHinhCapXa { get; set; }
 
+        [Display(Name = "Số lượng Hội nghị truyền hình cấp xã")]
+        public int SoHoiNghiTruyenHinhCapXa { get; set; }
+
         [Display(Name = "Số cuộc họp cấp xã – huyện/ năm")]
         public int SoCuocHopCapXa { get; set; }
-
+        
         [Display(Name = "Tổng chi ngân sách cho hạ tầng kỹ thuật CNTT")]
         public decimal TongChiNganSach { get; set; }
 
