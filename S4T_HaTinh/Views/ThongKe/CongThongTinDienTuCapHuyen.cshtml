@@ -1,0 +1,1493 @@
+﻿@model IEnumerable<s4t_hatinh.models.sp_getcongthongtindientu_result>
+    @{
+
+    }
+    @* style="table-layout: fixed; width: 100%" *@
+    <html xmlns:v="urn:schemas-microsoft-com:vml"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns="http://www.w3.org/TR/REC-html40">
+
+    <head>
+        <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+        <meta name=ProgId content=Excel.Sheet>
+        <meta name=Generator content="Microsoft Excel 12">
+        <link rel=File-List href=filelist.xml>
+        <link rel=Stylesheet href=stylesheet.css>
+        <style>
+
+        </style>
+        <![if !supportTabStrip]>
+        <script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(3);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+        </script>
+        <![endif]>
+    </head>
+
+    <body link=blue vlink=purple>
+
+        <table border=0 cellpadding=0 cellspacing=0 width=10156 style='border-collapse:
+ collapse;table-layout:fixed;width:7623pt'>
+            <col width=64 style='width:48pt'>
+            <col width=157 style='mso-width-source:userset;mso-width-alt:5741;width:118pt'>
+            <col width=127 style='mso-width-source:userset;mso-width-alt:4644;width:95pt'>
+            <col width=81 style='mso-width-source:userset;mso-width-alt:2962;width:61pt'>
+            <col width=89 style='mso-width-source:userset;mso-width-alt:3254;width:67pt'>
+            <col width=64 span=3 style='width:48pt'>
+            <col width=65 style='mso-width-source:userset;mso-width-alt:2377;width:49pt'>
+            <col width=116 style='mso-width-source:userset;mso-width-alt:4242;width:87pt'>
+            <col width=199 style='mso-width-source:userset;mso-width-alt:7277;width:149pt'>
+            <col width=175 style='mso-width-source:userset;mso-width-alt:6400;width:131pt'>
+            <col width=169 style='mso-width-source:userset;mso-width-alt:6180;width:127pt'>
+            <col width=210 style='mso-width-source:userset;mso-width-alt:7680;width:158pt'>
+            <col width=213 style='mso-width-source:userset;mso-width-alt:7789;width:160pt'>
+            <col width=186 style='mso-width-source:userset;mso-width-alt:6802;width:140pt'>
+            <col width=200 style='mso-width-source:userset;mso-width-alt:7314;width:150pt'>
+            <col width=180 style='mso-width-source:userset;mso-width-alt:6582;width:135pt'>
+            <col width=170 style='mso-width-source:userset;mso-width-alt:6217;width:128pt'>
+            <col width=116 style='mso-width-source:userset;mso-width-alt:4242;width:87pt'>
+            <col width=117 style='mso-width-source:userset;mso-width-alt:4278;width:88pt'>
+            <col width=149 style='mso-width-source:userset;mso-width-alt:5449;width:112pt'>
+            <col width=145 style='mso-width-source:userset;mso-width-alt:5302;width:109pt'>
+            <col width=189 style='mso-width-source:userset;mso-width-alt:6912;width:142pt'>
+            <col width=135 style='mso-width-source:userset;mso-width-alt:4937;width:101pt'>
+            <col width=139 style='mso-width-source:userset;mso-width-alt:5083;width:104pt'>
+            <col width=162 style='mso-width-source:userset;mso-width-alt:5924;width:122pt'>
+            <col width=147 style='mso-width-source:userset;mso-width-alt:5376;width:110pt'>
+            <col width=355 style='mso-width-source:userset;mso-width-alt:12982;width:266pt'>
+            <col width=153 style='mso-width-source:userset;mso-width-alt:5595;width:115pt'>
+            <col width=148 style='mso-width-source:userset;mso-width-alt:5412;width:111pt'>
+            <col width=127 style='mso-width-source:userset;mso-width-alt:4644;width:95pt'>
+            <col width=191 style='mso-width-source:userset;mso-width-alt:6985;width:143pt'>
+            <col width=183 style='mso-width-source:userset;mso-width-alt:6692;width:137pt'>
+            <col width=129 style='mso-width-source:userset;mso-width-alt:4717;width:97pt'>
+            <col width=287 style='mso-width-source:userset;mso-width-alt:10496;width:215pt'>
+            <col width=153 style='mso-width-source:userset;mso-width-alt:5595;width:115pt'>
+            <col width=251 style='mso-width-source:userset;mso-width-alt:9179;width:188pt'>
+            <col width=254 style='mso-width-source:userset;mso-width-alt:9289;width:191pt'>
+            <col width=139 style='mso-width-source:userset;mso-width-alt:5083;width:104pt'>
+            <col width=147 style='mso-width-source:userset;mso-width-alt:5376;width:110pt'>
+            <col width=153 style='mso-width-source:userset;mso-width-alt:5595;width:115pt'>
+            <col width=132 style='mso-width-source:userset;mso-width-alt:4827;width:99pt'>
+            <col width=138 style='mso-width-source:userset;mso-width-alt:5046;width:104pt'>
+            <col width=152 style='mso-width-source:userset;mso-width-alt:5558;width:114pt'>
+            <col width=156 style='mso-width-source:userset;mso-width-alt:5705;width:117pt'>
+            <col width=147 style='mso-width-source:userset;mso-width-alt:5376;width:110pt'>
+            <col width=155 style='mso-width-source:userset;mso-width-alt:5668;width:116pt'>
+            <col width=101 style='mso-width-source:userset;mso-width-alt:3693;width:76pt'>
+            <col width=98 style='mso-width-source:userset;mso-width-alt:3584;width:74pt'>
+            <col width=100 style='mso-width-source:userset;mso-width-alt:3657;width:75pt'>
+            <col width=97 style='mso-width-source:userset;mso-width-alt:3547;width:73pt'>
+            <col width=147 style='mso-width-source:userset;mso-width-alt:5376;width:110pt'>
+            <col width=109 style='mso-width-source:userset;mso-width-alt:3986;width:82pt'>
+            <col width=105 style='mso-width-source:userset;mso-width-alt:3840;width:79pt'>
+            <col width=126 style='mso-width-source:userset;mso-width-alt:4608;width:95pt'>
+            <col width=123 style='mso-width-source:userset;mso-width-alt:4498;width:92pt'>
+            <col width=125 style='mso-width-source:userset;mso-width-alt:4571;width:94pt'>
+            <col width=133 style='mso-width-source:userset;mso-width-alt:4864;width:100pt'>
+            <col width=154 style='mso-width-source:userset;mso-width-alt:5632;width:116pt'>
+            <col width=129 style='mso-width-source:userset;mso-width-alt:4717;width:97pt'>
+            <col width=128 style='mso-width-source:userset;mso-width-alt:4681;width:96pt'>
+            <col width=139 style='mso-width-source:userset;mso-width-alt:5083;width:104pt'>
+            <col width=125 style='mso-width-source:userset;mso-width-alt:4571;width:94pt'>
+            <col width=136 style='mso-width-source:userset;mso-width-alt:4973;width:102pt'>
+            <col width=157 style='mso-width-source:userset;mso-width-alt:5741;width:118pt'>
+            <col width=94 style='mso-width-source:userset;mso-width-alt:3437;width:71pt'>
+            <col width=91 style='mso-width-source:userset;mso-width-alt:3328;width:68pt'>
+            <col width=64 style='width:48pt'>
+            <col width=81 style='mso-width-source:userset;mso-width-alt:2962;width:61pt'>
+            <col width=88 style='mso-width-source:userset;mso-width-alt:3218;width:66pt'>
+            <col width=64 style='width:48pt'>
+            <tr height=0 style='display:none'>
+                <td width=64 style='width:48pt'></td>
+                <td width=157 style='width:118pt'></td>
+                <td width=127 style='width:95pt'></td>
+                <td width=81 style='width:61pt'></td>
+                <td width=89 style='width:67pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=65 style='width:49pt'></td>
+                <td width=116 style='width:87pt'></td>
+                <td width=199 style='width:149pt'></td>
+                <td width=175 style='width:131pt'></td>
+                <td width=169 style='width:127pt'></td>
+                <td width=210 style='width:158pt'></td>
+                <td width=213 style='width:160pt'></td>
+                <td width=186 style='width:140pt'></td>
+                <td width=200 style='width:150pt'></td>
+                <td width=180 style='width:135pt'></td>
+                <td width=170 style='width:128pt'></td>
+                <td width=116 style='width:87pt'></td>
+                <td width=117 style='width:88pt'></td>
+                <td width=149 style='width:112pt'></td>
+                <td width=145 style='width:109pt'></td>
+                <td width=189 style='width:142pt'></td>
+                <td width=135 style='width:101pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=162 style='width:122pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=355 style='width:266pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=148 style='width:111pt'></td>
+                <td width=127 style='width:95pt'></td>
+                <td width=191 style='width:143pt'></td>
+                <td width=183 style='width:137pt'></td>
+                <td width=129 style='width:97pt'></td>
+                <td width=287 style='width:215pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=251 style='width:188pt'></td>
+                <td width=254 style='width:191pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=132 style='width:99pt'></td>
+                <td width=138 style='width:104pt'></td>
+                <td width=152 style='width:114pt'></td>
+                <td width=156 style='width:117pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=155 style='width:116pt'></td>
+                <td width=101 style='width:76pt'></td>
+                <td width=98 style='width:74pt'></td>
+                <td width=100 style='width:75pt'></td>
+                <td width=97 style='width:73pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=109 style='width:82pt'></td>
+                <td width=105 style='width:79pt'></td>
+                <td width=126 style='width:95pt'></td>
+                <td width=123 style='width:92pt'></td>
+                <td width=125 style='width:94pt'></td>
+                <td width=133 style='width:100pt'></td>
+                <td width=154 style='width:116pt'></td>
+                <td width=129 style='width:97pt'></td>
+                <td width=128 style='width:96pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=125 style='width:94pt'></td>
+                <td width=136 style='width:102pt'></td>
+                <td width=157 style='width:118pt'></td>
+                <td width=94 style='width:71pt'></td>
+                <td width=91 style='width:68pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=81 style='width:61pt'></td>
+                <td width=88 style='width:66pt'></td>
+                <td width=64 style='width:48pt'></td>
+            </tr>
+            <tr height=0 style='display:none'>
+                <td height=0 colspan=72 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=0 style='display:none'>
+                <td height=0 colspan=72 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=0 style='display:none'>
+                <td height=0></td>
+                <td colspan=7 class=xl481>
+                    Các tr&#432;&#7901;ng d&#7919; li&#7879;u
+                    d&#7841;ng tích ch&#7885;n &#273;áp án (radio) thì cách nh&#7853;p d&#7919;
+                    li&#7879;u là:<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=2 style='mso-ignore:colspan'></td>
+                <td colspan=7 class=xl66 style='mso-ignore:colspan'></td>
+                <td colspan=55 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=0 style='display:none;mso-height-source:userset;mso-height-alt:
+  765'>
+                <td height=0></td>
+                <td colspan=8 class=xl258 width=711 style='width:534pt'>
+                    <font class="font9">
+                        Nh&#7853;p
+                        s&#7889; th&#7913; t&#7921; &#273;áp án &#273;c l&#7921;a ch&#7885;n.
+                    </font><font class="font0">
+                        <br>
+                        VD: có 4 &#273;áp án: a,b,c,d . N&#7871;u ch&#7885;n &#273;áp án
+                    </font><font class="font36">C</font><font class="font5"> </font><font class="font0">
+                        thì
+                        nh&#7853;p là
+                    </font><font class="font37">3</font><font class="font0">
+                        ,
+                        ch&#7885;n
+                    </font><font class="font37">A </font><font class="font0">
+                        thì
+                        nh&#7853;p là
+                    </font><font class="font37">1</font>
+                </td>
+                <td></td>
+                <td colspan=7 class=xl66 style='mso-ignore:colspan'></td>
+                <td colspan=55 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr class=xl171 height=0 style='display:none;mso-height-source:userset;
+  mso-height-alt:1035'>
+                <td height=0 colspan=3 class=xl171 style='mso-ignore:colspan'></td>
+                <td colspan=7 class=xl172></td>
+                <td colspan=8 class=xl172>
+                    1. Thông tin gi&#7899;i thi&#7879;u<span style='mso-spacerun:yes'></span>
+                </td>
+                <td class=xl78 width=170 style='width:128pt'>
+                    2. Tu&#7847;n su&#7845;t
+                    c&#7853;p nh&#7853;t<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=3 class=xl78 width=382 style='width:287pt'>
+                    3. Thông tin ch&#7881;
+                    &#273;&#7841;o, &#273;i&#7873;u hành c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=2 class=xl78 width=334 style='width:251pt'>
+                    4. Thông tin tuyên
+                    truy&#7873;n, ph&#7893; bi&#7871;n, h&#432;&#7899;ng d&#7851;n th&#7921;c
+                    hi&#7879;n pháp lu&#7853;t, ch&#7871; &#273;&#7897;, chính sách<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=3 class=xl78 width=436 style='width:327pt'>
+                    5. Chi&#7871;n
+                    l&#432;&#7907;c, &#273;&#7883;nh h&#432;&#7899;ng, quy ho&#7841;ch, k&#7871;
+                    ho&#7841;ch c&#7911;a ngành ho&#7863;c &#273;&#7883;a ph&#432;&#417;ng
+                </td>
+                <td colspan=4 class=xl78 width=803 style='width:602pt'>
+                    6. V&#259;n b&#7843;n
+                    quy ph&#7841;m pháp lu&#7853;t c&#7911;a ngành ho&#7863;c &#273;&#7883;a
+                    ph&#432;&#417;ng
+                </td>
+                <td colspan=3 class=xl78 width=501 style='width:375pt'>
+                    7. Thông tin v&#7873;
+                    d&#7921; án, h&#7841;ng m&#7909;c &#273;&#7847;u t&#432;, &#273;&#7845;u
+                    th&#7847;u mua s&#7855;m công c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=2 class=xl78 width=416 style='width:312pt'>
+                    8. Thông tin v&#7873;
+                    &#273;&#7873; tài khoa h&#7885;c có s&#7917; d&#7909;ng ngân sách nhà
+                    n&#432;&#7899;c c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=3 class=xl78 width=658 style='width:494pt'>
+                    9. L&#7845;y ý
+                    ki&#7871;n, góp ý c&#7911;a t&#7893; ch&#7913;c, cá nhân<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=9 class=xl171>
+                    10. Ch&#7913;c n&#259;ng h&#7895; tr&#7907; khai
+                    thác thông tin<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=4 class=xl480 width=396 style='width:298pt'>
+                    11. Cung c&#7845;p
+                    d&#7883;ch v&#7909; công tr&#7921;c tuy&#7871;n trên C&#7893;ng Thông tin
+                    &#273;i&#7879;n t&#7917; c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=4 class=xl171>
+                    12. &#272;&#7843;m b&#7843;o nhân l&#7921;c<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=3 class=xl480 width=381 style='width:286pt'>
+                    13. &#272;&#7843;m
+                    b&#7843;o an toàn thông tin và d&#7919; li&#7879;u<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=3 class=xl480 width=411 style='width:309pt'>
+                    14. V&#259;n
+                    b&#7843;n v&#7873; chính sách qu&#7843;n tr&#7883; và v&#7853;n hành
+                    C&#7893;ng TT&#272;T
+                </td>
+                <td colspan=3 class=xl480 width=400 style='width:300pt'>
+                    15. &#272;&#259;ng
+                    t&#7843;i thông tin theo quy &#273;&#7883;nh
+                </td>
+                <td colspan=7 class=xl171 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr class=xl173 height=0 style='display:none;mso-height-source:userset;
+  mso-height-alt:1875'>
+                <td class=xl76 width=64 style='width:48pt'>STT</td>
+                <td class=xl76 width=157 style='width:118pt'>Tên &#273;&#417;n v&#7883;</td>
+                <td class=xl76 width=127 style='width:95pt'>
+                    Mã &#273;&#417;n v&#7883;<font class="font5">(*)</font>
+                </td>
+                <td class=xl77 width=81 style='width:61pt'>
+                    Trang thông tin &#273;i&#7879;n
+                    t&#7917; (Website)<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td class=xl80 width=89 style='width:67pt'>
+                    C&#7893;ng thông tin
+                    &#273;i&#7879;n t&#7917; (Portal)
+                </td>
+                <td class=xl80 width=64 style='width:48pt'>
+                    H&#7879; qu&#7843;n tr&#7883;
+                    c&#417; s&#7903; d&#7919; li&#7879;u
+                </td>
+                <td class=xl80 width=64 style='width:48pt'>Công ngh&#7879; lõi</td>
+                <td class=xl80 width=64 style='width:48pt'>Ngôn ng&#7919; l&#7853;p trình</td>
+                <td class=xl80 width=65 style='width:49pt'>S&#7889; Subsite c&#7845;p xã</td>
+                <td class=xl197 width=116 style='width:87pt'>
+                    Thông tin &#273;&#432;&#7907;c
+                    cung c&#7845;p và c&#7853;p nh&#7853;t &#273;&#7847;y &#273;&#7911; trên
+                    Website/Portal
+                </td>
+                <td class=xl78 width=199 style='width:149pt'>1.1</td>
+                <td class=xl78 width=175 style='width:131pt'>1.2</td>
+                <td class=xl78 width=169 style='width:127pt'>1.3</td>
+                <td class=xl78 width=210 style='width:158pt'>1.4</td>
+                <td class=xl78 width=213 style='width:160pt'>1.5</td>
+                <td class=xl78 width=186 style='width:140pt'>1.6</td>
+                <td class=xl78 width=200 style='width:150pt'>1.7</td>
+                <td class=xl78 width=180 style='width:135pt'>1.8</td>
+                <td class=xl78 width=170 style='width:128pt'>
+                    Tu&#7847;n su&#7845;t c&#7853;p
+                    nh&#7853;t<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td class=xl78 width=116 style='width:87pt'>3.1</td>
+                <td class=xl78 width=117 style='width:88pt'>3.2</td>
+                <td class=xl78 width=149 style='width:112pt'>3.3</td>
+                <td class=xl78 width=145 style='width:109pt'>4.1</td>
+                <td class=xl78 width=189 style='width:142pt'>4.2</td>
+                <td class=xl78 width=135 style='width:101pt'>5.1</td>
+                <td class=xl78 width=139 style='width:104pt'>5.2</td>
+                <td class=xl78 width=162 style='width:122pt'>5.3</td>
+                <td class=xl78 width=147 style='width:110pt'>6.1</td>
+                <td class=xl78 width=355 style='width:266pt'>6.2</td>
+                <td class=xl78 width=153 style='width:115pt'>6.3</td>
+                <td class=xl78 width=148 style='width:111pt'>6.4</td>
+                <td class=xl78 width=127 style='width:95pt'>7.1</td>
+                <td class=xl78 width=191 style='width:143pt'>7.2</td>
+                <td class=xl78 width=183 style='width:137pt'>7.3</td>
+                <td class=xl78 width=129 style='width:97pt'>8.1</td>
+                <td class=xl204 width=287 style='width:215pt'>
+                    8,2 <font class="font18">
+                        (Ph&#7847;n
+                        m&#7873;m ch&#432;a có n&#7897;i dung này)
+                    </font>
+                </td>
+                <td class=xl172>9.1</td>
+                <td class=xl172>9.2</td>
+                <td class=xl76 width=254 style='width:191pt'>9.3</td>
+                <td class=xl76 width=139 style='width:104pt'>10.1</td>
+                <td class=xl173>10.2</td>
+                <td class=xl173>10.3</td>
+                <td class=xl173>10.4</td>
+                <td class=xl173>10.5</td>
+                <td class=xl173>10.6</td>
+                <td class=xl173>10.7</td>
+                <td class=xl173>10.8</td>
+                <td class=xl173>10.9</td>
+                <td class=xl173>11.1</td>
+                <td class=xl173>11.2</td>
+                <td class=xl173>11.3</td>
+                <td class=xl173>11.4</td>
+                <td class=xl173>12.1</td>
+                <td class=xl173>12.2</td>
+                <td class=xl173>12.3</td>
+                <td class=xl173>12.4</td>
+                <td class=xl173>13.1</td>
+                <td class=xl173>13.2</td>
+                <td class=xl173>13.3</td>
+                <td class=xl173>14.1</td>
+                <td class=xl173>14.2</td>
+                <td class=xl173>14.3</td>
+                <td class=xl173>15.1</td>
+                <td class=xl190 width=125 style='width:94pt'>
+                    <font class="font42">15,2</font><font class="font23">
+                        <br>
+                        <span style='mso-spacerun:yes'> </span>N&#7897;i dung l&#7921;a ch&#7885;n
+                        trong PM sai so v&#7899;i bi&#7875;u m&#7851;u l&#7845;y s&#7889; li&#7879;u
+                        (b&#7843;n word)
+                    </font>
+                </td>
+                <td class=xl173>15.3</td>
+                <td class=xl206 width=157 style='width:118pt'>
+                    T&#7893;ng s&#7889; các
+                    &#273;&#417;n v&#7883; tr&#7921;c thu&#7897;c có c&#7893;ng/trang thông tin
+                    &#273;i&#7879;n t&#7917;
+                </td>
+                <td class=xl174 width=94 style='width:71pt'>
+                    S&#7889; doanh nghi&#7879;p SX-KD
+                    ph&#7847;n c&#7913;ng
+                </td>
+                <td class=xl174 width=91 style='width:68pt'>
+                    S&#7889; doanh nghi&#7879;p SX-KD
+                    ph&#7847;n m&#7873;m
+                </td>
+                <td class=xl76 width=64 style='width:48pt'>
+                    S&#7889; DN cung c&#7845;p DV
+                    n&#7897;i dung s&#7889;
+                </td>
+                <td class=xl76 width=81 style='width:61pt'>Danh sách DN CNTT-&#272;T</td>
+                <td class=xl173>T&#7893;ng doanh thu</td>
+                <td class=xl173></td>
+            </tr>
+            <tr class=xl176 height=0 style='display:none'>
+                <td height=0 colspan=2 class=xl175 style='mso-ignore:colspan'>&nbsp;</td>
+                <td class=xl175 width=127 style='width:95pt'>DonVi_ID</td>
+                <td colspan=2 class=xl175 style='mso-ignore:colspan'>&nbsp;</td>
+                <td colspan=4 class=xl176 style='mso-ignore:colspan'>&nbsp;</td>
+                <td class=xl198 style='border-top:none'>Website_Portal</td>
+                <td class=xl176>CoCauToChuc</td>
+                <td class=xl177>ChucNang_DVTT</td>
+                <td class=xl177>LichSuHinhThanh</td>
+                <td class=xl177>ThongTinTomTat</td>
+                <td class=xl175>&nbsp;</td>
+                <td class=xl177>ThongTinLienHe</td>
+                <td class=xl177>BanDoDiaGioi</td>
+                <td class=xl177>ThongTinThongKe</td>
+                <td class=xl177>TanSuatCapNhat</td>
+                <td class=xl177>VanBanChiDao</td>
+                <td class=xl177>VanBanChiDao_Da<span style='display:none'>ngTai</span></td>
+                <td class=xl177>LichLamViec</td>
+                <td class=xl177>PhoBienVanBan</td>
+                <td class=xl177>Tin_BaiViet</td>
+                <td class=xl177>ChuyenMuc_ChuyenT<span style='display:none'>rang</span></td>
+                <td class=xl177>ChienLuoc_QuyHoach</td>
+                <td class=xl177>KeHoachPhatTrien</td>
+                <td class=xl177>VanBanQuyPham</td>
+                <td class=xl177>VanBanQuyPham_DangTai</td>
+                <td class=xl177>ChuyenTrang_QuanLy</td>
+                <td class=xl177>VanBanQuyPham_TaiV<span style='display:none'>e</span></td>
+                <td class=xl177>HangMucDauTu</td>
+                <td class=xl177>SoDuAn</td>
+                <td class=xl177>ThongTinToiThieu</td>
+                <td class=xl177>DeTaiKhoaHoc</td>
+                <td class=xl177>SoLuongDeTaiKH_DangTai</td>
+                <td class=xl177>GopY</td>
+                <td class=xl177>YKienDangTai</td>
+                <td class=xl177>CungCapThongTin</td>
+                <td class=xl177>ChucNangTimKiem</td>
+                <td class=xl177>SoDoWebsite</td>
+                <td class=xl177>TraoDoi_HoiDap</td>
+                <td class=xl177>DuLieuDacTa</td>
+                <td class=xl177>Unicode</td>
+                <td class=xl177>TuongThichTrinhDuyet</td>
+                <td class=xl177>LienKetWebsite</td>
+                <td class=xl177>NguoiKhuyetTat</td>
+                <td class=xl177>TenMien_CTTDT</td>
+                <td class=xl177>TTHC_DonVi</td>
+                <td class=xl177>DVC1</td>
+                <td class=xl177>DVC2</td>
+                <td class=xl177>DVC3</td>
+                <td class=xl177>BanBienTap</td>
+                <td class=xl177>QuanTriKyThuat</td>
+                <td class=xl177>DichVuCongTT</td>
+                <td class=xl177>TapHuanDaoTao</td>
+                <td class=xl178 width=123 style='width:92pt'>BienPhapKyThuat</td>
+                <td class=xl178 width=125 style='width:94pt'>GiaiPhapHieuQua</td>
+                <td class=xl178 width=133 style='width:100pt'>PhuongAnDuPhong</td>
+                <td class=xl178 width=154 style='width:116pt'>BanHanhQuyChe</td>
+                <td class=xl178 width=129 style='width:97pt'>BanHanhQuyChe_TTDT</td>
+                <td class=xl175 width=128 style='width:96pt'>BaoCaoHangNam_TTDT</td>
+                <td class=xl178 width=139 style='width:104pt'>CapNhatThongTin</td>
+                <td class=xl178 width=125 style='width:94pt'>NoiDungThongTin</td>
+                <td class=xl178 width=136 style='width:102pt'>QuyDinhKhac</td>
+                <td class=xl176>SoDVCoCTTDT</td>
+                <td colspan=6 class=xl176 style='mso-ignore:colspan'>&nbsp;</td>
+            </tr>
+            <tr class=xl176 height=0 style='display:none'>
+                <td height=0 colspan=3 class=xl176 style='mso-ignore:colspan'>&nbsp;</td>
+                <td class=xl176>str</td>
+                <td class=xl176>str</td>
+                <td class=xl176>str</td>
+                <td class=xl176>str</td>
+                <td class=xl176>int</td>
+                <td class=xl176>str</td>
+                <td class=xl198 style='border-top:none'>str</td>
+                <td colspan=7 class=xl175 style='mso-ignore:colspan'>&nbsp;</td>
+                <td colspan=2 class=xl176 style='mso-ignore:colspan'>&nbsp;</td>
+                <td class=xl176>int</td>
+                <td class=xl176>int</td>
+                <td colspan=51 class=xl176 style='mso-ignore:colspan'>&nbsp;</td>
+            </tr>
+            <tr class=xl179 height=0 style='display:none;mso-height-source:userset;
+  mso-height-alt:1065'>
+                <td height=0 class=xl179></td>
+                <td class=xl180></td>
+                <td class=xl173></td>
+                <td colspan=6 class=xl179 style='mso-ignore:colspan'></td>
+                <td class=xl199 width=116 style='border-top:none;width:87pt'>
+                    Trong ph&#7847;n
+                    m&#7873;m không có d&#7919; li&#7879;u tr&#432;&#7903;ng này
+                </td>
+                <td colspan=7 class=xl181 style='mso-ignore:colspan'></td>
+                <td colspan=48 class=xl179 style='mso-ignore:colspan'></td>
+                <td class=xl205 width=157 style='width:118pt'>
+                    Trong PM ch&#432;a có d&#7919;
+                    li&#7879;u này
+                </td>
+                <td colspan=6 class=xl190 width=482 style='width:362pt'>
+                    Ph&#7847;n này nên
+                    tách riêng thành ph&#7847;n: S&#7842;N XU&#7844;T-KINH DOANH TRONG L&#296;NH
+                    V&#7920;C CNTT-&#272;T &#273;&#7863;t ngang hàn v&#7899;i ph&#7847;n
+                    C&#7893;ng thông tin &#273;i&#7879;n t&#7917;
+                </td>
+            </tr>
+            <tr class=xl179 height=0 style='display:none;mso-height-source:userset;
+  mso-height-alt:645'>
+                <td height=0 class=xl179></td>
+                <td class=xl180></td>
+                <td class=xl173></td>
+                <td colspan=6 class=xl179 style='mso-ignore:colspan'></td>
+                <td class=xl218></td>
+                <td colspan=7 class=xl181 style='mso-ignore:colspan'></td>
+                <td colspan=48 class=xl179 style='mso-ignore:colspan'></td>
+                <td class=xl218></td>
+                <td colspan=6 class=xl100 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr class=xl179 height=71 style='mso-height-source:userset;height:53.25pt'>
+                <td colspan=12 height=71 class=xl251 width=1265 style='height:53.25pt;
+  width:949pt'>
+                    B&#7842;NG T&#7892;NG H&#7906;P S&#7888; LI&#7878;U KÈM THEO BÁO
+                    CÁO T&#7920; KI&#7874;M TRA - THÔNG TIN V&#7872; C&#7892;NG/TRANG THÔNG TIN
+                    &#272;I&#7878;N T&#7916;<br>
+                    (Dành cho UBND các huy&#7879;n, th&#7883; xã, thành ph&#7889;)<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=5 class=xl181 style='mso-ignore:colspan'></td>
+                <td colspan=48 class=xl179 style='mso-ignore:colspan'></td>
+                <td class=xl218></td>
+                <td colspan=6 class=xl100 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 style='height:15.0pt'></td>
+                <td class=xl70></td>
+                <td class=xl65></td>
+                <td colspan=10 style='mso-ignore:colspan'></td>
+                <td colspan=4 class=xl66 style='mso-ignore:colspan'></td>
+                <td colspan=55 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr class=xl171 height=50 style='mso-height-source:userset;height:37.5pt'>
+                <td height=50 class=xl196 style='height:37.5pt'>&nbsp;</td>
+                <td class=xl196 style='border-left:none'>&nbsp;</td>
+                <td colspan=7 class=xl489 style='border-left:none'>
+                    Thông tin chung v&#7873;
+                    C&#7893;ng/Trang thông tin &#273;i&#7879;n t&#7917;
+                </td>
+                <td colspan=8 class=xl489 style='border-left:none'>
+                    1. Thông tin gi&#7899;i
+                    thi&#7879;u<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td class=xl85 width=180 style='border-left:none;width:135pt'>
+                    2. Tu&#7847;n
+                    su&#7845;t c&#7853;p nh&#7853;t<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=3 class=xl85 width=403 style='border-left:none;width:303pt'>
+                    3.
+                    Thông tin ch&#7881; &#273;&#7841;o, &#273;i&#7873;u hành c&#7911;a
+                    &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=2 class=xl85 width=294 style='border-left:none;width:221pt'>
+                    4.
+                    Thông tin tuyên truy&#7873;n, ph&#7893; bi&#7871;n, h&#432;&#7899;ng
+                    d&#7851;n th&#7921;c hi&#7879;n pháp lu&#7853;t, ch&#7871; &#273;&#7897;,
+                    chính sách<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=3 class=xl85 width=463 style='border-left:none;width:347pt'>
+                    5.
+                    Chi&#7871;n l&#432;&#7907;c, &#273;&#7883;nh h&#432;&#7899;ng, quy
+                    ho&#7841;ch, k&#7871; ho&#7841;ch c&#7911;a ngành ho&#7863;c &#273;&#7883;a
+                    ph&#432;&#417;ng
+                </td>
+                <td colspan=4 class=xl85 width=817 style='border-left:none;width:613pt'>
+                    6.
+                    V&#259;n b&#7843;n quy ph&#7841;m pháp lu&#7853;t c&#7911;a ngành ho&#7863;c
+                    &#273;&#7883;a ph&#432;&#417;ng
+                </td>
+                <td colspan=3 class=xl85 width=466 style='border-left:none;width:349pt'>
+                    7.
+                    Thông tin v&#7873; d&#7921; án, h&#7841;ng m&#7909;c &#273;&#7847;u t&#432;,
+                    &#273;&#7845;u th&#7847;u mua s&#7855;m công c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=2 class=xl85 width=312 style='border-left:none;width:234pt'>
+                    8.
+                    Thông tin v&#7873; &#273;&#7873; tài khoa h&#7885;c có s&#7917; d&#7909;ng
+                    ngân sách nhà n&#432;&#7899;c c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td colspan=3 class=xl85 width=691 style='border-left:none;width:518pt'>
+                    9.
+                    L&#7845;y ý ki&#7871;n, góp ý c&#7911;a t&#7893; ch&#7913;c, cá nhân<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=9 class=xl486 style='border-right:.5pt solid black;border-left:
+  none'>
+                    10. Ch&#7913;c n&#259;ng h&#7895; tr&#7907; khai thác thông tin<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=4 class=xl207 width=454 style='border-left:none;width:341pt'>
+                    11.
+                    Cung c&#7845;p d&#7883;ch v&#7909; công tr&#7921;c tuy&#7871;n trên
+                    C&#7893;ng Thông tin &#273;i&#7879;n t&#7917; c&#7911;a &#273;&#417;n
+                    v&#7883;
+                </td>
+                <td colspan=4 class=xl196 style='border-left:none'>
+                    12. &#272;&#7843;m
+                    b&#7843;o nhân l&#7921;c<span style='mso-spacerun:yes'> </span>
+                </td>
+                <td colspan=3 class=xl207 width=374 style='border-left:none;width:281pt'>
+                    13.
+                    &#272;&#7843;m b&#7843;o an toàn thông tin và d&#7919; li&#7879;u<span style='mso-spacerun:yes'></span>
+                </td>
+                <td colspan=3 class=xl207 width=416 style='border-left:none;width:313pt'>
+                    14.
+                    V&#259;n b&#7843;n v&#7873; chính sách qu&#7843;n tr&#7883; và v&#7853;n hành
+                    C&#7893;ng TT&#272;T
+                </td>
+                <td colspan=3 class=xl207 width=392 style='border-left:none;width:294pt'>
+                    15.
+                    &#272;&#259;ng t&#7843;i thông tin theo quy &#273;&#7883;nh
+                </td>
+                <td class=xl207 width=136 style='border-left:none;width:102pt'>
+                    &#272;&#417;n
+                    v&#7883; tr&#7921;c th&#7897;c có c&#7893;ng/trang TT&#272;T
+                </td>
+                <td colspan=5 class=xl482 style='border-right:.5pt solid black;border-left:
+  none'>
+                    S&#7843;n xu&#7845;t kinh doanh trong l&#297;nh v&#7921;c CNTT -
+                    &#272;i&#7879;n t&#7917;
+                </td>
+                <td class=xl208></td>
+                <td class=xl171></td>
+            </tr>
+            <tr class=xl173 height=236 style='mso-height-source:userset;height:177.0pt'>
+                <td height=236 class=xl211 width=64 style='height:177.0pt;border-top:none;
+  width:48pt'>
+                    STT
+                </td>
+                <td class=xl211 width=157 style='border-top:none;border-left:none;width:118pt'>
+                    Tên
+                    &#273;&#417;n v&#7883;
+                </td>
+                <td class=xl224 width=127 style='border-top:none;border-left:none;width:95pt'>
+                    Trang
+                    thông tin &#273;i&#7879;n t&#7917; (Website)<span style='mso-spacerun:yes'></span>
+                </td>
+                <td class=xl210 width=81 style='border-top:none;border-left:none;width:61pt'>
+                    C&#7893;ng
+                    thông tin &#273;i&#7879;n t&#7917; (Portal)
+                </td>
+                <td class=xl210 width=89 style='border-top:none;border-left:none;width:67pt'>
+                    H&#7879;
+                    qu&#7843;n tr&#7883; c&#417; s&#7903; d&#7919; li&#7879;u
+                </td>
+                <td class=xl210 width=64 style='border-top:none;border-left:none;width:48pt'>
+                    Công
+                    ngh&#7879; lõi
+                </td>
+                <td class=xl210 width=64 style='border-top:none;border-left:none;width:48pt'>
+                    Ngôn
+                    ng&#7919; l&#7853;p trình
+                </td>
+                <td class=xl210 width=64 style='border-top:none;border-left:none;width:48pt'>
+                    S&#7889;
+                    Subsite c&#7845;p xã
+                </td>
+                <td class=xl210 width=65 style='border-top:none;border-left:none;width:49pt'>&nbsp;</td>
+                <td class=xl225 width=116 style='border-top:none;border-left:none;width:87pt'>
+                    <font class="font27">
+                        Thông tin v&#7873; s&#417; &#273;&#7891;, c&#417; c&#7845;u
+                        t&#7893; ch&#7913;c b&#7897; máy c&#417; quan:<br>
+                        <br>
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911; <br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911; (thi&#7871;u 1 nhóm thông
+                        tin)<br>
+                        (C): Không có thông tin<span style='mso-spacerun:yes'> </span>
+                    </font>
+                </td>
+                <td class=xl201 width=199 style='border-top:none;border-left:none;width:149pt'>
+                    <font class="font27">
+                        Ch&#7913;c n&#259;ng, nhi&#7879;m v&#7909;, quy&#7873;n
+                        h&#7841;n c&#7911;a c&#417; quan và các &#273;&#417;n v&#7883; tr&#7921;c
+                        thu&#7897;c:<br>
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911; <br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911; (thi&#7871;u 1 nhóm thông
+                        tin)<br>
+                        (C): Không có thông tin<span style='mso-spacerun:yes'> </span>
+                    </font>
+                </td>
+                <td class=xl201 width=175 style='border-top:none;border-left:none;width:131pt'>
+                    <font class="font27">
+                        Gi&#7899;i thi&#7879;u tóm l&#432;&#7907;c s&#7921; hình thành
+                        và phát tri&#7875;n c&#7911;a c&#417; quan:<br>
+                    </font><font class="font26">
+                        <br>
+                        (A): Có thông tin<br>
+                        (B): Không có thông tin
+                    </font>
+                </td>
+                <td class=xl201 width=169 style='border-top:none;border-left:none;width:127pt'>
+                    <font class="font27">
+                        Thông tin tóm t&#7855;t (h&#7885; tên, s&#7889;
+                        &#273;i&#7879;n tho&#7841;i, &#273;&#7883;a ch&#7881; th&#432;
+                        &#273;i&#7879;n t&#7917; chính th&#7913;c) và nhi&#7879;m v&#7909;
+                        &#273;&#7843;m nhi&#7879;m c&#7911;a lãnh &#273;&#7841;o c&#417; quan:
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911;<br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không có thông tin
+                    </font>
+                </td>
+                <td class=xl201 width=210 style='border-top:none;border-left:none;width:158pt'>
+                    <font class="font27">
+                        Thông tin giao d&#7883;ch chính th&#7913;c c&#7911;a c&#417;
+                        quan (&#273;&#7883;a ch&#7881;, &#273;i&#7879;n tho&#7841;i, fax, th&#432;
+                        &#273;i&#7879;n t&#7917; chính th&#7913;c):
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911;<br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không có thông tin<br>
+                    </font>
+                </td>
+                <td class=xl201 width=213 style='border-top:none;border-left:none;width:160pt'>
+                    <font class="font27">
+                        Thông tin liên h&#7879; c&#7911;a CBCC có th&#7849;m
+                        quy&#7873;n (h&#7885; tên, ch&#7913;c v&#7909;, &#273;i&#7879;n tho&#7841;i,
+                        th&#432; &#273;i&#7879;n t&#7917; chính th&#7913;c):
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911;<br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không có thông tin<br>
+                    </font>
+                </td>
+                <td class=xl201 width=186 style='border-top:none;border-left:none;width:140pt'>
+                    <font class="font27">
+                        &#272;&#259;ng t&#7843;i b&#7843;n &#273;&#7891;
+                        &#273;&#7883;a gi&#7899;i hành chính huy&#7879;n (&#273;&#7889;i v&#7899;i
+                        UBND c&#7845;p huy&#7879;n); &#273;&#259;ng t&#7843;i ho&#7863;c có liên
+                        k&#7871;t &#273;&#7871;n b&#7843;n &#273;&#7891; &#273;&#7883;a gi&#7899;i
+                        hành chính t&#7881;nh (&#273;&#7889;i v&#7899;i s&#7903;, ban, ngành):
+                    </font><font class="font26">
+                        <br>
+                        (A): Có &#273;&#259;ng t&#7843;i<br>
+                        (B): Không &#273;&#259;ng t&#7843;i<br>
+                    </font>
+                </td>
+                <td class=xl226 width=200 style='border-top:none;border-left:none;width:150pt'>
+                    Thông
+                    tin th&#7889;ng kê v&#7873; ngành, l&#297;nh v&#7921;c (&#273;&#7889;i
+                    v&#7899;i s&#7903;, ban, ngành) ho&#7863;c thông tin th&#7889;ng kê c&#7911;a
+                    &#273;&#7883;a ph&#432;&#417;ng (&#273;&#7889;i v&#7899;i UBND c&#7845;p
+                    huy&#7879;n):<br>
+                    <font class="font28">
+                        (A): Thông tin &#273;&#7847;y &#273;&#7911;<br>
+                        (B): Thông tin không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không có thông tin
+                    </font>
+                </td>
+                <td class=xl227 width=180 style='border-top:none;border-left:none;width:135pt'>
+                    <font class="font15">Tu&#7847;n su&#7845;t c&#7853;p nh&#7853;t:</font><font class="font6">
+                        <br>
+                        (A) C&#7853;p nh&#7853;t hàng ngày<br>
+                        (B) C&#7853;p nh&#7853;t hàng tu&#7847;n <br>
+                        (C) C&#7853;p nh&#7853;t hàng tháng <br>
+                        (D) Không c&#7853;p nh&#7853;t<span style='mso-spacerun:yes'> </span>
+                    </font>
+                </td>
+                <td class=xl228 width=170 style='border-top:none;border-left:none;width:128pt'>
+                    T&#7893;ng
+                    s&#7889; v&#259;n b&#7843;n ch&#7881; &#273;&#7841;o &#273;i&#7873;u hành
+                    c&#7911;a &#273;&#417;n v&#7883;
+                </td>
+                <td class=xl229 width=116 style='border-top:none;border-left:none;width:87pt'>
+                    T&#7893;ng
+                    s&#7889; v&#259;n b&#7843;n ch&#7881; &#273;&#7841;o &#273;i&#7873;u hành
+                    &#273;&#432;&#7907;c &#273;&#259;ng t&#7843;i
+                </td>
+                <td class=xl229 width=117 style='border-top:none;border-left:none;width:88pt'>
+                    <font class="font27">
+                        &#272;&#259;ng l&#7883;ch làm vi&#7879;c c&#7911;a lãnh
+                        &#273;&#7841;o c&#417; quan:
+                    </font><font class="font26">
+                        <br>
+                        (A): L&#7883;ch tu&#7847;n<br>
+                        (B): L&#7883;ch tháng<br>
+                        (C): Không &#273;&#259;ng l&#7883;ch làm vi&#7879;c
+                    </font>
+                </td>
+                <td class=xl230 width=149 style='border-top:none;border-left:none;width:112pt'>
+                    Có
+                    chuyên trang ho&#7863;c chuyên m&#7909;c v&#7873; ph&#7893; bi&#7871;n
+                    v&#259;n b&#7843;n QPPL:<br>
+                    <font class="font28">
+                        (A): Có<br>
+                        (B): Không
+                    </font><font class="font27">
+                        <br>
+                    </font>
+                </td>
+                <td class=xl230 width=145 style='border-top:none;border-left:none;width:109pt'>
+                    S&#7889;
+                    tin, bài vi&#7871;t ph&#7893; bi&#7871;n chính sách pháp lu&#7853;t
+                    &#273;&#259;ng t&#7843;i:<br>
+                    <font class="font28">
+                        (A): T&#7915; 10 bài/ tháng tr&#7903; lên<br>
+                        (B): T&#7915; 5 &#273;&#7871;n 9 bài/ tháng<br>
+                        (C): T&#7915; 1 &#273;&#7871;n 4 bài/ tháng<br>
+                        (D): D&#432;&#7899;i 1 bài/ tháng
+                    </font><font class="font27">
+                        <br>
+                    </font>
+                </td>
+                <td class=xl231 width=189 style='border-top:none;border-left:none;width:142pt'>
+                    <font class="font27">
+                        Có chuyên m&#7909;c ho&#7863;c chuyên trang v&#7873;
+                        chi&#7871;n l&#432;&#7907;c, quy ho&#7841;ch, k&#7871; ho&#7841;ch,…
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        <br>
+                    </font>
+                </td>
+                <td class=xl230 width=135 style='border-top:none;border-left:none;width:101pt'>
+                    S&#7889;
+                    l&#432;&#7907;ng Chi&#7871;n l&#432;&#7907;c, Quy ho&#7841;ch c&#7911;a ngành
+                    ho&#7863;c &#273;&#7883;a ph&#432;&#417;ng &#273;ã &#273;&#259;ng
+                    t&#7843;i:<br>
+                    <font class="font28">
+                        (A): &#272;&#259;ng t&#7843;i &#273;&#7847;y
+                        &#273;&#7911;<br>
+                        (B): &#272;&#259;ng t&#7843;i không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không &#273;&#259;ng t&#7843;i
+                    </font>
+                </td>
+                <td class=xl230 width=139 style='border-top:none;border-left:none;width:104pt'>
+                    S&#7889;
+                    l&#432;&#7907;ng K&#7871; ho&#7841;ch phát tri&#7875;n c&#7911;a ngành
+                    ho&#7863;c &#273;&#7883;a ph&#432;&#417;ng &#273;ã &#273;&#259;ng
+                    t&#7843;i:<br>
+                    <font class="font28">
+                        (A): &#272;&#259;ng t&#7843;i &#273;&#7847;y
+                        &#273;&#7911;<br>
+                        (B): &#272;&#259;ng t&#7843;i không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không &#273;&#259;ng t&#7843;i
+                    </font><font class="font27">
+                        <br>
+                    </font>
+                </td>
+                <td class=xl231 width=162 style='border-top:none;border-left:none;width:122pt'>
+                    <font class="font27">
+                        Chuyên trang v&#7873; v&#259;n b&#7843;n quy ph&#7841;m pháp
+                        lu&#7853;t:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không (ch&#432;a có)<br>
+                        <br>
+                    </font>
+                </td>
+                <td class=xl231 width=147 style='border-top:none;border-left:none;width:110pt'>
+                    <font class="font27">
+                        S&#7889; v&#259;n b&#7843;n quy ph&#7841;m pháp lu&#7853;t
+                        &#273;ã &#273;&#259;ng t&#7843;i:
+                    </font><font class="font26">
+                        <br>
+                        (A): T&#7915; 90% s&#7889; v&#259;n b&#7843;n quy ph&#7841;m pháp
+                        lu&#7853;t c&#7911;a ngành ho&#7863;c &#273;&#7883;a ph&#432;&#417;ng
+                        tr&#7903; lên<br>
+                        (B): T&#7915; 70% &#273;&#7871;n d&#432;&#7899;i 90% s&#7889; v&#259;n
+                        b&#7843;n quy ph&#7841;m pháp lu&#7853;t c&#7911;a ngành ho&#7863;c
+                        &#273;&#7883;a ph&#432;&#417;ng<br>
+                        (C): T&#7915; 50% &#273;&#7871;n d&#432;&#7899;i 70% s&#7889; v&#259;n
+                        b&#7843;n quy ph&#7841;m pháp lu&#7853;t c&#7911;a ngành ho&#7863;c
+                        &#273;&#7883;a ph&#432;&#417;ng<br>
+                        (D): T&#7915; 40% &#273;&#7871;n d&#432;&#7899;i 50% s&#7889; v&#259;n
+                        b&#7843;n quy ph&#7841;m pháp lu&#7853;t c&#7911;a ngành ho&#7863;c
+                        &#273;&#7883;a ph&#432;&#417;ng<br>
+                        (E): D&#432;&#7899;i 40% s&#7889; v&#259;n b&#7843;n quy ph&#7841;m pháp
+                        lu&#7853;t c&#7911;a ngành ho&#7863;c &#273;&#7883;a ph&#432;&#417;ng<br>
+                    </font>
+                </td>
+                <td class=xl231 width=355 style='border-top:none;border-left:none;width:266pt'>
+                    <font class="font27">
+                        Liên k&#7871;t &#273;&#7871;n các chuyên trang qu&#7843;n lý
+                        v&#259;n b&#7843;n quy ph&#7841;m pháp lu&#7853;t khác:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                    </font>
+                </td>
+                <td class=xl231 width=153 style='border-top:none;border-left:none;width:115pt'>
+                    <font class="font27">
+                        Cho phép t&#7843;i v&#7873; các v&#259;n b&#7843;n quy
+                        ph&#7841;m pháp lu&#7853;t:
+                    </font><font class="font26">
+                        <br>
+                        (A): Cho phép<br>
+                        (B): Không cho phép<br>
+                    </font>
+                </td>
+                <td class=xl231 width=148 style='border-top:none;border-left:none;width:111pt'>
+                    <font class="font27">
+                        Có chuyên trang ho&#7863;c h&#7841;ng m&#7909;c &#273;&#7847;u
+                        t&#432;, mua s&#7855;m:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                    </font>
+                </td>
+                <td class=xl231 width=127 style='border-top:none;border-left:none;width:95pt'>
+                    <font class="font27">
+                        S&#7889; d&#7921; án, h&#7841;ng m&#7909;c &#273;&#7847;u
+                        t&#432;, &#273;&#7845;u th&#7847;u mua s&#7855;m công &#273;&#432;&#7907;c
+                        &#273;&#259;ng t&#7843;i:
+                    </font><font class="font26">
+                        <br>
+                        (A): T&#7915; 80% s&#7889; d&#7921; án, h&#7841;ng m&#7909;c &#273;&#7847;u
+                        t&#432; c&#7911;a &#273;&#417;n v&#7883; tr&#7903; lên<br>
+                        (B): T&#7915; 50% &#273;&#7871;n d&#432;&#7899;i 80% s&#7889; d&#7921; án,
+                        h&#7841;ng m&#7909;c &#273;&#7847;u t&#432; c&#7911;a &#273;&#417;n
+                        v&#7883;<br>
+                        (C): D&#432;&#7899;i 50% s&#7889; d&#7921; án, h&#7841;ng m&#7909;c
+                        &#273;&#7847;u t&#432; c&#7911;a &#273;&#417;n v&#7883;
+                    </font>
+                </td>
+                <td class=xl231 width=191 style='border-top:none;border-left:none;width:143pt'>
+                    <font class="font27">
+                        &#272;&#259;ng nh&#7919;ng thông tin t&#7889;i thi&#7875;u
+                        c&#7911;a m&#7895;i d&#7921; án, h&#7841;ng m&#7909;c &#273;&#7847;u t&#432;,
+                        &#273;&#7845;u th&#7847;u mua s&#7855;m công (tên d&#7921; án, m&#7909;c tiêu
+                        chính, l&#297;nh v&#7921;c, lo&#7841;i d&#7921; án, th&#7901;i gian
+                        th&#7921;c hi&#7879;n, ngu&#7891;n v&#7889;n, tình tr&#7841;ng d&#7921; án):
+                    </font><font class="font26">
+                        <br>
+                        (A): &#272;&#7847;y &#273;&#7911; thông tin<br>
+                        (B): Không &#273;&#7847;y &#273;&#7911; thông tin<br>
+                    </font>
+                </td>
+                <td class=xl231 width=183 style='border-top:none;border-left:none;width:137pt'>
+                    <font class="font27">
+                        Có chuyên trang ho&#7863;c chuyên m&#7909;c v&#7873;
+                        &#273;&#7873; tài khoa h&#7885;c:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        <br>
+                    </font>
+                </td>
+                <td class=xl231 width=129 style='border-top:none;border-left:none;width:97pt'>
+                    <font class="font27">
+                        S&#7889; l&#432;&#7907;ng &#273;&#7873; tài khoa h&#7885;c
+                        &#273;&#432;&#7907;c &#273;&#259;ng t&#7843;i v&#7899;i &#273;&#7847;y
+                        &#273;&#7911; danh m&#7909;c (bao g&#7891;m: mã s&#7889;, tên, c&#7845;p
+                        qu&#7843;n lý, l&#297;nh v&#7921;c, &#273;&#417;n v&#7883; ch&#7911; trì,
+                        th&#7901;i gian th&#7921;c hi&#7879;n, t&#7893;ng h&#7907;p, báo cáo
+                        k&#7871;t qu&#7843;):
+                    </font><font class="font26">
+                        <br>
+                        (A): T&#7915; 80% s&#7889; &#273;&#7873; tài khoa h&#7885;c c&#7911;a
+                        &#273;&#417;n v&#7883; tr&#7903; lên<br>
+                        (B): T&#7915; 50% &#273;&#7871;n d&#432;&#7899;i 80% s&#7889; &#273;&#7873;
+                        tài khoa h&#7885;c c&#7911;a &#273;&#417;n v&#7883;<br>
+                        (C): D&#432;&#7899;i 50% s&#7889; &#273;&#7873; tài khoa h&#7885;c
+                        c&#7911;a &#273;&#417;n v&#7883;<br>
+                    </font>
+                </td>
+                <td class=xl231 width=287 style='border-top:none;border-left:none;width:215pt'>
+                    <font class="font27">Có chuyên trang ho&#7863;c chuyên m&#7909;c góp ý:</font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        <br>
+                    </font>
+                </td>
+                <td class=xl231 width=153 style='border-top:none;border-left:none;width:115pt'>
+                    <font class="font27">
+                        S&#7889; d&#7921; th&#7843;o v&#259;n b&#7843;n quy ph&#7841;m
+                        pháp lu&#7853;t c&#7847;n xin ý ki&#7871;n &#273;&#259;ng t&#7843;i:
+                    </font><font class="font26">
+                        <br>
+                        (A): T&#7915; 90% s&#7889; v&#259;n b&#7843;n quy ph&#7841;m pháp
+                        lu&#7853;t c&#7847;n xin ý ki&#7871;n c&#7911;a &#273;&#417;n v&#7883;
+                        tr&#7903; lên<br>
+                        (B): T&#7915; 50% &#273;&#7871;n d&#432;&#7899;i 90% s&#7889; v&#259;n
+                        b&#7843;n quy ph&#7841;m pháp lu&#7853;t c&#7847;n xin ý ki&#7871;n c&#7911;a
+                        &#273;&#417;n v&#7883;<br>
+                        (C): D&#432;&#7899;i 50% s&#7889; v&#259;n b&#7843;n quy ph&#7841;m pháp
+                        lu&#7853;t c&#7847;n xin ý ki&#7871;n c&#7911;a &#273;&#417;n v&#7883;<br>
+                    </font>
+                </td>
+                <td class=xl231 width=251 style='border-top:none;border-left:none;width:188pt'>
+                    <font class="font27">
+                        Cung c&#7845;p các thông tin và ch&#7913;c n&#259;ng; toàn
+                        v&#259;n n&#7897;i dung v&#7845;n &#273;&#7873; c&#7847;n xin ý ki&#7871;n;
+                        th&#7901;i h&#7841;n ti&#7871;p nh&#7853;n ý ki&#7871;n góp ý; xem n&#7897;i
+                        dung các ý ki&#7871;n góp ý; nh&#7853;n ý ki&#7871;n góp ý m&#7899;i;
+                        &#273;&#7883;a ch&#7881;, th&#432; &#273;i&#7879;n t&#7917; c&#7911;a c&#417;
+                        quan, &#273;&#417;n v&#7883; ti&#7871;p nh&#7853;n ý ki&#7871;n góp ý
+                        c&#7911;a v&#259;n b&#7843;n xin ý ki&#7871;n:
+                    </font><font class="font26">
+                        <br>
+                        (A): &#272;&#7847;y &#273;&#7911; thông tin và ch&#7913;c n&#259;ng<br>
+                        (B): Không &#273;&#7847;y &#273;&#7911; thông tin và ch&#7913;c
+                        n&#259;ng<br>
+                        (C): Không &#273;&#259;ng t&#7843;i thông tin<br>
+                    </font>
+                </td>
+                <td class=xl229 width=254 style='border-top:none;border-left:none;width:191pt'>
+                    <font class="font27">
+                        Ch&#7913;c n&#259;ng tìm ki&#7871;m và tìm ki&#7871;m
+                        &#273;&#432;&#7907;c &#273;&#7847;y &#273;&#7911; n&#7897;i dung thông tin,
+                        bài c&#7847;n tìm:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                    </font>
+                </td>
+                <td class=xl229 width=139 style='border-top:none;border-left:none;width:104pt'>
+                    <font class="font27">
+                        S&#417; &#273;&#7891; website th&#7875; hi&#7879;n cây
+                        c&#7845;u trúc các h&#7841;ng m&#7909;c thông tin c&#7911;a trang TT&#272;T;
+                        &#273;&#7843;m b&#7843;o liên k&#7871;t &#273;úng t&#7899;i các m&#7909;c
+                        thông tin ho&#7863;c ch&#7913;c n&#259;ng t&#432;&#417;ng &#7913;ng:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=147 style='border-top:none;border-left:none;width:110pt'>
+                    <font class="font27">
+                        &#272;&#259;ng câu h&#7887;i, tr&#7843; l&#7901;i trong
+                        m&#7909;c trao &#273;&#7893;i- h&#7887;i &#273;áp &#273;&#7889;i v&#7899;i
+                        nh&#7919;ng v&#7845;n &#273;&#7873; có liên quan chung:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=153 style='border-top:none;border-left:none;width:115pt'>
+                    <font class="font27">
+                        Cung c&#7845;p d&#7919; li&#7879;u &#273;&#7863;c t&#7843;
+                        theo quy &#273;&#7883;nh cho m&#7895;i tin bài:
+                    </font><font class="font26">
+                        <br>
+                        (A): Cung c&#7845;p &#273;&#7847;y &#273;&#7911;<br>
+                        (B): Cung c&#7845;p không &#273;&#7847;y &#273;&#7911;<br>
+                        (C): Không cung c&#7845;p<br>
+                    </font>
+                </td>
+                <td class=xl229 width=132 style='border-top:none;border-left:none;width:99pt'>
+                    <font class="font27">
+                        S&#7917; d&#7909;ng b&#7897; mã ký t&#7921; ch&#7919;
+                        Vi&#7879;t Unicode theo tiêu chu&#7849;n TCVN 6909:2001:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có s&#7917; d&#7909;ng<br>
+                        (B): Không s&#7917; d&#7909;ng<br>
+                    </font>
+                </td>
+                <td class=xl229 width=138 style='border-top:none;border-left:none;width:104pt'>
+                    <font class="font27">
+                        Kh&#7843; n&#259;ng t&#432;&#417;ng thích v&#7899;i
+                        nhi&#7873;u trình duy&#7879;t:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có kh&#7843; n&#259;ng t&#432;&#417;ng thích t&#7915; 3 trình
+                        duy&#7879;t tr&#7903; lên<br>
+                        (B): Không có kh&#7843; n&#259;ng t&#432;&#417;ng thích t&#7915; 3 trình
+                        duy&#7879;t tr&#7903; lên<br>
+                    </font>
+                </td>
+                <td class=xl229 width=152 style='border-top:none;border-left:none;width:114pt'>
+                    <font class="font27">
+                        Liên k&#7871;t t&#7899;i website các &#273;&#417;n v&#7883;
+                        tr&#7921;c thu&#7897;c ho&#7863;c các c&#417; quan liên quan:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=156 style='border-top:none;border-left:none;width:117pt'>
+                    <font class="font27">
+                        Ch&#7913;c n&#259;ng h&#7895; tr&#7907; ng&#432;&#7901;i
+                        khuy&#7871;t t&#7853;t ti&#7871;p c&#7853;n thông tin:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=147 style='border-top:none;border-left:none;width:110pt'>
+                    <font class="font27">Tên mi&#7873;n C&#7893;ng Thông tin &#273;i&#7879;n t&#7917;:</font><font class="font26">
+                        <br>
+                        (A): &#272;&#7863;t &#273;úng quy &#273;&#7883;nh<br>
+                        (B): Không &#273;&#7863;t &#273;úng quy &#273;&#7883;nh<br>
+                        (Theo quy &#273;&#7883;nh t&#7841;i &#273;i&#7873;u 6 Ngh&#7883;
+                        &#273;&#7883;nh s&#7889; 43/2011/N&#272;-CP<span style='mso-spacerun:yes'></span>
+                    </font>
+                </td>
+                <td class=xl232 width=155 style='border-top:none;border-left:none;width:116pt'>
+                    T&#7893;ng
+                    s&#7889; TTHC ph&#7843;i gi&#7843;i quy&#7871;t t&#7841;i &#273;&#417;n
+                    v&#7883;
+                </td>
+                <td class=xl232 width=101 style='border-top:none;border-left:none;width:76pt'>
+                    T&#7893;ng
+                    s&#7889; DVC m&#7913;c 1 &#273;&#432;&#7907;c cung c&#7845;p trên C&#7893;ng
+                    TT&#272;T
+                </td>
+                <td class=xl232 width=98 style='border-top:none;border-left:none;width:74pt'>
+                    T&#7893;ng
+                    s&#7889; DVC m&#7913;c 2 &#273;&#432;&#7907;c cung c&#7845;p trên C&#7893;ng
+                    TT&#272;T
+                </td>
+                <td class=xl232 width=100 style='border-top:none;border-left:none;width:75pt'>
+                    T&#7893;ng
+                    s&#7889; DVC m&#7913;c 3 tr&#7903; lên &#273;&#432;&#7907;c cung c&#7845;p
+                    trên C&#7893;ng TT&#272;T
+                </td>
+                <td class=xl233 width=97 style='border-top:none;border-left:none;width:73pt'>
+                    <font class="font27">
+                        Ban hành quy&#7871;t &#273;&#7883;nh thành l&#7853;p Ban biên
+                        t&#7853;p &#273;úng quy &#273;&#7883;nh:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        N&#7871;u có cung c&#7845;p thêm: &#272;&#432;&#7901;ng liên k&#7871;t
+                        (Link) &#273;&#259;ng t&#7843;i v&#259;n b&#7843;n<br>
+                    </font>
+                </td>
+                <td class=xl233 width=147 style='border-top:none;border-left:none;width:110pt'>
+                    <font class="font27">
+                        B&#7889; trí chuyên viên qu&#7843;n tr&#7883; k&#7929;
+                        thu&#7853;t:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl233 width=109 style='border-top:none;border-left:none;width:82pt'>
+                    <font class="font27">
+                        B&#7889; trí nhân l&#7921;c x&#7917; lý d&#7883;ch v&#7909;
+                        công tr&#7921;c tuy&#7871;n:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl233 width=105 style='border-top:none;border-left:none;width:79pt'>
+                    <font class="font27">
+                        T&#7853;p hu&#7845;n, &#273;ào t&#7841;o cán b&#7897; Ban biên
+                        t&#7853;p và chuyên viên qu&#7843;n tr&#7883; trong 6 tháng &#273;àu
+                        n&#259;m:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=126 style='border-top:none;border-left:none;width:95pt'>
+                    <font class="font27">
+                        Th&#7921;c hi&#7879;n các bi&#7879;n pháp k&#7929; thu&#7853;t
+                        &#273;&#7875; b&#7843;o &#273;&#7843;m an toàn thông tin và d&#7919;
+                        li&#7879;u trên C&#7893;ng Thông tin &#273;i&#7879;n t&#7917;:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=123 style='border-top:none;border-left:none;width:92pt'>
+                    <font class="font27">
+                        Xây d&#7921;ng gi&#7843;i pháp hi&#7879;u qu&#7843;
+                        ch&#7889;ng l&#7841;i các t&#7845;n công gây m&#7845;t an toàn thông tin
+                        c&#7911;a C&#7893;ng Thông tin &#273;i&#7879;n t&#7917;:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl229 width=125 style='border-top:none;border-left:none;width:94pt'>
+                    <font class="font27">
+                        Xây d&#7921;ng ph&#432;&#417;ng án d&#7921; phòng kh&#7855;c
+                        ph&#7909;c s&#7921; c&#7889; b&#7843;o &#273;&#7843;m h&#7879; th&#7889;ng
+                        C&#7893;ng Thông tin &#273;i&#7879;n t&#7917; ho&#7841;t &#273;&#7897;ng liên
+                        t&#7909;c &#7903; m&#7913;c t&#7889;i &#273;a:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không
+                    </font>
+                </td>
+                <td class=xl201 width=133 style='border-top:none;border-left:none;width:100pt'>
+                    <font class="font27">
+                        Ban hành quy ch&#7871; ph&#7889;i h&#7907;p gi&#7919;a các
+                        &#273;&#417;n v&#7883; trong c&#417; quan &#273;&#7875; cung c&#7845;p và
+                        x&#7917; lý thông tin:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        N&#7871;u có cung c&#7845;p thêm &#273;&#432;&#7901;ng liên k&#7871;t
+                        (Link) &#273;&#259;ng t&#7843;i v&#259;n b&#7843;n
+                    </font>
+                </td>
+                <td class=xl200 width=154 style='border-top:none;border-left:none;width:116pt'>
+                    <font class="font27">
+                        Ban hành quy ch&#7871; ho&#7841;t &#273;&#7897;ng c&#7911;a
+                        C&#7893;ng TT&#272;T:
+                    </font><font class="font26">
+                        <br>
+                        (A): Có<br>
+                        (B): Không<br>
+                        N&#7871;u có cung c&#7845;p thêm &#273;&#432;&#7901;ng liên k&#7871;t
+                        (Link) &#273;&#259;ng t&#7843;i v&#259;n b&#7843;n
+                    </font>
+                </td>
+                <td class=xl202 width=129 style='border-top:none;border-left:none;width:97pt'>
+                    Th&#7921;c
+                    hi&#7879;n ch&#7871; &#273;&#7897; báo cáo &#273;&#7883;nh k&#7923; v&#7873;
+                    tình hình ho&#7841;t &#273;&#7897;ng c&#7911;a C&#7893;ng TT&#272;T:<br>
+                    <font class="font28">
+                        (A): Th&#7921;c hi&#7879;n &#273;úng quy
+                        &#273;&#7883;nh<br>
+                        (B): Không th&#7921;c hi&#7879;n &#273;úng quy &#273;&#7883;nh
+                    </font><font class="font27">
+                        <br>
+                    </font>
+                </td>
+                <td class=xl203 width=128 style='border-top:none;border-left:none;width:96pt'>
+                    <font class="font27">
+                        C&#7853;p nh&#7853;t thông tin theo quy &#273;&#7883;nh
+                        t&#7841;i &#272;i&#7873;u 17 Ngh&#7883; &#273;&#7883;nh s&#7889;
+                        43/2011/N&#272;-CP:
+                    </font><font class="font26">
+                        <br>
+                        (A): &#272;úng quy &#273;&#7883;nh<br>
+                        (B): Không &#273;úng quy &#273;&#7883;nh<br>
+                    </font>
+                </td>
+                <td class=xl203 width=139 style='border-top:none;border-left:none;width:104pt'>
+                    <font class="font27">
+                        N&#7897;i dung các thông tin &#273;&#259;ng t&#7843;i trên
+                        C&#7893;ng TT&#272;T:
+                    </font><font class="font26">
+                        <br>
+                        (A): Thông tin thu&#7897;c chuyên ngành ho&#7863;c &#273;&#7883;a
+                        ph&#432;&#417;ng qu&#7843;n lý<br>
+                        (B): Có biên t&#7853;p thông tin t&#7893;ng h&#7907;p<br>
+                    </font>
+                </td>
+                <td class=xl203 width=125 style='border-top:none;border-left:none;width:94pt'>
+                    <font class="font27">
+                        Th&#7921;c hi&#7879;n quy &#273;&#7883;nh khác c&#7911;a
+                        Ngh&#7883; &#273;&#7883;nh 72/2013/N&#272;-CP v&#7873; b&#7843;n quy&#7873;n
+                        thông tin &#273;&#259;ng t&#7843;i:
+                    </font><font class="font26">
+                        <br>
+                        (A): &#272;úng quy &#273;&#7883;nh<br>
+                        (B): Không &#273;úng quy &#273;&#7883;nh<br>
+                    </font>
+                </td>
+                <td class=xl120 width=136 style='border-top:none;border-left:none;width:102pt'>
+                    T&#7893;ng
+                    s&#7889; các &#273;&#417;n v&#7883; tr&#7921;c thu&#7897;c có
+                    c&#7893;ng/trang thông tin &#273;i&#7879;n t&#7917;
+                </td>
+                <td class=xl120 width=157 style='border-top:none;border-left:none;width:118pt'>
+                    T&#7893;ng
+                    s&#7889; doanh nghi&#7879;p SX-KD ph&#7847;n c&#7913;ng
+                </td>
+                <td class=xl120 width=94 style='border-top:none;border-left:none;width:71pt'>
+                    T&#7893;ng
+                    s&#7889; doanh nghi&#7879;p SX-KD ph&#7847;n m&#7873;m
+                </td>
+                <td class=xl120 width=91 style='border-top:none;border-left:none;width:68pt'>
+                    S&#7889;
+                    DN cung c&#7845;p DV n&#7897;i dung s&#7889;
+                </td>
+                <td class=xl120 width=64 style='border-top:none;border-left:none;width:48pt'>
+                    Danh
+                    sách DN CNTT-&#272;T<br>
+                    <br>
+                    <font class="font44">
+                        (g&#7917;i kèm d&#432;&#7899;i d&#7841;ng file
+                        &#273;ính kèm)
+                    </font>
+                </td>
+                <td class=xl120 width=81 style='border-top:none;border-left:none;width:61pt'>
+                    T&#7893;ng
+                    doanh thu c&#7911;a các doanh nghi&#7879;p
+                </td>
+                <td class=xl209></td>
+                <td class=xl173></td>
+            </tr>
+            <tr height=61 style='mso-height-source:userset;height:45.75pt'>
+                <td height=61 class=xl83 style='height:45.75pt'>&nbsp;</td>
+                <td class=xl234 style='border-left:none'>
+                    UBND huy&#7879;n H&#432;&#417;ng
+                    S&#417;n
+                </td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>0</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>225</td>
+                <td class=xl83 align=right style='border-left:none'>225</td>
+                <td class=xl83 align=right style='border-left:none'>225</td>
+                <td class=xl83 align=right style='border-left:none'>0</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>2</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>13</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>13</td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>0</td>
+                <td class=xl83 style='border-top:none;border-left:none'>
+                    Danh sach<span style='display:none'>13</span>
+                </td>
+                <td class=xl83 align=right style='border-top:none;border-left:none'>1.5E+10</td>
+                <td colspan=2 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 colspan=72 style='height:15.0pt;mso-ignore:colspan'></td>
+            </tr>
+            <tr height=25 style='height:18.75pt'>
+                <td height=25 style='height:18.75pt'></td>
+                <td colspan=13 class=xl485 width=1580 style='width:1186pt'></td>
+                <td colspan=58 style='mso-ignore:colspan'></td>
+            </tr>
+            <tr height=20 style='height:15.0pt'>
+                <td height=20 colspan=6 style='height:15.0pt;mso-ignore:colspan'></td>
+                <td colspan=4 class=xl65></td>
+                <td colspan=62 style='mso-ignore:colspan'></td>
+            </tr>
+            <![if supportMisalignedColumns]>
+            <tr height=0 style='display:none'>
+                <td width=64 style='width:48pt'></td>
+                <td width=157 style='width:118pt'></td>
+                <td width=127 style='width:95pt'></td>
+                <td width=81 style='width:61pt'></td>
+                <td width=89 style='width:67pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=65 style='width:49pt'></td>
+                <td width=116 style='width:87pt'></td>
+                <td width=199 style='width:149pt'></td>
+                <td width=175 style='width:131pt'></td>
+                <td width=169 style='width:127pt'></td>
+                <td width=210 style='width:158pt'></td>
+                <td width=213 style='width:160pt'></td>
+                <td width=186 style='width:140pt'></td>
+                <td width=200 style='width:150pt'></td>
+                <td width=180 style='width:135pt'></td>
+                <td width=170 style='width:128pt'></td>
+                <td width=116 style='width:87pt'></td>
+                <td width=117 style='width:88pt'></td>
+                <td width=149 style='width:112pt'></td>
+                <td width=145 style='width:109pt'></td>
+                <td width=189 style='width:142pt'></td>
+                <td width=135 style='width:101pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=162 style='width:122pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=355 style='width:266pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=148 style='width:111pt'></td>
+                <td width=127 style='width:95pt'></td>
+                <td width=191 style='width:143pt'></td>
+                <td width=183 style='width:137pt'></td>
+                <td width=129 style='width:97pt'></td>
+                <td width=287 style='width:215pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=251 style='width:188pt'></td>
+                <td width=254 style='width:191pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=153 style='width:115pt'></td>
+                <td width=132 style='width:99pt'></td>
+                <td width=138 style='width:104pt'></td>
+                <td width=152 style='width:114pt'></td>
+                <td width=156 style='width:117pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=155 style='width:116pt'></td>
+                <td width=101 style='width:76pt'></td>
+                <td width=98 style='width:74pt'></td>
+                <td width=100 style='width:75pt'></td>
+                <td width=97 style='width:73pt'></td>
+                <td width=147 style='width:110pt'></td>
+                <td width=109 style='width:82pt'></td>
+                <td width=105 style='width:79pt'></td>
+                <td width=126 style='width:95pt'></td>
+                <td width=123 style='width:92pt'></td>
+                <td width=125 style='width:94pt'></td>
+                <td width=133 style='width:100pt'></td>
+                <td width=154 style='width:116pt'></td>
+                <td width=129 style='width:97pt'></td>
+                <td width=128 style='width:96pt'></td>
+                <td width=139 style='width:104pt'></td>
+                <td width=125 style='width:94pt'></td>
+                <td width=136 style='width:102pt'></td>
+                <td width=157 style='width:118pt'></td>
+                <td width=94 style='width:71pt'></td>
+                <td width=91 style='width:68pt'></td>
+                <td width=64 style='width:48pt'></td>
+                <td width=81 style='width:61pt'></td>
+                <td width=88 style='width:66pt'></td>
+                <td width=64 style='width:48pt'></td>
+            </tr>
+            <![endif]>
+        </table>
+
+    </body>
+
+</html>
