@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="S4T_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="S4T_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -1163,14 +1163,14 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.Ht_MaxID' does not have a primary k
           <Property Name="PhamViSuDung" Type="nvarchar" MaxLength="250" />
           <Property Name="BatDauSuDung" Type="datetime" />
           <Property Name="DonViLapTrinhPhanMem" Type="nvarchar" MaxLength="250" />
-          <Property Name="HasQuanLyVanBan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyNhanSu_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasTaiChinhKeToan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyCongSan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyThanhTraKhieuNai_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasChuKySo_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasMotCuaDienTu_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="tinyint" Nullable="false" />
+          <Property Name="SoUDQuanLyVanBan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyNhanSu_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDTaiChinhKeToan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyCongSan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyThanhTraKhieuNai_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDChuKySo_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDMotCuaDienTu_Xa" Type="int" Nullable="false" />
+          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="int" Nullable="false" />
           <Property Name="SoXaLienThongPhanMem" Type="int" Nullable="false" />
           <Property Name="SoVBDi" Type="int" Nullable="false" />
           <Property Name="SoVBDen" Type="int" Nullable="false" />
@@ -2539,13 +2539,13 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="HasChuKySo" />
             <PropertyRef Name="HasMotCuaDienTu" />
             <PropertyRef Name="SoTTHC_MotCuaDienTu" />
-            <PropertyRef Name="HasQuanLyVanBan_Xa" />
-            <PropertyRef Name="HasQuanLyNhanSu_Xa" />
-            <PropertyRef Name="HasTaiChinhKeToan_Xa" />
-            <PropertyRef Name="HasQuanLyCongSan_Xa" />
-            <PropertyRef Name="HasQuanLyThanhTraKhieuNai_Xa" />
-            <PropertyRef Name="HasChuKySo_Xa" />
-            <PropertyRef Name="HasMotCuaDienTu_Xa" />
+            <PropertyRef Name="SoUDQuanLyVanBan_Xa" />
+            <PropertyRef Name="SoUDQuanLyNhanSu_Xa" />
+            <PropertyRef Name="SoUDTaiChinhKeToan_Xa" />
+            <PropertyRef Name="SoUDQuanLyCongSan_Xa" />
+            <PropertyRef Name="SoUDQuanLyThanhTraKhieuNai_Xa" />
+            <PropertyRef Name="SoUDChuKySo_Xa" />
+            <PropertyRef Name="SoUDMotCuaDienTu_Xa" />
             <PropertyRef Name="SoTTHC_MotCuaDienTu_Xa" />
             <PropertyRef Name="SoXaLienThongPhanMem" />
             <PropertyRef Name="SoVBDi" />
@@ -2790,14 +2790,14 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="PhamViSuDung" Type="nvarchar" MaxLength="250" />
           <Property Name="BatDauSuDung" Type="datetime" />
           <Property Name="DonViLapTrinhPhanMem" Type="nvarchar" MaxLength="250" />
-          <Property Name="HasQuanLyVanBan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyNhanSu_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasTaiChinhKeToan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyCongSan_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasQuanLyThanhTraKhieuNai_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasChuKySo_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="HasMotCuaDienTu_Xa" Type="tinyint" Nullable="false" />
-          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="tinyint" Nullable="false" />
+          <Property Name="SoUDQuanLyVanBan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyNhanSu_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDTaiChinhKeToan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyCongSan_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDQuanLyThanhTraKhieuNai_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDChuKySo_Xa" Type="int" Nullable="false" />
+          <Property Name="SoUDMotCuaDienTu_Xa" Type="int" Nullable="false" />
+          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="int" Nullable="false" />
           <Property Name="SoXaLienThongPhanMem" Type="int" Nullable="false" />
           <Property Name="SoVBDi" Type="int" Nullable="false" />
           <Property Name="SoVBDen" Type="int" Nullable="false" />
@@ -3791,13 +3791,13 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_UngDungCNTTCapHuyen].[PhamViSuDung] AS [PhamViSuDung], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[BatDauSuDung] AS [BatDauSuDung], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[DonViLapTrinhPhanMem] AS [DonViLapTrinhPhanMem], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasQuanLyVanBan_Xa] AS [HasQuanLyVanBan_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasQuanLyNhanSu_Xa] AS [HasQuanLyNhanSu_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasTaiChinhKeToan_Xa] AS [HasTaiChinhKeToan_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasQuanLyCongSan_Xa] AS [HasQuanLyCongSan_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasQuanLyThanhTraKhieuNai_Xa] AS [HasQuanLyThanhTraKhieuNai_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasChuKySo_Xa] AS [HasChuKySo_Xa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasMotCuaDienTu_Xa] AS [HasMotCuaDienTu_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDQuanLyVanBan_Xa] AS [SoUDQuanLyVanBan_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDQuanLyNhanSu_Xa] AS [SoUDQuanLyNhanSu_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDTaiChinhKeToan_Xa] AS [SoUDTaiChinhKeToan_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDQuanLyCongSan_Xa] AS [SoUDQuanLyCongSan_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDQuanLyThanhTraKhieuNai_Xa] AS [SoUDQuanLyThanhTraKhieuNai_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDChuKySo_Xa] AS [SoUDChuKySo_Xa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUDMotCuaDienTu_Xa] AS [SoUDMotCuaDienTu_Xa], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SoTTHC_MotCuaDienTu_Xa] AS [SoTTHC_MotCuaDienTu_Xa], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SoXaLienThongPhanMem] AS [SoXaLienThongPhanMem], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SoVBDi] AS [SoVBDi], 
@@ -5372,7 +5372,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySet Name="ViewLichNhap_CongThongTinDienTuCapHuyen" EntityType="S4T_Model.ViewLichNhap_CongThongTinDienTuCapHuyen" />
           <EntitySet Name="ViewLichNhap_HaTangKyThuatCapHuyen" EntityType="S4T_Model.ViewLichNhap_HaTangKyThuatCapHuyen" />
           <EntitySet Name="ViewLichNhap_HaTangNhanLucCapHuyen" EntityType="S4T_Model.ViewLichNhap_HaTangNhanLucCapHuyen" />
-          <EntitySet Name="ViewLichNhap_UngDungCNTTCapHuyen" EntityType="S4T_Model.ViewLichNhap_UngDungCNTTCapHuyen" />
           <FunctionImport Name="sp_GetCongThongTinDienTuCapHuyen" ReturnType="Collection(S4T_Model.sp_GetCongThongTinDienTuCapHuyen_Result)">
             <Parameter Name="NhomDonVi_ID" Mode="In" Type="Int32" />
             <Parameter Name="DotBaoCao_ID" Mode="In" Type="Int32" />
@@ -5397,6 +5396,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <Parameter Name="Nam" Mode="In" Type="Int32" />
             <Parameter Name="ChucNang_ID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="ViewLichNhap_UngDungCNTTCapHuyen" EntityType="S4T_Model.ViewLichNhap_UngDungCNTTCapHuyen" />
         </EntityContainer>
         <ComplexType Name="sp_GetChucNangByRole_Result">
           <Property Type="Int32" Name="PhanHeChucNang_ID" Nullable="false" />
@@ -6377,13 +6377,13 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="Khac_Khac" Type="Int32" Nullable="false" />
           <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Success" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyVanBan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyNhanSu_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasTaiChinhKeToan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyCongSan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyThanhTraKhieuNai_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasChuKySo_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasMotCuaDienTu_Xa" Type="Byte" Nullable="false" />
+          <Property Name="SoUDQuanLyVanBan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyNhanSu_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDTaiChinhKeToan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyCongSan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyThanhTraKhieuNai_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDChuKySo_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDMotCuaDienTu_Xa" Type="Int32" Nullable="false" />
           <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="Byte" Nullable="false" />
           <Property Name="SoXaLienThongPhanMem" Type="Int32" Nullable="false" />
           <Property Name="SoVBDi" Type="Int32" Nullable="false" />
@@ -7069,506 +7069,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Success" Type="Byte" Nullable="false" />
         </EntityType>
-        <EntityType Name="ViewLichNhap_UngDungCNTTCapHuyen">
-          <Key>
-            <PropertyRef Name="TenDonVi" />
-            <PropertyRef Name="NhomDonVi_ID" />
-            <PropertyRef Name="DonViCap1_ID" />
-            <PropertyRef Name="UngDungCNTTHuyen_ID" />
-            <PropertyRef Name="LichNhap_ID" />
-            <PropertyRef Name="DonVi_ID" />
-            <PropertyRef Name="HasQuanLyVanBan" />
-            <PropertyRef Name="HasQuanLyNhanSu" />
-            <PropertyRef Name="HasTaiChinhKeToan" />
-            <PropertyRef Name="HasQuanLyCongSan" />
-            <PropertyRef Name="HasQuanLyThanhTraKhieuNai" />
-            <PropertyRef Name="HasChuKySo" />
-            <PropertyRef Name="HasMotCuaDienTu" />
-            <PropertyRef Name="SoTTHC_MotCuaDienTu" />
-            <PropertyRef Name="HasQuanLyVanBan_Xa" />
-            <PropertyRef Name="HasQuanLyNhanSu_Xa" />
-            <PropertyRef Name="HasTaiChinhKeToan_Xa" />
-            <PropertyRef Name="HasQuanLyCongSan_Xa" />
-            <PropertyRef Name="HasQuanLyThanhTraKhieuNai_Xa" />
-            <PropertyRef Name="HasChuKySo_Xa" />
-            <PropertyRef Name="HasMotCuaDienTu_Xa" />
-            <PropertyRef Name="SoTTHC_MotCuaDienTu_Xa" />
-            <PropertyRef Name="SoXaLienThongPhanMem" />
-            <PropertyRef Name="SoVBDi" />
-            <PropertyRef Name="SoVBDen" />
-            <PropertyRef Name="TongSoVBDi" />
-            <PropertyRef Name="TongSoVBDen" />
-            <PropertyRef Name="HasOpenOffice" />
-            <PropertyRef Name="HasMozilla" />
-            <PropertyRef Name="HasFirefox" />
-            <PropertyRef Name="HasUnikey" />
-            <PropertyRef Name="HasHeDieuHanhPMNM" />
-            <PropertyRef Name="HasMayChuCaiHeDieuHanhPMNM" />
-            <PropertyRef Name="TongSoCBCCCapHuyenDungMail" />
-            <PropertyRef Name="TongSoCBCCCapXaDungMail" />
-            <PropertyRef Name="MamNon_CongTTDT" />
-            <PropertyRef Name="MamNon_QLTaiChinh" />
-            <PropertyRef Name="MamNon_QLCongSan" />
-            <PropertyRef Name="MamNon_QLGiangDay" />
-            <PropertyRef Name="MamNon_QLHSSV" />
-            <PropertyRef Name="MamNon_QLThuVien" />
-            <PropertyRef Name="MamNon_DeTaiKH" />
-            <PropertyRef Name="MamNon_QLThi" />
-            <PropertyRef Name="TieuHoc_CongTTDT" />
-            <PropertyRef Name="TieuHoc_QLTaiChinh" />
-            <PropertyRef Name="TieuHoc_QLCongSan" />
-            <PropertyRef Name="TieuHoc_QLGiangDay" />
-            <PropertyRef Name="TieuHoc_QLHSSV" />
-            <PropertyRef Name="TieuHoc_QLThuVien" />
-            <PropertyRef Name="TieuHoc_DeTaiKH" />
-            <PropertyRef Name="TieuHoc_QLThi" />
-            <PropertyRef Name="THCS_CongTTDT" />
-            <PropertyRef Name="THCS_QLTaiChinh" />
-            <PropertyRef Name="THCS_CongSan" />
-            <PropertyRef Name="THCS_QLGiangDay" />
-            <PropertyRef Name="THCS_QLHSSV" />
-            <PropertyRef Name="THCS_QLThuVien" />
-            <PropertyRef Name="THCS_DeTaiKH" />
-            <PropertyRef Name="THCS_QLThi" />
-            <PropertyRef Name="THPT_CongTTDT" />
-            <PropertyRef Name="THPT_QLTaiChinh" />
-            <PropertyRef Name="THPT_CongSan" />
-            <PropertyRef Name="THPT_QLGiangDay" />
-            <PropertyRef Name="THPT_QLHSSV" />
-            <PropertyRef Name="THPT_QLThuVien" />
-            <PropertyRef Name="THPT_DeTaiKH" />
-            <PropertyRef Name="THPT_QLThi" />
-            <PropertyRef Name="TrungCap_CongTTDT" />
-            <PropertyRef Name="TrungCap_QLTaiChinh" />
-            <PropertyRef Name="TrungCap_CongSan" />
-            <PropertyRef Name="TrungCap_QLGiangDay" />
-            <PropertyRef Name="TrungCap_QLHSSV" />
-            <PropertyRef Name="TrungCap_QLThuVien" />
-            <PropertyRef Name="TrungCap_DeTaiKH" />
-            <PropertyRef Name="TrungCap_QLThi" />
-            <PropertyRef Name="CaoDang_CongTTDT" />
-            <PropertyRef Name="CaoDang_QLTaiChinh" />
-            <PropertyRef Name="CaoDang_CongSan" />
-            <PropertyRef Name="CaoDang_QLGiangDay" />
-            <PropertyRef Name="CaoDang_QLHSSV" />
-            <PropertyRef Name="CaoDang_QLThuVien" />
-            <PropertyRef Name="CaoDang_DeTaiKH" />
-            <PropertyRef Name="CaoDang_QLThi" />
-            <PropertyRef Name="DaiHoc_CongTTDT" />
-            <PropertyRef Name="DaiHoc_QLTaiChinh" />
-            <PropertyRef Name="DaiHoc_CongSan" />
-            <PropertyRef Name="DaiHoc_QLGiangDay" />
-            <PropertyRef Name="DaiHoc_QLHSSV" />
-            <PropertyRef Name="DaiHoc_QLThuVien" />
-            <PropertyRef Name="DaiHoc_DeTaiKH" />
-            <PropertyRef Name="DaiHoc_QLThi" />
-            <PropertyRef Name="Khac_CongTTDT" />
-            <PropertyRef Name="Khac_QLTaiChinh" />
-            <PropertyRef Name="Khac_CongSan" />
-            <PropertyRef Name="Khac_QLGiangDay" />
-            <PropertyRef Name="Khac_QLHSSV" />
-            <PropertyRef Name="Khac_QLThuVien" />
-            <PropertyRef Name="Khac_DeTaiKH" />
-            <PropertyRef Name="Khac_QLThi" />
-            <PropertyRef Name="TramXa_CongTTDT" />
-            <PropertyRef Name="TramXa_QLTC" />
-            <PropertyRef Name="TramXa_QLNhanSu" />
-            <PropertyRef Name="TramXa_QLBenhAn" />
-            <PropertyRef Name="TramXa_QLTacNghiep" />
-            <PropertyRef Name="TramXa_QLThuoc" />
-            <PropertyRef Name="TramXa_QLGiuongBenh" />
-            <PropertyRef Name="TramXa_QLCongSan" />
-            <PropertyRef Name="TramXa_KhamTuXa" />
-            <PropertyRef Name="BenhVien_CongTTDT" />
-            <PropertyRef Name="BenhVien_QLTC" />
-            <PropertyRef Name="BenhVien_QLNhanSu" />
-            <PropertyRef Name="BenhVien_QLBenhAn" />
-            <PropertyRef Name="BenhVien_QLTacNghiep" />
-            <PropertyRef Name="BenhVien_QLThuoc" />
-            <PropertyRef Name="BenhVien_QLGiuongBenh" />
-            <PropertyRef Name="BenhVien_QLCongSan" />
-            <PropertyRef Name="BenhVien_KhamTuXa" />
-            <PropertyRef Name="DuPhong_CongTTDT" />
-            <PropertyRef Name="DuPhong_QLTC" />
-            <PropertyRef Name="DuPhong_QLNhanSu" />
-            <PropertyRef Name="DuPhong_QLBenhAn" />
-            <PropertyRef Name="DuPhong_QLTacNghiep" />
-            <PropertyRef Name="DuPhong_QLThuoc" />
-            <PropertyRef Name="DuPhong_QLGiuongBenh" />
-            <PropertyRef Name="DuPhong_QLCongSan" />
-            <PropertyRef Name="DuPhong_KhamTuXa" />
-            <PropertyRef Name="SotRet_CongTTDT" />
-            <PropertyRef Name="SotRet_QLTC" />
-            <PropertyRef Name="SotRet_QLNhanSu" />
-            <PropertyRef Name="SotRet_QLBenhAn" />
-            <PropertyRef Name="SotRet_QLTacNghiep" />
-            <PropertyRef Name="SotRet_QLThuoc" />
-            <PropertyRef Name="SotRet_QLGiuongBenh" />
-            <PropertyRef Name="SotRet_QLCongSan" />
-            <PropertyRef Name="SotRet_KhamTuXa" />
-            <PropertyRef Name="HIVAIDS_CongTTDT" />
-            <PropertyRef Name="HIVAIDS_QLTC" />
-            <PropertyRef Name="HIVAIDS_QLNhanSu" />
-            <PropertyRef Name="HIVAIDS_QLBenhAn" />
-            <PropertyRef Name="HIVAIDS_QLTacNghiep" />
-            <PropertyRef Name="HIVAIDS_QLThuoc" />
-            <PropertyRef Name="HIVAIDS_QLGiuongBenh" />
-            <PropertyRef Name="HIVAIDS_QLCongSan" />
-            <PropertyRef Name="HIVAIDS_KhamTuXa" />
-            <PropertyRef Name="SinhSan_CongTTDT" />
-            <PropertyRef Name="SinhSan_QLTC" />
-            <PropertyRef Name="SinhSan_QLNhanSu" />
-            <PropertyRef Name="SinhSan_QLBenhAn" />
-            <PropertyRef Name="SinhSan_QLTacNghiep" />
-            <PropertyRef Name="SinhSan_QLThuoc" />
-            <PropertyRef Name="SinhSan_QLGiuongBenh" />
-            <PropertyRef Name="SinhSan_QLCongSan" />
-            <PropertyRef Name="SinhSan_KhamTuXa" />
-            <PropertyRef Name="DaLieu_CongTTDT" />
-            <PropertyRef Name="DaLieu_QLTC" />
-            <PropertyRef Name="DaLieu_QLNhanSu" />
-            <PropertyRef Name="DaLieu_QLBenhAn" />
-            <PropertyRef Name="DaLieu_QLTacNghiep" />
-            <PropertyRef Name="DaLieu_QLThuoc" />
-            <PropertyRef Name="DaLieu_QLGiuongBenh" />
-            <PropertyRef Name="DaLieu_QLCongSan" />
-            <PropertyRef Name="DaLieu_KhamTuXa" />
-            <PropertyRef Name="Mat_CongTTDT" />
-            <PropertyRef Name="Mat_QLTC" />
-            <PropertyRef Name="Mat_QLNhanSu" />
-            <PropertyRef Name="Mat_QLBenhAn" />
-            <PropertyRef Name="Mat_QLTacNghiep" />
-            <PropertyRef Name="Mat_QLThuoc" />
-            <PropertyRef Name="Mat_QLGiuongBenh" />
-            <PropertyRef Name="Mat_QLCongSan" />
-            <PropertyRef Name="Mat_KhamTuXa" />
-            <PropertyRef Name="DKTinh_CongTTDT" />
-            <PropertyRef Name="DKTinh_QLTC" />
-            <PropertyRef Name="DKTinh_QLNhanSu" />
-            <PropertyRef Name="DKTinh_QLBenhAn" />
-            <PropertyRef Name="DKTinh_QLTacNghiep" />
-            <PropertyRef Name="DKTinh_QLThuoc" />
-            <PropertyRef Name="DKTinh_QLGiuongBenh" />
-            <PropertyRef Name="DKTinh_QLCongSan" />
-            <PropertyRef Name="DKTinh_KhamTuXa" />
-            <PropertyRef Name="DieuDuong_CongTTDT" />
-            <PropertyRef Name="DieuDuong_QLTC" />
-            <PropertyRef Name="DieuDuong_QLNhanSu" />
-            <PropertyRef Name="DieuDuong_QLBenhAn" />
-            <PropertyRef Name="DieuDuong_QLTacNghiep" />
-            <PropertyRef Name="DieuDuong_QLThuoc" />
-            <PropertyRef Name="DieuDuong_QLGiuongBenh" />
-            <PropertyRef Name="DieuDuong_QLCongSan" />
-            <PropertyRef Name="DieuDuong_KhamTuXa" />
-            <PropertyRef Name="LaoPhoi_CongTTDT" />
-            <PropertyRef Name="LaoPhoi_QLTC" />
-            <PropertyRef Name="LaoPhoi_QLNhanSu" />
-            <PropertyRef Name="LaoPhoi_QLBenhAn" />
-            <PropertyRef Name="LaoPhoi_QLTacNghiep" />
-            <PropertyRef Name="LaoPhoi_QLThuoc" />
-            <PropertyRef Name="LaoPhoi_QLGiuongBenh" />
-            <PropertyRef Name="LaoPhoi_QLCongSan" />
-            <PropertyRef Name="LaoPhoi_KhamTuXa" />
-            <PropertyRef Name="YHoc_CongTTDT" />
-            <PropertyRef Name="YHoc_QLTC" />
-            <PropertyRef Name="YHoc_QLNhanSu" />
-            <PropertyRef Name="YHoc_QLBenhAn" />
-            <PropertyRef Name="YHoc_QLTacNghiep" />
-            <PropertyRef Name="YHoc_QLThuoc" />
-            <PropertyRef Name="YHoc_GiuongBenh" />
-            <PropertyRef Name="YHoc_QLCongSan" />
-            <PropertyRef Name="YHoc_KhamTuXa" />
-            <PropertyRef Name="TamThan_CongTTDT" />
-            <PropertyRef Name="TamThan_QLTC" />
-            <PropertyRef Name="TamThan_QLNhanSu" />
-            <PropertyRef Name="TamThan_QLBenhAn" />
-            <PropertyRef Name="TamThan_QLTacNghiep" />
-            <PropertyRef Name="TamThan_QLThuoc" />
-            <PropertyRef Name="TamThan_QLGiuongBenh" />
-            <PropertyRef Name="TamThan_QLCongSan" />
-            <PropertyRef Name="TamThan_KhamTuXa" />
-            <PropertyRef Name="SuNghiep_KeToan" />
-            <PropertyRef Name="SuNghiep_ERP" />
-            <PropertyRef Name="SuNghiep_QLVatTu" />
-            <PropertyRef Name="SuNghiep_Luong" />
-            <PropertyRef Name="SuNghiep_BanHang" />
-            <PropertyRef Name="SuNghiep_GDDTTinh" />
-            <PropertyRef Name="SuNghiep_Khac" />
-            <PropertyRef Name="CNTT_KeToan" />
-            <PropertyRef Name="CNTT_ERP" />
-            <PropertyRef Name="CNTT_QLVatTu" />
-            <PropertyRef Name="CNTT_Luong" />
-            <PropertyRef Name="CNTT_BanHang" />
-            <PropertyRef Name="CNTT_GDDTTinh" />
-            <PropertyRef Name="CNTT_Khac" />
-            <PropertyRef Name="Khac_KeToan" />
-            <PropertyRef Name="Khac_ERP" />
-            <PropertyRef Name="Khac_QLVatTu" />
-            <PropertyRef Name="Khac_Luong" />
-            <PropertyRef Name="Khac_BanHang" />
-            <PropertyRef Name="Khac_GDDTTinh" />
-            <PropertyRef Name="Khac_Khac" />
-            <PropertyRef Name="TongMucDauTu" />
-            <PropertyRef Name="Success" />
-          </Key>
-          <Property Name="TenDonVi" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="NhomDonVi_ID" Type="Int32" Nullable="false" />
-          <Property Name="DonViCap1_ID" Type="Int32" Nullable="false" />
-          <Property Name="SoCBCC" Type="Int32" />
-          <Property Name="SoDonViTrucThuoc" Type="Int32" />
-          <Property Name="SoCB_DVTT" Type="Int32" />
-          <Property Name="DotBaoCao_ID" Type="Int32" />
-          <Property Name="Nam" Type="Int32" />
-          <Property Name="ChucNang_ID" Type="Int32" />
-          <Property Name="UngDungCNTTHuyen_ID" Type="Int32" Nullable="false" />
-          <Property Name="LichNhap_ID" Type="Int32" Nullable="false" />
-          <Property Name="DonVi_ID" Type="Int32" Nullable="false" />
-          <Property Name="HasQuanLyVanBan" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyNhanSu" Type="Byte" Nullable="false" />
-          <Property Name="HasTaiChinhKeToan" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyCongSan" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyThanhTraKhieuNai" Type="Byte" Nullable="false" />
-          <Property Name="HasChuKySo" Type="Byte" Nullable="false" />
-          <Property Name="HasMotCuaDienTu" Type="Byte" Nullable="false" />
-          <Property Name="SoTTHC_MotCuaDienTu" Type="Int32" Nullable="false" />
-          <Property Name="TenPhanMem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ChucNang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PhamViSuDung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BatDauSuDung" Type="DateTime" Precision="3" />
-          <Property Name="DonViLapTrinhPhanMem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HasQuanLyVanBan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyNhanSu_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasTaiChinhKeToan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyCongSan_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasQuanLyThanhTraKhieuNai_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasChuKySo_Xa" Type="Byte" Nullable="false" />
-          <Property Name="HasMotCuaDienTu_Xa" Type="Byte" Nullable="false" />
-          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="Byte" Nullable="false" />
-          <Property Name="SoXaLienThongPhanMem" Type="Int32" Nullable="false" />
-          <Property Name="SoVBDi" Type="Int32" Nullable="false" />
-          <Property Name="SoVBDen" Type="Int32" Nullable="false" />
-          <Property Name="TongSoVBDi" Type="Int32" Nullable="false" />
-          <Property Name="TongSoVBDen" Type="Int32" Nullable="false" />
-          <Property Name="HasOpenOffice" Type="Byte" Nullable="false" />
-          <Property Name="HasMozilla" Type="Byte" Nullable="false" />
-          <Property Name="HasFirefox" Type="Byte" Nullable="false" />
-          <Property Name="HasUnikey" Type="Byte" Nullable="false" />
-          <Property Name="HasHeDieuHanhPMNM" Type="Byte" Nullable="false" />
-          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="Byte" Nullable="false" />
-          <Property Name="TongSoCBCCCapHuyenDungMail" Type="Int32" Nullable="false" />
-          <Property Name="TongSoCBCCCapXaDungMail" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="MamNon_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="TieuHoc_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="THCS_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="THCS_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="THCS_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="THCS_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="THCS_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="THCS_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="THCS_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="THCS_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="THPT_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="THPT_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="THPT_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="THPT_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="THPT_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="THPT_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="THPT_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="THPT_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="TrungCap_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="CaoDang_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="DaiHoc_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="Khac_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLTaiChinh" Type="Int32" Nullable="false" />
-          <Property Name="Khac_CongSan" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLGiangDay" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLHSSV" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLThuVien" Type="Int32" Nullable="false" />
-          <Property Name="Khac_DeTaiKH" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLThi" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="TramXa_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="BenhVien_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="DuPhong_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="SotRet_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="HIVAIDS_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="SinhSan_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="DaLieu_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="Mat_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="Mat_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="Mat_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="DKTinh_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="DieuDuong_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="LaoPhoi_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_GiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="YHoc_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_CongTTDT" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLTC" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLNhanSu" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLBenhAn" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLTacNghiep" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLThuoc" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLGiuongBenh" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_QLCongSan" Type="Int32" Nullable="false" />
-          <Property Name="TamThan_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="UD_AnToanVeSinhTP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_KHHGiaDinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_TTSucKhoe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_DPMyPham" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhYKhoa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhPhapY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="SuNghiep_KeToan" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_ERP" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_QLVatTu" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_Luong" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_BanHang" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_GDDTTinh" Type="Int32" Nullable="false" />
-          <Property Name="SuNghiep_Khac" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_KeToan" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_ERP" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_QLVatTu" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_Luong" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_BanHang" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_GDDTTinh" Type="Int32" Nullable="false" />
-          <Property Name="CNTT_Khac" Type="Int32" Nullable="false" />
-          <Property Name="Khac_KeToan" Type="Int32" Nullable="false" />
-          <Property Name="Khac_ERP" Type="Int32" Nullable="false" />
-          <Property Name="Khac_QLVatTu" Type="Int32" Nullable="false" />
-          <Property Name="Khac_Luong" Type="Int32" Nullable="false" />
-          <Property Name="Khac_BanHang" Type="Int32" Nullable="false" />
-          <Property Name="Khac_GDDTTinh" Type="Int32" Nullable="false" />
-          <Property Name="Khac_Khac" Type="Int32" Nullable="false" />
-          <Property Name="TongMucDauTu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
-          <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Success" Type="Byte" Nullable="false" />
-        </EntityType>
         <ComplexType Name="sp_GetCongThongTinDienTuCapHuyen_Result">
           <Property Type="Int32" Name="DotBaoCao_ID" Nullable="true" />
           <Property Type="Int32" Name="Nam" Nullable="true" />
@@ -7912,14 +7412,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="String" Name="PhamViSuDung" Nullable="true" MaxLength="250" />
           <Property Type="DateTime" Name="BatDauSuDung" Nullable="true" Precision="23" />
           <Property Type="String" Name="DonViLapTrinhPhanMem" Nullable="true" MaxLength="250" />
-          <Property Type="Byte" Name="HasQuanLyVanBan_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasQuanLyNhanSu_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasTaiChinhKeToan_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasQuanLyCongSan_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasQuanLyThanhTraKhieuNai_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasChuKySo_Xa" Nullable="false" />
-          <Property Type="Byte" Name="HasMotCuaDienTu_Xa" Nullable="false" />
-          <Property Type="Byte" Name="SoTTHC_MotCuaDienTu_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoTTHC_MotCuaDienTu_Xa" Nullable="false" />
           <Property Type="Int32" Name="SoXaLienThongPhanMem" Nullable="false" />
           <Property Type="Int32" Name="SoVBDi" Nullable="false" />
           <Property Type="Int32" Name="SoVBDen" Nullable="false" />
@@ -8144,7 +7637,514 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="Decimal" Name="TongMucDauTu" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="TruongNhapLai" Nullable="true" />
           <Property Type="Byte" Name="Success" Nullable="false" />
+          <Property Type="Int32" Name="SoUDQuanLyVanBan_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDQuanLyNhanSu_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDTaiChinhKeToan_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDQuanLyCongSan_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDQuanLyThanhTraKhieuNai_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDChuKySo_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoUDMotCuaDienTu_Xa" Nullable="false" />
         </ComplexType>
+        <EntityType Name="ViewLichNhap_UngDungCNTTCapHuyen">
+          <Key>
+            <PropertyRef Name="TenDonVi" />
+            <PropertyRef Name="NhomDonVi_ID" />
+            <PropertyRef Name="DonViCap1_ID" />
+            <PropertyRef Name="UngDungCNTTHuyen_ID" />
+            <PropertyRef Name="LichNhap_ID" />
+            <PropertyRef Name="DonVi_ID" />
+            <PropertyRef Name="HasQuanLyVanBan" />
+            <PropertyRef Name="HasQuanLyNhanSu" />
+            <PropertyRef Name="HasTaiChinhKeToan" />
+            <PropertyRef Name="HasQuanLyCongSan" />
+            <PropertyRef Name="HasQuanLyThanhTraKhieuNai" />
+            <PropertyRef Name="HasChuKySo" />
+            <PropertyRef Name="HasMotCuaDienTu" />
+            <PropertyRef Name="SoTTHC_MotCuaDienTu" />
+            <PropertyRef Name="SoUDQuanLyVanBan_Xa" />
+            <PropertyRef Name="SoUDQuanLyNhanSu_Xa" />
+            <PropertyRef Name="SoUDTaiChinhKeToan_Xa" />
+            <PropertyRef Name="SoUDQuanLyCongSan_Xa" />
+            <PropertyRef Name="SoUDQuanLyThanhTraKhieuNai_Xa" />
+            <PropertyRef Name="SoUDChuKySo_Xa" />
+            <PropertyRef Name="SoUDMotCuaDienTu_Xa" />
+            <PropertyRef Name="SoTTHC_MotCuaDienTu_Xa" />
+            <PropertyRef Name="SoXaLienThongPhanMem" />
+            <PropertyRef Name="SoVBDi" />
+            <PropertyRef Name="SoVBDen" />
+            <PropertyRef Name="TongSoVBDi" />
+            <PropertyRef Name="TongSoVBDen" />
+            <PropertyRef Name="HasOpenOffice" />
+            <PropertyRef Name="HasMozilla" />
+            <PropertyRef Name="HasFirefox" />
+            <PropertyRef Name="HasUnikey" />
+            <PropertyRef Name="HasHeDieuHanhPMNM" />
+            <PropertyRef Name="HasMayChuCaiHeDieuHanhPMNM" />
+            <PropertyRef Name="TongSoCBCCCapHuyenDungMail" />
+            <PropertyRef Name="TongSoCBCCCapXaDungMail" />
+            <PropertyRef Name="MamNon_CongTTDT" />
+            <PropertyRef Name="MamNon_QLTaiChinh" />
+            <PropertyRef Name="MamNon_QLCongSan" />
+            <PropertyRef Name="MamNon_QLGiangDay" />
+            <PropertyRef Name="MamNon_QLHSSV" />
+            <PropertyRef Name="MamNon_QLThuVien" />
+            <PropertyRef Name="MamNon_DeTaiKH" />
+            <PropertyRef Name="MamNon_QLThi" />
+            <PropertyRef Name="TieuHoc_CongTTDT" />
+            <PropertyRef Name="TieuHoc_QLTaiChinh" />
+            <PropertyRef Name="TieuHoc_QLCongSan" />
+            <PropertyRef Name="TieuHoc_QLGiangDay" />
+            <PropertyRef Name="TieuHoc_QLHSSV" />
+            <PropertyRef Name="TieuHoc_QLThuVien" />
+            <PropertyRef Name="TieuHoc_DeTaiKH" />
+            <PropertyRef Name="TieuHoc_QLThi" />
+            <PropertyRef Name="THCS_CongTTDT" />
+            <PropertyRef Name="THCS_QLTaiChinh" />
+            <PropertyRef Name="THCS_CongSan" />
+            <PropertyRef Name="THCS_QLGiangDay" />
+            <PropertyRef Name="THCS_QLHSSV" />
+            <PropertyRef Name="THCS_QLThuVien" />
+            <PropertyRef Name="THCS_DeTaiKH" />
+            <PropertyRef Name="THCS_QLThi" />
+            <PropertyRef Name="THPT_CongTTDT" />
+            <PropertyRef Name="THPT_QLTaiChinh" />
+            <PropertyRef Name="THPT_CongSan" />
+            <PropertyRef Name="THPT_QLGiangDay" />
+            <PropertyRef Name="THPT_QLHSSV" />
+            <PropertyRef Name="THPT_QLThuVien" />
+            <PropertyRef Name="THPT_DeTaiKH" />
+            <PropertyRef Name="THPT_QLThi" />
+            <PropertyRef Name="TrungCap_CongTTDT" />
+            <PropertyRef Name="TrungCap_QLTaiChinh" />
+            <PropertyRef Name="TrungCap_CongSan" />
+            <PropertyRef Name="TrungCap_QLGiangDay" />
+            <PropertyRef Name="TrungCap_QLHSSV" />
+            <PropertyRef Name="TrungCap_QLThuVien" />
+            <PropertyRef Name="TrungCap_DeTaiKH" />
+            <PropertyRef Name="TrungCap_QLThi" />
+            <PropertyRef Name="CaoDang_CongTTDT" />
+            <PropertyRef Name="CaoDang_QLTaiChinh" />
+            <PropertyRef Name="CaoDang_CongSan" />
+            <PropertyRef Name="CaoDang_QLGiangDay" />
+            <PropertyRef Name="CaoDang_QLHSSV" />
+            <PropertyRef Name="CaoDang_QLThuVien" />
+            <PropertyRef Name="CaoDang_DeTaiKH" />
+            <PropertyRef Name="CaoDang_QLThi" />
+            <PropertyRef Name="DaiHoc_CongTTDT" />
+            <PropertyRef Name="DaiHoc_QLTaiChinh" />
+            <PropertyRef Name="DaiHoc_CongSan" />
+            <PropertyRef Name="DaiHoc_QLGiangDay" />
+            <PropertyRef Name="DaiHoc_QLHSSV" />
+            <PropertyRef Name="DaiHoc_QLThuVien" />
+            <PropertyRef Name="DaiHoc_DeTaiKH" />
+            <PropertyRef Name="DaiHoc_QLThi" />
+            <PropertyRef Name="Khac_CongTTDT" />
+            <PropertyRef Name="Khac_QLTaiChinh" />
+            <PropertyRef Name="Khac_CongSan" />
+            <PropertyRef Name="Khac_QLGiangDay" />
+            <PropertyRef Name="Khac_QLHSSV" />
+            <PropertyRef Name="Khac_QLThuVien" />
+            <PropertyRef Name="Khac_DeTaiKH" />
+            <PropertyRef Name="Khac_QLThi" />
+            <PropertyRef Name="TramXa_CongTTDT" />
+            <PropertyRef Name="TramXa_QLTC" />
+            <PropertyRef Name="TramXa_QLNhanSu" />
+            <PropertyRef Name="TramXa_QLBenhAn" />
+            <PropertyRef Name="TramXa_QLTacNghiep" />
+            <PropertyRef Name="TramXa_QLThuoc" />
+            <PropertyRef Name="TramXa_QLGiuongBenh" />
+            <PropertyRef Name="TramXa_QLCongSan" />
+            <PropertyRef Name="TramXa_KhamTuXa" />
+            <PropertyRef Name="BenhVien_CongTTDT" />
+            <PropertyRef Name="BenhVien_QLTC" />
+            <PropertyRef Name="BenhVien_QLNhanSu" />
+            <PropertyRef Name="BenhVien_QLBenhAn" />
+            <PropertyRef Name="BenhVien_QLTacNghiep" />
+            <PropertyRef Name="BenhVien_QLThuoc" />
+            <PropertyRef Name="BenhVien_QLGiuongBenh" />
+            <PropertyRef Name="BenhVien_QLCongSan" />
+            <PropertyRef Name="BenhVien_KhamTuXa" />
+            <PropertyRef Name="DuPhong_CongTTDT" />
+            <PropertyRef Name="DuPhong_QLTC" />
+            <PropertyRef Name="DuPhong_QLNhanSu" />
+            <PropertyRef Name="DuPhong_QLBenhAn" />
+            <PropertyRef Name="DuPhong_QLTacNghiep" />
+            <PropertyRef Name="DuPhong_QLThuoc" />
+            <PropertyRef Name="DuPhong_QLGiuongBenh" />
+            <PropertyRef Name="DuPhong_QLCongSan" />
+            <PropertyRef Name="DuPhong_KhamTuXa" />
+            <PropertyRef Name="SotRet_CongTTDT" />
+            <PropertyRef Name="SotRet_QLTC" />
+            <PropertyRef Name="SotRet_QLNhanSu" />
+            <PropertyRef Name="SotRet_QLBenhAn" />
+            <PropertyRef Name="SotRet_QLTacNghiep" />
+            <PropertyRef Name="SotRet_QLThuoc" />
+            <PropertyRef Name="SotRet_QLGiuongBenh" />
+            <PropertyRef Name="SotRet_QLCongSan" />
+            <PropertyRef Name="SotRet_KhamTuXa" />
+            <PropertyRef Name="HIVAIDS_CongTTDT" />
+            <PropertyRef Name="HIVAIDS_QLTC" />
+            <PropertyRef Name="HIVAIDS_QLNhanSu" />
+            <PropertyRef Name="HIVAIDS_QLBenhAn" />
+            <PropertyRef Name="HIVAIDS_QLTacNghiep" />
+            <PropertyRef Name="HIVAIDS_QLThuoc" />
+            <PropertyRef Name="HIVAIDS_QLGiuongBenh" />
+            <PropertyRef Name="HIVAIDS_QLCongSan" />
+            <PropertyRef Name="HIVAIDS_KhamTuXa" />
+            <PropertyRef Name="SinhSan_CongTTDT" />
+            <PropertyRef Name="SinhSan_QLTC" />
+            <PropertyRef Name="SinhSan_QLNhanSu" />
+            <PropertyRef Name="SinhSan_QLBenhAn" />
+            <PropertyRef Name="SinhSan_QLTacNghiep" />
+            <PropertyRef Name="SinhSan_QLThuoc" />
+            <PropertyRef Name="SinhSan_QLGiuongBenh" />
+            <PropertyRef Name="SinhSan_QLCongSan" />
+            <PropertyRef Name="SinhSan_KhamTuXa" />
+            <PropertyRef Name="DaLieu_CongTTDT" />
+            <PropertyRef Name="DaLieu_QLTC" />
+            <PropertyRef Name="DaLieu_QLNhanSu" />
+            <PropertyRef Name="DaLieu_QLBenhAn" />
+            <PropertyRef Name="DaLieu_QLTacNghiep" />
+            <PropertyRef Name="DaLieu_QLThuoc" />
+            <PropertyRef Name="DaLieu_QLGiuongBenh" />
+            <PropertyRef Name="DaLieu_QLCongSan" />
+            <PropertyRef Name="DaLieu_KhamTuXa" />
+            <PropertyRef Name="Mat_CongTTDT" />
+            <PropertyRef Name="Mat_QLTC" />
+            <PropertyRef Name="Mat_QLNhanSu" />
+            <PropertyRef Name="Mat_QLBenhAn" />
+            <PropertyRef Name="Mat_QLTacNghiep" />
+            <PropertyRef Name="Mat_QLThuoc" />
+            <PropertyRef Name="Mat_QLGiuongBenh" />
+            <PropertyRef Name="Mat_QLCongSan" />
+            <PropertyRef Name="Mat_KhamTuXa" />
+            <PropertyRef Name="DKTinh_CongTTDT" />
+            <PropertyRef Name="DKTinh_QLTC" />
+            <PropertyRef Name="DKTinh_QLNhanSu" />
+            <PropertyRef Name="DKTinh_QLBenhAn" />
+            <PropertyRef Name="DKTinh_QLTacNghiep" />
+            <PropertyRef Name="DKTinh_QLThuoc" />
+            <PropertyRef Name="DKTinh_QLGiuongBenh" />
+            <PropertyRef Name="DKTinh_QLCongSan" />
+            <PropertyRef Name="DKTinh_KhamTuXa" />
+            <PropertyRef Name="DieuDuong_CongTTDT" />
+            <PropertyRef Name="DieuDuong_QLTC" />
+            <PropertyRef Name="DieuDuong_QLNhanSu" />
+            <PropertyRef Name="DieuDuong_QLBenhAn" />
+            <PropertyRef Name="DieuDuong_QLTacNghiep" />
+            <PropertyRef Name="DieuDuong_QLThuoc" />
+            <PropertyRef Name="DieuDuong_QLGiuongBenh" />
+            <PropertyRef Name="DieuDuong_QLCongSan" />
+            <PropertyRef Name="DieuDuong_KhamTuXa" />
+            <PropertyRef Name="LaoPhoi_CongTTDT" />
+            <PropertyRef Name="LaoPhoi_QLTC" />
+            <PropertyRef Name="LaoPhoi_QLNhanSu" />
+            <PropertyRef Name="LaoPhoi_QLBenhAn" />
+            <PropertyRef Name="LaoPhoi_QLTacNghiep" />
+            <PropertyRef Name="LaoPhoi_QLThuoc" />
+            <PropertyRef Name="LaoPhoi_QLGiuongBenh" />
+            <PropertyRef Name="LaoPhoi_QLCongSan" />
+            <PropertyRef Name="LaoPhoi_KhamTuXa" />
+            <PropertyRef Name="YHoc_CongTTDT" />
+            <PropertyRef Name="YHoc_QLTC" />
+            <PropertyRef Name="YHoc_QLNhanSu" />
+            <PropertyRef Name="YHoc_QLBenhAn" />
+            <PropertyRef Name="YHoc_QLTacNghiep" />
+            <PropertyRef Name="YHoc_QLThuoc" />
+            <PropertyRef Name="YHoc_GiuongBenh" />
+            <PropertyRef Name="YHoc_QLCongSan" />
+            <PropertyRef Name="YHoc_KhamTuXa" />
+            <PropertyRef Name="TamThan_CongTTDT" />
+            <PropertyRef Name="TamThan_QLTC" />
+            <PropertyRef Name="TamThan_QLNhanSu" />
+            <PropertyRef Name="TamThan_QLBenhAn" />
+            <PropertyRef Name="TamThan_QLTacNghiep" />
+            <PropertyRef Name="TamThan_QLThuoc" />
+            <PropertyRef Name="TamThan_QLGiuongBenh" />
+            <PropertyRef Name="TamThan_QLCongSan" />
+            <PropertyRef Name="TamThan_KhamTuXa" />
+            <PropertyRef Name="SuNghiep_KeToan" />
+            <PropertyRef Name="SuNghiep_ERP" />
+            <PropertyRef Name="SuNghiep_QLVatTu" />
+            <PropertyRef Name="SuNghiep_Luong" />
+            <PropertyRef Name="SuNghiep_BanHang" />
+            <PropertyRef Name="SuNghiep_GDDTTinh" />
+            <PropertyRef Name="SuNghiep_Khac" />
+            <PropertyRef Name="CNTT_KeToan" />
+            <PropertyRef Name="CNTT_ERP" />
+            <PropertyRef Name="CNTT_QLVatTu" />
+            <PropertyRef Name="CNTT_Luong" />
+            <PropertyRef Name="CNTT_BanHang" />
+            <PropertyRef Name="CNTT_GDDTTinh" />
+            <PropertyRef Name="CNTT_Khac" />
+            <PropertyRef Name="Khac_KeToan" />
+            <PropertyRef Name="Khac_ERP" />
+            <PropertyRef Name="Khac_QLVatTu" />
+            <PropertyRef Name="Khac_Luong" />
+            <PropertyRef Name="Khac_BanHang" />
+            <PropertyRef Name="Khac_GDDTTinh" />
+            <PropertyRef Name="Khac_Khac" />
+            <PropertyRef Name="TongMucDauTu" />
+            <PropertyRef Name="Success" />
+          </Key>
+          <Property Name="TenDonVi" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NhomDonVi_ID" Type="Int32" Nullable="false" />
+          <Property Name="DonViCap1_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoCBCC" Type="Int32" />
+          <Property Name="SoDonViTrucThuoc" Type="Int32" />
+          <Property Name="SoCB_DVTT" Type="Int32" />
+          <Property Name="DotBaoCao_ID" Type="Int32" />
+          <Property Name="Nam" Type="Int32" />
+          <Property Name="ChucNang_ID" Type="Int32" />
+          <Property Name="UngDungCNTTHuyen_ID" Type="Int32" Nullable="false" />
+          <Property Name="LichNhap_ID" Type="Int32" Nullable="false" />
+          <Property Name="DonVi_ID" Type="Int32" Nullable="false" />
+          <Property Name="HasQuanLyVanBan" Type="Byte" Nullable="false" />
+          <Property Name="HasQuanLyNhanSu" Type="Byte" Nullable="false" />
+          <Property Name="HasTaiChinhKeToan" Type="Byte" Nullable="false" />
+          <Property Name="HasQuanLyCongSan" Type="Byte" Nullable="false" />
+          <Property Name="HasQuanLyThanhTraKhieuNai" Type="Byte" Nullable="false" />
+          <Property Name="HasChuKySo" Type="Byte" Nullable="false" />
+          <Property Name="HasMotCuaDienTu" Type="Byte" Nullable="false" />
+          <Property Name="SoTTHC_MotCuaDienTu" Type="Int32" Nullable="false" />
+          <Property Name="TenPhanMem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ChucNang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PhamViSuDung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BatDauSuDung" Type="DateTime" Precision="3" />
+          <Property Name="DonViLapTrinhPhanMem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SoUDQuanLyVanBan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyNhanSu_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDTaiChinhKeToan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyCongSan_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDQuanLyThanhTraKhieuNai_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDChuKySo_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoUDMotCuaDienTu_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="Int32" Nullable="false" />
+          <Property Name="SoXaLienThongPhanMem" Type="Int32" Nullable="false" />
+          <Property Name="SoVBDi" Type="Int32" Nullable="false" />
+          <Property Name="SoVBDen" Type="Int32" Nullable="false" />
+          <Property Name="TongSoVBDi" Type="Int32" Nullable="false" />
+          <Property Name="TongSoVBDen" Type="Int32" Nullable="false" />
+          <Property Name="HasOpenOffice" Type="Byte" Nullable="false" />
+          <Property Name="HasMozilla" Type="Byte" Nullable="false" />
+          <Property Name="HasFirefox" Type="Byte" Nullable="false" />
+          <Property Name="HasUnikey" Type="Byte" Nullable="false" />
+          <Property Name="HasHeDieuHanhPMNM" Type="Byte" Nullable="false" />
+          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="Byte" Nullable="false" />
+          <Property Name="TongSoCBCCCapHuyenDungMail" Type="Int32" Nullable="false" />
+          <Property Name="TongSoCBCCCapXaDungMail" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="MamNon_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="TieuHoc_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="THCS_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="THCS_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="THCS_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="THCS_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="THCS_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="THCS_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="THCS_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="THCS_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="THPT_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="THPT_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="THPT_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="THPT_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="THPT_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="THPT_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="THPT_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="THPT_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="TrungCap_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="CaoDang_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="DaiHoc_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="Khac_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLTaiChinh" Type="Int32" Nullable="false" />
+          <Property Name="Khac_CongSan" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLGiangDay" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLHSSV" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLThuVien" Type="Int32" Nullable="false" />
+          <Property Name="Khac_DeTaiKH" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLThi" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="TramXa_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="BenhVien_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="DuPhong_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="SotRet_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="HIVAIDS_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="SinhSan_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="DaLieu_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="Mat_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="Mat_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="Mat_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="DKTinh_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="DieuDuong_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="LaoPhoi_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_GiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="YHoc_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_CongTTDT" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLTC" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLNhanSu" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLBenhAn" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLTacNghiep" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLThuoc" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLGiuongBenh" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_QLCongSan" Type="Int32" Nullable="false" />
+          <Property Name="TamThan_KhamTuXa" Type="Int32" Nullable="false" />
+          <Property Name="UD_AnToanVeSinhTP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_KHHGiaDinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_TTSucKhoe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_DPMyPham" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_GiamDinhYKhoa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_GiamDinhPhapY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SuNghiep_KeToan" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_ERP" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_QLVatTu" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_Luong" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_BanHang" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_GDDTTinh" Type="Int32" Nullable="false" />
+          <Property Name="SuNghiep_Khac" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_KeToan" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_ERP" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_QLVatTu" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_Luong" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_BanHang" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_GDDTTinh" Type="Int32" Nullable="false" />
+          <Property Name="CNTT_Khac" Type="Int32" Nullable="false" />
+          <Property Name="Khac_KeToan" Type="Int32" Nullable="false" />
+          <Property Name="Khac_ERP" Type="Int32" Nullable="false" />
+          <Property Name="Khac_QLVatTu" Type="Int32" Nullable="false" />
+          <Property Name="Khac_Luong" Type="Int32" Nullable="false" />
+          <Property Name="Khac_BanHang" Type="Int32" Nullable="false" />
+          <Property Name="Khac_GDDTTinh" Type="Int32" Nullable="false" />
+          <Property Name="Khac_Khac" Type="Int32" Nullable="false" />
+          <Property Name="TongMucDauTu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Success" Type="Byte" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -9996,6 +9996,13 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="UngDungCNTT_Huyen">
             <EntityTypeMapping TypeName="S4T_Model.UngDungCNTT_Huyen">
               <MappingFragment StoreEntitySet="UngDungCNTT_Huyen">
+                <ScalarProperty Name="SoUDMotCuaDienTu_Xa" ColumnName="SoUDMotCuaDienTu_Xa" />
+                <ScalarProperty Name="SoUDChuKySo_Xa" ColumnName="SoUDChuKySo_Xa" />
+                <ScalarProperty Name="SoUDQuanLyThanhTraKhieuNai_Xa" ColumnName="SoUDQuanLyThanhTraKhieuNai_Xa" />
+                <ScalarProperty Name="SoUDQuanLyCongSan_Xa" ColumnName="SoUDQuanLyCongSan_Xa" />
+                <ScalarProperty Name="SoUDTaiChinhKeToan_Xa" ColumnName="SoUDTaiChinhKeToan_Xa" />
+                <ScalarProperty Name="SoUDQuanLyNhanSu_Xa" ColumnName="SoUDQuanLyNhanSu_Xa" />
+                <ScalarProperty Name="SoUDQuanLyVanBan_Xa" ColumnName="SoUDQuanLyVanBan_Xa" />
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="TongSoVBDen" ColumnName="TongSoVBDen" />
                 <ScalarProperty Name="TongSoVBDi" ColumnName="TongSoVBDi" />
@@ -10003,13 +10010,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="SoVBDi" ColumnName="SoVBDi" />
                 <ScalarProperty Name="SoXaLienThongPhanMem" ColumnName="SoXaLienThongPhanMem" />
                 <ScalarProperty Name="SoTTHC_MotCuaDienTu_Xa" ColumnName="SoTTHC_MotCuaDienTu_Xa" />
-                <ScalarProperty Name="HasMotCuaDienTu_Xa" ColumnName="HasMotCuaDienTu_Xa" />
-                <ScalarProperty Name="HasChuKySo_Xa" ColumnName="HasChuKySo_Xa" />
-                <ScalarProperty Name="HasQuanLyThanhTraKhieuNai_Xa" ColumnName="HasQuanLyThanhTraKhieuNai_Xa" />
-                <ScalarProperty Name="HasQuanLyCongSan_Xa" ColumnName="HasQuanLyCongSan_Xa" />
-                <ScalarProperty Name="HasTaiChinhKeToan_Xa" ColumnName="HasTaiChinhKeToan_Xa" />
-                <ScalarProperty Name="HasQuanLyNhanSu_Xa" ColumnName="HasQuanLyNhanSu_Xa" />
-                <ScalarProperty Name="HasQuanLyVanBan_Xa" ColumnName="HasQuanLyVanBan_Xa" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
                 <ScalarProperty Name="Khac_Khac" ColumnName="Khac_Khac" />
@@ -10633,269 +10633,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewLichNhap_UngDungCNTTCapHuyen">
-            <EntityTypeMapping TypeName="S4T_Model.ViewLichNhap_UngDungCNTTCapHuyen">
-              <MappingFragment StoreEntitySet="ViewLichNhap_UngDungCNTTCapHuyen">
-                <ScalarProperty Name="Success" ColumnName="Success" />
-                <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
-                <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
-                <ScalarProperty Name="Khac_Khac" ColumnName="Khac_Khac" />
-                <ScalarProperty Name="Khac_GDDTTinh" ColumnName="Khac_GDDTTinh" />
-                <ScalarProperty Name="Khac_BanHang" ColumnName="Khac_BanHang" />
-                <ScalarProperty Name="Khac_Luong" ColumnName="Khac_Luong" />
-                <ScalarProperty Name="Khac_QLVatTu" ColumnName="Khac_QLVatTu" />
-                <ScalarProperty Name="Khac_ERP" ColumnName="Khac_ERP" />
-                <ScalarProperty Name="Khac_KeToan" ColumnName="Khac_KeToan" />
-                <ScalarProperty Name="CNTT_Khac" ColumnName="CNTT_Khac" />
-                <ScalarProperty Name="CNTT_GDDTTinh" ColumnName="CNTT_GDDTTinh" />
-                <ScalarProperty Name="CNTT_BanHang" ColumnName="CNTT_BanHang" />
-                <ScalarProperty Name="CNTT_Luong" ColumnName="CNTT_Luong" />
-                <ScalarProperty Name="CNTT_QLVatTu" ColumnName="CNTT_QLVatTu" />
-                <ScalarProperty Name="CNTT_ERP" ColumnName="CNTT_ERP" />
-                <ScalarProperty Name="CNTT_KeToan" ColumnName="CNTT_KeToan" />
-                <ScalarProperty Name="SuNghiep_Khac" ColumnName="SuNghiep_Khac" />
-                <ScalarProperty Name="SuNghiep_GDDTTinh" ColumnName="SuNghiep_GDDTTinh" />
-                <ScalarProperty Name="SuNghiep_BanHang" ColumnName="SuNghiep_BanHang" />
-                <ScalarProperty Name="SuNghiep_Luong" ColumnName="SuNghiep_Luong" />
-                <ScalarProperty Name="SuNghiep_QLVatTu" ColumnName="SuNghiep_QLVatTu" />
-                <ScalarProperty Name="SuNghiep_ERP" ColumnName="SuNghiep_ERP" />
-                <ScalarProperty Name="SuNghiep_KeToan" ColumnName="SuNghiep_KeToan" />
-                <ScalarProperty Name="UD_GiamDinhPhapY" ColumnName="UD_GiamDinhPhapY" />
-                <ScalarProperty Name="UD_GiamDinhYKhoa" ColumnName="UD_GiamDinhYKhoa" />
-                <ScalarProperty Name="UD_DPMyPham" ColumnName="UD_DPMyPham" />
-                <ScalarProperty Name="UD_TTSucKhoe" ColumnName="UD_TTSucKhoe" />
-                <ScalarProperty Name="UD_KHHGiaDinh" ColumnName="UD_KHHGiaDinh" />
-                <ScalarProperty Name="UD_AnToanVeSinhTP" ColumnName="UD_AnToanVeSinhTP" />
-                <ScalarProperty Name="TamThan_KhamTuXa" ColumnName="TamThan_KhamTuXa" />
-                <ScalarProperty Name="TamThan_QLCongSan" ColumnName="TamThan_QLCongSan" />
-                <ScalarProperty Name="TamThan_QLGiuongBenh" ColumnName="TamThan_QLGiuongBenh" />
-                <ScalarProperty Name="TamThan_QLThuoc" ColumnName="TamThan_QLThuoc" />
-                <ScalarProperty Name="TamThan_QLTacNghiep" ColumnName="TamThan_QLTacNghiep" />
-                <ScalarProperty Name="TamThan_QLBenhAn" ColumnName="TamThan_QLBenhAn" />
-                <ScalarProperty Name="TamThan_QLNhanSu" ColumnName="TamThan_QLNhanSu" />
-                <ScalarProperty Name="TamThan_QLTC" ColumnName="TamThan_QLTC" />
-                <ScalarProperty Name="TamThan_CongTTDT" ColumnName="TamThan_CongTTDT" />
-                <ScalarProperty Name="YHoc_KhamTuXa" ColumnName="YHoc_KhamTuXa" />
-                <ScalarProperty Name="YHoc_QLCongSan" ColumnName="YHoc_QLCongSan" />
-                <ScalarProperty Name="YHoc_GiuongBenh" ColumnName="YHoc_GiuongBenh" />
-                <ScalarProperty Name="YHoc_QLThuoc" ColumnName="YHoc_QLThuoc" />
-                <ScalarProperty Name="YHoc_QLTacNghiep" ColumnName="YHoc_QLTacNghiep" />
-                <ScalarProperty Name="YHoc_QLBenhAn" ColumnName="YHoc_QLBenhAn" />
-                <ScalarProperty Name="YHoc_QLNhanSu" ColumnName="YHoc_QLNhanSu" />
-                <ScalarProperty Name="YHoc_QLTC" ColumnName="YHoc_QLTC" />
-                <ScalarProperty Name="YHoc_CongTTDT" ColumnName="YHoc_CongTTDT" />
-                <ScalarProperty Name="LaoPhoi_KhamTuXa" ColumnName="LaoPhoi_KhamTuXa" />
-                <ScalarProperty Name="LaoPhoi_QLCongSan" ColumnName="LaoPhoi_QLCongSan" />
-                <ScalarProperty Name="LaoPhoi_QLGiuongBenh" ColumnName="LaoPhoi_QLGiuongBenh" />
-                <ScalarProperty Name="LaoPhoi_QLThuoc" ColumnName="LaoPhoi_QLThuoc" />
-                <ScalarProperty Name="LaoPhoi_QLTacNghiep" ColumnName="LaoPhoi_QLTacNghiep" />
-                <ScalarProperty Name="LaoPhoi_QLBenhAn" ColumnName="LaoPhoi_QLBenhAn" />
-                <ScalarProperty Name="LaoPhoi_QLNhanSu" ColumnName="LaoPhoi_QLNhanSu" />
-                <ScalarProperty Name="LaoPhoi_QLTC" ColumnName="LaoPhoi_QLTC" />
-                <ScalarProperty Name="LaoPhoi_CongTTDT" ColumnName="LaoPhoi_CongTTDT" />
-                <ScalarProperty Name="DieuDuong_KhamTuXa" ColumnName="DieuDuong_KhamTuXa" />
-                <ScalarProperty Name="DieuDuong_QLCongSan" ColumnName="DieuDuong_QLCongSan" />
-                <ScalarProperty Name="DieuDuong_QLGiuongBenh" ColumnName="DieuDuong_QLGiuongBenh" />
-                <ScalarProperty Name="DieuDuong_QLThuoc" ColumnName="DieuDuong_QLThuoc" />
-                <ScalarProperty Name="DieuDuong_QLTacNghiep" ColumnName="DieuDuong_QLTacNghiep" />
-                <ScalarProperty Name="DieuDuong_QLBenhAn" ColumnName="DieuDuong_QLBenhAn" />
-                <ScalarProperty Name="DieuDuong_QLNhanSu" ColumnName="DieuDuong_QLNhanSu" />
-                <ScalarProperty Name="DieuDuong_QLTC" ColumnName="DieuDuong_QLTC" />
-                <ScalarProperty Name="DieuDuong_CongTTDT" ColumnName="DieuDuong_CongTTDT" />
-                <ScalarProperty Name="DKTinh_KhamTuXa" ColumnName="DKTinh_KhamTuXa" />
-                <ScalarProperty Name="DKTinh_QLCongSan" ColumnName="DKTinh_QLCongSan" />
-                <ScalarProperty Name="DKTinh_QLGiuongBenh" ColumnName="DKTinh_QLGiuongBenh" />
-                <ScalarProperty Name="DKTinh_QLThuoc" ColumnName="DKTinh_QLThuoc" />
-                <ScalarProperty Name="DKTinh_QLTacNghiep" ColumnName="DKTinh_QLTacNghiep" />
-                <ScalarProperty Name="DKTinh_QLBenhAn" ColumnName="DKTinh_QLBenhAn" />
-                <ScalarProperty Name="DKTinh_QLNhanSu" ColumnName="DKTinh_QLNhanSu" />
-                <ScalarProperty Name="DKTinh_QLTC" ColumnName="DKTinh_QLTC" />
-                <ScalarProperty Name="DKTinh_CongTTDT" ColumnName="DKTinh_CongTTDT" />
-                <ScalarProperty Name="Mat_KhamTuXa" ColumnName="Mat_KhamTuXa" />
-                <ScalarProperty Name="Mat_QLCongSan" ColumnName="Mat_QLCongSan" />
-                <ScalarProperty Name="Mat_QLGiuongBenh" ColumnName="Mat_QLGiuongBenh" />
-                <ScalarProperty Name="Mat_QLThuoc" ColumnName="Mat_QLThuoc" />
-                <ScalarProperty Name="Mat_QLTacNghiep" ColumnName="Mat_QLTacNghiep" />
-                <ScalarProperty Name="Mat_QLBenhAn" ColumnName="Mat_QLBenhAn" />
-                <ScalarProperty Name="Mat_QLNhanSu" ColumnName="Mat_QLNhanSu" />
-                <ScalarProperty Name="Mat_QLTC" ColumnName="Mat_QLTC" />
-                <ScalarProperty Name="Mat_CongTTDT" ColumnName="Mat_CongTTDT" />
-                <ScalarProperty Name="DaLieu_KhamTuXa" ColumnName="DaLieu_KhamTuXa" />
-                <ScalarProperty Name="DaLieu_QLCongSan" ColumnName="DaLieu_QLCongSan" />
-                <ScalarProperty Name="DaLieu_QLGiuongBenh" ColumnName="DaLieu_QLGiuongBenh" />
-                <ScalarProperty Name="DaLieu_QLThuoc" ColumnName="DaLieu_QLThuoc" />
-                <ScalarProperty Name="DaLieu_QLTacNghiep" ColumnName="DaLieu_QLTacNghiep" />
-                <ScalarProperty Name="DaLieu_QLBenhAn" ColumnName="DaLieu_QLBenhAn" />
-                <ScalarProperty Name="DaLieu_QLNhanSu" ColumnName="DaLieu_QLNhanSu" />
-                <ScalarProperty Name="DaLieu_QLTC" ColumnName="DaLieu_QLTC" />
-                <ScalarProperty Name="DaLieu_CongTTDT" ColumnName="DaLieu_CongTTDT" />
-                <ScalarProperty Name="SinhSan_KhamTuXa" ColumnName="SinhSan_KhamTuXa" />
-                <ScalarProperty Name="SinhSan_QLCongSan" ColumnName="SinhSan_QLCongSan" />
-                <ScalarProperty Name="SinhSan_QLGiuongBenh" ColumnName="SinhSan_QLGiuongBenh" />
-                <ScalarProperty Name="SinhSan_QLThuoc" ColumnName="SinhSan_QLThuoc" />
-                <ScalarProperty Name="SinhSan_QLTacNghiep" ColumnName="SinhSan_QLTacNghiep" />
-                <ScalarProperty Name="SinhSan_QLBenhAn" ColumnName="SinhSan_QLBenhAn" />
-                <ScalarProperty Name="SinhSan_QLNhanSu" ColumnName="SinhSan_QLNhanSu" />
-                <ScalarProperty Name="SinhSan_QLTC" ColumnName="SinhSan_QLTC" />
-                <ScalarProperty Name="SinhSan_CongTTDT" ColumnName="SinhSan_CongTTDT" />
-                <ScalarProperty Name="HIVAIDS_KhamTuXa" ColumnName="HIVAIDS_KhamTuXa" />
-                <ScalarProperty Name="HIVAIDS_QLCongSan" ColumnName="HIVAIDS_QLCongSan" />
-                <ScalarProperty Name="HIVAIDS_QLGiuongBenh" ColumnName="HIVAIDS_QLGiuongBenh" />
-                <ScalarProperty Name="HIVAIDS_QLThuoc" ColumnName="HIVAIDS_QLThuoc" />
-                <ScalarProperty Name="HIVAIDS_QLTacNghiep" ColumnName="HIVAIDS_QLTacNghiep" />
-                <ScalarProperty Name="HIVAIDS_QLBenhAn" ColumnName="HIVAIDS_QLBenhAn" />
-                <ScalarProperty Name="HIVAIDS_QLNhanSu" ColumnName="HIVAIDS_QLNhanSu" />
-                <ScalarProperty Name="HIVAIDS_QLTC" ColumnName="HIVAIDS_QLTC" />
-                <ScalarProperty Name="HIVAIDS_CongTTDT" ColumnName="HIVAIDS_CongTTDT" />
-                <ScalarProperty Name="SotRet_KhamTuXa" ColumnName="SotRet_KhamTuXa" />
-                <ScalarProperty Name="SotRet_QLCongSan" ColumnName="SotRet_QLCongSan" />
-                <ScalarProperty Name="SotRet_QLGiuongBenh" ColumnName="SotRet_QLGiuongBenh" />
-                <ScalarProperty Name="SotRet_QLThuoc" ColumnName="SotRet_QLThuoc" />
-                <ScalarProperty Name="SotRet_QLTacNghiep" ColumnName="SotRet_QLTacNghiep" />
-                <ScalarProperty Name="SotRet_QLBenhAn" ColumnName="SotRet_QLBenhAn" />
-                <ScalarProperty Name="SotRet_QLNhanSu" ColumnName="SotRet_QLNhanSu" />
-                <ScalarProperty Name="SotRet_QLTC" ColumnName="SotRet_QLTC" />
-                <ScalarProperty Name="SotRet_CongTTDT" ColumnName="SotRet_CongTTDT" />
-                <ScalarProperty Name="DuPhong_KhamTuXa" ColumnName="DuPhong_KhamTuXa" />
-                <ScalarProperty Name="DuPhong_QLCongSan" ColumnName="DuPhong_QLCongSan" />
-                <ScalarProperty Name="DuPhong_QLGiuongBenh" ColumnName="DuPhong_QLGiuongBenh" />
-                <ScalarProperty Name="DuPhong_QLThuoc" ColumnName="DuPhong_QLThuoc" />
-                <ScalarProperty Name="DuPhong_QLTacNghiep" ColumnName="DuPhong_QLTacNghiep" />
-                <ScalarProperty Name="DuPhong_QLBenhAn" ColumnName="DuPhong_QLBenhAn" />
-                <ScalarProperty Name="DuPhong_QLNhanSu" ColumnName="DuPhong_QLNhanSu" />
-                <ScalarProperty Name="DuPhong_QLTC" ColumnName="DuPhong_QLTC" />
-                <ScalarProperty Name="DuPhong_CongTTDT" ColumnName="DuPhong_CongTTDT" />
-                <ScalarProperty Name="BenhVien_KhamTuXa" ColumnName="BenhVien_KhamTuXa" />
-                <ScalarProperty Name="BenhVien_QLCongSan" ColumnName="BenhVien_QLCongSan" />
-                <ScalarProperty Name="BenhVien_QLGiuongBenh" ColumnName="BenhVien_QLGiuongBenh" />
-                <ScalarProperty Name="BenhVien_QLThuoc" ColumnName="BenhVien_QLThuoc" />
-                <ScalarProperty Name="BenhVien_QLTacNghiep" ColumnName="BenhVien_QLTacNghiep" />
-                <ScalarProperty Name="BenhVien_QLBenhAn" ColumnName="BenhVien_QLBenhAn" />
-                <ScalarProperty Name="BenhVien_QLNhanSu" ColumnName="BenhVien_QLNhanSu" />
-                <ScalarProperty Name="BenhVien_QLTC" ColumnName="BenhVien_QLTC" />
-                <ScalarProperty Name="BenhVien_CongTTDT" ColumnName="BenhVien_CongTTDT" />
-                <ScalarProperty Name="TramXa_KhamTuXa" ColumnName="TramXa_KhamTuXa" />
-                <ScalarProperty Name="TramXa_QLCongSan" ColumnName="TramXa_QLCongSan" />
-                <ScalarProperty Name="TramXa_QLGiuongBenh" ColumnName="TramXa_QLGiuongBenh" />
-                <ScalarProperty Name="TramXa_QLThuoc" ColumnName="TramXa_QLThuoc" />
-                <ScalarProperty Name="TramXa_QLTacNghiep" ColumnName="TramXa_QLTacNghiep" />
-                <ScalarProperty Name="TramXa_QLBenhAn" ColumnName="TramXa_QLBenhAn" />
-                <ScalarProperty Name="TramXa_QLNhanSu" ColumnName="TramXa_QLNhanSu" />
-                <ScalarProperty Name="TramXa_QLTC" ColumnName="TramXa_QLTC" />
-                <ScalarProperty Name="TramXa_CongTTDT" ColumnName="TramXa_CongTTDT" />
-                <ScalarProperty Name="Khac_QLThi" ColumnName="Khac_QLThi" />
-                <ScalarProperty Name="Khac_DeTaiKH" ColumnName="Khac_DeTaiKH" />
-                <ScalarProperty Name="Khac_QLThuVien" ColumnName="Khac_QLThuVien" />
-                <ScalarProperty Name="Khac_QLHSSV" ColumnName="Khac_QLHSSV" />
-                <ScalarProperty Name="Khac_QLGiangDay" ColumnName="Khac_QLGiangDay" />
-                <ScalarProperty Name="Khac_CongSan" ColumnName="Khac_CongSan" />
-                <ScalarProperty Name="Khac_QLTaiChinh" ColumnName="Khac_QLTaiChinh" />
-                <ScalarProperty Name="Khac_CongTTDT" ColumnName="Khac_CongTTDT" />
-                <ScalarProperty Name="DaiHoc_QLThi" ColumnName="DaiHoc_QLThi" />
-                <ScalarProperty Name="DaiHoc_DeTaiKH" ColumnName="DaiHoc_DeTaiKH" />
-                <ScalarProperty Name="DaiHoc_QLThuVien" ColumnName="DaiHoc_QLThuVien" />
-                <ScalarProperty Name="DaiHoc_QLHSSV" ColumnName="DaiHoc_QLHSSV" />
-                <ScalarProperty Name="DaiHoc_QLGiangDay" ColumnName="DaiHoc_QLGiangDay" />
-                <ScalarProperty Name="DaiHoc_CongSan" ColumnName="DaiHoc_CongSan" />
-                <ScalarProperty Name="DaiHoc_QLTaiChinh" ColumnName="DaiHoc_QLTaiChinh" />
-                <ScalarProperty Name="DaiHoc_CongTTDT" ColumnName="DaiHoc_CongTTDT" />
-                <ScalarProperty Name="CaoDang_QLThi" ColumnName="CaoDang_QLThi" />
-                <ScalarProperty Name="CaoDang_DeTaiKH" ColumnName="CaoDang_DeTaiKH" />
-                <ScalarProperty Name="CaoDang_QLThuVien" ColumnName="CaoDang_QLThuVien" />
-                <ScalarProperty Name="CaoDang_QLHSSV" ColumnName="CaoDang_QLHSSV" />
-                <ScalarProperty Name="CaoDang_QLGiangDay" ColumnName="CaoDang_QLGiangDay" />
-                <ScalarProperty Name="CaoDang_CongSan" ColumnName="CaoDang_CongSan" />
-                <ScalarProperty Name="CaoDang_QLTaiChinh" ColumnName="CaoDang_QLTaiChinh" />
-                <ScalarProperty Name="CaoDang_CongTTDT" ColumnName="CaoDang_CongTTDT" />
-                <ScalarProperty Name="TrungCap_QLThi" ColumnName="TrungCap_QLThi" />
-                <ScalarProperty Name="TrungCap_DeTaiKH" ColumnName="TrungCap_DeTaiKH" />
-                <ScalarProperty Name="TrungCap_QLThuVien" ColumnName="TrungCap_QLThuVien" />
-                <ScalarProperty Name="TrungCap_QLHSSV" ColumnName="TrungCap_QLHSSV" />
-                <ScalarProperty Name="TrungCap_QLGiangDay" ColumnName="TrungCap_QLGiangDay" />
-                <ScalarProperty Name="TrungCap_CongSan" ColumnName="TrungCap_CongSan" />
-                <ScalarProperty Name="TrungCap_QLTaiChinh" ColumnName="TrungCap_QLTaiChinh" />
-                <ScalarProperty Name="TrungCap_CongTTDT" ColumnName="TrungCap_CongTTDT" />
-                <ScalarProperty Name="THPT_QLThi" ColumnName="THPT_QLThi" />
-                <ScalarProperty Name="THPT_DeTaiKH" ColumnName="THPT_DeTaiKH" />
-                <ScalarProperty Name="THPT_QLThuVien" ColumnName="THPT_QLThuVien" />
-                <ScalarProperty Name="THPT_QLHSSV" ColumnName="THPT_QLHSSV" />
-                <ScalarProperty Name="THPT_QLGiangDay" ColumnName="THPT_QLGiangDay" />
-                <ScalarProperty Name="THPT_CongSan" ColumnName="THPT_CongSan" />
-                <ScalarProperty Name="THPT_QLTaiChinh" ColumnName="THPT_QLTaiChinh" />
-                <ScalarProperty Name="THPT_CongTTDT" ColumnName="THPT_CongTTDT" />
-                <ScalarProperty Name="THCS_QLThi" ColumnName="THCS_QLThi" />
-                <ScalarProperty Name="THCS_DeTaiKH" ColumnName="THCS_DeTaiKH" />
-                <ScalarProperty Name="THCS_QLThuVien" ColumnName="THCS_QLThuVien" />
-                <ScalarProperty Name="THCS_QLHSSV" ColumnName="THCS_QLHSSV" />
-                <ScalarProperty Name="THCS_QLGiangDay" ColumnName="THCS_QLGiangDay" />
-                <ScalarProperty Name="THCS_CongSan" ColumnName="THCS_CongSan" />
-                <ScalarProperty Name="THCS_QLTaiChinh" ColumnName="THCS_QLTaiChinh" />
-                <ScalarProperty Name="THCS_CongTTDT" ColumnName="THCS_CongTTDT" />
-                <ScalarProperty Name="TieuHoc_QLThi" ColumnName="TieuHoc_QLThi" />
-                <ScalarProperty Name="TieuHoc_DeTaiKH" ColumnName="TieuHoc_DeTaiKH" />
-                <ScalarProperty Name="TieuHoc_QLThuVien" ColumnName="TieuHoc_QLThuVien" />
-                <ScalarProperty Name="TieuHoc_QLHSSV" ColumnName="TieuHoc_QLHSSV" />
-                <ScalarProperty Name="TieuHoc_QLGiangDay" ColumnName="TieuHoc_QLGiangDay" />
-                <ScalarProperty Name="TieuHoc_QLCongSan" ColumnName="TieuHoc_QLCongSan" />
-                <ScalarProperty Name="TieuHoc_QLTaiChinh" ColumnName="TieuHoc_QLTaiChinh" />
-                <ScalarProperty Name="TieuHoc_CongTTDT" ColumnName="TieuHoc_CongTTDT" />
-                <ScalarProperty Name="MamNon_QLThi" ColumnName="MamNon_QLThi" />
-                <ScalarProperty Name="MamNon_DeTaiKH" ColumnName="MamNon_DeTaiKH" />
-                <ScalarProperty Name="MamNon_QLThuVien" ColumnName="MamNon_QLThuVien" />
-                <ScalarProperty Name="MamNon_QLHSSV" ColumnName="MamNon_QLHSSV" />
-                <ScalarProperty Name="MamNon_QLGiangDay" ColumnName="MamNon_QLGiangDay" />
-                <ScalarProperty Name="MamNon_QLCongSan" ColumnName="MamNon_QLCongSan" />
-                <ScalarProperty Name="MamNon_QLTaiChinh" ColumnName="MamNon_QLTaiChinh" />
-                <ScalarProperty Name="MamNon_CongTTDT" ColumnName="MamNon_CongTTDT" />
-                <ScalarProperty Name="TongSoCBCCCapXaDungMail" ColumnName="TongSoCBCCCapXaDungMail" />
-                <ScalarProperty Name="TongSoCBCCCapHuyenDungMail" ColumnName="TongSoCBCCCapHuyenDungMail" />
-                <ScalarProperty Name="HasMayChuCaiHeDieuHanhPMNM" ColumnName="HasMayChuCaiHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasHeDieuHanhPMNM" ColumnName="HasHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasUnikey" ColumnName="HasUnikey" />
-                <ScalarProperty Name="HasFirefox" ColumnName="HasFirefox" />
-                <ScalarProperty Name="HasMozilla" ColumnName="HasMozilla" />
-                <ScalarProperty Name="HasOpenOffice" ColumnName="HasOpenOffice" />
-                <ScalarProperty Name="TongSoVBDen" ColumnName="TongSoVBDen" />
-                <ScalarProperty Name="TongSoVBDi" ColumnName="TongSoVBDi" />
-                <ScalarProperty Name="SoVBDen" ColumnName="SoVBDen" />
-                <ScalarProperty Name="SoVBDi" ColumnName="SoVBDi" />
-                <ScalarProperty Name="SoXaLienThongPhanMem" ColumnName="SoXaLienThongPhanMem" />
-                <ScalarProperty Name="SoTTHC_MotCuaDienTu_Xa" ColumnName="SoTTHC_MotCuaDienTu_Xa" />
-                <ScalarProperty Name="HasMotCuaDienTu_Xa" ColumnName="HasMotCuaDienTu_Xa" />
-                <ScalarProperty Name="HasChuKySo_Xa" ColumnName="HasChuKySo_Xa" />
-                <ScalarProperty Name="HasQuanLyThanhTraKhieuNai_Xa" ColumnName="HasQuanLyThanhTraKhieuNai_Xa" />
-                <ScalarProperty Name="HasQuanLyCongSan_Xa" ColumnName="HasQuanLyCongSan_Xa" />
-                <ScalarProperty Name="HasTaiChinhKeToan_Xa" ColumnName="HasTaiChinhKeToan_Xa" />
-                <ScalarProperty Name="HasQuanLyNhanSu_Xa" ColumnName="HasQuanLyNhanSu_Xa" />
-                <ScalarProperty Name="HasQuanLyVanBan_Xa" ColumnName="HasQuanLyVanBan_Xa" />
-                <ScalarProperty Name="DonViLapTrinhPhanMem" ColumnName="DonViLapTrinhPhanMem" />
-                <ScalarProperty Name="BatDauSuDung" ColumnName="BatDauSuDung" />
-                <ScalarProperty Name="PhamViSuDung" ColumnName="PhamViSuDung" />
-                <ScalarProperty Name="ChucNang" ColumnName="ChucNang" />
-                <ScalarProperty Name="TenPhanMem" ColumnName="TenPhanMem" />
-                <ScalarProperty Name="SoTTHC_MotCuaDienTu" ColumnName="SoTTHC_MotCuaDienTu" />
-                <ScalarProperty Name="HasMotCuaDienTu" ColumnName="HasMotCuaDienTu" />
-                <ScalarProperty Name="HasChuKySo" ColumnName="HasChuKySo" />
-                <ScalarProperty Name="HasQuanLyThanhTraKhieuNai" ColumnName="HasQuanLyThanhTraKhieuNai" />
-                <ScalarProperty Name="HasQuanLyCongSan" ColumnName="HasQuanLyCongSan" />
-                <ScalarProperty Name="HasTaiChinhKeToan" ColumnName="HasTaiChinhKeToan" />
-                <ScalarProperty Name="HasQuanLyNhanSu" ColumnName="HasQuanLyNhanSu" />
-                <ScalarProperty Name="HasQuanLyVanBan" ColumnName="HasQuanLyVanBan" />
-                <ScalarProperty Name="DonVi_ID" ColumnName="DonVi_ID" />
-                <ScalarProperty Name="LichNhap_ID" ColumnName="LichNhap_ID" />
-                <ScalarProperty Name="UngDungCNTTHuyen_ID" ColumnName="UngDungCNTTHuyen_ID" />
-                <ScalarProperty Name="ChucNang_ID" ColumnName="ChucNang_ID" />
-                <ScalarProperty Name="Nam" ColumnName="Nam" />
-                <ScalarProperty Name="DotBaoCao_ID" ColumnName="DotBaoCao_ID" />
-                <ScalarProperty Name="SoCB_DVTT" ColumnName="SoCB_DVTT" />
-                <ScalarProperty Name="SoDonViTrucThuoc" ColumnName="SoDonViTrucThuoc" />
-                <ScalarProperty Name="SoCBCC" ColumnName="SoCBCC" />
-                <ScalarProperty Name="DonViCap1_ID" ColumnName="DonViCap1_ID" />
-                <ScalarProperty Name="NhomDonVi_ID" ColumnName="NhomDonVi_ID" />
-                <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_GetCongThongTinDienTuCapHuyen" FunctionName="S4T_Model.Store.sp_GetCongThongTinDienTuCapHuyen">
             <ResultMapping>
               <ComplexTypeMapping TypeName="S4T_Model.sp_GetCongThongTinDienTuCapHuyen_Result">
@@ -11253,13 +10990,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="PhamViSuDung" ColumnName="PhamViSuDung" />
                 <ScalarProperty Name="BatDauSuDung" ColumnName="BatDauSuDung" />
                 <ScalarProperty Name="DonViLapTrinhPhanMem" ColumnName="DonViLapTrinhPhanMem" />
-                <ScalarProperty Name="HasQuanLyVanBan_Xa" ColumnName="HasQuanLyVanBan_Xa" />
-                <ScalarProperty Name="HasQuanLyNhanSu_Xa" ColumnName="HasQuanLyNhanSu_Xa" />
-                <ScalarProperty Name="HasTaiChinhKeToan_Xa" ColumnName="HasTaiChinhKeToan_Xa" />
-                <ScalarProperty Name="HasQuanLyCongSan_Xa" ColumnName="HasQuanLyCongSan_Xa" />
-                <ScalarProperty Name="HasQuanLyThanhTraKhieuNai_Xa" ColumnName="HasQuanLyThanhTraKhieuNai_Xa" />
-                <ScalarProperty Name="HasChuKySo_Xa" ColumnName="HasChuKySo_Xa" />
-                <ScalarProperty Name="HasMotCuaDienTu_Xa" ColumnName="HasMotCuaDienTu_Xa" />
                 <ScalarProperty Name="SoTTHC_MotCuaDienTu_Xa" ColumnName="SoTTHC_MotCuaDienTu_Xa" />
                 <ScalarProperty Name="SoXaLienThongPhanMem" ColumnName="SoXaLienThongPhanMem" />
                 <ScalarProperty Name="SoVBDi" ColumnName="SoVBDi" />
@@ -11485,9 +11215,279 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="SoUDQuanLyVanBan_Xa" ColumnName="SoUDQuanLyVanBan_Xa" />
+                <ScalarProperty Name="SoUDQuanLyNhanSu_Xa" ColumnName="SoUDQuanLyNhanSu_Xa" />
+                <ScalarProperty Name="SoUDTaiChinhKeToan_Xa" ColumnName="SoUDTaiChinhKeToan_Xa" />
+                <ScalarProperty Name="SoUDQuanLyCongSan_Xa" ColumnName="SoUDQuanLyCongSan_Xa" />
+                <ScalarProperty Name="SoUDQuanLyThanhTraKhieuNai_Xa" ColumnName="SoUDQuanLyThanhTraKhieuNai_Xa" />
+                <ScalarProperty Name="SoUDChuKySo_Xa" ColumnName="SoUDChuKySo_Xa" />
+                <ScalarProperty Name="SoUDMotCuaDienTu_Xa" ColumnName="SoUDMotCuaDienTu_Xa" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="ViewLichNhap_UngDungCNTTCapHuyen">
+            <EntityTypeMapping TypeName="S4T_Model.ViewLichNhap_UngDungCNTTCapHuyen">
+              <MappingFragment StoreEntitySet="ViewLichNhap_UngDungCNTTCapHuyen">
+                <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
+                <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
+                <ScalarProperty Name="Khac_Khac" ColumnName="Khac_Khac" />
+                <ScalarProperty Name="Khac_GDDTTinh" ColumnName="Khac_GDDTTinh" />
+                <ScalarProperty Name="Khac_BanHang" ColumnName="Khac_BanHang" />
+                <ScalarProperty Name="Khac_Luong" ColumnName="Khac_Luong" />
+                <ScalarProperty Name="Khac_QLVatTu" ColumnName="Khac_QLVatTu" />
+                <ScalarProperty Name="Khac_ERP" ColumnName="Khac_ERP" />
+                <ScalarProperty Name="Khac_KeToan" ColumnName="Khac_KeToan" />
+                <ScalarProperty Name="CNTT_Khac" ColumnName="CNTT_Khac" />
+                <ScalarProperty Name="CNTT_GDDTTinh" ColumnName="CNTT_GDDTTinh" />
+                <ScalarProperty Name="CNTT_BanHang" ColumnName="CNTT_BanHang" />
+                <ScalarProperty Name="CNTT_Luong" ColumnName="CNTT_Luong" />
+                <ScalarProperty Name="CNTT_QLVatTu" ColumnName="CNTT_QLVatTu" />
+                <ScalarProperty Name="CNTT_ERP" ColumnName="CNTT_ERP" />
+                <ScalarProperty Name="CNTT_KeToan" ColumnName="CNTT_KeToan" />
+                <ScalarProperty Name="SuNghiep_Khac" ColumnName="SuNghiep_Khac" />
+                <ScalarProperty Name="SuNghiep_GDDTTinh" ColumnName="SuNghiep_GDDTTinh" />
+                <ScalarProperty Name="SuNghiep_BanHang" ColumnName="SuNghiep_BanHang" />
+                <ScalarProperty Name="SuNghiep_Luong" ColumnName="SuNghiep_Luong" />
+                <ScalarProperty Name="SuNghiep_QLVatTu" ColumnName="SuNghiep_QLVatTu" />
+                <ScalarProperty Name="SuNghiep_ERP" ColumnName="SuNghiep_ERP" />
+                <ScalarProperty Name="SuNghiep_KeToan" ColumnName="SuNghiep_KeToan" />
+                <ScalarProperty Name="UD_GiamDinhPhapY" ColumnName="UD_GiamDinhPhapY" />
+                <ScalarProperty Name="UD_GiamDinhYKhoa" ColumnName="UD_GiamDinhYKhoa" />
+                <ScalarProperty Name="UD_DPMyPham" ColumnName="UD_DPMyPham" />
+                <ScalarProperty Name="UD_TTSucKhoe" ColumnName="UD_TTSucKhoe" />
+                <ScalarProperty Name="UD_KHHGiaDinh" ColumnName="UD_KHHGiaDinh" />
+                <ScalarProperty Name="UD_AnToanVeSinhTP" ColumnName="UD_AnToanVeSinhTP" />
+                <ScalarProperty Name="TamThan_KhamTuXa" ColumnName="TamThan_KhamTuXa" />
+                <ScalarProperty Name="TamThan_QLCongSan" ColumnName="TamThan_QLCongSan" />
+                <ScalarProperty Name="TamThan_QLGiuongBenh" ColumnName="TamThan_QLGiuongBenh" />
+                <ScalarProperty Name="TamThan_QLThuoc" ColumnName="TamThan_QLThuoc" />
+                <ScalarProperty Name="TamThan_QLTacNghiep" ColumnName="TamThan_QLTacNghiep" />
+                <ScalarProperty Name="TamThan_QLBenhAn" ColumnName="TamThan_QLBenhAn" />
+                <ScalarProperty Name="TamThan_QLNhanSu" ColumnName="TamThan_QLNhanSu" />
+                <ScalarProperty Name="TamThan_QLTC" ColumnName="TamThan_QLTC" />
+                <ScalarProperty Name="TamThan_CongTTDT" ColumnName="TamThan_CongTTDT" />
+                <ScalarProperty Name="YHoc_KhamTuXa" ColumnName="YHoc_KhamTuXa" />
+                <ScalarProperty Name="YHoc_QLCongSan" ColumnName="YHoc_QLCongSan" />
+                <ScalarProperty Name="YHoc_GiuongBenh" ColumnName="YHoc_GiuongBenh" />
+                <ScalarProperty Name="YHoc_QLThuoc" ColumnName="YHoc_QLThuoc" />
+                <ScalarProperty Name="YHoc_QLTacNghiep" ColumnName="YHoc_QLTacNghiep" />
+                <ScalarProperty Name="YHoc_QLBenhAn" ColumnName="YHoc_QLBenhAn" />
+                <ScalarProperty Name="YHoc_QLNhanSu" ColumnName="YHoc_QLNhanSu" />
+                <ScalarProperty Name="YHoc_QLTC" ColumnName="YHoc_QLTC" />
+                <ScalarProperty Name="YHoc_CongTTDT" ColumnName="YHoc_CongTTDT" />
+                <ScalarProperty Name="LaoPhoi_KhamTuXa" ColumnName="LaoPhoi_KhamTuXa" />
+                <ScalarProperty Name="LaoPhoi_QLCongSan" ColumnName="LaoPhoi_QLCongSan" />
+                <ScalarProperty Name="LaoPhoi_QLGiuongBenh" ColumnName="LaoPhoi_QLGiuongBenh" />
+                <ScalarProperty Name="LaoPhoi_QLThuoc" ColumnName="LaoPhoi_QLThuoc" />
+                <ScalarProperty Name="LaoPhoi_QLTacNghiep" ColumnName="LaoPhoi_QLTacNghiep" />
+                <ScalarProperty Name="LaoPhoi_QLBenhAn" ColumnName="LaoPhoi_QLBenhAn" />
+                <ScalarProperty Name="LaoPhoi_QLNhanSu" ColumnName="LaoPhoi_QLNhanSu" />
+                <ScalarProperty Name="LaoPhoi_QLTC" ColumnName="LaoPhoi_QLTC" />
+                <ScalarProperty Name="LaoPhoi_CongTTDT" ColumnName="LaoPhoi_CongTTDT" />
+                <ScalarProperty Name="DieuDuong_KhamTuXa" ColumnName="DieuDuong_KhamTuXa" />
+                <ScalarProperty Name="DieuDuong_QLCongSan" ColumnName="DieuDuong_QLCongSan" />
+                <ScalarProperty Name="DieuDuong_QLGiuongBenh" ColumnName="DieuDuong_QLGiuongBenh" />
+                <ScalarProperty Name="DieuDuong_QLThuoc" ColumnName="DieuDuong_QLThuoc" />
+                <ScalarProperty Name="DieuDuong_QLTacNghiep" ColumnName="DieuDuong_QLTacNghiep" />
+                <ScalarProperty Name="DieuDuong_QLBenhAn" ColumnName="DieuDuong_QLBenhAn" />
+                <ScalarProperty Name="DieuDuong_QLNhanSu" ColumnName="DieuDuong_QLNhanSu" />
+                <ScalarProperty Name="DieuDuong_QLTC" ColumnName="DieuDuong_QLTC" />
+                <ScalarProperty Name="DieuDuong_CongTTDT" ColumnName="DieuDuong_CongTTDT" />
+                <ScalarProperty Name="DKTinh_KhamTuXa" ColumnName="DKTinh_KhamTuXa" />
+                <ScalarProperty Name="DKTinh_QLCongSan" ColumnName="DKTinh_QLCongSan" />
+                <ScalarProperty Name="DKTinh_QLGiuongBenh" ColumnName="DKTinh_QLGiuongBenh" />
+                <ScalarProperty Name="DKTinh_QLThuoc" ColumnName="DKTinh_QLThuoc" />
+                <ScalarProperty Name="DKTinh_QLTacNghiep" ColumnName="DKTinh_QLTacNghiep" />
+                <ScalarProperty Name="DKTinh_QLBenhAn" ColumnName="DKTinh_QLBenhAn" />
+                <ScalarProperty Name="DKTinh_QLNhanSu" ColumnName="DKTinh_QLNhanSu" />
+                <ScalarProperty Name="DKTinh_QLTC" ColumnName="DKTinh_QLTC" />
+                <ScalarProperty Name="DKTinh_CongTTDT" ColumnName="DKTinh_CongTTDT" />
+                <ScalarProperty Name="Mat_KhamTuXa" ColumnName="Mat_KhamTuXa" />
+                <ScalarProperty Name="Mat_QLCongSan" ColumnName="Mat_QLCongSan" />
+                <ScalarProperty Name="Mat_QLGiuongBenh" ColumnName="Mat_QLGiuongBenh" />
+                <ScalarProperty Name="Mat_QLThuoc" ColumnName="Mat_QLThuoc" />
+                <ScalarProperty Name="Mat_QLTacNghiep" ColumnName="Mat_QLTacNghiep" />
+                <ScalarProperty Name="Mat_QLBenhAn" ColumnName="Mat_QLBenhAn" />
+                <ScalarProperty Name="Mat_QLNhanSu" ColumnName="Mat_QLNhanSu" />
+                <ScalarProperty Name="Mat_QLTC" ColumnName="Mat_QLTC" />
+                <ScalarProperty Name="Mat_CongTTDT" ColumnName="Mat_CongTTDT" />
+                <ScalarProperty Name="DaLieu_KhamTuXa" ColumnName="DaLieu_KhamTuXa" />
+                <ScalarProperty Name="DaLieu_QLCongSan" ColumnName="DaLieu_QLCongSan" />
+                <ScalarProperty Name="DaLieu_QLGiuongBenh" ColumnName="DaLieu_QLGiuongBenh" />
+                <ScalarProperty Name="DaLieu_QLThuoc" ColumnName="DaLieu_QLThuoc" />
+                <ScalarProperty Name="DaLieu_QLTacNghiep" ColumnName="DaLieu_QLTacNghiep" />
+                <ScalarProperty Name="DaLieu_QLBenhAn" ColumnName="DaLieu_QLBenhAn" />
+                <ScalarProperty Name="DaLieu_QLNhanSu" ColumnName="DaLieu_QLNhanSu" />
+                <ScalarProperty Name="DaLieu_QLTC" ColumnName="DaLieu_QLTC" />
+                <ScalarProperty Name="DaLieu_CongTTDT" ColumnName="DaLieu_CongTTDT" />
+                <ScalarProperty Name="SinhSan_KhamTuXa" ColumnName="SinhSan_KhamTuXa" />
+                <ScalarProperty Name="SinhSan_QLCongSan" ColumnName="SinhSan_QLCongSan" />
+                <ScalarProperty Name="SinhSan_QLGiuongBenh" ColumnName="SinhSan_QLGiuongBenh" />
+                <ScalarProperty Name="SinhSan_QLThuoc" ColumnName="SinhSan_QLThuoc" />
+                <ScalarProperty Name="SinhSan_QLTacNghiep" ColumnName="SinhSan_QLTacNghiep" />
+                <ScalarProperty Name="SinhSan_QLBenhAn" ColumnName="SinhSan_QLBenhAn" />
+                <ScalarProperty Name="SinhSan_QLNhanSu" ColumnName="SinhSan_QLNhanSu" />
+                <ScalarProperty Name="SinhSan_QLTC" ColumnName="SinhSan_QLTC" />
+                <ScalarProperty Name="SinhSan_CongTTDT" ColumnName="SinhSan_CongTTDT" />
+                <ScalarProperty Name="HIVAIDS_KhamTuXa" ColumnName="HIVAIDS_KhamTuXa" />
+                <ScalarProperty Name="HIVAIDS_QLCongSan" ColumnName="HIVAIDS_QLCongSan" />
+                <ScalarProperty Name="HIVAIDS_QLGiuongBenh" ColumnName="HIVAIDS_QLGiuongBenh" />
+                <ScalarProperty Name="HIVAIDS_QLThuoc" ColumnName="HIVAIDS_QLThuoc" />
+                <ScalarProperty Name="HIVAIDS_QLTacNghiep" ColumnName="HIVAIDS_QLTacNghiep" />
+                <ScalarProperty Name="HIVAIDS_QLBenhAn" ColumnName="HIVAIDS_QLBenhAn" />
+                <ScalarProperty Name="HIVAIDS_QLNhanSu" ColumnName="HIVAIDS_QLNhanSu" />
+                <ScalarProperty Name="HIVAIDS_QLTC" ColumnName="HIVAIDS_QLTC" />
+                <ScalarProperty Name="HIVAIDS_CongTTDT" ColumnName="HIVAIDS_CongTTDT" />
+                <ScalarProperty Name="SotRet_KhamTuXa" ColumnName="SotRet_KhamTuXa" />
+                <ScalarProperty Name="SotRet_QLCongSan" ColumnName="SotRet_QLCongSan" />
+                <ScalarProperty Name="SotRet_QLGiuongBenh" ColumnName="SotRet_QLGiuongBenh" />
+                <ScalarProperty Name="SotRet_QLThuoc" ColumnName="SotRet_QLThuoc" />
+                <ScalarProperty Name="SotRet_QLTacNghiep" ColumnName="SotRet_QLTacNghiep" />
+                <ScalarProperty Name="SotRet_QLBenhAn" ColumnName="SotRet_QLBenhAn" />
+                <ScalarProperty Name="SotRet_QLNhanSu" ColumnName="SotRet_QLNhanSu" />
+                <ScalarProperty Name="SotRet_QLTC" ColumnName="SotRet_QLTC" />
+                <ScalarProperty Name="SotRet_CongTTDT" ColumnName="SotRet_CongTTDT" />
+                <ScalarProperty Name="DuPhong_KhamTuXa" ColumnName="DuPhong_KhamTuXa" />
+                <ScalarProperty Name="DuPhong_QLCongSan" ColumnName="DuPhong_QLCongSan" />
+                <ScalarProperty Name="DuPhong_QLGiuongBenh" ColumnName="DuPhong_QLGiuongBenh" />
+                <ScalarProperty Name="DuPhong_QLThuoc" ColumnName="DuPhong_QLThuoc" />
+                <ScalarProperty Name="DuPhong_QLTacNghiep" ColumnName="DuPhong_QLTacNghiep" />
+                <ScalarProperty Name="DuPhong_QLBenhAn" ColumnName="DuPhong_QLBenhAn" />
+                <ScalarProperty Name="DuPhong_QLNhanSu" ColumnName="DuPhong_QLNhanSu" />
+                <ScalarProperty Name="DuPhong_QLTC" ColumnName="DuPhong_QLTC" />
+                <ScalarProperty Name="DuPhong_CongTTDT" ColumnName="DuPhong_CongTTDT" />
+                <ScalarProperty Name="BenhVien_KhamTuXa" ColumnName="BenhVien_KhamTuXa" />
+                <ScalarProperty Name="BenhVien_QLCongSan" ColumnName="BenhVien_QLCongSan" />
+                <ScalarProperty Name="BenhVien_QLGiuongBenh" ColumnName="BenhVien_QLGiuongBenh" />
+                <ScalarProperty Name="BenhVien_QLThuoc" ColumnName="BenhVien_QLThuoc" />
+                <ScalarProperty Name="BenhVien_QLTacNghiep" ColumnName="BenhVien_QLTacNghiep" />
+                <ScalarProperty Name="BenhVien_QLBenhAn" ColumnName="BenhVien_QLBenhAn" />
+                <ScalarProperty Name="BenhVien_QLNhanSu" ColumnName="BenhVien_QLNhanSu" />
+                <ScalarProperty Name="BenhVien_QLTC" ColumnName="BenhVien_QLTC" />
+                <ScalarProperty Name="BenhVien_CongTTDT" ColumnName="BenhVien_CongTTDT" />
+                <ScalarProperty Name="TramXa_KhamTuXa" ColumnName="TramXa_KhamTuXa" />
+                <ScalarProperty Name="TramXa_QLCongSan" ColumnName="TramXa_QLCongSan" />
+                <ScalarProperty Name="TramXa_QLGiuongBenh" ColumnName="TramXa_QLGiuongBenh" />
+                <ScalarProperty Name="TramXa_QLThuoc" ColumnName="TramXa_QLThuoc" />
+                <ScalarProperty Name="TramXa_QLTacNghiep" ColumnName="TramXa_QLTacNghiep" />
+                <ScalarProperty Name="TramXa_QLBenhAn" ColumnName="TramXa_QLBenhAn" />
+                <ScalarProperty Name="TramXa_QLNhanSu" ColumnName="TramXa_QLNhanSu" />
+                <ScalarProperty Name="TramXa_QLTC" ColumnName="TramXa_QLTC" />
+                <ScalarProperty Name="TramXa_CongTTDT" ColumnName="TramXa_CongTTDT" />
+                <ScalarProperty Name="Khac_QLThi" ColumnName="Khac_QLThi" />
+                <ScalarProperty Name="Khac_DeTaiKH" ColumnName="Khac_DeTaiKH" />
+                <ScalarProperty Name="Khac_QLThuVien" ColumnName="Khac_QLThuVien" />
+                <ScalarProperty Name="Khac_QLHSSV" ColumnName="Khac_QLHSSV" />
+                <ScalarProperty Name="Khac_QLGiangDay" ColumnName="Khac_QLGiangDay" />
+                <ScalarProperty Name="Khac_CongSan" ColumnName="Khac_CongSan" />
+                <ScalarProperty Name="Khac_QLTaiChinh" ColumnName="Khac_QLTaiChinh" />
+                <ScalarProperty Name="Khac_CongTTDT" ColumnName="Khac_CongTTDT" />
+                <ScalarProperty Name="DaiHoc_QLThi" ColumnName="DaiHoc_QLThi" />
+                <ScalarProperty Name="DaiHoc_DeTaiKH" ColumnName="DaiHoc_DeTaiKH" />
+                <ScalarProperty Name="DaiHoc_QLThuVien" ColumnName="DaiHoc_QLThuVien" />
+                <ScalarProperty Name="DaiHoc_QLHSSV" ColumnName="DaiHoc_QLHSSV" />
+                <ScalarProperty Name="DaiHoc_QLGiangDay" ColumnName="DaiHoc_QLGiangDay" />
+                <ScalarProperty Name="DaiHoc_CongSan" ColumnName="DaiHoc_CongSan" />
+                <ScalarProperty Name="DaiHoc_QLTaiChinh" ColumnName="DaiHoc_QLTaiChinh" />
+                <ScalarProperty Name="DaiHoc_CongTTDT" ColumnName="DaiHoc_CongTTDT" />
+                <ScalarProperty Name="CaoDang_QLThi" ColumnName="CaoDang_QLThi" />
+                <ScalarProperty Name="CaoDang_DeTaiKH" ColumnName="CaoDang_DeTaiKH" />
+                <ScalarProperty Name="CaoDang_QLThuVien" ColumnName="CaoDang_QLThuVien" />
+                <ScalarProperty Name="CaoDang_QLHSSV" ColumnName="CaoDang_QLHSSV" />
+                <ScalarProperty Name="CaoDang_QLGiangDay" ColumnName="CaoDang_QLGiangDay" />
+                <ScalarProperty Name="CaoDang_CongSan" ColumnName="CaoDang_CongSan" />
+                <ScalarProperty Name="CaoDang_QLTaiChinh" ColumnName="CaoDang_QLTaiChinh" />
+                <ScalarProperty Name="CaoDang_CongTTDT" ColumnName="CaoDang_CongTTDT" />
+                <ScalarProperty Name="TrungCap_QLThi" ColumnName="TrungCap_QLThi" />
+                <ScalarProperty Name="TrungCap_DeTaiKH" ColumnName="TrungCap_DeTaiKH" />
+                <ScalarProperty Name="TrungCap_QLThuVien" ColumnName="TrungCap_QLThuVien" />
+                <ScalarProperty Name="TrungCap_QLHSSV" ColumnName="TrungCap_QLHSSV" />
+                <ScalarProperty Name="TrungCap_QLGiangDay" ColumnName="TrungCap_QLGiangDay" />
+                <ScalarProperty Name="TrungCap_CongSan" ColumnName="TrungCap_CongSan" />
+                <ScalarProperty Name="TrungCap_QLTaiChinh" ColumnName="TrungCap_QLTaiChinh" />
+                <ScalarProperty Name="TrungCap_CongTTDT" ColumnName="TrungCap_CongTTDT" />
+                <ScalarProperty Name="THPT_QLThi" ColumnName="THPT_QLThi" />
+                <ScalarProperty Name="THPT_DeTaiKH" ColumnName="THPT_DeTaiKH" />
+                <ScalarProperty Name="THPT_QLThuVien" ColumnName="THPT_QLThuVien" />
+                <ScalarProperty Name="THPT_QLHSSV" ColumnName="THPT_QLHSSV" />
+                <ScalarProperty Name="THPT_QLGiangDay" ColumnName="THPT_QLGiangDay" />
+                <ScalarProperty Name="THPT_CongSan" ColumnName="THPT_CongSan" />
+                <ScalarProperty Name="THPT_QLTaiChinh" ColumnName="THPT_QLTaiChinh" />
+                <ScalarProperty Name="THPT_CongTTDT" ColumnName="THPT_CongTTDT" />
+                <ScalarProperty Name="THCS_QLThi" ColumnName="THCS_QLThi" />
+                <ScalarProperty Name="THCS_DeTaiKH" ColumnName="THCS_DeTaiKH" />
+                <ScalarProperty Name="THCS_QLThuVien" ColumnName="THCS_QLThuVien" />
+                <ScalarProperty Name="THCS_QLHSSV" ColumnName="THCS_QLHSSV" />
+                <ScalarProperty Name="THCS_QLGiangDay" ColumnName="THCS_QLGiangDay" />
+                <ScalarProperty Name="THCS_CongSan" ColumnName="THCS_CongSan" />
+                <ScalarProperty Name="THCS_QLTaiChinh" ColumnName="THCS_QLTaiChinh" />
+                <ScalarProperty Name="THCS_CongTTDT" ColumnName="THCS_CongTTDT" />
+                <ScalarProperty Name="TieuHoc_QLThi" ColumnName="TieuHoc_QLThi" />
+                <ScalarProperty Name="TieuHoc_DeTaiKH" ColumnName="TieuHoc_DeTaiKH" />
+                <ScalarProperty Name="TieuHoc_QLThuVien" ColumnName="TieuHoc_QLThuVien" />
+                <ScalarProperty Name="TieuHoc_QLHSSV" ColumnName="TieuHoc_QLHSSV" />
+                <ScalarProperty Name="TieuHoc_QLGiangDay" ColumnName="TieuHoc_QLGiangDay" />
+                <ScalarProperty Name="TieuHoc_QLCongSan" ColumnName="TieuHoc_QLCongSan" />
+                <ScalarProperty Name="TieuHoc_QLTaiChinh" ColumnName="TieuHoc_QLTaiChinh" />
+                <ScalarProperty Name="TieuHoc_CongTTDT" ColumnName="TieuHoc_CongTTDT" />
+                <ScalarProperty Name="MamNon_QLThi" ColumnName="MamNon_QLThi" />
+                <ScalarProperty Name="MamNon_DeTaiKH" ColumnName="MamNon_DeTaiKH" />
+                <ScalarProperty Name="MamNon_QLThuVien" ColumnName="MamNon_QLThuVien" />
+                <ScalarProperty Name="MamNon_QLHSSV" ColumnName="MamNon_QLHSSV" />
+                <ScalarProperty Name="MamNon_QLGiangDay" ColumnName="MamNon_QLGiangDay" />
+                <ScalarProperty Name="MamNon_QLCongSan" ColumnName="MamNon_QLCongSan" />
+                <ScalarProperty Name="MamNon_QLTaiChinh" ColumnName="MamNon_QLTaiChinh" />
+                <ScalarProperty Name="MamNon_CongTTDT" ColumnName="MamNon_CongTTDT" />
+                <ScalarProperty Name="TongSoCBCCCapXaDungMail" ColumnName="TongSoCBCCCapXaDungMail" />
+                <ScalarProperty Name="TongSoCBCCCapHuyenDungMail" ColumnName="TongSoCBCCCapHuyenDungMail" />
+                <ScalarProperty Name="HasMayChuCaiHeDieuHanhPMNM" ColumnName="HasMayChuCaiHeDieuHanhPMNM" />
+                <ScalarProperty Name="HasHeDieuHanhPMNM" ColumnName="HasHeDieuHanhPMNM" />
+                <ScalarProperty Name="HasUnikey" ColumnName="HasUnikey" />
+                <ScalarProperty Name="HasFirefox" ColumnName="HasFirefox" />
+                <ScalarProperty Name="HasMozilla" ColumnName="HasMozilla" />
+                <ScalarProperty Name="HasOpenOffice" ColumnName="HasOpenOffice" />
+                <ScalarProperty Name="TongSoVBDen" ColumnName="TongSoVBDen" />
+                <ScalarProperty Name="TongSoVBDi" ColumnName="TongSoVBDi" />
+                <ScalarProperty Name="SoVBDen" ColumnName="SoVBDen" />
+                <ScalarProperty Name="SoVBDi" ColumnName="SoVBDi" />
+                <ScalarProperty Name="SoXaLienThongPhanMem" ColumnName="SoXaLienThongPhanMem" />
+                <ScalarProperty Name="SoTTHC_MotCuaDienTu_Xa" ColumnName="SoTTHC_MotCuaDienTu_Xa" />
+                <ScalarProperty Name="SoUDMotCuaDienTu_Xa" ColumnName="SoUDMotCuaDienTu_Xa" />
+                <ScalarProperty Name="SoUDChuKySo_Xa" ColumnName="SoUDChuKySo_Xa" />
+                <ScalarProperty Name="SoUDQuanLyThanhTraKhieuNai_Xa" ColumnName="SoUDQuanLyThanhTraKhieuNai_Xa" />
+                <ScalarProperty Name="SoUDQuanLyCongSan_Xa" ColumnName="SoUDQuanLyCongSan_Xa" />
+                <ScalarProperty Name="SoUDTaiChinhKeToan_Xa" ColumnName="SoUDTaiChinhKeToan_Xa" />
+                <ScalarProperty Name="SoUDQuanLyNhanSu_Xa" ColumnName="SoUDQuanLyNhanSu_Xa" />
+                <ScalarProperty Name="SoUDQuanLyVanBan_Xa" ColumnName="SoUDQuanLyVanBan_Xa" />
+                <ScalarProperty Name="DonViLapTrinhPhanMem" ColumnName="DonViLapTrinhPhanMem" />
+                <ScalarProperty Name="BatDauSuDung" ColumnName="BatDauSuDung" />
+                <ScalarProperty Name="PhamViSuDung" ColumnName="PhamViSuDung" />
+                <ScalarProperty Name="ChucNang" ColumnName="ChucNang" />
+                <ScalarProperty Name="TenPhanMem" ColumnName="TenPhanMem" />
+                <ScalarProperty Name="SoTTHC_MotCuaDienTu" ColumnName="SoTTHC_MotCuaDienTu" />
+                <ScalarProperty Name="HasMotCuaDienTu" ColumnName="HasMotCuaDienTu" />
+                <ScalarProperty Name="HasChuKySo" ColumnName="HasChuKySo" />
+                <ScalarProperty Name="HasQuanLyThanhTraKhieuNai" ColumnName="HasQuanLyThanhTraKhieuNai" />
+                <ScalarProperty Name="HasQuanLyCongSan" ColumnName="HasQuanLyCongSan" />
+                <ScalarProperty Name="HasTaiChinhKeToan" ColumnName="HasTaiChinhKeToan" />
+                <ScalarProperty Name="HasQuanLyNhanSu" ColumnName="HasQuanLyNhanSu" />
+                <ScalarProperty Name="HasQuanLyVanBan" ColumnName="HasQuanLyVanBan" />
+                <ScalarProperty Name="DonVi_ID" ColumnName="DonVi_ID" />
+                <ScalarProperty Name="LichNhap_ID" ColumnName="LichNhap_ID" />
+                <ScalarProperty Name="UngDungCNTTHuyen_ID" ColumnName="UngDungCNTTHuyen_ID" />
+                <ScalarProperty Name="ChucNang_ID" ColumnName="ChucNang_ID" />
+                <ScalarProperty Name="Nam" ColumnName="Nam" />
+                <ScalarProperty Name="DotBaoCao_ID" ColumnName="DotBaoCao_ID" />
+                <ScalarProperty Name="SoCB_DVTT" ColumnName="SoCB_DVTT" />
+                <ScalarProperty Name="SoDonViTrucThuoc" ColumnName="SoDonViTrucThuoc" />
+                <ScalarProperty Name="SoCBCC" ColumnName="SoCBCC" />
+                <ScalarProperty Name="DonViCap1_ID" ColumnName="DonViCap1_ID" />
+                <ScalarProperty Name="NhomDonVi_ID" ColumnName="NhomDonVi_ID" />
+                <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

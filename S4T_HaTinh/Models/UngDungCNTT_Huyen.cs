@@ -540,6 +540,5 @@
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
-        public decimal TongMucDauTu { get; set; }
     }
 }
