@@ -60,22 +60,22 @@
         public string DonViLapTrinhPhanMem { get; set; }
 
         [Display(Name = "OpenOffice")]
-        public byte HasOpenOffice { get; set; }
+        public int SoOpenOffice { get; set; }
 
         [Display(Name = "Mozilla ThunderBird")]
-        public byte HasMozilla { get; set; }
+        public int SoMozilla { get; set; }
 
         [Display(Name = "Mozilla FireFox")]
-        public byte HasFirefox { get; set; }
+        public int SoFirefox { get; set; }
 
         [Display(Name = "Unikey")]
-        public byte HasUnikey { get; set; }
+        public int SoUnikey { get; set; }
 
         [Display(Name = "Hệ điều hành PMNM")]
-        public byte HasHeDieuHanhPMNM { get; set; }
+        public int SoHeDieuHanhPMNM { get; set; }
 
         [Display(Name = "Máy chủ cài hệ điều hành PMNM")]
-        public byte HasMayChuCaiHeDieuHanhPMNM { get; set; }
+        public int SoMayChuCaiHeDieuHanhPMNM { get; set; }
 
         [Display(Name = "Tổng số CBCC tại UBND cấp huyện dùng thư điện tử Mail.hatinh.gov.vn")]
         public int TongSoCBCCCapHuyenDungMail { get; set; }
@@ -445,29 +445,59 @@
 
         public int TamThan_KhamTuXa { get; set; }
 
+        public int UD_AnToanVeSinhTP_ID { get; set; }
+
         [Display(Name = "Các ứng dụng tại Chi cục an toàn vệ sinh thực phẩm")]
-        [StringLength(500)]
-        public string UD_AnToanVeSinhTP { get; set; }
+        public int SoUD_AnToanVeSinhTP { get; set; }
+
+        public int UD_KHHGiaDinh_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại Chi cục Dân số -KHH gia đình")]
-        [StringLength(500)]
-        public string UD_KHHGiaDinh { get; set; }
+        public int SoUD_KHHGiaDinh { get; set; }
+
+        public int UD_TTSucKhoe_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại TT TT-GD sức khỏe")]
-        [StringLength(500)]
-        public string UD_TTSucKhoe { get; set; }
+        public int SoUD_TTSucKhoe { get; set; }
+
+        public int UD_DPMyPham_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại TT Kiểm nghiệm DP-Mỹ phẩm")]
-        [StringLength(500)]
-        public string UD_DPMyPham { get; set; }
+        public int SoUD_DPMyPham { get; set; }
+
+        public int UD_GiamDinhYKhoa_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại TT Giám định Y khoa")]
-        [StringLength(500)]
-        public string UD_GiamDinhYKhoa { get; set; }
+        public int SoUD_GiamDinhYKhoa { get; set; }
+
+        public int UD_GiamDinhPhapY_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại TT Giám định Pháp y")]
-        [StringLength(500)]
-        public string UD_GiamDinhPhapY { get; set; }
+        public int SoUD_GiamDinhPhapY { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại Chi cục an toàn vệ sinh thực phẩm")]
+        //[StringLength(500)]
+        //public string UD_AnToanVeSinhTP { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại Chi cục Dân số -KHH gia đình")]
+        //[StringLength(500)]
+        //public string UD_KHHGiaDinh { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại TT TT-GD sức khỏe")]
+        //[StringLength(500)]
+        //public string UD_TTSucKhoe { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại TT Kiểm nghiệm DP-Mỹ phẩm")]
+        //[StringLength(500)]
+        //public string UD_DPMyPham { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại TT Giám định Y khoa")]
+        //[StringLength(500)]
+        //public string UD_GiamDinhYKhoa { get; set; }
+
+        //[Display(Name = "Các ứng dụng tại TT Giám định Pháp y")]
+        //[StringLength(500)]
+        //public string UD_GiamDinhPhapY { get; set; }
 
         public int SuNghiep_KeToan { get; set; }
 
@@ -540,5 +570,8 @@
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
+
+        [Display(Name = "Tổng mức đầu tư")]
+        public decimal TongMucDauTu { get; set; }
     }
 }

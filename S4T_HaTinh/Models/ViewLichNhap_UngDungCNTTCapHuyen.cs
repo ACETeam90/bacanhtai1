@@ -52,12 +52,12 @@ namespace S4T_HaTinh.Models
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
-        public byte HasOpenOffice { get; set; }
-        public byte HasMozilla { get; set; }
-        public byte HasFirefox { get; set; }
-        public byte HasUnikey { get; set; }
-        public byte HasHeDieuHanhPMNM { get; set; }
-        public byte HasMayChuCaiHeDieuHanhPMNM { get; set; }
+        public int SoOpenOffice { get; set; }
+        public int SoMozilla { get; set; }
+        public int SoFirefox { get; set; }
+        public int SoUnikey { get; set; }
+        public int SoHeDieuHanhPMNM { get; set; }
+        public int SoMayChuCaiHeDieuHanhPMNM { get; set; }
         public int TongSoCBCCCapHuyenDungMail { get; set; }
         public int TongSoCBCCCapXaDungMail { get; set; }
         public int MamNon_CongTTDT { get; set; }
@@ -241,12 +241,18 @@ namespace S4T_HaTinh.Models
         public int TamThan_QLGiuongBenh { get; set; }
         public int TamThan_QLCongSan { get; set; }
         public int TamThan_KhamTuXa { get; set; }
-        public string UD_AnToanVeSinhTP { get; set; }
-        public string UD_KHHGiaDinh { get; set; }
-        public string UD_TTSucKhoe { get; set; }
-        public string UD_DPMyPham { get; set; }
-        public string UD_GiamDinhYKhoa { get; set; }
-        public string UD_GiamDinhPhapY { get; set; }
+        public int UD_AnToanVeSinhTP_ID { get; set; }
+        public int SoUD_AnToanVeSinhTP { get; set; }
+        public int UD_KHHGiaDinh_ID { get; set; }
+        public int SoUD_KHHGiaDinh { get; set; }
+        public int UD_TTSucKhoe_ID { get; set; }
+        public int SoUD_TTSucKhoe { get; set; }
+        public int UD_DPMyPham_ID { get; set; }
+        public int SoUD_DPMyPham { get; set; }
+        public int UD_GiamDinhYKhoa_ID { get; set; }
+        public int SoUD_GiamDinhYKhoa { get; set; }
+        public int UD_GiamDinhPhapY_ID { get; set; }
+        public int SoUD_GiamDinhPhapY { get; set; }
         public int SuNghiep_KeToan { get; set; }
         public int SuNghiep_ERP { get; set; }
         public int SuNghiep_QLVatTu { get; set; }
