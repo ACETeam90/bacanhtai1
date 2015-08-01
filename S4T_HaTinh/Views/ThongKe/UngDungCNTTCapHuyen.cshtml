@@ -7389,7 +7389,7 @@ function fnUpdateTabs()
             <td class=xl92 align=right width=73 style='border-left:none;width:55pt'>                 <font color="#000000">@Html.DisplayFor(m => item.TieuHoc_QLThuVien)</font>             </td>
             <td class=xl92 align=right width=71 style='border-left:none;width:53pt'>                 <font color="#000000">@Html.DisplayFor(m => item.TieuHoc_DeTaiKH)</font>             </td>
             <td class=xl92 align=right width=72 style='border-left:none;width:54pt'>                 <font color="#000000">@Html.DisplayFor(m => item.TieuHoc_QLThi)</font>             </td>
-            <td class=xl92 width=71 style='border-left:none;width:53pt'>25/25</td>                                         @Html.DisplayFor(m => item.THCS_CongTTDT)
+            <td class=xl92 width=71 style='border-left:none;width:53pt'>@Html.DisplayFor(m => item.THCS_CongTTDT)</td>                                         
             <td class=xl92 align=right width=68 style='border-left:none;width:51pt'>                 <font color="#000000">@Html.DisplayFor(m => item.THCS_QLTaiChinh)</font>             </td>
             <td class=xl92 align=right width=71 style='border-left:none;width:53pt'>                 <font color="#000000">@Html.DisplayFor(m => item.THCS_CongSan)</font>             </td>
             <td class=xl92 align=right width=68 style='border-left:none;width:51pt'>                 <font color="#000000">@Html.DisplayFor(m => item.THCS_QLGiangDay)</font>             </td>
@@ -7593,9 +7593,262 @@ function fnUpdateTabs()
 
         i++;
     }
-}
+    <tr>
+    <td align=right></td>
+    <td class=xl238>
+        <font class="font16"
+              face="Times New Roman" size="3"><b>Tổng cộng</b></font>
+    </td>
+    <td align=right>@ViewBag.HasQuanLyVanBan            </td>
+    <td align=right>@ViewBag.HasQuanLyNhanSu            </td>
+    <td align=right>@ViewBag.HasTaiChinhKeToan            </td>
+    <td align=right>@ViewBag.HasQuanLyCongSan            </td>
+    <td align=right>@ViewBag.HasQuanLyThanhTraKhieuNai            </td>
+    <td align=right>@ViewBag.HasChuKySo            </td>
+    <td align=right>@ViewBag.HasMotCuaDienTu            </td>
+    <td align=right>@ViewBag.SoTTHC_MotCuaDienTu            </td>
+    <td align=right>@ViewBag.TenPhanMem            </td>
+    <td align=right>@ViewBag.ChucNang            </td>
+    <td align=right>@ViewBag.PhamViSuDung            </td>
+    <td align=right>@ViewBag.BatDauSuDung            </td>
+    <td align=right>@ViewBag.DonViLapTrinhPhanMem            </td>
+    <td>@ViewBag.HasQuanLyVanBan_Xa</td>
+    <td align=right>@ViewBag.HasQuanLyNhanSu_Xa            </td>
+    <td>@ViewBag.HasTaiChinhKeToan_Xa</td>
+    <td align=right>@ViewBag.HasQuanLyCongSan_Xa            </td>
+    <td align=right>@ViewBag.HasQuanLyThanhTraKhieuNai_Xa            </td>
+    <td>@ViewBag.HasChuKySo_Xa</td>
+    <td align=right>@ViewBag.HasMotCuaDienTu_Xa            </td>
+    <td align=right>@ViewBag.SoTTHC_MotCuaDienTu_Xa            </td>
+    <td align=right>@ViewBag.SoXaLienThongPhanMem            </td>
+    <td align=right>@ViewBag.SoVBDi            </td>
+    <td align=right>@ViewBag.SoVBDen            </td>
+    <td align=right>@ViewBag.TongSoVBDi            </td>
+    <td align=right>@ViewBag.TongSoVBDen            </td>
+    <td align=right>@ViewBag.HasOpenOffice            </td>
+    <td align=right>@ViewBag.HasMozilla            </td>
+    <td align=right>@ViewBag.HasFirefox            </td>
+    <td align=right> @ViewBag.HasUnikey            </td>
+    <td align=right>@ViewBag.HasHeDieuHanhPMNM            </td>
+    <td align=right>@ViewBag.HasMayChuCaiHeDieuHanhPMNM            </td>
+    <td align=right>@ViewBag.TongSoCBCCCapHuyenDungMail            </td>
+    <td align=right> @ViewBag.TongSoCBCCCapXaDungMail            </td>
+    <td>@ViewBag.MamNon_CongTTDT</td>
+    <td>@ViewBag.MamNon_QLTaiChinh</td>
+    <td align=right>@ViewBag.MamNon_QLCongSan            </td>
+    <td>@ViewBag.MamNon_QLGiangDay</td>
+    <td align=right>   @ViewBag.MamNon_QLHSSV            </td>
+    <td align=right>   @ViewBag.MamNon_QLThuVien            </td>
+    <td align=right>   @ViewBag.MamNon_DeTaiKH            </td>
+    <td>@ViewBag.MamNon_QLThi</td>
+    <td>@ViewBag.TieuHoc_CongTTDT</td>
+    <td align=right>@ViewBag.TieuHoc_QLTaiChinh            </td>
+    <td align=right>@ViewBag.TieuHoc_QLCongSan            </td>
+    <td align=right>@ViewBag.TieuHoc_QLGiangDay            </td>
+    <td align=right>@ViewBag.TieuHoc_QLHSSV            </td>
+    <td align=right>@ViewBag.TieuHoc_QLThuVien            </td>
+    <td align=right>@ViewBag.TieuHoc_DeTaiKH            </td>
+    <td align=right>@ViewBag.TieuHoc_QLThi            </td>
+    <td>@ViewBag.THCS_CongTTDT</td>
+    <td align=right>@ViewBag.THCS_QLTaiChinh            </td>
+    <td align=right>@ViewBag.THCS_CongSan            </td>
+    <td align=right>@ViewBag.THCS_QLGiangDay            </td>
+    <td align=right>@ViewBag.THCS_QLHSSV            </td>
+    <td align=right>@ViewBag.THCS_QLThuVien            </td>
+    <td align=right>@ViewBag.THCS_DeTaiKH            </td>
+    <td align=right>@ViewBag.THCS_QLThi            </td>
+    <td align=right>@ViewBag.THPT_CongTTDT            </td>
+    <td align=right>@ViewBag.THPT_QLTaiChinh            </td>
+        <td align=right>@ViewBag.THPT_CongSan            </td>
+        <td align=right>@ViewBag.THPT_QLGiangDay            </td>
+        <td align=right>@ViewBag.THPT_QLHSSV            </td>
+        <td align=right>@ViewBag.THPT_QLThuVien            </td>
+        <td align=right>@ViewBag.THPT_DeTaiKH            </td>
+        <td align=right>@ViewBag.THPT_QLThi            </td>
+        <td align=right>@ViewBag.TrungCap_CongTTDT            </td>
+        <td align=right>@ViewBag.TrungCap_QLTaiChinh            </td>
+        <td align=right>@ViewBag.TrungCap_CongSan            </td>
+        <td align=right>@ViewBag.TrungCap_QLGiangDay            </td>
+        <td align=right>@ViewBag.TrungCap_QLHSSV            </td>
+        <td align=right>@ViewBag.TrungCap_QLThuVien            </td>
+        <td align=right>@ViewBag.TrungCap_DeTaiKH            </td>
+        <td align=right>@ViewBag.TrungCap_QLThi            </td>
+        <td align=right>@ViewBag.CaoDang_CongTTDT            </td>
+        <td align=right>@ViewBag.CaoDang_QLTaiChinh            </td>
+        <td align=right>@ViewBag.CaoDang_CongSan            </td>
+        <td align=right>@ViewBag.CaoDang_QLGiangDay            </td>
+        <td align=right>@ViewBag.CaoDang_QLHSSV            </td>
+        <td align=right>@ViewBag.CaoDang_QLThuVien            </td>
+        <td align=right>@ViewBag.CaoDang_DeTaiKH            </td>
+        <td align=right>@ViewBag.CaoDang_QLThi            </td>
+        <td align=right>@ViewBag.DaiHoc_CongTTDT            </td>
+        <td align=right>@ViewBag.DaiHoc_QLTaiChinh            </td>
+        <td align=right>@ViewBag.DaiHoc_CongSan            </td>
+        <td align=right>@ViewBag.DaiHoc_QLGiangDay            </td>
+        <td align=right>@ViewBag.DaiHoc_QLHSSV            </td>
+        <td align=right>@ViewBag.DaiHoc_QLThuVien            </td>
+        <td align=right>@ViewBag.DaiHoc_DeTaiKH            </td>
+        <td align=right>@ViewBag.DaiHoc_QLThi            </td>
+        <td align=right>@ViewBag.Khac_CongTTDT            </td>
+        <td align=right>@ViewBag.Khac_QLTaiChinh            </td>
+        <td align=right>@ViewBag.Khac_CongSan            </td>
+        <td align=right>@ViewBag.Khac_QLGiangDay            </td>
+        <td align=right>@ViewBag.Khac_QLHSSV            </td>
+        <td align=right>@ViewBag.Khac_QLThuVien            </td>
+        <td align=right>@ViewBag.Khac_DeTaiKH            </td>
+        <td align=right>@ViewBag.Khac_QLThi            </td>
+        <td align=right>@ViewBag.TramXa_CongTTDT            </td>
+        <td align=right>@ViewBag.TramXa_QLTC            </td>
+        <td align=right>@ViewBag.TramXa_QLNhanSu            </td>
+        <td align=right>@ViewBag.TramXa_QLBenhAn            </td>
+        <td align=right>@ViewBag.TramXa_QLTacNghiep            </td>
+        <td align=right>@ViewBag.TramXa_QLThuoc            </td>
+        <td align=right>@ViewBag.TramXa_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.TramXa_QLCongSan            </td>
+        <td align=right>@ViewBag.TramXa_KhamTuXa            </td>
+        <td align=right>@ViewBag.BenhVien_CongTTDT            </td>
+        <td align=right>@ViewBag.BenhVien_QLTC            </td>
+        <td align=right>@ViewBag.BenhVien_QLNhanSu            </td>
+        <td align=right>@ViewBag.BenhVien_QLBenhAn            </td>
+        <td align=right>@ViewBag.BenhVien_QLTacNghiep            </td>
+        <td align=right>@ViewBag.BenhVien_QLThuoc            </td>
+        <td align=right>@ViewBag.BenhVien_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.BenhVien_QLCongSan            </td>
+        <td align=right>@ViewBag.BenhVien_KhamTuXa            </td>
+        <td align=right>@ViewBag.DuPhong_CongTTDT            </td>
+        <td align=right>@ViewBag.DuPhong_QLTC            </td>
+        <td align=right>@ViewBag.DuPhong_QLNhanSu            </td>
+        <td align=right>@ViewBag.DuPhong_QLBenhAn            </td>
+        <td align=right>@ViewBag.DuPhong_QLTacNghiep            </td>
+        <td align=right>@ViewBag.DuPhong_QLThuoc            </td>
+        <td align=right>@ViewBag.DuPhong_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.DuPhong_QLCongSan            </td>
+        <td align=right>@ViewBag.DuPhong_KhamTuXa            </td>
+        <td align=right>@ViewBag.SotRet_CongTTDT            </td>
+        <td align=right>@ViewBag.SotRet_QLTC            </td>
+        <td align=right>@ViewBag.SotRet_QLNhanSu            </td>
+        <td align=right>@ViewBag.SotRet_QLBenhAn            </td>
+        <td align=right>@ViewBag.SotRet_QLTacNghiep            </td>
+        <td align=right>@ViewBag.SotRet_QLThuoc            </td>
+        <td align=right>@ViewBag.SotRet_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.SotRet_QLCongSan            </td>
+        <td align=right>@ViewBag.SotRet_KhamTuXa            </td>
+        <td align=right>@ViewBag.HIVAIDS_CongTTDT            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLTC            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLNhanSu            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLBenhAn            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLTacNghiep            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLThuoc            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.HIVAIDS_QLCongSan            </td>
+        <td align=right>@ViewBag.HIVAIDS_KhamTuXa            </td>
+        <td align=right>@ViewBag.SinhSan_CongTTDT            </td>
+        <td align=right>@ViewBag.SinhSan_QLTC            </td>
+        <td align=right>@ViewBag.SinhSan_QLNhanSu            </td>
+        <td align=right>@ViewBag.SinhSan_QLBenhAn            </td>
+        <td align=right>@ViewBag.SinhSan_QLTacNghiep            </td>
+        <td align=right>@ViewBag.SinhSan_QLThuoc            </td>
+        <td align=right>@ViewBag.SinhSan_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.SinhSan_QLCongSan            </td>
+        <td align=right>@ViewBag.SinhSan_KhamTuXa            </td>
+        <td align=right>@ViewBag.DaLieu_CongTTDT            </td>
+
+
+        <td align=right>@ViewBag.DaLieu_QLTC            </td>
+        <td align=right>@ViewBag.DaLieu_QLNhanSu            </td>
+
+        <td align=right>@ViewBag.DaLieu_QLBenhAn            </td>
+        <td align=right>@ViewBag.DaLieu_QLTacNghiep            </td>
+        <td align=right>@ViewBag.DaLieu_QLThuoc            </td>
+        <td align=right>@ViewBag.DaLieu_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.DaLieu_QLCongSan            </td>
+        <td align=right>@ViewBag.DaLieu_KhamTuXa            </td>
+        <td align=right>@ViewBag.Mat_CongTTDT            </td>
+        <td align=right>@ViewBag.Mat_QLTC            </td>
+        <td align=right>@ViewBag.Mat_QLNhanSu            </td>
+        <td align=right>@ViewBag.Mat_QLBenhAn            </td>
+        <td align=right>@ViewBag.Mat_QLTacNghiep            </td>
+        <td align=right>@ViewBag.Mat_QLThuoc            </td>
+        <td align=right>@ViewBag.Mat_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.Mat_QLCongSan            </td>
+        <td align=right>@ViewBag.Mat_KhamTuXa            </td>
+        <td align=right>@ViewBag.DKTinh_CongTTDT            </td>
+        <td align=right>@ViewBag.DKTinh_QLTC            </td>
+        <td align=right>@ViewBag.DKTinh_QLNhanSu            </td>
+        <td align=right>@ViewBag.DKTinh_QLBenhAn            </td>
+        <td align=right>@ViewBag.DKTinh_QLTacNghiep            </td>
+        <td align=right>@ViewBag.DKTinh_QLThuoc            </td>
+        <td align=right>@ViewBag.DKTinh_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.DKTinh_QLCongSan            </td>
+        <td align=right>@ViewBag.DKTinh_KhamTuXa            </td>
+        <td align=right>@ViewBag.DieuDuong_CongTTDT            </td>
+        <td align=right>@ViewBag.DieuDuong_QLTC            </td>
+        <td align=right>@ViewBag.DieuDuong_QLNhanSu            </td>
+        <td align=right>@ViewBag.DieuDuong_QLBenhAn            </td>
+        <td align=right>@ViewBag.DieuDuong_QLTacNghiep            </td>
+        <td align=right>@ViewBag.DieuDuong_QLThuoc            </td>
+        <td align=right>@ViewBag.DieuDuong_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.DieuDuong_QLCongSan            </td>
+        <td align=right>@ViewBag.DieuDuong_KhamTuXa            </td>
+        <td align=right>@ViewBag.LaoPhoi_CongTTDT            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLTC            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLNhanSu            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLBenhAn            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLTacNghiep            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLThuoc            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.LaoPhoi_QLCongSan            </td>
+        <td align=right>@ViewBag.LaoPhoi_KhamTuXa            </td>
+        <td align=right>@ViewBag.YHoc_CongTTDT            </td>
+        <td align=right>@ViewBag.YHoc_QLTC            </td>
+        <td align=right>@ViewBag.YHoc_QLNhanSu            </td>
+        <td align=right>@ViewBag.YHoc_QLBenhAn            </td>
+        <td align=right>@ViewBag.YHoc_QLTacNghiep            </td>
+        <td align=right>@ViewBag.YHoc_QLThuoc            </td>
+        <td align=right>@ViewBag.YHoc_GiuongBenh            </td>
+        <td align=right>@ViewBag.YHoc_QLCongSan            </td>
+        <td align=right>@ViewBag.YHoc_KhamTuXa            </td>
+        <td align=right>@ViewBag.TamThan_CongTTDT            </td>
+        <td align=right>@ViewBag.TamThan_QLTC            </td>
+        <td align=right>@ViewBag.TamThan_QLNhanSu            </td>
+        <td align=right>@ViewBag.TamThan_QLBenhAn            </td>
+        <td align=right>@ViewBag.TamThan_QLTacNghiep            </td>
+        <td align=right>@ViewBag.TamThan_QLThuoc            </td>
+        <td align=right>@ViewBag.TamThan_QLGiuongBenh            </td>
+        <td align=right>@ViewBag.TamThan_QLCongSan            </td>
+        <td align=right>@ViewBag.TamThan_KhamTuXa            </td>
+        <td align=right>@ViewBag.UD_AnToanVeSinhTP            </td>
+        <td align=right>@ViewBag.UD_KHHGiaDinh            </td>
+        <td align=right>@ViewBag.UD_TTSucKhoe            </td>
+        <td align=right>@ViewBag.UD_DPMyPham            </td>
+        <td align=right>@ViewBag.UD_GiamDinhYKhoa            </td>
+        <td align=right>@ViewBag.UD_GiamDinhPhapY            </td>
+        <td align=right>@ViewBag.SuNghiep_KeToan            </td>
+        <td align=right>@ViewBag.SuNghiep_ERP            </td>
+        <td align=right>@ViewBag.SuNghiep_QLVatTu            </td>
+        <td align=right>@ViewBag.SuNghiep_Luong            </td>
+        <td align=right>@ViewBag.SuNghiep_BanHang            </td>
+        <td align=right>@ViewBag.SuNghiep_GDDTTinh            </td>
+        <td align=right>@ViewBag.SuNghiep_Khac            </td>
+        <td align=right>@ViewBag.CNTT_KeToan            </td>
+        <td align=right>@ViewBag.CNTT_ERP            </td>
+        <td align=right>@ViewBag.CNTT_QLVatTu            </td>
+        <td align=right>@ViewBag.CNTT_Luong            </td>
+        <td align=right>@ViewBag.CNTT_BanHang            </td>
+        <td align=right>@ViewBag.CNTT_GDDTTinh            </td>
+        <td align=right>@ViewBag.CNTT_Khac            </td>
+        <td align=right>@ViewBag.Khac_KeToan            </td>
+        <td align=right>@ViewBag.Khac_ERP            </td>
+        <td align=right>@ViewBag.Khac_QLVatTu            </td>
+        <td align=right>@ViewBag.Khac_Luong            </td>
+        <td align=right>@ViewBag.Khac_BanHang            </td>
+        <td align=right>@ViewBag.Khac_GDDTTinh            </td>
+        <td align=right> @ViewBag.Khac_Khac            </td>
+        <td align=right> @ViewBag.TongMucDauTu            </td>
+     </tr>
+  }
         <![if supportMisalignedColumns]>
-        <tr height=0 style='display:none'>
+<tr height=0 style='display:none'>
             <td width=28 style='width:21pt'></td>
             <td width=132 style='width:99pt'></td>
             <td width=79 style='width:59pt'></td>
