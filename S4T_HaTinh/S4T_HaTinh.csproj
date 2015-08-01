@@ -2122,6 +2122,8 @@
     <Content Include="Views\ThongKe\HaTangNhanLucCapHuyen.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Views\ThongKe\CongThongTinDienTuCapHuyen.cshtml" />
+    <Content Include="Views\ThongKe\UngDungCNTTCapHuyen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Kendo\js\" />
