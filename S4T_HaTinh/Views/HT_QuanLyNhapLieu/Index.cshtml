@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<S4T_HaTinh.Models.sp_LichNhapLieuWithOption_Result>
 @using S4T_HaTinh.Common;
 @{
-    var slDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var listDonVi = (IEnumerable<S4T_HaTinh.Models.Dm_DonVi>) ViewBag.ListDonVi;
+    var slDonVi = new SelectList(listDonVi, "DonVi_ID", "TenDonVi");
     var listPhanHe = new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang");
     //var trangThaiThemMoi = S4T_HaTinh.Common.TrangThaiNhapLieu.ThemMoi;
     var listTrangThaiNhapLieu = new SelectList(MvcApplication.ListTrangThaiNhapLieu(), "DanhMuc_ID", "TenDanhMuc");  
@@ -46,15 +47,16 @@
 <table  id="gridData">
     <colgroup>
         <col width="40"/>
-        <col />
         <col width="150"/>
         <col width="150"/>
         <col width="150"/>
-        <col width="150"/>
+        <col width="50"/>
+        <col width="50"/>
     </colgroup>
     <tr>
         <th>STT</th>
-        <th>Tên phân hệ</th>
+        <th>Đơn vị</th>
+        <th>Báo cáo</th>
         <th>Ngày bắt đầu</th>
         <th>Ngày kết thúc</th>
         <th>Trạng thái</th>
@@ -68,6 +70,9 @@
         {
             <tr>
                 <td>@i</td>
+                <td>
+                    @Html.DisplayFor(model => listDonVi.FirstOrDefault(o => o.DonVi_ID == item.DonVi_ID).TenDonVi)
+                </td>
                 <td>
                     @Html.DisplayFor(model => item.TenChucNang)
                 </td>

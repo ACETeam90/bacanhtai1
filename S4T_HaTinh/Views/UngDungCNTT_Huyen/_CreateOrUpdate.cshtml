@@ -32,7 +32,7 @@
     }
 }
 
-<p>1.Triển khai các ứng dụng cơ bản tại UBND huyện, xã</p>
+<p>1.Triển khai các ứng dụng cơ bản tại UBND huyện</p>
 <div class="divRow">
     @Html.LabelFor(model => model.HasQuanLyVanBan, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
@@ -183,7 +183,7 @@
     </div>
 </div>
 
-<p>2.Các phần mềm quản lý chuyên ngành khác (liệt kê chi tiết):</p>
+<p>2. Các phần mềm quản lý chuyên ngành khác (liệt kê chi tiết)</p>
 <div class="divRow">
     @Html.LabelFor(model => model.TenPhanMem, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
@@ -234,7 +234,58 @@
     </div>
 </div>
 
-<p>2. Ứng dụng PMNM tại UBND cấp huyện</p>
+<p>3. Kết quả ứng dụng quản lý văn bản và điều hành tác nghiệp trực tuyến tại UBND cấp huyện</p>
+<div class="divRow">
+    @Html.LabelFor(model => model.SoXaLienThongPhanMem, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoXaLienThongPhanMem" name="SoXaLienThongPhanMem" value="@Model.SoXaLienThongPhanMem" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoXaLienThongPhanMem") }
+        @Html.ValidationMessageFor(model => model.SoXaLienThongPhanMem, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoVBDi, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoVBDi" name="SoVBDi" value="@Model.SoVBDi" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoVBDi") }
+        @Html.ValidationMessageFor(model => model.SoVBDi, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoVBDen, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoVBDen" name="SoVBDen" value="@Model.SoVBDen" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoVBDen") }
+        @Html.ValidationMessageFor(model => model.SoVBDen, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.TongSoVBDi, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="TongSoVBDi" name="TongSoVBDi" value="@Model.TongSoVBDi" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_TongSoVBDi") }
+        @Html.ValidationMessageFor(model => model.TongSoVBDi, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.TongSoVBDen, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="TongSoVBDen" name="TongSoVBDen" value="@Model.TongSoVBDen" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_TongSoVBDen") }
+        @Html.ValidationMessageFor(model => model.TongSoVBDen, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<p>4. Số lượng máy tính cài đặt ứng dụng Phần mềm mã nguồn mở (PMNM) tại UBND cấp huyện</p>
 
 <div class="divRow">
     @Html.LabelFor(model => model.HasOpenOffice, htmlAttributes: new { @class = "divLabel" })
