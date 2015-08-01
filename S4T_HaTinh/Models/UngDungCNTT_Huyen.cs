@@ -570,8 +570,5 @@
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
-
-        [Display(Name = "Tổng mức đầu tư")]
-        public decimal TongMucDauTu { get; set; }
     }
 }

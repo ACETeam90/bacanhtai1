@@ -1176,12 +1176,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.Ht_MaxID' does not have a primary k
           <Property Name="SoVBDen" Type="int" Nullable="false" />
           <Property Name="TongSoVBDi" Type="int" Nullable="false" />
           <Property Name="TongSoVBDen" Type="int" Nullable="false" />
-          <Property Name="HasOpenOffice" Type="tinyint" Nullable="false" />
-          <Property Name="HasMozilla" Type="tinyint" Nullable="false" />
-          <Property Name="HasFirefox" Type="tinyint" Nullable="false" />
-          <Property Name="HasUnikey" Type="tinyint" Nullable="false" />
-          <Property Name="HasHeDieuHanhPMNM" Type="tinyint" Nullable="false" />
-          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="tinyint" Nullable="false" />
+          <Property Name="SoOpenOffice" Type="int" Nullable="false" />
+          <Property Name="SoMozilla" Type="int" Nullable="false" />
+          <Property Name="SoFirefox" Type="int" Nullable="false" />
+          <Property Name="SoUnikey" Type="int" Nullable="false" />
+          <Property Name="SoHeDieuHanhPMNM" Type="int" Nullable="false" />
+          <Property Name="SoMayChuCaiHeDieuHanhPMNM" Type="int" Nullable="false" />
           <Property Name="TongSoCBCCCapHuyenDungMail" Type="int" Nullable="false" />
           <Property Name="TongSoCBCCCapXaDungMail" Type="int" Nullable="false" />
           <Property Name="MamNon_CongTTDT" Type="int" Nullable="false" />
@@ -1365,12 +1365,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.Ht_MaxID' does not have a primary k
           <Property Name="TamThan_QLGiuongBenh" Type="int" Nullable="false" />
           <Property Name="TamThan_QLCongSan" Type="int" Nullable="false" />
           <Property Name="TamThan_KhamTuXa" Type="int" Nullable="false" />
-          <Property Name="UD_AnToanVeSinhTP" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_KHHGiaDinh" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_TTSucKhoe" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_DPMyPham" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_GiamDinhYKhoa" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_GiamDinhPhapY" Type="nvarchar" MaxLength="500" />
+          <Property Name="UD_AnToanVeSinhTP_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_AnToanVeSinhTP" Type="int" Nullable="false" />
+          <Property Name="UD_KHHGiaDinh_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_KHHGiaDinh" Type="int" Nullable="false" />
+          <Property Name="UD_TTSucKhoe_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_TTSucKhoe" Type="int" Nullable="false" />
+          <Property Name="UD_DPMyPham_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_DPMyPham" Type="int" Nullable="false" />
+          <Property Name="UD_GiamDinhYKhoa_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_GiamDinhYKhoa" Type="int" Nullable="false" />
+          <Property Name="UD_GiamDinhPhapY_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_GiamDinhPhapY" Type="int" Nullable="false" />
           <Property Name="SuNghiep_KeToan" Type="int" Nullable="false" />
           <Property Name="SuNghiep_ERP" Type="int" Nullable="false" />
           <Property Name="SuNghiep_QLVatTu" Type="int" Nullable="false" />
@@ -2552,12 +2558,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="SoVBDen" />
             <PropertyRef Name="TongSoVBDi" />
             <PropertyRef Name="TongSoVBDen" />
-            <PropertyRef Name="HasOpenOffice" />
-            <PropertyRef Name="HasMozilla" />
-            <PropertyRef Name="HasFirefox" />
-            <PropertyRef Name="HasUnikey" />
-            <PropertyRef Name="HasHeDieuHanhPMNM" />
-            <PropertyRef Name="HasMayChuCaiHeDieuHanhPMNM" />
+            <PropertyRef Name="SoOpenOffice" />
+            <PropertyRef Name="SoMozilla" />
+            <PropertyRef Name="SoFirefox" />
+            <PropertyRef Name="SoUnikey" />
+            <PropertyRef Name="SoHeDieuHanhPMNM" />
+            <PropertyRef Name="SoMayChuCaiHeDieuHanhPMNM" />
             <PropertyRef Name="TongSoCBCCCapHuyenDungMail" />
             <PropertyRef Name="TongSoCBCCCapXaDungMail" />
             <PropertyRef Name="MamNon_CongTTDT" />
@@ -2741,6 +2747,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="TamThan_QLGiuongBenh" />
             <PropertyRef Name="TamThan_QLCongSan" />
             <PropertyRef Name="TamThan_KhamTuXa" />
+            <PropertyRef Name="UD_AnToanVeSinhTP_ID" />
+            <PropertyRef Name="SoUD_AnToanVeSinhTP" />
+            <PropertyRef Name="UD_KHHGiaDinh_ID" />
+            <PropertyRef Name="SoUD_KHHGiaDinh" />
+            <PropertyRef Name="UD_TTSucKhoe_ID" />
+            <PropertyRef Name="SoUD_TTSucKhoe" />
+            <PropertyRef Name="UD_DPMyPham_ID" />
+            <PropertyRef Name="SoUD_DPMyPham" />
+            <PropertyRef Name="UD_GiamDinhYKhoa_ID" />
+            <PropertyRef Name="SoUD_GiamDinhYKhoa" />
+            <PropertyRef Name="UD_GiamDinhPhapY_ID" />
+            <PropertyRef Name="SoUD_GiamDinhPhapY" />
             <PropertyRef Name="SuNghiep_KeToan" />
             <PropertyRef Name="SuNghiep_ERP" />
             <PropertyRef Name="SuNghiep_QLVatTu" />
@@ -2803,12 +2821,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="SoVBDen" Type="int" Nullable="false" />
           <Property Name="TongSoVBDi" Type="int" Nullable="false" />
           <Property Name="TongSoVBDen" Type="int" Nullable="false" />
-          <Property Name="HasOpenOffice" Type="tinyint" Nullable="false" />
-          <Property Name="HasMozilla" Type="tinyint" Nullable="false" />
-          <Property Name="HasFirefox" Type="tinyint" Nullable="false" />
-          <Property Name="HasUnikey" Type="tinyint" Nullable="false" />
-          <Property Name="HasHeDieuHanhPMNM" Type="tinyint" Nullable="false" />
-          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="tinyint" Nullable="false" />
+          <Property Name="SoOpenOffice" Type="int" Nullable="false" />
+          <Property Name="SoMozilla" Type="int" Nullable="false" />
+          <Property Name="SoFirefox" Type="int" Nullable="false" />
+          <Property Name="SoUnikey" Type="int" Nullable="false" />
+          <Property Name="SoHeDieuHanhPMNM" Type="int" Nullable="false" />
+          <Property Name="SoMayChuCaiHeDieuHanhPMNM" Type="int" Nullable="false" />
           <Property Name="TongSoCBCCCapHuyenDungMail" Type="int" Nullable="false" />
           <Property Name="TongSoCBCCCapXaDungMail" Type="int" Nullable="false" />
           <Property Name="MamNon_CongTTDT" Type="int" Nullable="false" />
@@ -2992,12 +3010,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TamThan_QLGiuongBenh" Type="int" Nullable="false" />
           <Property Name="TamThan_QLCongSan" Type="int" Nullable="false" />
           <Property Name="TamThan_KhamTuXa" Type="int" Nullable="false" />
-          <Property Name="UD_AnToanVeSinhTP" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_KHHGiaDinh" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_TTSucKhoe" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_DPMyPham" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_GiamDinhYKhoa" Type="nvarchar" MaxLength="500" />
-          <Property Name="UD_GiamDinhPhapY" Type="nvarchar" MaxLength="500" />
+          <Property Name="UD_AnToanVeSinhTP_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_AnToanVeSinhTP" Type="int" Nullable="false" />
+          <Property Name="UD_KHHGiaDinh_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_KHHGiaDinh" Type="int" Nullable="false" />
+          <Property Name="UD_TTSucKhoe_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_TTSucKhoe" Type="int" Nullable="false" />
+          <Property Name="UD_DPMyPham_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_DPMyPham" Type="int" Nullable="false" />
+          <Property Name="UD_GiamDinhYKhoa_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_GiamDinhYKhoa" Type="int" Nullable="false" />
+          <Property Name="UD_GiamDinhPhapY_ID" Type="int" Nullable="false" />
+          <Property Name="SoUD_GiamDinhPhapY" Type="int" Nullable="false" />
           <Property Name="SuNghiep_KeToan" Type="int" Nullable="false" />
           <Property Name="SuNghiep_ERP" Type="int" Nullable="false" />
           <Property Name="SuNghiep_QLVatTu" Type="int" Nullable="false" />
@@ -3804,12 +3828,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_UngDungCNTTCapHuyen].[SoVBDen] AS [SoVBDen], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TongSoVBDi] AS [TongSoVBDi], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TongSoVBDen] AS [TongSoVBDen], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasOpenOffice] AS [HasOpenOffice], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasMozilla] AS [HasMozilla], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasFirefox] AS [HasFirefox], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasUnikey] AS [HasUnikey], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasHeDieuHanhPMNM] AS [HasHeDieuHanhPMNM], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[HasMayChuCaiHeDieuHanhPMNM] AS [HasMayChuCaiHeDieuHanhPMNM], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoOpenOffice] AS [SoOpenOffice], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoMozilla] AS [SoMozilla], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoFirefox] AS [SoFirefox], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUnikey] AS [SoUnikey], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoHeDieuHanhPMNM] AS [SoHeDieuHanhPMNM], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoMayChuCaiHeDieuHanhPMNM] AS [SoMayChuCaiHeDieuHanhPMNM], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TongSoCBCCCapHuyenDungMail] AS [TongSoCBCCCapHuyenDungMail], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TongSoCBCCCapXaDungMail] AS [TongSoCBCCCapXaDungMail], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[MamNon_CongTTDT] AS [MamNon_CongTTDT], 
@@ -3993,12 +4017,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_UngDungCNTTCapHuyen].[TamThan_QLGiuongBenh] AS [TamThan_QLGiuongBenh], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TamThan_QLCongSan] AS [TamThan_QLCongSan], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[TamThan_KhamTuXa] AS [TamThan_KhamTuXa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_AnToanVeSinhTP] AS [UD_AnToanVeSinhTP], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_KHHGiaDinh] AS [UD_KHHGiaDinh], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_TTSucKhoe] AS [UD_TTSucKhoe], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_DPMyPham] AS [UD_DPMyPham], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_GiamDinhYKhoa] AS [UD_GiamDinhYKhoa], 
-    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_GiamDinhPhapY] AS [UD_GiamDinhPhapY], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_AnToanVeSinhTP_ID] AS [UD_AnToanVeSinhTP_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_AnToanVeSinhTP] AS [SoUD_AnToanVeSinhTP], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_KHHGiaDinh_ID] AS [UD_KHHGiaDinh_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_KHHGiaDinh] AS [SoUD_KHHGiaDinh], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_TTSucKhoe_ID] AS [UD_TTSucKhoe_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_TTSucKhoe] AS [SoUD_TTSucKhoe], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_DPMyPham_ID] AS [UD_DPMyPham_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_DPMyPham] AS [SoUD_DPMyPham], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_GiamDinhYKhoa_ID] AS [UD_GiamDinhYKhoa_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_GiamDinhYKhoa] AS [SoUD_GiamDinhYKhoa], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[UD_GiamDinhPhapY_ID] AS [UD_GiamDinhPhapY_ID], 
+    [ViewLichNhap_UngDungCNTTCapHuyen].[SoUD_GiamDinhPhapY] AS [SoUD_GiamDinhPhapY], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SuNghiep_KeToan] AS [SuNghiep_KeToan], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SuNghiep_ERP] AS [SuNghiep_ERP], 
     [ViewLichNhap_UngDungCNTTCapHuyen].[SuNghiep_QLVatTu] AS [SuNghiep_QLVatTu], 
@@ -6159,12 +6189,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="PhamViSuDung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="BatDauSuDung" Type="DateTime" Precision="3" />
           <Property Name="DonViLapTrinhPhanMem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="HasOpenOffice" Type="Byte" Nullable="false" />
-          <Property Name="HasMozilla" Type="Byte" Nullable="false" />
-          <Property Name="HasFirefox" Type="Byte" Nullable="false" />
-          <Property Name="HasUnikey" Type="Byte" Nullable="false" />
-          <Property Name="HasHeDieuHanhPMNM" Type="Byte" Nullable="false" />
-          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="Byte" Nullable="false" />
+          <Property Name="SoOpenOffice" Type="Int32" Nullable="false" />
+          <Property Name="SoMozilla" Type="Int32" Nullable="false" />
+          <Property Name="SoFirefox" Type="Int32" Nullable="false" />
+          <Property Name="SoUnikey" Type="Int32" Nullable="false" />
+          <Property Name="SoHeDieuHanhPMNM" Type="Int32" Nullable="false" />
+          <Property Name="SoMayChuCaiHeDieuHanhPMNM" Type="Int32" Nullable="false" />
           <Property Name="TongSoCBCCCapHuyenDungMail" Type="Int32" Nullable="false" />
           <Property Name="TongSoCBCCCapXaDungMail" Type="Int32" Nullable="false" />
           <Property Name="MamNon_CongTTDT" Type="Int32" Nullable="false" />
@@ -6348,12 +6378,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TamThan_QLGiuongBenh" Type="Int32" Nullable="false" />
           <Property Name="TamThan_QLCongSan" Type="Int32" Nullable="false" />
           <Property Name="TamThan_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="UD_AnToanVeSinhTP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_KHHGiaDinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_TTSucKhoe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_DPMyPham" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhYKhoa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhPhapY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_AnToanVeSinhTP_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_AnToanVeSinhTP" Type="Int32" Nullable="false" />
+          <Property Name="UD_KHHGiaDinh_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_KHHGiaDinh" Type="Int32" Nullable="false" />
+          <Property Name="UD_TTSucKhoe_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_TTSucKhoe" Type="Int32" Nullable="false" />
+          <Property Name="UD_DPMyPham_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_DPMyPham" Type="Int32" Nullable="false" />
+          <Property Name="UD_GiamDinhYKhoa_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_GiamDinhYKhoa" Type="Int32" Nullable="false" />
+          <Property Name="UD_GiamDinhPhapY_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_GiamDinhPhapY" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_KeToan" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_ERP" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_QLVatTu" Type="Int32" Nullable="false" />
@@ -7418,12 +7454,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="Int32" Name="SoVBDen" Nullable="false" />
           <Property Type="Int32" Name="TongSoVBDi" Nullable="false" />
           <Property Type="Int32" Name="TongSoVBDen" Nullable="false" />
-          <Property Type="Byte" Name="HasOpenOffice" Nullable="false" />
-          <Property Type="Byte" Name="HasMozilla" Nullable="false" />
-          <Property Type="Byte" Name="HasFirefox" Nullable="false" />
-          <Property Type="Byte" Name="HasUnikey" Nullable="false" />
-          <Property Type="Byte" Name="HasHeDieuHanhPMNM" Nullable="false" />
-          <Property Type="Byte" Name="HasMayChuCaiHeDieuHanhPMNM" Nullable="false" />
           <Property Type="Int32" Name="TongSoCBCCCapHuyenDungMail" Nullable="false" />
           <Property Type="Int32" Name="TongSoCBCCCapXaDungMail" Nullable="false" />
           <Property Type="Int32" Name="MamNon_CongTTDT" Nullable="false" />
@@ -7607,12 +7637,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="Int32" Name="TamThan_QLGiuongBenh" Nullable="false" />
           <Property Type="Int32" Name="TamThan_QLCongSan" Nullable="false" />
           <Property Type="Int32" Name="TamThan_KhamTuXa" Nullable="false" />
-          <Property Type="String" Name="UD_AnToanVeSinhTP" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="UD_KHHGiaDinh" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="UD_TTSucKhoe" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="UD_DPMyPham" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="UD_GiamDinhYKhoa" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="UD_GiamDinhPhapY" Nullable="true" MaxLength="500" />
           <Property Type="Int32" Name="SuNghiep_KeToan" Nullable="false" />
           <Property Type="Int32" Name="SuNghiep_ERP" Nullable="false" />
           <Property Type="Int32" Name="SuNghiep_QLVatTu" Nullable="false" />
@@ -7644,6 +7668,24 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="Int32" Name="SoUDQuanLyThanhTraKhieuNai_Xa" Nullable="false" />
           <Property Type="Int32" Name="SoUDChuKySo_Xa" Nullable="false" />
           <Property Type="Int32" Name="SoUDMotCuaDienTu_Xa" Nullable="false" />
+          <Property Type="Int32" Name="SoOpenOffice" Nullable="false" />
+          <Property Type="Int32" Name="SoMozilla" Nullable="false" />
+          <Property Type="Int32" Name="SoFirefox" Nullable="false" />
+          <Property Type="Int32" Name="SoUnikey" Nullable="false" />
+          <Property Type="Int32" Name="SoHeDieuHanhPMNM" Nullable="false" />
+          <Property Type="Int32" Name="SoMayChuCaiHeDieuHanhPMNM" Nullable="false" />
+          <Property Type="Int32" Name="UD_AnToanVeSinhTP_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_AnToanVeSinhTP" Nullable="false" />
+          <Property Type="Int32" Name="UD_KHHGiaDinh_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_KHHGiaDinh" Nullable="false" />
+          <Property Type="Int32" Name="UD_TTSucKhoe_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_TTSucKhoe" Nullable="false" />
+          <Property Type="Int32" Name="UD_DPMyPham_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_DPMyPham" Nullable="false" />
+          <Property Type="Int32" Name="UD_GiamDinhYKhoa_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_GiamDinhYKhoa" Nullable="false" />
+          <Property Type="Int32" Name="UD_GiamDinhPhapY_ID" Nullable="false" />
+          <Property Type="Int32" Name="SoUD_GiamDinhPhapY" Nullable="false" />
         </ComplexType>
         <EntityType Name="ViewLichNhap_UngDungCNTTCapHuyen">
           <Key>
@@ -7674,12 +7716,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="SoVBDen" />
             <PropertyRef Name="TongSoVBDi" />
             <PropertyRef Name="TongSoVBDen" />
-            <PropertyRef Name="HasOpenOffice" />
-            <PropertyRef Name="HasMozilla" />
-            <PropertyRef Name="HasFirefox" />
-            <PropertyRef Name="HasUnikey" />
-            <PropertyRef Name="HasHeDieuHanhPMNM" />
-            <PropertyRef Name="HasMayChuCaiHeDieuHanhPMNM" />
+            <PropertyRef Name="SoOpenOffice" />
+            <PropertyRef Name="SoMozilla" />
+            <PropertyRef Name="SoFirefox" />
+            <PropertyRef Name="SoUnikey" />
+            <PropertyRef Name="SoHeDieuHanhPMNM" />
+            <PropertyRef Name="SoMayChuCaiHeDieuHanhPMNM" />
             <PropertyRef Name="TongSoCBCCCapHuyenDungMail" />
             <PropertyRef Name="TongSoCBCCCapXaDungMail" />
             <PropertyRef Name="MamNon_CongTTDT" />
@@ -7863,6 +7905,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="TamThan_QLGiuongBenh" />
             <PropertyRef Name="TamThan_QLCongSan" />
             <PropertyRef Name="TamThan_KhamTuXa" />
+            <PropertyRef Name="UD_AnToanVeSinhTP_ID" />
+            <PropertyRef Name="SoUD_AnToanVeSinhTP" />
+            <PropertyRef Name="UD_KHHGiaDinh_ID" />
+            <PropertyRef Name="SoUD_KHHGiaDinh" />
+            <PropertyRef Name="UD_TTSucKhoe_ID" />
+            <PropertyRef Name="SoUD_TTSucKhoe" />
+            <PropertyRef Name="UD_DPMyPham_ID" />
+            <PropertyRef Name="SoUD_DPMyPham" />
+            <PropertyRef Name="UD_GiamDinhYKhoa_ID" />
+            <PropertyRef Name="SoUD_GiamDinhYKhoa" />
+            <PropertyRef Name="UD_GiamDinhPhapY_ID" />
+            <PropertyRef Name="SoUD_GiamDinhPhapY" />
             <PropertyRef Name="SuNghiep_KeToan" />
             <PropertyRef Name="SuNghiep_ERP" />
             <PropertyRef Name="SuNghiep_QLVatTu" />
@@ -7925,12 +7979,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="SoVBDen" Type="Int32" Nullable="false" />
           <Property Name="TongSoVBDi" Type="Int32" Nullable="false" />
           <Property Name="TongSoVBDen" Type="Int32" Nullable="false" />
-          <Property Name="HasOpenOffice" Type="Byte" Nullable="false" />
-          <Property Name="HasMozilla" Type="Byte" Nullable="false" />
-          <Property Name="HasFirefox" Type="Byte" Nullable="false" />
-          <Property Name="HasUnikey" Type="Byte" Nullable="false" />
-          <Property Name="HasHeDieuHanhPMNM" Type="Byte" Nullable="false" />
-          <Property Name="HasMayChuCaiHeDieuHanhPMNM" Type="Byte" Nullable="false" />
+          <Property Name="SoOpenOffice" Type="Int32" Nullable="false" />
+          <Property Name="SoMozilla" Type="Int32" Nullable="false" />
+          <Property Name="SoFirefox" Type="Int32" Nullable="false" />
+          <Property Name="SoUnikey" Type="Int32" Nullable="false" />
+          <Property Name="SoHeDieuHanhPMNM" Type="Int32" Nullable="false" />
+          <Property Name="SoMayChuCaiHeDieuHanhPMNM" Type="Int32" Nullable="false" />
           <Property Name="TongSoCBCCCapHuyenDungMail" Type="Int32" Nullable="false" />
           <Property Name="TongSoCBCCCapXaDungMail" Type="Int32" Nullable="false" />
           <Property Name="MamNon_CongTTDT" Type="Int32" Nullable="false" />
@@ -8114,12 +8168,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TamThan_QLGiuongBenh" Type="Int32" Nullable="false" />
           <Property Name="TamThan_QLCongSan" Type="Int32" Nullable="false" />
           <Property Name="TamThan_KhamTuXa" Type="Int32" Nullable="false" />
-          <Property Name="UD_AnToanVeSinhTP" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_KHHGiaDinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_TTSucKhoe" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_DPMyPham" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhYKhoa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="UD_GiamDinhPhapY" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UD_AnToanVeSinhTP_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_AnToanVeSinhTP" Type="Int32" Nullable="false" />
+          <Property Name="UD_KHHGiaDinh_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_KHHGiaDinh" Type="Int32" Nullable="false" />
+          <Property Name="UD_TTSucKhoe_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_TTSucKhoe" Type="Int32" Nullable="false" />
+          <Property Name="UD_DPMyPham_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_DPMyPham" Type="Int32" Nullable="false" />
+          <Property Name="UD_GiamDinhYKhoa_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_GiamDinhYKhoa" Type="Int32" Nullable="false" />
+          <Property Name="UD_GiamDinhPhapY_ID" Type="Int32" Nullable="false" />
+          <Property Name="SoUD_GiamDinhPhapY" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_KeToan" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_ERP" Type="Int32" Nullable="false" />
           <Property Name="SuNghiep_QLVatTu" Type="Int32" Nullable="false" />
@@ -9996,6 +10056,24 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="UngDungCNTT_Huyen">
             <EntityTypeMapping TypeName="S4T_Model.UngDungCNTT_Huyen">
               <MappingFragment StoreEntitySet="UngDungCNTT_Huyen">
+                <ScalarProperty Name="SoUD_GiamDinhPhapY" ColumnName="SoUD_GiamDinhPhapY" />
+                <ScalarProperty Name="UD_GiamDinhPhapY_ID" ColumnName="UD_GiamDinhPhapY_ID" />
+                <ScalarProperty Name="SoUD_GiamDinhYKhoa" ColumnName="SoUD_GiamDinhYKhoa" />
+                <ScalarProperty Name="UD_GiamDinhYKhoa_ID" ColumnName="UD_GiamDinhYKhoa_ID" />
+                <ScalarProperty Name="SoUD_DPMyPham" ColumnName="SoUD_DPMyPham" />
+                <ScalarProperty Name="UD_DPMyPham_ID" ColumnName="UD_DPMyPham_ID" />
+                <ScalarProperty Name="SoUD_TTSucKhoe" ColumnName="SoUD_TTSucKhoe" />
+                <ScalarProperty Name="UD_TTSucKhoe_ID" ColumnName="UD_TTSucKhoe_ID" />
+                <ScalarProperty Name="SoUD_KHHGiaDinh" ColumnName="SoUD_KHHGiaDinh" />
+                <ScalarProperty Name="UD_KHHGiaDinh_ID" ColumnName="UD_KHHGiaDinh_ID" />
+                <ScalarProperty Name="SoUD_AnToanVeSinhTP" ColumnName="SoUD_AnToanVeSinhTP" />
+                <ScalarProperty Name="UD_AnToanVeSinhTP_ID" ColumnName="UD_AnToanVeSinhTP_ID" />
+                <ScalarProperty Name="SoMayChuCaiHeDieuHanhPMNM" ColumnName="SoMayChuCaiHeDieuHanhPMNM" />
+                <ScalarProperty Name="SoHeDieuHanhPMNM" ColumnName="SoHeDieuHanhPMNM" />
+                <ScalarProperty Name="SoUnikey" ColumnName="SoUnikey" />
+                <ScalarProperty Name="SoFirefox" ColumnName="SoFirefox" />
+                <ScalarProperty Name="SoMozilla" ColumnName="SoMozilla" />
+                <ScalarProperty Name="SoOpenOffice" ColumnName="SoOpenOffice" />
                 <ScalarProperty Name="SoUDMotCuaDienTu_Xa" ColumnName="SoUDMotCuaDienTu_Xa" />
                 <ScalarProperty Name="SoUDChuKySo_Xa" ColumnName="SoUDChuKySo_Xa" />
                 <ScalarProperty Name="SoUDQuanLyThanhTraKhieuNai_Xa" ColumnName="SoUDQuanLyThanhTraKhieuNai_Xa" />
@@ -10033,12 +10111,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="SuNghiep_QLVatTu" ColumnName="SuNghiep_QLVatTu" />
                 <ScalarProperty Name="SuNghiep_ERP" ColumnName="SuNghiep_ERP" />
                 <ScalarProperty Name="SuNghiep_KeToan" ColumnName="SuNghiep_KeToan" />
-                <ScalarProperty Name="UD_GiamDinhPhapY" ColumnName="UD_GiamDinhPhapY" />
-                <ScalarProperty Name="UD_GiamDinhYKhoa" ColumnName="UD_GiamDinhYKhoa" />
-                <ScalarProperty Name="UD_DPMyPham" ColumnName="UD_DPMyPham" />
-                <ScalarProperty Name="UD_TTSucKhoe" ColumnName="UD_TTSucKhoe" />
-                <ScalarProperty Name="UD_KHHGiaDinh" ColumnName="UD_KHHGiaDinh" />
-                <ScalarProperty Name="UD_AnToanVeSinhTP" ColumnName="UD_AnToanVeSinhTP" />
                 <ScalarProperty Name="TamThan_KhamTuXa" ColumnName="TamThan_KhamTuXa" />
                 <ScalarProperty Name="TamThan_QLCongSan" ColumnName="TamThan_QLCongSan" />
                 <ScalarProperty Name="TamThan_QLGiuongBenh" ColumnName="TamThan_QLGiuongBenh" />
@@ -10222,12 +10294,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="MamNon_CongTTDT" ColumnName="MamNon_CongTTDT" />
                 <ScalarProperty Name="TongSoCBCCCapXaDungMail" ColumnName="TongSoCBCCCapXaDungMail" />
                 <ScalarProperty Name="TongSoCBCCCapHuyenDungMail" ColumnName="TongSoCBCCCapHuyenDungMail" />
-                <ScalarProperty Name="HasMayChuCaiHeDieuHanhPMNM" ColumnName="HasMayChuCaiHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasHeDieuHanhPMNM" ColumnName="HasHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasUnikey" ColumnName="HasUnikey" />
-                <ScalarProperty Name="HasFirefox" ColumnName="HasFirefox" />
-                <ScalarProperty Name="HasMozilla" ColumnName="HasMozilla" />
-                <ScalarProperty Name="HasOpenOffice" ColumnName="HasOpenOffice" />
                 <ScalarProperty Name="DonViLapTrinhPhanMem" ColumnName="DonViLapTrinhPhanMem" />
                 <ScalarProperty Name="BatDauSuDung" ColumnName="BatDauSuDung" />
                 <ScalarProperty Name="PhamViSuDung" ColumnName="PhamViSuDung" />
@@ -10996,12 +11062,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="SoVBDen" ColumnName="SoVBDen" />
                 <ScalarProperty Name="TongSoVBDi" ColumnName="TongSoVBDi" />
                 <ScalarProperty Name="TongSoVBDen" ColumnName="TongSoVBDen" />
-                <ScalarProperty Name="HasOpenOffice" ColumnName="HasOpenOffice" />
-                <ScalarProperty Name="HasMozilla" ColumnName="HasMozilla" />
-                <ScalarProperty Name="HasFirefox" ColumnName="HasFirefox" />
-                <ScalarProperty Name="HasUnikey" ColumnName="HasUnikey" />
-                <ScalarProperty Name="HasHeDieuHanhPMNM" ColumnName="HasHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasMayChuCaiHeDieuHanhPMNM" ColumnName="HasMayChuCaiHeDieuHanhPMNM" />
                 <ScalarProperty Name="TongSoCBCCCapHuyenDungMail" ColumnName="TongSoCBCCCapHuyenDungMail" />
                 <ScalarProperty Name="TongSoCBCCCapXaDungMail" ColumnName="TongSoCBCCCapXaDungMail" />
                 <ScalarProperty Name="MamNon_CongTTDT" ColumnName="MamNon_CongTTDT" />
@@ -11185,12 +11245,6 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="TamThan_QLGiuongBenh" ColumnName="TamThan_QLGiuongBenh" />
                 <ScalarProperty Name="TamThan_QLCongSan" ColumnName="TamThan_QLCongSan" />
                 <ScalarProperty Name="TamThan_KhamTuXa" ColumnName="TamThan_KhamTuXa" />
-                <ScalarProperty Name="UD_AnToanVeSinhTP" ColumnName="UD_AnToanVeSinhTP" />
-                <ScalarProperty Name="UD_KHHGiaDinh" ColumnName="UD_KHHGiaDinh" />
-                <ScalarProperty Name="UD_TTSucKhoe" ColumnName="UD_TTSucKhoe" />
-                <ScalarProperty Name="UD_DPMyPham" ColumnName="UD_DPMyPham" />
-                <ScalarProperty Name="UD_GiamDinhYKhoa" ColumnName="UD_GiamDinhYKhoa" />
-                <ScalarProperty Name="UD_GiamDinhPhapY" ColumnName="UD_GiamDinhPhapY" />
                 <ScalarProperty Name="SuNghiep_KeToan" ColumnName="SuNghiep_KeToan" />
                 <ScalarProperty Name="SuNghiep_ERP" ColumnName="SuNghiep_ERP" />
                 <ScalarProperty Name="SuNghiep_QLVatTu" ColumnName="SuNghiep_QLVatTu" />
@@ -11222,6 +11276,24 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="SoUDQuanLyThanhTraKhieuNai_Xa" ColumnName="SoUDQuanLyThanhTraKhieuNai_Xa" />
                 <ScalarProperty Name="SoUDChuKySo_Xa" ColumnName="SoUDChuKySo_Xa" />
                 <ScalarProperty Name="SoUDMotCuaDienTu_Xa" ColumnName="SoUDMotCuaDienTu_Xa" />
+                <ScalarProperty Name="SoOpenOffice" ColumnName="SoOpenOffice" />
+                <ScalarProperty Name="SoMozilla" ColumnName="SoMozilla" />
+                <ScalarProperty Name="SoFirefox" ColumnName="SoFirefox" />
+                <ScalarProperty Name="SoUnikey" ColumnName="SoUnikey" />
+                <ScalarProperty Name="SoHeDieuHanhPMNM" ColumnName="SoHeDieuHanhPMNM" />
+                <ScalarProperty Name="SoMayChuCaiHeDieuHanhPMNM" ColumnName="SoMayChuCaiHeDieuHanhPMNM" />
+                <ScalarProperty Name="UD_AnToanVeSinhTP_ID" ColumnName="UD_AnToanVeSinhTP_ID" />
+                <ScalarProperty Name="SoUD_AnToanVeSinhTP" ColumnName="SoUD_AnToanVeSinhTP" />
+                <ScalarProperty Name="UD_KHHGiaDinh_ID" ColumnName="UD_KHHGiaDinh_ID" />
+                <ScalarProperty Name="SoUD_KHHGiaDinh" ColumnName="SoUD_KHHGiaDinh" />
+                <ScalarProperty Name="UD_TTSucKhoe_ID" ColumnName="UD_TTSucKhoe_ID" />
+                <ScalarProperty Name="SoUD_TTSucKhoe" ColumnName="SoUD_TTSucKhoe" />
+                <ScalarProperty Name="UD_DPMyPham_ID" ColumnName="UD_DPMyPham_ID" />
+                <ScalarProperty Name="SoUD_DPMyPham" ColumnName="SoUD_DPMyPham" />
+                <ScalarProperty Name="UD_GiamDinhYKhoa_ID" ColumnName="UD_GiamDinhYKhoa_ID" />
+                <ScalarProperty Name="SoUD_GiamDinhYKhoa" ColumnName="SoUD_GiamDinhYKhoa" />
+                <ScalarProperty Name="UD_GiamDinhPhapY_ID" ColumnName="UD_GiamDinhPhapY_ID" />
+                <ScalarProperty Name="SoUD_GiamDinhPhapY" ColumnName="SoUD_GiamDinhPhapY" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -11252,12 +11324,18 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="SuNghiep_QLVatTu" ColumnName="SuNghiep_QLVatTu" />
                 <ScalarProperty Name="SuNghiep_ERP" ColumnName="SuNghiep_ERP" />
                 <ScalarProperty Name="SuNghiep_KeToan" ColumnName="SuNghiep_KeToan" />
-                <ScalarProperty Name="UD_GiamDinhPhapY" ColumnName="UD_GiamDinhPhapY" />
-                <ScalarProperty Name="UD_GiamDinhYKhoa" ColumnName="UD_GiamDinhYKhoa" />
-                <ScalarProperty Name="UD_DPMyPham" ColumnName="UD_DPMyPham" />
-                <ScalarProperty Name="UD_TTSucKhoe" ColumnName="UD_TTSucKhoe" />
-                <ScalarProperty Name="UD_KHHGiaDinh" ColumnName="UD_KHHGiaDinh" />
-                <ScalarProperty Name="UD_AnToanVeSinhTP" ColumnName="UD_AnToanVeSinhTP" />
+                <ScalarProperty Name="SoUD_GiamDinhPhapY" ColumnName="SoUD_GiamDinhPhapY" />
+                <ScalarProperty Name="UD_GiamDinhPhapY_ID" ColumnName="UD_GiamDinhPhapY_ID" />
+                <ScalarProperty Name="SoUD_GiamDinhYKhoa" ColumnName="SoUD_GiamDinhYKhoa" />
+                <ScalarProperty Name="UD_GiamDinhYKhoa_ID" ColumnName="UD_GiamDinhYKhoa_ID" />
+                <ScalarProperty Name="SoUD_DPMyPham" ColumnName="SoUD_DPMyPham" />
+                <ScalarProperty Name="UD_DPMyPham_ID" ColumnName="UD_DPMyPham_ID" />
+                <ScalarProperty Name="SoUD_TTSucKhoe" ColumnName="SoUD_TTSucKhoe" />
+                <ScalarProperty Name="UD_TTSucKhoe_ID" ColumnName="UD_TTSucKhoe_ID" />
+                <ScalarProperty Name="SoUD_KHHGiaDinh" ColumnName="SoUD_KHHGiaDinh" />
+                <ScalarProperty Name="UD_KHHGiaDinh_ID" ColumnName="UD_KHHGiaDinh_ID" />
+                <ScalarProperty Name="SoUD_AnToanVeSinhTP" ColumnName="SoUD_AnToanVeSinhTP" />
+                <ScalarProperty Name="UD_AnToanVeSinhTP_ID" ColumnName="UD_AnToanVeSinhTP_ID" />
                 <ScalarProperty Name="TamThan_KhamTuXa" ColumnName="TamThan_KhamTuXa" />
                 <ScalarProperty Name="TamThan_QLCongSan" ColumnName="TamThan_QLCongSan" />
                 <ScalarProperty Name="TamThan_QLGiuongBenh" ColumnName="TamThan_QLGiuongBenh" />
@@ -11441,12 +11519,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="MamNon_CongTTDT" ColumnName="MamNon_CongTTDT" />
                 <ScalarProperty Name="TongSoCBCCCapXaDungMail" ColumnName="TongSoCBCCCapXaDungMail" />
                 <ScalarProperty Name="TongSoCBCCCapHuyenDungMail" ColumnName="TongSoCBCCCapHuyenDungMail" />
-                <ScalarProperty Name="HasMayChuCaiHeDieuHanhPMNM" ColumnName="HasMayChuCaiHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasHeDieuHanhPMNM" ColumnName="HasHeDieuHanhPMNM" />
-                <ScalarProperty Name="HasUnikey" ColumnName="HasUnikey" />
-                <ScalarProperty Name="HasFirefox" ColumnName="HasFirefox" />
-                <ScalarProperty Name="HasMozilla" ColumnName="HasMozilla" />
-                <ScalarProperty Name="HasOpenOffice" ColumnName="HasOpenOffice" />
+                <ScalarProperty Name="SoMayChuCaiHeDieuHanhPMNM" ColumnName="SoMayChuCaiHeDieuHanhPMNM" />
+                <ScalarProperty Name="SoHeDieuHanhPMNM" ColumnName="SoHeDieuHanhPMNM" />
+                <ScalarProperty Name="SoUnikey" ColumnName="SoUnikey" />
+                <ScalarProperty Name="SoFirefox" ColumnName="SoFirefox" />
+                <ScalarProperty Name="SoMozilla" ColumnName="SoMozilla" />
+                <ScalarProperty Name="SoOpenOffice" ColumnName="SoOpenOffice" />
                 <ScalarProperty Name="TongSoVBDen" ColumnName="TongSoVBDen" />
                 <ScalarProperty Name="TongSoVBDi" ColumnName="TongSoVBDi" />
                 <ScalarProperty Name="SoVBDen" ColumnName="SoVBDen" />
