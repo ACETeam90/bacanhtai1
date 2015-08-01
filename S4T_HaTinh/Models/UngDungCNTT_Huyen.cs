@@ -520,18 +520,26 @@
         [Display(Name = "Trạng thái")]
         public byte Success { get; set; }
 
-        public byte HasQuanLyVanBan_Xa { get; set; }
-        public byte HasQuanLyNhanSu_Xa { get; set; }
-        public byte HasTaiChinhKeToan_Xa { get; set; }
-        public byte HasQuanLyCongSan_Xa { get; set; }
-        public byte HasQuanLyThanhTraKhieuNai_Xa { get; set; }
-        public byte HasChuKySo_Xa { get; set; }
-        public byte HasMotCuaDienTu_Xa { get; set; }
+        public int SoUDQuanLyVanBan_Xa { get; set; }
+        public int SoUDQuanLyNhanSu_Xa { get; set; }
+        public int SoUDTaiChinhKeToan_Xa { get; set; }
+        public int SoUDQuanLyCongSan_Xa { get; set; }
+        public int SoUDQuanLyThanhTraKhieuNai_Xa { get; set; }
+        public int SoUDChuKySo_Xa { get; set; }
+        public int SoUDMotCuaDienTu_Xa { get; set; }
+        //public byte HasQuanLyVanBan_Xa { get; set; }
+        //public byte HasQuanLyNhanSu_Xa { get; set; }
+        //public byte HasTaiChinhKeToan_Xa { get; set; }
+        //public byte HasQuanLyCongSan_Xa { get; set; }
+        //public byte HasQuanLyThanhTraKhieuNai_Xa { get; set; }
+        //public byte HasChuKySo_Xa { get; set; }
+        //public byte HasMotCuaDienTu_Xa { get; set; }
         public byte SoTTHC_MotCuaDienTu_Xa { get; set; }
         public int SoXaLienThongPhanMem { get; set; }
         public int SoVBDi { get; set; }
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
+        public decimal TongMucDauTu { get; set; }
     }
 }
