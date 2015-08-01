@@ -12,10 +12,10 @@
         float: left;
     }
 
-    .S4T_AutoComplete {
+    /*.S4T_NumericTextBox {
         width: 400px;
         float: left;
-    }
+    }*/
 </style>
 
 @{
@@ -32,6 +32,7 @@
     }
 }
 
+<p>I. Triển khai các ứng dụng cơ bản tại UBND huyện, xã</p>
 <p>1.Triển khai các ứng dụng cơ bản tại UBND huyện</p>
 <div class="divRow">
     @Html.LabelFor(model => model.HasQuanLyVanBan, htmlAttributes: new { @class = "divLabel" })
@@ -187,7 +188,7 @@
 <div class="divRow">
     @Html.LabelFor(model => model.TenPhanMem, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="TenPhanMem" name="TenPhanMem" value="@Model.TenPhanMem" style="width:400px;" class=" S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="TenPhanMem" name="TenPhanMem" value="@Model.TenPhanMem" style="width:400px;" class=" S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_TenPhanMem") }
         @Html.ValidationMessageFor(model => model.TenPhanMem, "", new { @class = "text-danger" })
@@ -197,7 +198,7 @@
 <div class="divRow">
     @Html.LabelFor(model => model.ChucNang, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="ChucNang" name="ChucNang" value="@Model.ChucNang" style="width:400px;" class=" S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="ChucNang" name="ChucNang" value="@Model.ChucNang" style="width:400px;" class=" S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_ChucNang") }
         @Html.ValidationMessageFor(model => model.ChucNang, "", new { @class = "text-danger" })
@@ -207,7 +208,7 @@
 <div class="divRow">
     @Html.LabelFor(model => model.PhamViSuDung, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="PhamViSuDung" name="PhamViSuDung" style="width:400px;" value="@Model.PhamViSuDung" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="PhamViSuDung" name="PhamViSuDung" style="width:400px;" value="@Model.PhamViSuDung" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_PhamViSuDung") }
         @Html.ValidationMessageFor(model => model.PhamViSuDung, "", new { @class = "text-danger" })
@@ -227,7 +228,7 @@
 <div class="divRow">
     @Html.LabelFor(model => model.DonViLapTrinhPhanMem, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="DonViLapTrinhPhanMem" name="DonViLapTrinhPhanMem" value="@Model.DonViLapTrinhPhanMem" style="width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="DonViLapTrinhPhanMem" name="DonViLapTrinhPhanMem" value="@Model.DonViLapTrinhPhanMem" style="width:400px;" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_DonViLapTrinhPhanMem") }
         @Html.ValidationMessageFor(model => model.DonViLapTrinhPhanMem, "", new { @class = "text-danger" })
@@ -288,124 +289,66 @@
 <p>4. Số lượng máy tính cài đặt ứng dụng Phần mềm mã nguồn mở (PMNM) tại UBND cấp huyện</p>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasOpenOffice, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoOpenOffice, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasOpenOffice_1" name="rd_value_HasOpenOffice" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasOpenOffice_0" name="rd_value_HasOpenOffice" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasOpenOffice)
+        <input type="text" id="SoOpenOffice" name="SoOpenOffice" value="@Model.SoOpenOffice" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasOpenOffice") }
-        @Html.ValidationMessageFor(model => model.HasOpenOffice, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoOpenOffice") }
+        @Html.ValidationMessageFor(model => model.SoOpenOffice, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasMozilla, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoMozilla, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasMozilla_1" name="rd_value_HasMozilla" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasMozilla_0" name="rd_value_HasMozilla" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasMozilla)
+        <input type="text" id="SoMozilla" name="SoMozilla" value="@Model.SoMozilla" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasMozilla") }
-        @Html.ValidationMessageFor(model => model.HasMozilla, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoMozilla") }
+        @Html.ValidationMessageFor(model => model.SoMozilla, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasFirefox, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoFirefox, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasFirefox_1" name="rd_value_HasFirefox" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasFirefox_0" name="rd_value_HasFirefox" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasFirefox)
+        <input type="text" id="SoFirefox" name="SoFirefox" value="@Model.SoFirefox" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasFirefox") }
-        @Html.ValidationMessageFor(model => model.HasFirefox, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoFirefox") }
+        @Html.ValidationMessageFor(model => model.SoFirefox, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasUnikey, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUnikey, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasUnikey_1" name="rd_value_HasUnikey" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasUnikey_0" name="rd_value_HasUnikey" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasUnikey)
+        <input type="text" id="SoUnikey" name="SoUnikey" value="@Model.SoUnikey" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasUnikey") }
-        @Html.ValidationMessageFor(model => model.HasUnikey, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoUnikey") }
+        @Html.ValidationMessageFor(model => model.SoUnikey, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasHeDieuHanhPMNM, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoHeDieuHanhPMNM, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasHeDieuHanhPMNM_1" name="rd_value_HasHeDieuHanhPMNM" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasHeDieuHanhPMNM_0" name="rd_value_HasHeDieuHanhPMNM" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasHeDieuHanhPMNM)
+        <input type="text" id="SoHeDieuHanhPMNM" name="SoHeDieuHanhPMNM" value="@Model.SoHeDieuHanhPMNM" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasHeDieuHanhPMNM") }
-        @Html.ValidationMessageFor(model => model.HasHeDieuHanhPMNM, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoHeDieuHanhPMNM") }
+        @Html.ValidationMessageFor(model => model.SoHeDieuHanhPMNM, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.HasMayChuCaiHeDieuHanhPMNM, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoMayChuCaiHeDieuHanhPMNM, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <ul style="list-style:none">
-            <li>
-                <input type="radio" id="rd_value_HasMayChuCaiHeDieuHanhPMNM_1" name="rd_value_HasMayChuCaiHeDieuHanhPMNM" style="width:30px;" @isCheck @isDisabled />
-                <span style="width:30px;">Có</span>
-            </li>
-            <li>
-                <input type="radio" id="rd_value_HasMayChuCaiHeDieuHanhPMNM_0" name="rd_value_HasMayChuCaiHeDieuHanhPMNM" style="width:30px;" @isDisabled />
-                <span style="width:30px;">Không</span>
-            </li>
-        </ul>
-        @Html.HiddenFor(model => model.HasMayChuCaiHeDieuHanhPMNM)
+        <input type="text" id="SoMayChuCaiHeDieuHanhPMNM" name="SoMayChuCaiHeDieuHanhPMNM" value="@Model.SoMayChuCaiHeDieuHanhPMNM" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_HasMayChuCaiHeDieuHanhPMNM") }
-        @Html.ValidationMessageFor(model => model.HasMayChuCaiHeDieuHanhPMNM, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoMayChuCaiHeDieuHanhPMNM") }
+        @Html.ValidationMessageFor(model => model.SoMayChuCaiHeDieuHanhPMNM, "", new { @class = "text-danger" })
     </div>
 </div>
+
+<p>5. Thư điện tử Hà Tĩnh</p>
 
 <div class="divRow">
     <span style="padding-top: 5px; padding-right: 3px; float: left;">3.</span>
@@ -429,9 +372,7 @@
     </div>
 </div>
 
-<p>
-    5.	ƯD CNTT trong giáo dục
-</p>
+<p>II. Ứng Dụng CNTT trong giáo dục</p>
 
 <table class="tableDefault">
     <tr>
@@ -855,9 +796,8 @@
     </tr>
 </table>
 
-<p>
-    6.	ƯD CNTT trong Y tế:
-</p>
+<p>II. Ứng Dụng CNTT trong Y tế</p>
+<p>1. Số lượng các ứng dụng triển khai tại:</p>
 <table class="tableDefault">
     <tr>
         <th></th>
@@ -1613,68 +1553,72 @@
         </td>
     </tr>
 </table>
+
+<p>2. Số lượng các ứng dụng triển khai tại các đơn vị khác (liệt kê các ứng dụng):</p>
+
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_AnToanVeSinhTP, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_AnToanVeSinhTP, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_AnToanVeSinhTP" name="UD_AnToanVeSinhTP" value="@Model.UD_AnToanVeSinhTP" style="width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_AnToanVeSinhTP" name="SoUD_AnToanVeSinhTP" value="@Model.SoUD_AnToanVeSinhTP" style="width:400px;" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
-        { @Html.CheckBox("chk_value_UD_AnToanVeSinhTP") }
-        @Html.ValidationMessageFor(model => model.UD_AnToanVeSinhTP, "", new { @class = "text-danger" })
+        { @Html.CheckBox("chk_value_SoUD_AnToanVeSinhTP") }
+        @Html.ValidationMessageFor(model => model.SoUD_AnToanVeSinhTP, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_KHHGiaDinh, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_KHHGiaDinh, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_KHHGiaDinh" name="UD_KHHGiaDinh" value="@Model.UD_KHHGiaDinh" style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_KHHGiaDinh" name="SoUD_KHHGiaDinh" value="@Model.SoUD_KHHGiaDinh" style="width:400px;" class="S4T_NumericTextBox" @isReadOnly />
 		@if (ViewBag.IsCheck == true) 
-		{ @Html.CheckBox("chk_value_UD_KHHGiaDinh") }
-        @Html.ValidationMessageFor(model => model.UD_KHHGiaDinh, "", new { @class = "text-danger" })
+		{ @Html.CheckBox("chk_value_SoUD_KHHGiaDinh") }
+        @Html.ValidationMessageFor(model => model.SoUD_KHHGiaDinh, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_TTSucKhoe, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_TTSucKhoe, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_TTSucKhoe" name="UD_TTSucKhoe" value="@Model.UD_TTSucKhoe" style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_TTSucKhoe" name="SoUD_TTSucKhoe" value="@Model.SoUD_TTSucKhoe" style="width:400px;" class="S4T_NumericTextBox" @isReadOnly />
 		@if (ViewBag.IsCheck == true) 
-		{ @Html.CheckBox("chk_value_UD_TTSucKhoe") }
-        @Html.ValidationMessageFor(model => model.UD_TTSucKhoe, "", new { @class = "text-danger" })
+		{ @Html.CheckBox("chk_value_SoUD_TTSucKhoe") }
+        @Html.ValidationMessageFor(model => model.SoUD_TTSucKhoe, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_DPMyPham, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_DPMyPham, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_DPMyPham" name="UD_DPMyPham" value="@Model.UD_DPMyPham" style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_DPMyPham" name="SoUD_DPMyPham" value="@Model.SoUD_DPMyPham" style = "width:400px;" class="S4T_NumericTextBox" @isReadOnly />
 		@if (ViewBag.IsCheck == true) 
-		{ @Html.CheckBox("chk_value_UD_DPMyPham") }
-        @Html.ValidationMessageFor(model => model.UD_DPMyPham, "", new { @class = "text-danger" })
+		{ @Html.CheckBox("chk_value_SoUD_DPMyPham") }
+        @Html.ValidationMessageFor(model => model.SoUD_DPMyPham, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_GiamDinhYKhoa, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_GiamDinhYKhoa, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_GiamDinhYKhoa" name="UD_GiamDinhYKhoa" value="@Model.UD_GiamDinhYKhoa" style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_GiamDinhYKhoa" name="SoUD_GiamDinhYKhoa" value="@Model.SoUD_GiamDinhYKhoa" style = "width:400px;" class="S4T_NumericTextBox" @isReadOnly />
 		@if (ViewBag.IsCheck == true) 
-		{ @Html.CheckBox("chk_value_UD_GiamDinhYKhoa") }
-        @Html.ValidationMessageFor(model => model.UD_GiamDinhYKhoa, "", new { @class = "text-danger" })
+		{ @Html.CheckBox("chk_value_SoUD_GiamDinhYKhoa") }
+        @Html.ValidationMessageFor(model => model.SoUD_GiamDinhYKhoa, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div class="divRow">
-    @Html.LabelFor(model => model.UD_GiamDinhPhapY, htmlAttributes: new { @class = "divLabel" })
+    @Html.LabelFor(model => model.SoUD_GiamDinhPhapY, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="UD_GiamDinhPhapY" name="UD_GiamDinhPhapY" value="@Model.UD_GiamDinhPhapY" style = "width:400px;" class="S4T_AutoComplete" @isReadOnly />
+        <input type="text" id="SoUD_GiamDinhPhapY" name="SoUD_GiamDinhPhapY" value="@Model.SoUD_GiamDinhPhapY" style = "width:400px;" class="S4T_NumericTextBox" @isReadOnly />
 		@if (ViewBag.IsCheck == true) 
-		{ @Html.CheckBox("chk_value_UD_GiamDinhPhapY") }
-        @Html.ValidationMessageFor(model => model.UD_GiamDinhPhapY, "", new { @class = "text-danger" })
+		{ @Html.CheckBox("chk_value_SoUD_GiamDinhPhapY") }
+        @Html.ValidationMessageFor(model => model.SoUD_GiamDinhPhapY, "", new { @class = "text-danger" })
     </div>
 </div>
 
 <div id="UD_CNTT_DVSN">
-    <p>13. ƯD CNTT trong đơn vị sự nghiệp</p>
+    <p>IV. Ứng Dụng CNTT trong đơn vị sự nghiệp và doanh nghiệp</p>
+
     <table class="tableDefault">
         <tr>
             <th></th>

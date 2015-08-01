@@ -19,7 +19,7 @@ namespace S4T_HaTinh.Controllers
     public class UngDungCNTT_HuyenController : Controller
     {
         private S4T_HaTinhEntities db = new S4T_HaTinhEntities();
-        private string listInputRadio = "HasQuanLyVanBan,HasQuanLyNhanSu,HasTaiChinhKeToan,HasQuanLyCongSan,HasQuanLyThanhTraKhieuNai,HasChuKySo,HasMotCuaDienTu,HasOpenOffice,HasMozilla,HasFirefox,HasUnikey,HasHeDieuHanhPMNM,HasMayChuCaiHeDieuHanhPMNM,";
+        private string listInputRadio = "HasQuanLyVanBan,HasQuanLyNhanSu,HasTaiChinhKeToan,HasQuanLyCongSan,HasQuanLyThanhTraKhieuNai,HasChuKySo,HasMotCuaDienTu,";
         private Ht_PhanHeChucNang objChucNang = new S4T_HaTinhEntities().Ht_PhanHeChucNang.ToList().FirstOrDefault(o => o.ControllerName == System.Web.HttpContext.Current.Request.RequestContext.RouteData.GetRequiredString("controller"));
 
         // GET: UngDungCNTT_Huyen
