@@ -38,25 +38,12 @@ namespace S4T_HaTinh.Models
         public string PhamViSuDung { get; set; }
         public Nullable<System.DateTime> BatDauSuDung { get; set; }
         public string DonViLapTrinhPhanMem { get; set; }
-        public byte HasQuanLyVanBan_Xa { get; set; }
-        public byte HasQuanLyNhanSu_Xa { get; set; }
-        public byte HasTaiChinhKeToan_Xa { get; set; }
-        public byte HasQuanLyCongSan_Xa { get; set; }
-        public byte HasQuanLyThanhTraKhieuNai_Xa { get; set; }
-        public byte HasChuKySo_Xa { get; set; }
-        public byte HasMotCuaDienTu_Xa { get; set; }
-        public byte SoTTHC_MotCuaDienTu_Xa { get; set; }
+        public int SoTTHC_MotCuaDienTu_Xa { get; set; }
         public int SoXaLienThongPhanMem { get; set; }
         public int SoVBDi { get; set; }
         public int SoVBDen { get; set; }
         public int TongSoVBDi { get; set; }
         public int TongSoVBDen { get; set; }
-        public byte HasOpenOffice { get; set; }
-        public byte HasMozilla { get; set; }
-        public byte HasFirefox { get; set; }
-        public byte HasUnikey { get; set; }
-        public byte HasHeDieuHanhPMNM { get; set; }
-        public byte HasMayChuCaiHeDieuHanhPMNM { get; set; }
         public int TongSoCBCCCapHuyenDungMail { get; set; }
         public int TongSoCBCCCapXaDungMail { get; set; }
         public int MamNon_CongTTDT { get; set; }
@@ -240,12 +227,6 @@ namespace S4T_HaTinh.Models
         public int TamThan_QLGiuongBenh { get; set; }
         public int TamThan_QLCongSan { get; set; }
         public int TamThan_KhamTuXa { get; set; }
-        public string UD_AnToanVeSinhTP { get; set; }
-        public string UD_KHHGiaDinh { get; set; }
-        public string UD_TTSucKhoe { get; set; }
-        public string UD_DPMyPham { get; set; }
-        public string UD_GiamDinhYKhoa { get; set; }
-        public string UD_GiamDinhPhapY { get; set; }
         public int SuNghiep_KeToan { get; set; }
         public int SuNghiep_ERP { get; set; }
         public int SuNghiep_QLVatTu { get; set; }
@@ -270,5 +251,30 @@ namespace S4T_HaTinh.Models
         public decimal TongMucDauTu { get; set; }
         public string TruongNhapLai { get; set; }
         public byte Success { get; set; }
+        public int SoUDQuanLyVanBan_Xa { get; set; }
+        public int SoUDQuanLyNhanSu_Xa { get; set; }
+        public int SoUDTaiChinhKeToan_Xa { get; set; }
+        public int SoUDQuanLyCongSan_Xa { get; set; }
+        public int SoUDQuanLyThanhTraKhieuNai_Xa { get; set; }
+        public int SoUDChuKySo_Xa { get; set; }
+        public int SoUDMotCuaDienTu_Xa { get; set; }
+        public int SoOpenOffice { get; set; }
+        public int SoMozilla { get; set; }
+        public int SoFirefox { get; set; }
+        public int SoUnikey { get; set; }
+        public int SoHeDieuHanhPMNM { get; set; }
+        public int SoMayChuCaiHeDieuHanhPMNM { get; set; }
+        public int UD_AnToanVeSinhTP_ID { get; set; }
+        public int SoUD_AnToanVeSinhTP { get; set; }
+        public int UD_KHHGiaDinh_ID { get; set; }
+        public int SoUD_KHHGiaDinh { get; set; }
+        public int UD_TTSucKhoe_ID { get; set; }
+        public int SoUD_TTSucKhoe { get; set; }
+        public int UD_DPMyPham_ID { get; set; }
+        public int SoUD_DPMyPham { get; set; }
+        public int UD_GiamDinhYKhoa_ID { get; set; }
+        public int SoUD_GiamDinhYKhoa { get; set; }
+        public int UD_GiamDinhPhapY_ID { get; set; }
+        public int SoUD_GiamDinhPhapY { get; set; }
     }
 }
