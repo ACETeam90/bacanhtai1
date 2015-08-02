@@ -14,21 +14,31 @@
         [Display(Name = "Đơn vị")]
         public int DonVi_ID { get; set; }
 
+        public byte HasWebTTDT { get; set; }
+        
         [Display(Name = "Trang thông tin điện tử (Website)")]
         [StringLength(250)]
         public string WebTTDT { get; set; }
+
+        public byte HasCongTTDT { get; set; }
 
         [Display(Name = "Cổng thông tin điện tử (Portal)")]
         [StringLength(250)]
         public string CongTTDT { get; set; }
 
+        public byte HasHeQuanTriCSDL { get; set; }
+
         [Display(Name = "Hệ quản trị cơ sở dữ liệu")]
         [StringLength(250)]
         public string HeQuanTriCSDL { get; set; }
 
+        public byte HasCongNgheLoi { get; set; }
+
         [Display(Name = "Công nghệ lõi")]
         [StringLength(250)]
         public string CongNgheLoi { get; set; }
+
+        public byte HasNgonNguLapTrinh { get; set; }
 
         [Display(Name = "Ngôn ngữ lập trình")]
         [StringLength(250)]
