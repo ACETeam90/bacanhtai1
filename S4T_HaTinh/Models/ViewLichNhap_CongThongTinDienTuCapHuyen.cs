@@ -26,6 +26,11 @@ namespace S4T_HaTinh.Models
         public int CongThongTinDienTuHuyen_ID { get; set; }
         public int LichNhap_ID { get; set; }
         public int DonVi_ID { get; set; }
+        public byte HasWebTTDT { get; set; }
+        public byte HasCongTTDT { get; set; }
+        public byte HasHeQuanTriCSDL { get; set; }
+        public byte HasCongNgheLoi { get; set; }
+        public byte HasNgonNguLapTrinh { get; set; }
         public string WebTTDT { get; set; }
         public string CongTTDT { get; set; }
         public string HeQuanTriCSDL { get; set; }
