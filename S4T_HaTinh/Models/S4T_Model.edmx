@@ -6420,7 +6420,7 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="SoUDQuanLyThanhTraKhieuNai_Xa" Type="Int32" Nullable="false" />
           <Property Name="SoUDChuKySo_Xa" Type="Int32" Nullable="false" />
           <Property Name="SoUDMotCuaDienTu_Xa" Type="Int32" Nullable="false" />
-          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="Byte" Nullable="false" />
+          <Property Name="SoTTHC_MotCuaDienTu_Xa" Type="Int32" Nullable="false" />
           <Property Name="SoXaLienThongPhanMem" Type="Int32" Nullable="false" />
           <Property Name="SoVBDi" Type="Int32" Nullable="false" />
           <Property Name="SoVBDen" Type="Int32" Nullable="false" />

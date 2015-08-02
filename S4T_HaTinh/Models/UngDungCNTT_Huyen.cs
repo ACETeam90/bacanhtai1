@@ -16,6 +16,10 @@
         [Display(Name = "Đơn vị")]
         public int DonVi_ID { get; set; }
 
+        #region Triển khai các ứng dụng cơ bản tại UBND huyện, xã
+
+        // 1. Triển khai các ứng dụng cơ bản tại UBND cấp huyện
+
         [Display(Name = "Quản lý văn bản và điều hành trên môi trường mạng")]
         public byte HasQuanLyVanBan { get; set; }
 
@@ -40,6 +44,8 @@
         [Display(Name = "Số TTHC được đưa vào một cửa điện tử")]
         public int SoTTHC_MotCuaDienTu { get; set; }
 
+        // 2. Các phần mềm, CSDL quản lý chuyên ngành khác (liệt kê chi tiết)
+
         [Display(Name = "-	Tên phần mềm/ CSDL")]
         [StringLength(250)]
         public string TenPhanMem { get; set; }
@@ -59,6 +65,24 @@
         [StringLength(250)]
         public string DonViLapTrinhPhanMem { get; set; }
 
+        //3. Kết quả ứng dụng quản lý văn bản và điều hành tác nghiệp trực tuyến tại UBND cấp huyện
+        [Display(Name = "Số xã kết nối liên thông phần mềm ")]
+        public int SoXaLienThongPhanMem { get; set; }
+
+        [Display(Name = "Số văn bản đi được đưa lên phần mềm ")]
+        public int SoVBDi { get; set; }
+
+        [Display(Name = "Số văn bản đến được đưa lên phần mềm ")]
+        public int SoVBDen { get; set; }
+
+        [Display(Name = "Tổng số văn bản đi của UBND huyện ")]
+        public int TongSoVBDi { get; set; }
+
+        [Display(Name = "Tổng số văn bản đến của UBND huyện ")]
+        public int TongSoVBDen { get; set; }
+
+        //4. Số lượng máy tính cài đặt ứng dụng Phần mềm mã nguồn mở (PMNM) tại UBND cấp huyện
+
         [Display(Name = "OpenOffice")]
         public int SoOpenOffice { get; set; }
 
@@ -77,11 +101,51 @@
         [Display(Name = "Máy chủ cài hệ điều hành PMNM")]
         public int SoMayChuCaiHeDieuHanhPMNM { get; set; }
 
+        // 5. Thư điện tử Hà Tĩnh
+
         [Display(Name = "Tổng số CBCC tại UBND cấp huyện dùng thư điện tử Mail.hatinh.gov.vn")]
         public int TongSoCBCCCapHuyenDungMail { get; set; }
 
         [Display(Name = "Tổng số CBCC tại UBND cấp xã dùng thư điện tử Mail.hatinh.gov.vn")]
         public int TongSoCBCCCapXaDungMail { get; set; }
+
+        // 6. Số lượng UBND cấp xã triển khai ứng dụng các ứng dụng cơ bản
+
+        [Display(Name = "Quản lý văn bản và điều hành trên môi trường mạng ")]
+        public int SoUDQuanLyVanBan_Xa { get; set; }
+
+        [Display(Name = "Quản lý nhân sự ")]
+        public int SoUDQuanLyNhanSu_Xa { get; set; }
+
+        [Display(Name = "Quản lý tài chính - kế toán ")]
+        public int SoUDTaiChinhKeToan_Xa { get; set; }
+
+        [Display(Name = "Quản lý công sản ")]
+        public int SoUDQuanLyCongSan_Xa { get; set; }
+
+        [Display(Name = "Quản lý thanh tra, khiếu nại, tố cáo ")]
+        public int SoUDQuanLyThanhTraKhieuNai_Xa { get; set; }
+
+        [Display(Name = "Ứng dụng chữ ký số ")]
+        public int SoUDChuKySo_Xa { get; set; }
+
+        [Display(Name = "Một cửa điện tử ")]
+        public int SoUDMotCuaDienTu_Xa { get; set; }
+
+        [Display(Name = "Số TTHC được đưa vào một cửa điện tử của từng đơn vị cấp xã ")]
+        public int SoTTHC_MotCuaDienTu_Xa { get; set; }
+
+        //public byte HasQuanLyVanBan_Xa { get; set; }
+        //public byte HasQuanLyNhanSu_Xa { get; set; }
+        //public byte HasTaiChinhKeToan_Xa { get; set; }
+        //public byte HasQuanLyCongSan_Xa { get; set; }
+        //public byte HasQuanLyThanhTraKhieuNai_Xa { get; set; }
+        //public byte HasChuKySo_Xa { get; set; }
+        //public byte HasMotCuaDienTu_Xa { get; set; }
+
+        #endregion Triển khai các ứng dụng cơ bản tại UBND huyện, xã
+
+        #region Ứng dụng CNTT trong giáo dục
 
         public int MamNon_CongTTDT { get; set; }
 
@@ -210,6 +274,10 @@
         public int Khac_DeTaiKH { get; set; }
 
         public int Khac_QLThi { get; set; }
+                
+        #endregion Ứng dụng CNTT trong giáo dục
+
+        #region Ứng dụng CNTT trong Y tế
 
         public int TramXa_CongTTDT { get; set; }
 
@@ -445,6 +513,8 @@
 
         public int TamThan_KhamTuXa { get; set; }
 
+
+        // Các ứng dụng CNTT tại các đơn vị khác (liệt kê các ứng dụng)
         public int UD_AnToanVeSinhTP_ID { get; set; }
 
         [Display(Name = "Các ứng dụng tại Chi cục an toàn vệ sinh thực phẩm")]
@@ -498,6 +568,11 @@
         //[Display(Name = "Các ứng dụng tại TT Giám định Pháp y")]
         //[StringLength(500)]
         //public string UD_GiamDinhPhapY { get; set; }
+        
+
+        #endregion Ứng dụng CNTT trong Y tế
+
+        #region ƯD CNTT trong đơn vị sự nghiệp và các doanh nghiệp
 
         public int SuNghiep_KeToan { get; set; }
 
@@ -541,6 +616,8 @@
 
         public int Khac_Khac { get; set; }
 
+        #endregion ƯD CNTT trong đơn vị sự nghiệp và các doanh nghiệp
+
         [Display(Name = "Tổng mức đầu tư")]
         public decimal TongMucDauTu { get; set; }
 
@@ -549,26 +626,5 @@
 
         [Display(Name = "Trạng thái")]
         public byte Success { get; set; }
-
-        public int SoUDQuanLyVanBan_Xa { get; set; }
-        public int SoUDQuanLyNhanSu_Xa { get; set; }
-        public int SoUDTaiChinhKeToan_Xa { get; set; }
-        public int SoUDQuanLyCongSan_Xa { get; set; }
-        public int SoUDQuanLyThanhTraKhieuNai_Xa { get; set; }
-        public int SoUDChuKySo_Xa { get; set; }
-        public int SoUDMotCuaDienTu_Xa { get; set; }
-        //public byte HasQuanLyVanBan_Xa { get; set; }
-        //public byte HasQuanLyNhanSu_Xa { get; set; }
-        //public byte HasTaiChinhKeToan_Xa { get; set; }
-        //public byte HasQuanLyCongSan_Xa { get; set; }
-        //public byte HasQuanLyThanhTraKhieuNai_Xa { get; set; }
-        //public byte HasChuKySo_Xa { get; set; }
-        //public byte HasMotCuaDienTu_Xa { get; set; }
-        public byte SoTTHC_MotCuaDienTu_Xa { get; set; }
-        public int SoXaLienThongPhanMem { get; set; }
-        public int SoVBDi { get; set; }
-        public int SoVBDen { get; set; }
-        public int TongSoVBDi { get; set; }
-        public int TongSoVBDen { get; set; }
     }
 }
