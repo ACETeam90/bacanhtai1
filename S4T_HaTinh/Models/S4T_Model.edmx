@@ -175,10 +175,15 @@
           <Property Name="CongThongTinDienTuHuyen_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LichNhap_ID" Type="int" Nullable="false" />
           <Property Name="DonVi_ID" Type="int" Nullable="false" />
+          <Property Name="HasWebTTDT" Type="tinyint" Nullable="false" />
           <Property Name="WebTTDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasCongTTDT" Type="tinyint" Nullable="false" />
           <Property Name="CongTTDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasHeQuanTriCSDL" Type="tinyint" Nullable="false" />
           <Property Name="HeQuanTriCSDL" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasCongNgheLoi" Type="tinyint" Nullable="false" />
           <Property Name="CongNgheLoi" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasNgonNguLapTrinh" Type="tinyint" Nullable="false" />
           <Property Name="NgonNguLapTrinh" Type="nvarchar" MaxLength="250" />
           <Property Name="SoSubsiteCapXa" Type="int" Nullable="false" />
           <Property Name="TTGT_SoDo_CoCau" Type="tinyint" Nullable="false" />
@@ -237,12 +242,12 @@
           <Property Name="DangTai_NoiDungThongTin" Type="tinyint" Nullable="false" />
           <Property Name="DangTai_QuyDinhKhac" Type="tinyint" Nullable="false" />
           <Property Name="TongSoDVTT_CoCongTTDT" Type="int" Nullable="false" />
+          <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="SoDNSXKD_PhanCung" Type="int" Nullable="false" />
           <Property Name="SoDNSXKD_PhanMem" Type="int" Nullable="false" />
           <Property Name="SoDNCungCapDVNDSo" Type="int" Nullable="false" />
           <Property Name="DanhSachDNCNTT_DT" Type="nvarchar" MaxLength="250" />
           <Property Name="TongDoanhThu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TruongNhapLai" Type="varchar(max)" />
           <Property Name="Success" Type="tinyint" Nullable="false" />
         </EntityType>
@@ -1677,6 +1682,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_CongThongTinDienTuCapH
             <PropertyRef Name="CongThongTinDienTuHuyen_ID" />
             <PropertyRef Name="LichNhap_ID" />
             <PropertyRef Name="DonVi_ID" />
+            <PropertyRef Name="HasWebTTDT" />
+            <PropertyRef Name="HasCongTTDT" />
+            <PropertyRef Name="HasHeQuanTriCSDL" />
+            <PropertyRef Name="HasCongNgheLoi" />
+            <PropertyRef Name="HasNgonNguLapTrinh" />
             <PropertyRef Name="SoSubsiteCapXa" />
             <PropertyRef Name="TTGT_SoDo_CoCau" />
             <PropertyRef Name="TTGT_ChucNang_NhiemVu" />
@@ -1734,11 +1744,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_CongThongTinDienTuCapH
             <PropertyRef Name="DangTai_NoiDungThongTin" />
             <PropertyRef Name="DangTai_QuyDinhKhac" />
             <PropertyRef Name="TongSoDVTT_CoCongTTDT" />
+            <PropertyRef Name="TongMucDauTu" />
             <PropertyRef Name="SoDNSXKD_PhanCung" />
             <PropertyRef Name="SoDNSXKD_PhanMem" />
             <PropertyRef Name="SoDNCungCapDVNDSo" />
             <PropertyRef Name="TongDoanhThu" />
-            <PropertyRef Name="TongMucDauTu" />
             <PropertyRef Name="Success" />
           </Key>
           <Property Name="DotBaoCao_ID" Type="int" />
@@ -1753,10 +1763,15 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_CongThongTinDienTuCapH
           <Property Name="CongThongTinDienTuHuyen_ID" Type="int" Nullable="false" />
           <Property Name="LichNhap_ID" Type="int" Nullable="false" />
           <Property Name="DonVi_ID" Type="int" Nullable="false" />
+          <Property Name="HasWebTTDT" Type="tinyint" Nullable="false" />
           <Property Name="WebTTDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasCongTTDT" Type="tinyint" Nullable="false" />
           <Property Name="CongTTDT" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasHeQuanTriCSDL" Type="tinyint" Nullable="false" />
           <Property Name="HeQuanTriCSDL" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasCongNgheLoi" Type="tinyint" Nullable="false" />
           <Property Name="CongNgheLoi" Type="nvarchar" MaxLength="250" />
+          <Property Name="HasNgonNguLapTrinh" Type="tinyint" Nullable="false" />
           <Property Name="NgonNguLapTrinh" Type="nvarchar" MaxLength="250" />
           <Property Name="SoSubsiteCapXa" Type="int" Nullable="false" />
           <Property Name="TTGT_SoDo_CoCau" Type="tinyint" Nullable="false" />
@@ -1815,12 +1830,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_CongThongTinDienTuCapH
           <Property Name="DangTai_NoiDungThongTin" Type="tinyint" Nullable="false" />
           <Property Name="DangTai_QuyDinhKhac" Type="tinyint" Nullable="false" />
           <Property Name="TongSoDVTT_CoCongTTDT" Type="int" Nullable="false" />
+          <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="SoDNSXKD_PhanCung" Type="int" Nullable="false" />
           <Property Name="SoDNSXKD_PhanMem" Type="int" Nullable="false" />
           <Property Name="SoDNCungCapDVNDSo" Type="int" Nullable="false" />
           <Property Name="DanhSachDNCNTT_DT" Type="nvarchar" MaxLength="250" />
           <Property Name="TongDoanhThu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="TongMucDauTu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TruongNhapLai" Type="varchar(max)" />
           <Property Name="Success" Type="tinyint" Nullable="false" />
         </EntityType>
@@ -3342,10 +3357,15 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[CongThongTinDienTuHuyen_ID] AS [CongThongTinDienTuHuyen_ID], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[LichNhap_ID] AS [LichNhap_ID], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[DonVi_ID] AS [DonVi_ID], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[HasWebTTDT] AS [HasWebTTDT], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[WebTTDT] AS [WebTTDT], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[HasCongTTDT] AS [HasCongTTDT], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[CongTTDT] AS [CongTTDT], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[HasHeQuanTriCSDL] AS [HasHeQuanTriCSDL], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[HeQuanTriCSDL] AS [HeQuanTriCSDL], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[HasCongNgheLoi] AS [HasCongNgheLoi], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[CongNgheLoi] AS [CongNgheLoi], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[HasNgonNguLapTrinh] AS [HasNgonNguLapTrinh], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[NgonNguLapTrinh] AS [NgonNguLapTrinh], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[SoSubsiteCapXa] AS [SoSubsiteCapXa], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[TTGT_SoDo_CoCau] AS [TTGT_SoDo_CoCau], 
@@ -3404,12 +3424,12 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[DangTai_NoiDungThongTin] AS [DangTai_NoiDungThongTin], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[DangTai_QuyDinhKhac] AS [DangTai_QuyDinhKhac], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[TongSoDVTT_CoCongTTDT] AS [TongSoDVTT_CoCongTTDT], 
+    [ViewLichNhap_CongThongTinDienTuCapHuyen].[TongMucDauTu] AS [TongMucDauTu], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[SoDNSXKD_PhanCung] AS [SoDNSXKD_PhanCung], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[SoDNSXKD_PhanMem] AS [SoDNSXKD_PhanMem], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[SoDNCungCapDVNDSo] AS [SoDNCungCapDVNDSo], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[DanhSachDNCNTT_DT] AS [DanhSachDNCNTT_DT], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[TongDoanhThu] AS [TongDoanhThu], 
-    [ViewLichNhap_CongThongTinDienTuCapHuyen].[TongMucDauTu] AS [TongMucDauTu], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[TruongNhapLai] AS [TruongNhapLai], 
     [ViewLichNhap_CongThongTinDienTuCapHuyen].[Success] AS [Success]
     FROM [dbo].[ViewLichNhap_CongThongTinDienTuCapHuyen] AS [ViewLichNhap_CongThongTinDienTuCapHuyen]</DefiningQuery>
@@ -4312,6 +4332,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Success" Type="Byte" Nullable="false" />
           <Property Name="TongMucDauTu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HasWebTTDT" Type="Byte" Nullable="false" />
+          <Property Name="HasCongTTDT" Type="Byte" Nullable="false" />
+          <Property Name="HasHeQuanTriCSDL" Type="Byte" Nullable="false" />
+          <Property Name="HasCongNgheLoi" Type="Byte" Nullable="false" />
+          <Property Name="HasNgonNguLapTrinh" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="Dm_CapXuLy">
           <Key>
@@ -6569,6 +6594,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
             <PropertyRef Name="TongDoanhThu" />
             <PropertyRef Name="TongMucDauTu" />
             <PropertyRef Name="Success" />
+            <PropertyRef Name="HasWebTTDT" />
+            <PropertyRef Name="HasCongTTDT" />
+            <PropertyRef Name="HasHeQuanTriCSDL" />
+            <PropertyRef Name="HasCongNgheLoi" />
+            <PropertyRef Name="HasNgonNguLapTrinh" />
           </Key>
           <Property Name="DotBaoCao_ID" Type="Int32" />
           <Property Name="Nam" Type="Int32" />
@@ -6652,6 +6682,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Name="TongMucDauTu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="TruongNhapLai" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Success" Type="Byte" Nullable="false" />
+          <Property Name="HasWebTTDT" Type="Byte" Nullable="false" />
+          <Property Name="HasCongTTDT" Type="Byte" Nullable="false" />
+          <Property Name="HasHeQuanTriCSDL" Type="Byte" Nullable="false" />
+          <Property Name="HasCongNgheLoi" Type="Byte" Nullable="false" />
+          <Property Name="HasNgonNguLapTrinh" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewLichNhap_HaTangKyThuatCapHuyen">
           <Key>
@@ -7188,6 +7223,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <Property Type="Decimal" Name="TongMucDauTu" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="TruongNhapLai" Nullable="true" />
           <Property Type="Byte" Name="Success" Nullable="false" />
+          <Property Type="Byte" Name="HasWebTTDT" Nullable="false" />
+          <Property Type="Byte" Name="HasCongTTDT" Nullable="false" />
+          <Property Type="Byte" Name="HasHeQuanTriCSDL" Nullable="false" />
+          <Property Type="Byte" Name="HasCongNgheLoi" Nullable="false" />
+          <Property Type="Byte" Name="HasNgonNguLapTrinh" Nullable="false" />
         </ComplexType>
         <ComplexType Name="sp_GetHaTangKyThuatCapHuyen_Result">
           <Property Type="String" Name="TenDonVi" Nullable="false" MaxLength="250" />
@@ -8381,6 +8421,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="CongThongTinDienTu_Huyen">
             <EntityTypeMapping TypeName="S4T_Model.CongThongTinDienTu_Huyen">
               <MappingFragment StoreEntitySet="CongThongTinDienTu_Huyen">
+                <ScalarProperty Name="HasNgonNguLapTrinh" ColumnName="HasNgonNguLapTrinh" />
+                <ScalarProperty Name="HasCongNgheLoi" ColumnName="HasCongNgheLoi" />
+                <ScalarProperty Name="HasHeQuanTriCSDL" ColumnName="HasHeQuanTriCSDL" />
+                <ScalarProperty Name="HasCongTTDT" ColumnName="HasCongTTDT" />
+                <ScalarProperty Name="HasWebTTDT" ColumnName="HasWebTTDT" />
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="CongThongTinDienTuHuyen_ID" ColumnName="CongThongTinDienTuHuyen_ID" />
                 <ScalarProperty Name="LichNhap_ID" ColumnName="LichNhap_ID" />
@@ -10373,6 +10418,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
           <EntitySetMapping Name="ViewLichNhap_CongThongTinDienTuCapHuyen">
             <EntityTypeMapping TypeName="S4T_Model.ViewLichNhap_CongThongTinDienTuCapHuyen">
               <MappingFragment StoreEntitySet="ViewLichNhap_CongThongTinDienTuCapHuyen">
+                <ScalarProperty Name="HasNgonNguLapTrinh" ColumnName="HasNgonNguLapTrinh" />
+                <ScalarProperty Name="HasCongNgheLoi" ColumnName="HasCongNgheLoi" />
+                <ScalarProperty Name="HasHeQuanTriCSDL" ColumnName="HasHeQuanTriCSDL" />
+                <ScalarProperty Name="HasCongTTDT" ColumnName="HasCongTTDT" />
+                <ScalarProperty Name="HasWebTTDT" ColumnName="HasWebTTDT" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
@@ -10784,6 +10834,11 @@ warning 6002: The table/view 'S4T_HaTinh.dbo.ViewLichNhap_UngDungCNTTCapHuyen' d
                 <ScalarProperty Name="TongMucDauTu" ColumnName="TongMucDauTu" />
                 <ScalarProperty Name="TruongNhapLai" ColumnName="TruongNhapLai" />
                 <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="HasWebTTDT" ColumnName="HasWebTTDT" />
+                <ScalarProperty Name="HasCongTTDT" ColumnName="HasCongTTDT" />
+                <ScalarProperty Name="HasHeQuanTriCSDL" ColumnName="HasHeQuanTriCSDL" />
+                <ScalarProperty Name="HasCongNgheLoi" ColumnName="HasCongNgheLoi" />
+                <ScalarProperty Name="HasNgonNguLapTrinh" ColumnName="HasNgonNguLapTrinh" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
