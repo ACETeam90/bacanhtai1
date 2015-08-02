@@ -351,7 +351,6 @@
 <p>5. Thư điện tử Hà Tĩnh</p>
 
 <div class="divRow">
-    <span style="padding-top: 5px; padding-right: 3px; float: left;">3.</span>
     @Html.LabelFor(model => model.TongSoCBCCCapHuyenDungMail, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
         <input type="text" id="TongSoCBCCCapHuyenDungMail" name="TongSoCBCCCapHuyenDungMail" value="@Model.TongSoCBCCCapHuyenDungMail" class="S4T_NumericTextBox" @isReadOnly />
@@ -362,13 +361,94 @@
 </div>
 
 <div class="divRow">
-    <span style="padding-top: 5px; padding-right: 3px; float: left;">4.</span>
     @Html.LabelFor(model => model.TongSoCBCCCapXaDungMail, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
         <input type="text" id="TongSoCBCCCapXaDungMail" name="TongSoCBCCCapXaDungMail" value="@Model.TongSoCBCCCapXaDungMail" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_TongSoCBCCCapXaDungMail") }
         @Html.ValidationMessageFor(model => model.TongSoCBCCCapXaDungMail, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<p>6. Số lượng UBND cấp xã triển khai ứng dụng các ứng dụng cơ bản</p>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDQuanLyVanBan_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDQuanLyVanBan_Xa" name="SoUDQuanLyVanBan_Xa" value="@Model.SoUDQuanLyVanBan_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDQuanLyVanBan_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDQuanLyVanBan_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDQuanLyNhanSu_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDQuanLyNhanSu_Xa" name="SoUDQuanLyNhanSu_Xa" value="@Model.SoUDQuanLyNhanSu_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDQuanLyNhanSu_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDQuanLyNhanSu_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDTaiChinhKeToan_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDTaiChinhKeToan_Xa" name="SoUDTaiChinhKeToan_Xa" value="@Model.SoUDTaiChinhKeToan_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDTaiChinhKeToan_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDTaiChinhKeToan_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDQuanLyCongSan_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDQuanLyCongSan_Xa" name="SoUDQuanLyCongSan_Xa" value="@Model.SoUDQuanLyCongSan_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDQuanLyCongSan_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDQuanLyCongSan_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDQuanLyThanhTraKhieuNai_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDQuanLyThanhTraKhieuNai_Xa" name="SoUDQuanLyThanhTraKhieuNai_Xa" value="@Model.SoUDQuanLyThanhTraKhieuNai_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDQuanLyThanhTraKhieuNai_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDQuanLyThanhTraKhieuNai_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDChuKySo_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDChuKySo_Xa" name="SoUDChuKySo_Xa" value="@Model.SoUDChuKySo_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDChuKySo_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDChuKySo_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoUDMotCuaDienTu_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoUDMotCuaDienTu_Xa" name="SoUDMotCuaDienTu_Xa" value="@Model.SoUDMotCuaDienTu_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoUDMotCuaDienTu_Xa") }
+        @Html.ValidationMessageFor(model => model.SoUDMotCuaDienTu_Xa, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="divRow">
+    @Html.LabelFor(model => model.SoTTHC_MotCuaDienTu_Xa, htmlAttributes: new { @class = "divLabel" })
+    <div class="divControl">
+        <input type="text" id="SoTTHC_MotCuaDienTu_Xa" name="SoTTHC_MotCuaDienTu_Xa" value="@Model.SoTTHC_MotCuaDienTu_Xa" class="S4T_NumericTextBox" @isReadOnly />
+        @if (ViewBag.IsCheck == true)
+        { @Html.CheckBox("chk_value_SoTTHC_MotCuaDienTu_Xa") }
+        @Html.ValidationMessageFor(model => model.SoTTHC_MotCuaDienTu_Xa, "", new { @class = "text-danger" })
     </div>
 </div>
 
@@ -1634,6 +1714,144 @@
         <tr>
             <td>ĐV Sự nghiệp</td>
             <td>
+                <input type="text" id="SuNghiep_KeToan" name="SuNghiep_KeToan" value="@Model.SuNghiep_KeToan" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_KeToan") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_KeToan, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_ERP" name="SuNghiep_ERP" value="@Model.SuNghiep_ERP" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_ERP") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_ERP, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_QLVatTu" name="SuNghiep_QLVatTu" value="@Model.SuNghiep_QLVatTu" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_QLVatTu") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_QLVatTu, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_Luong" name="SuNghiep_Luong" value="@Model.SuNghiep_Luong" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_Luong") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_Luong, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_BanHang" name="SuNghiep_BanHang" value="@Model.SuNghiep_BanHang" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_BanHang") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_BanHang, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_GDDTTinh" name="SuNghiep_GDDTTinh" value="@Model.SuNghiep_GDDTTinh" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_GDDTTinh") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_GDDTTinh, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="SuNghiep_Khac" name="SuNghiep_Khac" value="@Model.SuNghiep_Khac" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_SuNghiep_Khac") }
+                @Html.ValidationMessageFor(model => model.SuNghiep_Khac, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>Doanh nghiệp CNTT- TT</td>
+            <td>
+                <input type="text" id="CNTT_KeToan" name="CNTT_KeToan" value="@Model.CNTT_KeToan" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_KeToan") }
+                @Html.ValidationMessageFor(model => model.CNTT_KeToan, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="CNTT_ERP" name="CNTT_ERP" value="@Model.CNTT_ERP" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_ERP") }
+                @Html.ValidationMessageFor(model => model.CNTT_ERP, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="CNTT_QLVatTu" name="CNTT_QLVatTu" value="@Model.CNTT_QLVatTu" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_QLVatTu") }
+                @Html.ValidationMessageFor(model => model.CNTT_QLVatTu, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="CNTT_Luong" name="CNTT_Luong" value="@Model.CNTT_Luong" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_Luong") }
+                @Html.ValidationMessageFor(model => model.CNTT_Luong, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="CNTT_BanHang" name="CNTT_BanHang" value="@Model.CNTT_BanHang" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_BanHang") }
+                @Html.ValidationMessageFor(model => model.CNTT_BanHang, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                <input type="text" id="CNTT_GDDTTinh" name="CNTT_GDDTTinh" value="@Model.CNTT_GDDTTinh" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_GDDTTinh") }
+                @Html.ValidationMessageFor(model => model.CNTT_GDDTTinh, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="CNTT_Khac" name="CNTT_Khac" value="@Model.CNTT_Khac" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_CNTT_Khac") }
+                @Html.ValidationMessageFor(model => model.CNTT_Khac, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        <tr>
+            <td>DN khác</td>
+            <td>
+				<input type="text" id="Khac_KeToan" name="Khac_KeToan" value="@Model.Khac_KeToan" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_KeToan") }
+                @Html.ValidationMessageFor(model => model.Khac_KeToan, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_ERP" name="Khac_ERP" value="@Model.Khac_ERP" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_ERP") }
+                @Html.ValidationMessageFor(model => model.Khac_ERP, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_QLVatTu" name="Khac_QLVatTu" value="@Model.Khac_QLVatTu" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_QLVatTu") }
+                @Html.ValidationMessageFor(model => model.Khac_QLVatTu, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_Luong" name="Khac_Luong" value="@Model.Khac_Luong" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_Luong") }
+                @Html.ValidationMessageFor(model => model.Khac_Luong, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_BanHang" name="Khac_BanHang" value="@Model.Khac_BanHang" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_BanHang") }
+                @Html.ValidationMessageFor(model => model.Khac_BanHang, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_GDDTTinh" name="Khac_GDDTTinh" value="@Model.Khac_GDDTTinh" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_GDDTTinh") }
+                @Html.ValidationMessageFor(model => model.Khac_GDDTTinh, "", new { @class = "text-danger" })
+            </td>
+            <td>
+				<input type="text" id="Khac_Khac" name="Khac_Khac" value="@Model.Khac_Khac" class="S4T_NumericTextBox" @isReadOnly />
+                @if (ViewBag.IsCheck == true)
+                { @Html.CheckBox("chk_value_Khac_Khac") }
+                @Html.ValidationMessageFor(model => model.Khac_Khac, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+
+        @*<tr>
+            <td>ĐV Sự nghiệp</td>
+            <td>
                 <ul style="list-style:none">
                     <li>
                         <input type="radio" id="rd_value_SuNghiep_KeToan_1" name="rd_value_SuNghiep_KeToan" style="width:30px;" @isCheck @isDisabled />
@@ -1998,14 +2216,14 @@
                 { @Html.CheckBox("chk_value_Khac_Khac") }
                 @Html.ValidationMessageFor(model => model.Khac_Khac, "", new { @class = "text-danger" })
             </td>
-        </tr>
+        </tr>*@
     </table>
 </div>
 
 <div class="divRow">
     @Html.LabelFor(model => model.TongMucDauTu, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
-        <input type="text" id="TongMucDauTu" name="TongMucDauTu" value="@Model.TongMucDauTu" class="S4T_NumericTextBox" @isReadOnly />
+        <input type="text" id="TongMucDauTu" name="TongMucDauTu" value="@Model.TongMucDauTu" style="width:180px;" class="S4T_NumericTextBox" @isReadOnly />
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_TongMucDauTu") }
         @Html.ValidationMessageFor(model => model.TongMucDauTu, "", new { @class = "text-danger" })

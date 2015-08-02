@@ -37,8 +37,14 @@
 <div class="divRow">
     @Html.LabelFor(model => model.WebTTDT, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
+        <input type="checkbox" id="HasWebTTDT" name="HasWebTTDT" value="@Model.HasWebTTDT" style="width:30px;" @isDisabled />
+    </div>
+</div>
+
+<div class="divRow">
+    <label class="divLabel">Tên website</label>
+    <div class="divControl">
         <input type="text" id="WebTTDT" name="WebTTDT" value="@Model.WebTTDT" class="S4T_AutoComplete" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.WebTTDT, new { @class = "S4T_AutoComplete", @style = "width:300px;", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.WebTTDT, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_WebTTDT") }
@@ -48,8 +54,8 @@
 <div class="divRow">
     @Html.LabelFor(model => model.CongTTDT, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
+        <input type="checkbox" id="HasCongTTDT" name="HasCongTTDT" value="@Model.HasCongTTDT" style="width:30px;" @isDisabled />
         <input type="text" id="CongTTDT" name="CongTTDT" value="@Model.CongTTDT" class="S4T_AutoComplete" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.CongTTDT, new { @class = "S4T_AutoComplete", @style = "width:300px;", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.CongTTDT, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_CongTTDT") }
@@ -59,8 +65,8 @@
 <div class="divRow">
     @Html.LabelFor(model => model.HeQuanTriCSDL, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
+        <input type="checkbox" id="HasHeQuanTriCSDL" name="HasHeQuanTriCSDL" value="@Model.HasHeQuanTriCSDL" style="width:30px;" @isDisabled />
         <input type="text" id="HeQuanTriCSDL" name="HeQuanTriCSDL" value="@Model.HeQuanTriCSDL" class="S4T_AutoComplete" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.HeQuanTriCSDL, new { @class = "S4T_AutoComplete", @style = "width:300px;", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.HeQuanTriCSDL, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_HeQuanTriCSDL") }
@@ -70,8 +76,8 @@
 <div class="divRow">
     @Html.LabelFor(model => model.CongNgheLoi, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
+        <input type="checkbox" id="HasCongNgheLoi" name="HasCongNgheLoi" value="@Model.HasCongNgheLoi" style="width:30px;" @isDisabled />
         <input type="text" id="CongNgheLoi" name="CongNgheLoi" value="@Model.CongNgheLoi" class="S4T_AutoComplete" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.CongNgheLoi, new { @class = "S4T_AutoComplete", @style = "width:300px;", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.CongNgheLoi, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_CongNgheLoi") }
@@ -81,8 +87,8 @@
 <div class="divRow">
     @Html.LabelFor(model => model.NgonNguLapTrinh, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
+        <input type="checkbox" id="HasNgonNguLapTrinh" name="HasNgonNguLapTrinh" value="@Model.HasNgonNguLapTrinh" style="width:30px;" @isDisabled />
         <input type="text" id="NgonNguLapTrinh" name="NgonNguLapTrinh" value="@Model.NgonNguLapTrinh" class="S4T_AutoComplete" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.NgonNguLapTrinh, new { @class = "S4T_AutoComplete", @style = "width:300px;", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.NgonNguLapTrinh, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_NgonNguLapTrinh") }
@@ -93,7 +99,6 @@
     @Html.LabelFor(model => model.SoSubsiteCapXa, htmlAttributes: new { @class = "divLabel" })
     <div class="divControl">
         <input type="text" id="SoSubsiteCapXa" name="SoSubsiteCapXa" value="@Model.SoSubsiteCapXa" class="S4T_NumericTextBox" style="width:300px;" @isReadOnly />
-        @*@Html.TextBoxFor(model => model.SoSubsiteCapXa, new { @class = "S4T_NumericTextBox", @readonly= isReadOnly })*@
         @Html.ValidationMessageFor(model => model.SoSubsiteCapXa, "", new { @class = "text-danger" })
         @if (ViewBag.IsCheck == true)
         { @Html.CheckBox("chk_value_SoSubsiteCapXa") }
