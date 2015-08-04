@@ -24,6 +24,9 @@ namespace S4T_HaTinh.Models
         [Display(Name = "Đợt báo cáo")]
         public int DotBaoCao { get; set; }
 
+        [Display(Name = "Trạng thái")]
+        public int TrangThai { get; set; }
+
         public object ListObject { get; set; }
     }
 }

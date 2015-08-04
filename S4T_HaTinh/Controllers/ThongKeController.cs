@@ -30,31 +30,6 @@ namespace S4T_HaTinh.Controllers
             return View();
         }
 
-        public ActionResult ChangeListBaoCao(int nhomDonVi_ID)
-        {
-            //var objDonVi = MvcApplication.ListDonVi.FirstOrDefault(o => o.DonVi_ID == donVi_ID);
-            var listPhanHeChucNang = new List<Ht_PhanHeChucNang>();
-
-            // Danh mục phân hệ nhập liệu
-            if (nhomDonVi_ID == DonVi.NhomDonViCapHuyen)
-                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
-            else
-                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
-
-            var str = new StringBuilder();
-
-            if (listPhanHeChucNang.Any())
-            {
-                foreach (var item in listPhanHeChucNang)
-                {
-                    str.AppendFormat("<option value='{0}'>{1}</option>", item.PhanHeChucNang_ID, item.TenChucNang);
-                }
-                return Json(new { danhSach = str.ToString() });
-            }
-
-            return Json(new { msg = "Không tìm thấy danh mục báo cáo" });
-        }
-
         private void GetViewBag(int? nhomDonVi_ID)
         {
             Dm_DonVi objDonVi = new Dm_DonVi();
@@ -91,8 +66,36 @@ namespace S4T_HaTinh.Controllers
             //ViewBag.SelectListDonVi = new SelectList(listDonVi, "DonVi_ID", "TenDonVi");
         }
 
+        /// <summary>
+        /// Thay đổi loại báo cáo cấp Huyện hoặc Sở theo Nhóm đơn vị
+        /// </summary>
+        public ActionResult ChangeListBaoCao(int nhomDonVi_ID)
+        {
+            //var objDonVi = MvcApplication.ListDonVi.FirstOrDefault(o => o.DonVi_ID == donVi_ID);
+            var listPhanHeChucNang = new List<Ht_PhanHeChucNang>();
+
+            // Danh mục phân hệ nhập liệu
+            if (nhomDonVi_ID == DonVi.NhomDonViCapHuyen)
+                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+            else
+                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+
+            var str = new StringBuilder();
+
+            if (listPhanHeChucNang.Any())
+            {
+                foreach (var item in listPhanHeChucNang)
+                {
+                    str.AppendFormat("<option value='{0}'>{1}</option>", item.PhanHeChucNang_ID, item.TenChucNang);
+                }
+                return Json(new { danhSach = str.ToString() });
+            }
+
+            return Json(new { msg = "Không tìm thấy danh mục báo cáo" });
+        }
+
         // GET: ThongKe/Details/5
-        public ActionResult ReportView(ReportModel model, int trangThai)
+        public ActionResult ReportView(ReportModel model)
         {
             if (model.PhanHeChucNang == 0)
                 return Content("Chưa chọn báo cáo"); // PartialView();
@@ -102,7 +105,7 @@ namespace S4T_HaTinh.Controllers
                 switch (model.PhanHeChucNang)
                 {
                     case 10: // Hạ tầng kỹ thuật
-                        var listHaTangKyThuat = db.sp_GetHaTangKyThuat(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listHaTangKyThuat = db.sp_GetHaTangKyThuat(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listHaTangKyThuat.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listHaTangKyThuat.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listHaTangKyThuat.Sum(m => m.SoCB_DVTT);
@@ -143,7 +146,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 11: // Hạ tầng nhân lực CNTT
-                        var listHaTangNhanLuc = db.sp_GetHaTangNhanLuc(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listHaTangNhanLuc = db.sp_GetHaTangNhanLuc(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listHaTangNhanLuc.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listHaTangNhanLuc.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listHaTangNhanLuc.Sum(m => m.SoCB_DVTT);
@@ -168,7 +171,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 12: // Ứng dụng CNTT
-                        var listUngDungCNTT = db.sp_GetUngDungCNTT(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listUngDungCNTT = db.sp_GetUngDungCNTT(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listUngDungCNTT.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listUngDungCNTT.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listUngDungCNTT.Sum(m => m.SoCB_DVTT);
@@ -190,7 +193,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 14: // Cổng thông tin điện tử
-                        var listCongTTDT = db.sp_GetCongThongTinDienTu(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listCongTTDT = db.sp_GetCongThongTinDienTu(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listCongTTDT.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listCongTTDT.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listCongTTDT.Sum(m => m.SoCB_DVTT);
@@ -205,7 +208,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 15: // Hạ tầng kỹ thuật CNTT cấp Huyện
-                        var listHaTangKyThuatCapHuyen = db.sp_GetHaTangKyThuatCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listHaTangKyThuatCapHuyen = db.sp_GetHaTangKyThuatCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listHaTangKyThuatCapHuyen.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listHaTangKyThuatCapHuyen.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listHaTangKyThuatCapHuyen.Sum(m => m.SoCB_DVTT);
@@ -279,7 +282,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 16: // Hạ tầng nhân lực CNTT cấp Huyện
-                        var listHaTangNhanLucCapHuyen = db.sp_GetHaTangNhanLucCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listHaTangNhanLucCapHuyen = db.sp_GetHaTangNhanLucCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.TieuHoc_SoTruong = listHaTangNhanLucCapHuyen.Sum(m => m.TieuHoc_SoTruong);
                         ViewBag.TieuHoc_TinHoc = listHaTangNhanLucCapHuyen.Sum(m => m.TieuHoc_TinHoc);
                         ViewBag.TieuHoc_NganhCNTT = listHaTangNhanLucCapHuyen.Sum(m => m.TieuHoc_NganhCNTT);
@@ -406,12 +409,12 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 20: // Cổng Thông Tin Điện Tử Cấp Huyện
-                        var listCongTTDTCapHuyen = db.sp_GetCongThongTinDienTuCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listCongTTDTCapHuyen = db.sp_GetCongThongTinDienTuCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listCongTTDTCapHuyen.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listCongTTDTCapHuyen.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listCongTTDTCapHuyen.Sum(m => m.SoCB_DVTT);
 
-                        var listsum = db.sp_GetCongThongTinDienTuCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listsum = db.sp_GetCongThongTinDienTuCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         sp_GetCongThongTinDienTuCapHuyen_Result objSum = new sp_GetCongThongTinDienTuCapHuyen_Result
                         {
                             SoSubsiteCapXa = listCongTTDTCapHuyen.Sum(o => o.SoSubsiteCapXa),
@@ -433,7 +436,7 @@ namespace S4T_HaTinh.Controllers
                         break;
 
                     case 21: // Ứng Dụng CNTT Cấp Huyện
-                        var listUngDungCNTTCapHuyen = db.sp_GetUngDungCNTTCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, TrangThaiNhapLieu.PheDuyet);
+                        var listUngDungCNTTCapHuyen = db.sp_GetUngDungCNTTCapHuyen(model.NhomDonVi, model.DotBaoCao, model.Nam, model.TrangThai);
                         ViewBag.SoCBCC = listUngDungCNTTCapHuyen.Sum(m => m.SoCBCC);
                         ViewBag.SoDonViTrucThuoc = listUngDungCNTTCapHuyen.Sum(m => m.SoDonViTrucThuoc);
                         ViewBag.SoCB_DVTT = listUngDungCNTTCapHuyen.Sum(m => m.SoCB_DVTT);

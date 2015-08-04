@@ -2,10 +2,10 @@
                   
 @{
     var slNhomDonVi = new SelectList(ViewBag.ListNhomDonVi, "DanhMuc_ID", "TenDanhMuc");
-    //var slDonVi = new SelectList(ViewBag.ListDonVi, "DonVi_ID", "TenDonVi");
+    var listTrangThai = MvcApplication.ListTrangThaiNhapLieu().Where(o => o.DanhMuc_ID != S4T_HaTinh.Common.TrangThaiNhapLieu.ThemMoi);
+    var slListTrangThai = new SelectList(listTrangThai, "DanhMuc_ID", "TenDanhMuc");
     var listPhanHe = new SelectList(ViewBag.ListPhanHeChucNang, "PhanHeChucNang_ID", "TenChucNang");
     var slDotBaoCao = new SelectList(ViewBag.ListDotBaoCao, "DanhMuc_ID", "TenDanhMuc");
-    int trangThai = ViewBag.TrangThai != null ? Convert.ToInt32(ViewBag.TrangThai) : 0;
 }
 
 <h2>THỐNG KÊ SỐ LIỆU CÁC ĐƠN VỊ</h2>
@@ -37,6 +37,12 @@
                     <li class="liSearch">
                         @Html.DropDownListFor(model => model.PhanHeChucNang, listPhanHe, new { @class = "S4T_ComboBox", @style = "width: 220px;" })
                     </li>
+                    <li class="liSearch labelSearch">
+                        Trạng thái
+                    </li>
+                    <li class="liSearch">
+                        @Html.DropDownListFor(model => model.TrangThai, slListTrangThai, new { @class = "S4T_ComboBox", @style = "width: 220px;" })
+                    </li>
                 </ul>
                 <ul class="ulSearch" style="list-style:none;">
                     <li class="liSearch labelSearch" style=" width: 69px;">
@@ -61,7 +67,7 @@
 </fieldset>
 
 <hr style="border:0"/>
-@Html.Action("ReportView", "ThongKe", new { trangThai = trangThai })
+@Html.Action("ReportView", "ThongKe")
 
 <script type="text/javascript">
     // Tạo searchable
