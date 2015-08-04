@@ -67,7 +67,7 @@ namespace S4T_HaTinh.Controllers
                 if (donVi_ID == 0)
                 {
                     objDonVi = listDonVi.FirstOrDefault();
-                    ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && o.PhanHe_ID == PhanHe.QuanLyThongTin).OrderBy(o => o.TenChucNang).ToList();
+                    ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(null, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
                 }
                 else
                 {
@@ -75,9 +75,9 @@ namespace S4T_HaTinh.Controllers
 
                     // Danh mục phân hệ nhập liệu
                     if (objDonVi != null && objDonVi.NhomDonVi_ID == DonVi.NhomDonViCapHuyen)
-                        ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                        ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapHuyen, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
                     else if (objDonVi != null)
-                        ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                        ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapTinh, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
                 }
             }
             else if (type == ViewReport.Create)
@@ -102,9 +102,9 @@ namespace S4T_HaTinh.Controllers
                 {
                     // Danh mục phân hệ nhập liệu
                     if (objDonVi.NhomDonVi_ID == DonVi.NhomDonViCapHuyen)
-                        ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                        ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapHuyen, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
                     else
-                        ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                        ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapTinh, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
                 }
             }
 
@@ -339,13 +339,13 @@ namespace S4T_HaTinh.Controllers
         public ActionResult ChangeListBaoCao(int nhomDonVi_ID, string view)
         {
             //var objDonVi = MvcApplication.ListDonVi.FirstOrDefault(o => o.DonVi_ID == donVi_ID);
-            var listPhanHeChucNang = new List<Ht_PhanHeChucNang>();
+            IEnumerable<Ht_PhanHeChucNang> listPhanHeChucNang = new List<Ht_PhanHeChucNang>();
 
             // Danh mục phân hệ nhập liệu
             if (nhomDonVi_ID == DonVi.NhomDonViCapHuyen)
-                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                listPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapHuyen, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
             else
-                listPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)).OrderBy(o => o.TenChucNang).ToList();
+                listPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(DonVi.NhomDonViCapTinh, TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
 
             var str = new StringBuilder();
             if (view == "Index")

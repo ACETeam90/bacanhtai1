@@ -28,7 +28,7 @@ namespace S4T_HaTinh.Controllers
 
         private void GetViewBag()
         {
-            ViewBag.ListPhanHeChucNang = db.Ht_PhanHeChucNang.Where(o => o.TrangThai == TrangThai.HoatDong && o.PhanHe_ID == PhanHe.QuanLyThongTin).OrderBy(o => o.TenChucNang);
+            ViewBag.ListPhanHeChucNang = S4T_HaTinhBase.GetListBaoCao(null,TrangThai.HoatDong).OrderBy(o => o.TenChucNang);
 
             // Đợt báo cáo
             ViewBag.ListDotBaoCao = MvcApplication.ListDotBaoCao().Where(o => o.TrangThai == TrangThai.HoatDong);

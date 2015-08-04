@@ -27,7 +27,7 @@ namespace S4T_HaTinh.Controllers
             GetViewBag();
 
             if (donVi_ID == null && phanHe_ID == null && trangThai == null)
-                return View();
+                return View((IEnumerable<sp_LichNhapLieuWithOption_Result>)db.sp_LichNhapLieuWithOption(null, null, TrangThaiNhapLieu.DaGui).OrderBy(o => o.TuNgay));
 
             var listLichNhap = (IEnumerable<sp_LichNhapLieuWithOption_Result>) db.sp_LichNhapLieuWithOption(donVi_ID, phanHe_ID, trangThai).OrderBy(o => o.TuNgay);
             return View(listLichNhap);

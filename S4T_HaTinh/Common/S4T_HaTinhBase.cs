@@ -164,5 +164,17 @@ namespace S4T_HaTinh.Common
                 return list.Where(o => o.TrangThai == trangThai);
             return list;
         }
+
+        public static IEnumerable<Ht_PhanHeChucNang> GetListBaoCao(int? capDV, int? trangThai)
+        {
+            var list = new S4T_HaTinhEntities().Ht_PhanHeChucNang.Where(o => MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID) || MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID));
+            if(trangThai != null)
+                list = list.Where(o => o.TrangThai == trangThai);
+            list = capDV == DonVi.NhomDonViCapHuyen ? list.Where(o => MaBaoCao.BaoCaoHuyen.Contains(o.PhanHeChucNang_ID)) 
+                : capDV == DonVi.NhomDonViCapTinh ? list.Where(o => MaBaoCao.BaoCaoSo.Contains(o.PhanHeChucNang_ID)) 
+                : list;
+
+            return list;
+        }
     }
 }
