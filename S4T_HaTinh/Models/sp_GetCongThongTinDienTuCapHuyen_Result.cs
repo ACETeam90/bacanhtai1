@@ -25,28 +25,28 @@ namespace S4T_HaTinh.Models
         public int CongThongTinDienTuHuyen_ID { get; set; }
         public int LichNhap_ID { get; set; }
         public int DonVi_ID { get; set; }
-        public string WebTTDT { get; set; }
+        public byte WebTTDT { get; set; }
         public string CongTTDT { get; set; }
-        public string HeQuanTriCSDL { get; set; }
+        public byte HeQuanTriCSDL { get; set; }
         public string CongNgheLoi { get; set; }
-        public string NgonNguLapTrinh { get; set; }
-        public int SoSubsiteCapXa { get; set; }
+        public byte NgonNguLapTrinh { get; set; }
+        public string SoSubsiteCapXa { get; set; }
         public byte TTGT_SoDo_CoCau { get; set; }
-        public byte TTGT_ChucNang_NhiemVu { get; set; }
+        public string TTGT_ChucNang_NhiemVu { get; set; }
         public byte TTGT_HinhThanh_PhatTrien { get; set; }
-        public byte TTGT_ThongTinTomTat { get; set; }
-        public byte TTGT_ThongTinGiaoDich { get; set; }
+        public string TTGT_ThongTinTomTat { get; set; }
+        public int TTGT_ThongTinGiaoDich { get; set; }
         public byte TTGT_ThongTinLienHe { get; set; }
         public byte TTGT_BanDoDiaGioi { get; set; }
         public byte TTGT_ThongTinThongKe { get; set; }
         public byte TanSuatCapNhat { get; set; }
-        public int TTCD_TongSoVBChiDao_DonVi { get; set; }
-        public int TTCD_TongSoVBChiDao_DieuHanh { get; set; }
+        public byte TTCD_TongSoVBChiDao_DonVi { get; set; }
+        public byte TTCD_TongSoVBChiDao_DieuHanh { get; set; }
         public byte TTCD_DangLichLamViec { get; set; }
         public byte TTTT_ChuyenTrangVBQPPL { get; set; }
         public byte TTTT_TinBai_DangTaiPL { get; set; }
-        public byte CLDH_ChuyenMuc_ChienLuoc { get; set; }
-        public byte CLDH_SoChienLuoc { get; set; }
+        public int CLDH_ChuyenMuc_ChienLuoc { get; set; }
+        public int CLDH_SoChienLuoc { get; set; }
         public byte CLDH_KeHoachPhatTrien { get; set; }
         public byte VBQP_ChuyenTrang_QPPL { get; set; }
         public byte VBQP_SoVBQPPL_DangTai { get; set; }
@@ -69,15 +69,15 @@ namespace S4T_HaTinh.Models
         public byte KTTT_LienKetWeb { get; set; }
         public byte KTTT_HoTro_NguoiKhuyetTat { get; set; }
         public byte KTTT_TenMien_CongTTDT { get; set; }
-        public int TongSoTTHC_DV { get; set; }
-        public int TongSoDVC_Muc1 { get; set; }
-        public int TongSoDVC_Muc2 { get; set; }
-        public int TongSoDVC_Muc3 { get; set; }
+        public byte TongSoTTHC_DV { get; set; }
+        public byte TongSoDVC_Muc1 { get; set; }
+        public byte TongSoDVC_Muc2 { get; set; }
+        public byte TongSoDVC_Muc3 { get; set; }
         public byte DBNL_ThanhLap_BanBienTap { get; set; }
-        public byte DBNL_BoTri_QuanTriKyThuat { get; set; }
-        public byte DBNL_BoTri_XuLyDVCong { get; set; }
-        public byte DBNL_TapHuan_DaoTaoCanBo { get; set; }
-        public byte ATTT_DamBaoAnToanTTDuLieu { get; set; }
+        public int DBNL_BoTri_QuanTriKyThuat { get; set; }
+        public int DBNL_BoTri_XuLyDVCong { get; set; }
+        public int DBNL_TapHuan_DaoTaoCanBo { get; set; }
+        public int ATTT_DamBaoAnToanTTDuLieu { get; set; }
         public byte ATTT_XayDungGiaiPhap { get; set; }
         public byte ATTT_XDPhuongAnDuPhong { get; set; }
         public byte CongTTDT_BanHanhQuyChePhoiHop { get; set; }
@@ -86,14 +86,14 @@ namespace S4T_HaTinh.Models
         public byte DangTai_CapNhatThongTin { get; set; }
         public byte DangTai_NoiDungThongTin { get; set; }
         public byte DangTai_QuyDinhKhac { get; set; }
-        public int TongSoDVTT_CoCongTTDT { get; set; }
-        public int SoDNSXKD_PhanCung { get; set; }
-        public int SoDNSXKD_PhanMem { get; set; }
-        public int SoDNCungCapDVNDSo { get; set; }
-        public string DanhSachDNCNTT_DT { get; set; }
-        public decimal TongDoanhThu { get; set; }
+        public byte TongSoDVTT_CoCongTTDT { get; set; }
+        public byte SoDNSXKD_PhanCung { get; set; }
+        public byte SoDNSXKD_PhanMem { get; set; }
+        public byte SoDNCungCapDVNDSo { get; set; }
+        public byte DanhSachDNCNTT_DT { get; set; }
+        public int TongDoanhThu { get; set; }
         public decimal TongMucDauTu { get; set; }
-        public string TruongNhapLai { get; set; }
-        public byte Success { get; set; }
+        public int TruongNhapLai { get; set; }
+        public int Success { get; set; }
     }
 }
